@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+
+# Herramientas internas — NO se publican en el sitio
+planilla-stock.csv
+planilla.html
+HANDOFF.md
+ROADMAP.md
+
+# Notas guía dentro de assets (uso interno)
+_LEEME-como-subir-fotos.txt
+_que-va-aca.txt
