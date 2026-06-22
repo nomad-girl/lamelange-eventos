@@ -271,7 +271,11 @@
     if (sr) {
       var dest = PRODUCTOS.filter(function(p){return p.destacado;}).slice(0,4);
       sr.innerHTML = dest.map(function(p){
-        return '<div class="product"><div class="photo" data-label="'+p.nombre+'">'+ICONS[p.icon]+'</div>'
+        var cover = (p.fotos && p.fotos.length) ? p.fotos[0] : null;
+        var ph = cover
+          ? '<div class="photo" style="background-image:url('+cover+'); background-size:cover; background-position:center;"></div>'
+          : '<div class="photo" data-label="'+p.nombre+'">'+ICONS[p.icon]+'</div>';
+        return '<div class="product">'+ph
           + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
           + '<div class="product__meta">'+p.material+'</div>'
           + '<span class="badge"><i></i>Disponibles: '+p.stock+'</span></div></div>';
