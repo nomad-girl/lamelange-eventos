@@ -36,10 +36,10 @@ var COLECCIONES = [
 
 var PRODUCTOS = [
   /* ---------- Platos de sitio (cargadores) ---------- */
-  { nombre: 'Plato de sitio Perla oro', coleccion: 'cargadores', icon: 'plato', material: 'Borde perlado dorado', stock: 300, destacado: true,  fotos: [] },
-  { nombre: 'Plato de sitio Satín oro', coleccion: 'cargadores', icon: 'plato', material: 'Dorado satinado',     stock: 180, destacado: false, fotos: [] },
-  { nombre: 'Plato de sitio Yute',      coleccion: 'cargadores', icon: 'plato', material: 'Fibra de yute',       stock: 340, destacado: false, fotos: [] },
-  { nombre: 'Plato de sitio Palma',     coleccion: 'cargadores', icon: 'plato', material: 'Fibra de palma',      stock: 200, destacado: false, fotos: [] },
+  { nombre: 'Plato de sitio Perla oro', coleccion: 'cargadores', icon: 'plato', material: 'Borde perlado dorado', stock: 300, destacado: true,  fotos: ['assets/01-platos-de-sitio/perla-oro/perla-oro-1.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-2.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-3.jpg'] },
+  { nombre: 'Plato de sitio Satín oro', coleccion: 'cargadores', icon: 'plato', material: 'Dorado satinado',     stock: 180, destacado: false, fotos: ['assets/01-platos-de-sitio/satin-oro/satin-oro-1.jpg','assets/01-platos-de-sitio/satin-oro/satin-oro-2.jpg'] },
+  { nombre: 'Plato de sitio Yute',      coleccion: 'cargadores', icon: 'plato', material: 'Fibra de yute',       stock: 340, destacado: false, fotos: ['assets/01-platos-de-sitio/yute/yute-1.jpg','assets/01-platos-de-sitio/yute/yute-2.jpg'] },
+  { nombre: 'Plato de sitio Palma',     coleccion: 'cargadores', icon: 'plato', material: 'Fibra de palma',      stock: 200, destacado: false, fotos: ['assets/01-platos-de-sitio/palma/palma-1.jpg','assets/01-platos-de-sitio/palma/palma-2.jpg'] },
 
   /* ---------- Platos ---------- */
   { nombre: 'Plato Mishka playo',         coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', stock: 245, destacado: true,  fotos: [] },
