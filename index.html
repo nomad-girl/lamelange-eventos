@@ -140,24 +140,6 @@
     </div>
   </section>
 
-  <!-- ====================== LOOKBOOK ====================== -->
-  <section class="section section--sand" id="lookbook">
-    <div class="wrap">
-      <div class="section__head">
-        <span class="eyebrow">Lookbook</span>
-        <h2>Mesas que ya pasaron por La Mélange</h2>
-        <p>Inspiración real para imaginar tu próximo montaje.</p>
-      </div>
-      <div class="lookbook">
-        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-premium.jpg')"></div>
-        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-romantic.jpeg')"></div>
-        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-blue-and-white.jpg')"></div>
-        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-country.jpg')"></div>
-        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-luxury.jpg')"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ====================== POR QUÉ LA MÉLANGE ====================== -->
   <section class="section">
     <div class="wrap">
@@ -196,7 +178,7 @@
         </ul>
       </div>
       <div>
-        <div class="photo photo--full" data-label="Mesa montada — ambiente" style="aspect-ratio:4/5; background:#3a342e;"></div>
+        <div class="photo photo--full" style="aspect-ratio:4/5; background-image:url('assets/05-mesas-montadas/mesa-luxury.jpg'); background-size:cover; background-position:center;"></div>
       </div>
     </div>
   </section>
@@ -291,28 +273,23 @@
       }).join('');
     }
 
-    /* Mesas curadas (galería por modelo) */
-    function capacidad(m){ return Math.min.apply(null, m.piezas.map(function(p){return p.s;})); }
+    /* Mesas curadas (photo-first) */
     function slotFoto(src, label, cls){
       return src ? '<div class="photo '+cls+'" style="background-image:url('+src+')"></div>'
                  : '<div class="photo '+cls+'" data-label="'+label+'"></div>';
     }
     var mg = document.getElementById('mesasGrid');
     if (mg) mg.innerHTML = MESAS.map(function(m){
-      var cap = capacidad(m);
-      var amp = cap >= 60;
       var fotos = m.fotos || [];
-      var thumbLabels = ['Plano abierto', 'Detalle vajilla', 'Cristalería'];
-      var thumbs = thumbLabels.map(function(lb, i){ return slotFoto(fotos[i+1], lb, ''); }).join('');
-      var comp = m.piezas.map(function(p){return p.n;}).join(' · ');
+      var thumbs = fotos.length > 1
+        ? '<div class="mesa-thumbs">' + fotos.slice(1,4).map(function(f){ return slotFoto(f, '', ''); }).join('') + '</div>'
+        : '';
       return '<div class="mesa-feat">'
-        + '<div class="mesa-gallery">' + slotFoto(fotos[0], 'Plano general de la mesa', 'main')
-        + '<div class="mesa-thumbs">' + thumbs + '</div></div>'
+        + '<div class="mesa-gallery">' + slotFoto(fotos[0], 'Mesa montada', 'main') + thumbs + '</div>'
         + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
         + '<h3 class="mesa__name">' + m.nombre + '</h3>'
-        + '<span class="cap ' + (amp?'cap--amp':'cap--lim') + '">Hasta ' + cap + ' comensales</span>'
-        + '<p class="comp-line">' + comp + '</p>'
-        + '<a class="btn btn--ghost" href="' + waLink('Hola La Mélange! Quiero pedir la '+m.nombre+'. ¿Me decís disponibilidad y precio?') + '">Pedir esta mesa</a>'
+        + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
+        + '<a class="btn btn--ghost" href="' + waLink('Hola La Mélange! Me interesa la '+m.nombre+'. ¿Me pasás info y disponibilidad?') + '">Pedir esta mesa</a>'
         + '</div></div>';
     }).join('');
 

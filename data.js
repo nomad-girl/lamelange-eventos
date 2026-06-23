@@ -78,17 +78,14 @@ var PRODUCTOS = [
 ];
 
 /* ---------- MODALIDAD B · Mesas curadas ----------
-   La capacidad (comensales) = el menor stock de las piezas.
-   El sitio lo calcula solo. Etiqueta `tipo` es editorial. */
+   Combinaciones armadas, photo-first. `desc` y `tipo` son editoriales
+   (ajustables). Cuando se definan las piezas se puede sumar capacidad. */
 var MESAS = [
-  { id:'otono-vintage', nombre:'Mesa Otoño Vintage', tipo:'Mesa principal · íntima', foto:null,
-    piezas:[ {n:'Bajoplato vidrio ámbar', s:240}, {n:'Plato de sitio Minerva', s:18}, {n:'Plato postre antiguo flores', s:16} ] },
-  { id:'perla-oro', nombre:'Mesa Perla Oro', tipo:'Para todo el salón', foto:null,
-    piezas:[ {n:'Bajoplato Perla oro', s:300}, {n:'Plato de sitio Relieve', s:300}, {n:'Plato postre Rosa CMYk', s:200} ] },
-  { id:'campestre', nombre:'Mesa Campestre', tipo:'Para todo el salón', foto:null,
-    piezas:[ {n:'Bajoplato Yute natural', s:360}, {n:'Plato de sitio Perla rosa', s:120}, {n:'Postre cerámica blanca', s:260} ] },
-  { id:'cristal-antiguo', nombre:'Mesa Cristal Antiguo', tipo:'Cabecera · íntima', foto:null,
-    piezas:[ {n:'Bajoplato dorado cincelado', s:160}, {n:'Plato de sitio Vogt', s:24}, {n:'Copa cristal tallado mix&match', s:40} ] }
+  { id:'romantic',   nombre:'Mesa Romantic',      tipo:'Romántica · jardín',   desc:'Flores en tonos rosados, cristal de color y dorados cálidos.',         fotos:['assets/05-mesas-montadas/mesa-romantic.jpeg'] },
+  { id:'premium',    nombre:'Mesa Premium',       tipo:'Clásica · elegante',   desc:'Vajilla de línea premium, dorados y blanco impecable.',                fotos:['assets/05-mesas-montadas/mesa-premium.jpg'] },
+  { id:'blue-white', nombre:'Mesa Blue & White',  tipo:'Fresca · atemporal',   desc:'Azul y blanco, un clásico que siempre funciona.',                      fotos:['assets/05-mesas-montadas/mesa-blue-and-white.jpg'] },
+  { id:'country',    nombre:'Mesa Country',       tipo:'Campestre · natural',  desc:'Fibras naturales, verdes y texturas para un evento al aire libre.',    fotos:['assets/05-mesas-montadas/mesa-country.jpg'] },
+  { id:'luxury',     nombre:'Mesa Luxury',        tipo:'Lujo · statement',     desc:'Dorados, cristal y detalles de alto impacto.',                         fotos:['assets/05-mesas-montadas/mesa-luxury.jpg'] }
 ];
 
 /* ---------- MODALIDAD C · Constructor "Armá tu mesa" ----------

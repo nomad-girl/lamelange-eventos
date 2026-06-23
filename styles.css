@@ -153,14 +153,14 @@ h3 { font-size: 1.4rem; }
 .lookbook .photo:nth-child(1) { grid-row: span 2; }
 
 /* ---------- Banda profesionales ---------- */
-.pro { background: var(--dark); color: #fff; }
+.pro { background: var(--bg-2); color: var(--ink); }
 .pro__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 100px 0; }
-.pro .eyebrow { color: #C9A86E; }
-.pro h2 { margin: 18px 0 20px; color: #fff; }
-.pro p { color: #D8CFC2; margin-bottom: 22px; }
+.pro .eyebrow { color: var(--accent); }
+.pro h2 { margin: 18px 0 20px; color: var(--ink); }
+.pro p { color: var(--muted); margin-bottom: 22px; }
 .pro__list { list-style: none; display: grid; gap: 16px; }
-.pro__list li { display: flex; gap: 13px; align-items: flex-start; font-size: 0.96rem; color: #E8E0D4; font-weight: 300; }
-.pro__list svg { width: 19px; height: 19px; stroke: #C9A86E; flex: 0 0 auto; margin-top: 4px; }
+.pro__list li { display: flex; gap: 13px; align-items: flex-start; font-size: 0.96rem; color: var(--ink); font-weight: 300; }
+.pro__list svg { width: 19px; height: 19px; stroke: var(--accent); flex: 0 0 auto; margin-top: 4px; }
 
 /* ---------- CTA ---------- */
 .cta-band { text-align: center; padding: 110px 0; }
