@@ -10,7 +10,7 @@
 
   /* ---------- Scroll reveal ---------- */
   if (!reduce && 'IntersectionObserver' in window) {
-    var sel = '.hero__content, .hero__photo, .section__head, .col-card, .mesa-band, .value, .pro__grid > div, .builder';
+    var sel = '.section__head, .col-card, .mesa-band, .value, .pro__grid > div, .builder';
     var els = [].slice.call(document.querySelectorAll(sel));
     els.forEach(function (el) { el.classList.add('reveal'); });
 
