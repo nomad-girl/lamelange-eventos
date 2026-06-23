@@ -30,7 +30,7 @@
 
   <!-- ====================== HERO ====================== -->
   <section class="hero">
-    <div class="hero__media" data-label="Foto principal — mesa montada">
+    <div class="hero__media" style="background-image: linear-gradient(rgba(255,255,255,.42), rgba(255,255,255,.58)), url('assets/06-hero-portada/img-20190924-wa0076_orig.jpg'); background-size: cover; background-position: center;">
       <div class="hero__content">
         <span class="eyebrow">Vajilla de alquiler · Eventos</span>
         <h1>Vajilla de autor para mesas memorables</h1>
@@ -260,8 +260,12 @@
     /* Colecciones */
     var cg = document.getElementById('collectionsGrid');
     if (cg) cg.innerHTML = COLECCIONES.map(function(c){
+      var rep = PRODUCTOS.filter(function(p){ return p.coleccion === c.id && p.fotos && p.fotos.length; })[0];
+      var ph = rep
+        ? '<div class="photo" style="background-image:url('+rep.fotos[0]+')"></div>'
+        : '<div class="photo" data-label="'+c.nombre+'">'+ICONS[c.icon]+'</div>';
       return '<a href="catalogo.html#'+c.id+'" class="col-card">'
-        + '<div class="photo" data-label="'+c.nombre+'">'+ICONS[c.icon]+'</div>'
+        + ph
         + '<div class="col-card__body"><h3>'+c.nombre+'</h3>'
         + '<span class="col-card__count">'+c.modelos+' modelos</span></div></a>';
     }).join('');
