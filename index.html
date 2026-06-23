@@ -251,20 +251,35 @@
           + '<a class="btn btn--solid" target="_blank" rel="noopener" href="' + waLink(txt) + '">Pedir esta mesa</a>'
           + '</div></div></div>';
       }).join('');
+      function mesaShow(ph, fotos, idx){
+        ph.style.opacity = '0';
+        setTimeout(function(){
+          ph.style.backgroundImage = 'url(' + fotos[idx] + ')';
+          ph.setAttribute('data-idx', idx);
+          var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
+          ph.style.opacity = '1';
+        }, 200);
+      }
+      function mesaStep(band, dir){
+        var ph = band.querySelector('.mesa-main'); if (!ph) return;
+        var mi = Array.prototype.indexOf.call(mg.children, band);
+        var fotos = (MESAS[mi] && MESAS[mi].fotos) || []; if (fotos.length < 2) return;
+        var idx = ((+ph.getAttribute('data-idx') || 0) + dir + fotos.length) % fotos.length;
+        mesaShow(ph, fotos, idx);
+      }
       mg.addEventListener('click', function(e){
         var nav = e.target.closest ? e.target.closest('.gnav') : null;
         if (!nav) return;
-        var ph = nav.parentNode;
-        var band = nav.closest('.mesa-band');
-        var mi = Array.prototype.indexOf.call(mg.children, band);
-        var fotos = (MESAS[mi] && MESAS[mi].fotos) || [];
-        if (fotos.length < 2) return;
-        var idx = (+ph.getAttribute('data-idx') || 0) + (nav.classList.contains('gnext') ? 1 : -1);
-        idx = (idx + fotos.length) % fotos.length;
-        ph.style.backgroundImage = 'url(' + fotos[idx] + ')';
-        ph.setAttribute('data-idx', idx);
-        var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
+        mesaStep(nav.closest('.mesa-band'), nav.classList.contains('gnext') ? 1 : -1);
       });
+      /* Auto-avance: cada 6s, pausa al pasar el mouse */
+      var mesaPaused = false;
+      mg.addEventListener('mouseenter', function(){ mesaPaused = true; }, true);
+      mg.addEventListener('mouseleave', function(){ mesaPaused = false; }, true);
+      setInterval(function(){
+        if (mesaPaused || document.hidden) return;
+        [].forEach.call(mg.children, function(band){ mesaStep(band, 1); });
+      }, 6000);
     }
 
     /* Constructor "Armá tu mesa" */
@@ -311,5 +326,6 @@
     var t = document.getElementById('navToggle');
     if (t) t.addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
   </script>
+  <script src="anim.js"></script>
 </body>
 </html>
