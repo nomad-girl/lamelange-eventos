@@ -263,3 +263,25 @@ h3 { font-size: 1.4rem; }
   .collections, .stock-row, .catalog-grid { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Catálogo: galería, visor, piezas, badge, filtro tipo ---------- */
+.filters--tipo { margin-top: 8px; }
+.mix-badge { position: absolute; top: 8px; left: 8px; background: rgba(44,62,80,.85); color: #fff; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; z-index: 2; }
+.piezas { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 9px; }
+.pieza { font-size: 12.5px; color: #6a6256; white-space: nowrap; }
+.pieza b { color: #2c3e50; font-weight: 600; }
+.gnav { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 46px; border: 0; background: none; color: #fff; font-size: 30px; line-height: 1; padding: 0; cursor: pointer; opacity: .7; text-shadow: 0 1px 5px rgba(0,0,0,.45); transition: opacity .15s; outline: none; -webkit-tap-highlight-color: transparent; }
+.gnav:hover { opacity: 1; }
+.gnav:focus, .gnav:focus-visible { outline: none; }
+.gprev { left: 4px; } .gnext { right: 4px; }
+.gdots { position: absolute; bottom: 9px; left: 0; right: 0; display: flex; gap: 5px; justify-content: center; pointer-events: none; }
+.gdots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 2px rgba(0,0,0,.35); }
+.gdots i.on { background: #fff; }
+.lb { position: fixed; inset: 0; background: rgba(22,20,17,.93); z-index: 200; display: flex; align-items: center; justify-content: center; }
+.lb[hidden] { display: none; }
+.lb__img { max-width: 88vw; max-height: 82vh; object-fit: contain; border-radius: 4px; box-shadow: 0 12px 50px rgba(0,0,0,.5); }
+.lb__close { position: absolute; top: 16px; right: 24px; font-size: 34px; line-height: 1; color: #fff; background: none; border: 0; cursor: pointer; }
+.lb__nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 46px; line-height: 1; color: #fff; background: none; border: 0; cursor: pointer; padding: 10px 18px; opacity: .75; }
+.lb__nav:hover { opacity: 1; }
+.lb__prev { left: 6px; } .lb__next { right: 6px; }
+.lb__cap { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: #fff; font-size: 13px; letter-spacing: .05em; }

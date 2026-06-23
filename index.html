@@ -17,10 +17,9 @@
     <div class="wrap nav__inner">
       <a href="index.html" class="brand"><b>La Mélange</b><small>Vajilla para eventos</small></a>
       <nav class="nav__links" id="navLinks">
-        <a href="#elegi">Modalidades</a>
-        <a href="#colecciones">Colecciones</a>
-        <a href="#mesas">Mesas</a>
-        <a href="catalogo.html">Catálogo</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#mesas">Mesas curadas</a>
+        <a href="#constructor">Armá tu mesa</a>
         <a href="#profesionales">Profesionales</a>
         <a href="#contacto" class="nav__cta">Pedir presupuesto</a>
       </nav>
@@ -36,53 +35,24 @@
         <h1>Vajilla de autor para mesas memorables</h1>
         <p class="lead">Colecciones curadas para wedding planners, ambientadores y salones. Piezas con carácter y stock real por modelo, listas para tu próximo evento.</p>
         <div class="hero__actions">
-          <a href="#elegi" class="btn btn--solid">Empezar</a>
+          <a href="#catalogo" class="btn btn--solid">Ver el catálogo</a>
           <a href="#profesionales" class="btn btn--ghost">Descargar catálogo</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================== 3 · ELEGÍ TU MODALIDAD ====================== -->
-  <section class="section" id="elegi">
+  <!-- ====================== CATÁLOGO (Modalidad A) ====================== -->
+  <section class="section section--sand" id="catalogo">
     <div class="wrap">
       <div class="section__head">
-        <span class="eyebrow">Cómo trabajamos</span>
-        <h2>Elegí cómo armar tu mesa</h2>
-        <p>Tres maneras de elegir tu vajilla, según cómo prefieras trabajar.</p>
-      </div>
-      <div class="mods">
-        <a href="#colecciones" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          <h3>Catálogo por línea</h3>
-          <p>Ya sabés qué querés. Elegí el modelo y la cantidad de nuestras líneas completas.</p>
-          <span class="go">Ver colecciones →</span>
-        </a>
-        <a href="#mesas" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
-          <h3>Mesas curadas</h3>
-          <p>Querés una propuesta lista. Combinaciones armadas por nosotros, listas para pedir.</p>
-          <span class="go">Ver mesas →</span>
-        </a>
-        <a href="#constructor" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/><circle cx="9" cy="8" r="2.2"/><circle cx="15" cy="16" r="2.2"/></svg>
-          <h3>Armá tu mesa</h3>
-          <p>Querés combinar a tu gusto. Mezclá capa por capa y mirá cómo se arma.</p>
-          <span class="go">Probar el constructor →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================== 4 · COLECCIONES (Modalidad A) ====================== -->
-  <section class="section section--sand" id="colecciones">
-    <div class="wrap">
-      <div class="section__head">
-        <span class="eyebrow">Modalidad A · Por línea</span>
+        <span class="eyebrow">El repertorio completo</span>
         <h2>Una propuesta clara para cada mesa</h2>
-        <p>Explorá la vajilla organizada por tipo. Cada pieza con su modelo, material y disponibilidad.</p>
+        <p>Explorá toda la vajilla. Filtrá por categoría y por tipo de pieza (playos, postre, mix &amp; match).</p>
+        <div class="filters" id="catFilters"></div>
+        <div class="filters filters--tipo" id="catFiltrosTipo"></div>
       </div>
-      <div class="collections" id="collectionsGrid"></div>
+      <div class="catalog-grid" id="catGrid"></div>
     </div>
   </section>
 
@@ -119,6 +89,37 @@
         <div id="bControls"></div>
       </div>
       <div class="builder__summary" id="bSummary"></div>
+    </div>
+  </section>
+
+  <!-- ====================== CÓMO TRABAJAMOS (3 modalidades) ====================== -->
+  <section class="section" id="elegi">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>Tres formas de armar tu mesa</h2>
+        <p>Según cómo prefieras trabajar.</p>
+      </div>
+      <div class="mods">
+        <a href="#catalogo" class="mod">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <h3>Catálogo por línea</h3>
+          <p>Ya sabés qué querés. Elegí el modelo y la cantidad de nuestras líneas completas.</p>
+          <span class="go">Ver el catálogo →</span>
+        </a>
+        <a href="#mesas" class="mod">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
+          <h3>Mesas curadas</h3>
+          <p>Querés una propuesta lista. Combinaciones armadas por nosotros, listas para pedir.</p>
+          <span class="go">Ver mesas →</span>
+        </a>
+        <a href="#constructor" class="mod">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/><circle cx="9" cy="8" r="2.2"/><circle cx="15" cy="16" r="2.2"/></svg>
+          <h3>Armá tu mesa</h3>
+          <p>Querés combinar a tu gusto. Mezclá capa por capa y mirá cómo se arma.</p>
+          <span class="go">Probar el constructor →</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -221,10 +222,10 @@
         </div>
         <div>
           <h4>Navegar</h4>
-          <a href="#elegi">Modalidades</a>
-          <a href="#colecciones">Colecciones</a>
+          <a href="#catalogo">Catálogo</a>
           <a href="#mesas">Mesas curadas</a>
-          <a href="catalogo.html">Catálogo</a>
+          <a href="#constructor">Armá tu mesa</a>
+          <a href="#profesionales">Profesionales</a>
         </div>
         <div>
           <h4>Contacto</h4>
@@ -247,6 +248,7 @@
 
   <script src="data.js"></script>
   <script src="analytics.js"></script>
+  <script src="catalog.js"></script>
   <script>
     var WA = 'https://wa.me/' + WSP;
     function waLink(text){ return WA + '?text=' + encodeURIComponent(text); }
@@ -257,18 +259,8 @@
       if (el) el.href = waLink('Hola La Mélange! Quiero consultar por vajilla para un evento.');
     });
 
-    /* Colecciones */
-    var cg = document.getElementById('collectionsGrid');
-    if (cg) cg.innerHTML = COLECCIONES.map(function(c){
-      var rep = PRODUCTOS.filter(function(p){ return p.coleccion === c.id && p.fotos && p.fotos.length; })[0];
-      var ph = rep
-        ? '<div class="photo" style="background-image:url('+rep.fotos[0]+')"></div>'
-        : '<div class="photo" data-label="'+c.nombre+'">'+ICONS[c.icon]+'</div>';
-      return '<a href="catalogo.html#'+c.id+'" class="col-card">'
-        + ph
-        + '<div class="col-card__body"><h3>'+c.nombre+'</h3>'
-        + '<span class="col-card__count">'+c.modelos+' modelos</span></div></a>';
-    }).join('');
+    /* Catálogo embebido (filtros + grilla + visor) */
+    initCatalogo({ filtros: 'catFilters', filtrosTipo: 'catFiltrosTipo', grid: 'catGrid' });
 
     /* Stock destacado */
     var sr = document.getElementById('stockRow');
