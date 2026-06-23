@@ -29,7 +29,7 @@ var ICONS = {
 
 var COLECCIONES = [
   { id: 'cargadores', nombre: 'Platos de sitio',  icon: 'plato',   modelos: 4  },
-  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 10 },
+  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 12 },
   { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 12 },
   { id: 'cubiertos',  nombre: 'Cubertería',       icon: 'cubierto',modelos: 4  }
 ];
@@ -43,6 +43,8 @@ var PRODUCTOS = [
 
   /* ---------- Platos ---------- */
   { nombre: 'Mishka',      coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', destacado: true,  piezas: [{ t:'Playo', s:245 }, { t:'Entrada', s:215 }], fotos: [] },
+  { nombre: 'Luxury Gold Modelo 1', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: [] },
+  { nombre: 'Luxury Gold Modelo 2', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: [] },
   { nombre: 'Plato Black', coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro', destacado: false, piezas: [{ t:'Principal', s:70 }], fotos: [] },
   { nombre: 'Plato NET',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada', s:50 }], fotos: [] },
   { nombre: 'Plato JOY',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada / pan', s:50 }], fotos: [] },
