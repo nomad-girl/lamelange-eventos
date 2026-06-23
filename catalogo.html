@@ -22,6 +22,7 @@
     .piezas{ display:flex; flex-wrap:wrap; gap:4px 14px; margin-top:9px; }
     .pieza{ font-size:12.5px; color:#6a6256; white-space:nowrap; }
     .pieza b{ color:#2c3e50; font-weight:600; }
+    .filters--tipo{ margin-top:8px; }
     .lb{ position:fixed; inset:0; background:rgba(22,20,17,.93); z-index:200; display:flex; align-items:center; justify-content:center; }
     .lb[hidden]{ display:none; }
     .lb__img{ max-width:88vw; max-height:82vh; object-fit:contain; border-radius:4px; box-shadow:0 12px 50px rgba(0,0,0,.5); }
@@ -53,6 +54,7 @@
       <h2>Vajilla por colección</h2>
       <p class="lead" style="margin:14px auto 0;">Filtrá por tipo de pieza. Cada modelo muestra material y stock disponible.</p>
       <div class="filters" id="filters"></div>
+      <div class="filters filters--tipo" id="filtersTipo"></div>
     </div>
   </section>
 
@@ -96,6 +98,29 @@
   <script src="analytics.js"></script>
   <script>
     var current = 'todas';
+    var tipo = 'todos';
+
+    function isMix(p){ return /mix & match/i.test(p.material); }
+    function hasTipo(p){
+      if (tipo === 'todos') return true;
+      if (tipo === 'mix')    return isMix(p);
+      if (tipo === 'playo')  return p.piezas.some(function(q){ return /playo|principal/i.test(q.t || ''); });
+      if (tipo === 'postre') return p.piezas.some(function(q){ return /postre|entrada/i.test(q.t || ''); });
+      return true;
+    }
+    function renderFiltersTipo() {
+      var f = document.getElementById('filtersTipo');
+      var opts = [['todos','Todos'], ['playo','Playos'], ['postre','Postre / entrada'], ['mix','Mix & match']];
+      f.innerHTML = opts.map(function(o){ return '<button class="filter'+(o[0]==='todos'?' is-active':'')+'" data-tipo="'+o[0]+'">'+o[1]+'</button>'; }).join('');
+      f.querySelectorAll('.filter').forEach(function(b){
+        b.addEventListener('click', function(){
+          tipo = b.getAttribute('data-tipo');
+          f.querySelectorAll('.filter').forEach(function(x){ x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          renderGrid();
+        });
+      });
+    }
 
     function renderFilters() {
       var f = document.getElementById('filters');
@@ -116,7 +141,7 @@
 
     function renderGrid() {
       var grid = document.getElementById('catalogGrid');
-      var list = current === 'todas' ? PRODUCTOS : PRODUCTOS.filter(function(p){return p.coleccion === current;});
+      var list = PRODUCTOS.filter(function(p){ return (current === 'todas' || p.coleccion === current) && hasTipo(p); });
       grid.innerHTML = list.map(function(p){
         var fotos = p.fotos || [];
         var media;
@@ -129,11 +154,15 @@
         } else {
           media = '<div class="photo" data-label="'+p.nombre+'">'+ICONS[p.icon]+'</div>';
         }
+        var piezasShow = p.piezas;
+        if (tipo === 'playo')       piezasShow = p.piezas.filter(function(q){ return /playo|principal/i.test(q.t || ''); });
+        else if (tipo === 'postre') piezasShow = p.piezas.filter(function(q){ return /postre|entrada/i.test(q.t || ''); });
+        if (!piezasShow.length) piezasShow = p.piezas;
         var stk;
-        if (p.piezas.length === 1 && !p.piezas[0].t) {
-          stk = '<span class="badge"><i></i>Disponibles: ' + p.piezas[0].s + '</span>';
+        if (piezasShow.length === 1 && !piezasShow[0].t) {
+          stk = '<span class="badge"><i></i>Disponibles: ' + piezasShow[0].s + '</span>';
         } else {
-          stk = '<div class="piezas">' + p.piezas.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
+          stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
         }
         return '<div class="product">'+media
           + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
@@ -147,6 +176,7 @@
     if (hash && COLECCIONES.some(function(c){return c.id === hash;})) current = hash;
 
     renderFilters();
+    renderFiltersTipo();
     if (current !== 'todas') {
       document.querySelectorAll('.filter').forEach(function(b){
         b.classList.toggle('is-active', b.getAttribute('data-id') === current);
