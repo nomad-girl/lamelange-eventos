@@ -46,7 +46,7 @@ var PRODUCTOS = [
   { nombre: 'Mishka',      coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', destacado: true,  piezas: [{ t:'Playo', s:245 }, { t:'Entrada', s:215 }], fotos: ['assets/02-platos/mishka/mishka-1.jpg','assets/02-platos/mishka/mishka-2.jpg','assets/02-platos/mishka/mishka-3.png'] },
   { nombre: 'Luxury Gold Modelo 1', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: ['assets/02-platos/luxury-gold-modelo-1/luxury-gold-modelo-1-1.jpg'] },
   { nombre: 'Luxury Gold Modelo 2', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: ['assets/02-platos/luxury-gold-modelo-2/luxury-gold-modelo-2-1.jpg'] },
-  { nombre: 'Plato Black', coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro', destacado: false, piezas: [{ t:'Principal', s:70 }], fotos: ['assets/02-platos/black/black-1.webp','assets/02-platos/black/black-2.jpg'] },
+  { nombre: 'Plato Black', coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro', destacado: false, piezas: [{ t:'Principal', s:70 }], fotos: ['assets/02-platos/black/black-2.jpg','assets/02-platos/black/black-1.webp'] },
   { nombre: 'Plato NET',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada', s:50 }], fotos: ['assets/02-platos/net/net-1.jpg','assets/02-platos/net/net-2.jpg'] },
   { nombre: 'Plato JOY',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada / pan', s:50 }], fotos: ['assets/02-platos/joy/joy-1.jpg','assets/02-platos/joy/joy-2.jpg','assets/02-platos/joy/joy-3.jpg'] },
   { nombre: 'Relieve',     coleccion: 'platos', icon: 'bowl', material: 'Cerámica blanca',   destacado: false, piezas: [{ t:'Principal', s:100 }, { t:'Postre / entrada', s:80 }], fotos: ['assets/02-platos/relieve/relieve-1.jpg','assets/02-platos/relieve/relieve-2.jpg','assets/02-platos/relieve/relieve-3.jpg'] },
@@ -81,11 +81,11 @@ var PRODUCTOS = [
    Combinaciones armadas, photo-first. `desc` y `tipo` son editoriales
    (ajustables). Cuando se definan las piezas se puede sumar capacidad. */
 var MESAS = [
-  { id:'romantic',   nombre:'Mesa Romantic',      tipo:'Romántica · jardín',   desc:'Flores en tonos rosados, cristal de color y dorados cálidos.',         fotos:['assets/05-mesas-montadas/mesa-romantic.jpeg'] },
-  { id:'premium',    nombre:'Mesa Premium',       tipo:'Clásica · elegante',   desc:'Vajilla de línea premium, dorados y blanco impecable.',                fotos:['assets/05-mesas-montadas/mesa-premium.jpg'] },
-  { id:'blue-white', nombre:'Mesa Blue & White',  tipo:'Fresca · atemporal',   desc:'Azul y blanco, un clásico que siempre funciona.',                      fotos:['assets/05-mesas-montadas/mesa-blue-and-white.jpg'] },
-  { id:'country',    nombre:'Mesa Country',       tipo:'Campestre · natural',  desc:'Fibras naturales, verdes y texturas para un evento al aire libre.',    fotos:['assets/05-mesas-montadas/mesa-country.jpg'] },
-  { id:'luxury',     nombre:'Mesa Luxury',        tipo:'Lujo · statement',     desc:'Dorados, cristal y detalles de alto impacto.',                         fotos:['assets/05-mesas-montadas/mesa-luxury.jpg'] }
+  { id:'romantic',   nombre:'Mesa Romantic',      tipo:'Romántica · jardín',   desc:'Flores en tonos rosados, cristal de color y dorados cálidos.',         fotos:['assets/05-mesas-montadas/romantic/romantic-1.jpeg','assets/05-mesas-montadas/romantic/romantic-2.jpg','assets/05-mesas-montadas/romantic/romantic-3.jpg','assets/05-mesas-montadas/romantic/romantic-4.jpg','assets/05-mesas-montadas/romantic/romantic-5.jpg'] },
+  { id:'premium',    nombre:'Mesa Premium',       tipo:'Clásica · elegante',   desc:'Vajilla de línea premium, dorados y blanco impecable.',                fotos:['assets/05-mesas-montadas/premium/premium-1.jpg','assets/05-mesas-montadas/premium/premium-2.jpg'] },
+  { id:'blue-white', nombre:'Mesa Blue & White',  tipo:'Fresca · atemporal',   desc:'Azul y blanco, un clásico que siempre funciona.',                      fotos:['assets/05-mesas-montadas/blue-white/blue-white-1.jpg','assets/05-mesas-montadas/blue-white/blue-white-2.jpg'] },
+  { id:'country',    nombre:'Mesa Country',       tipo:'Campestre · natural',  desc:'Fibras naturales, verdes y texturas para un evento al aire libre.',    fotos:['assets/05-mesas-montadas/country/country-1.jpg','assets/05-mesas-montadas/country/country-2.jpg','assets/05-mesas-montadas/country/country-3.jpg'] },
+  { id:'luxury',     nombre:'Mesa Luxury',        tipo:'Lujo · statement',     desc:'Dorados, cristal y detalles de alto impacto.',                         fotos:['assets/05-mesas-montadas/luxury/luxury-1.jpg','assets/05-mesas-montadas/luxury/luxury-2.jpg','assets/05-mesas-montadas/luxury/luxury-3.jpg'] }
 ];
 
 /* ---------- MODALIDAD C · Constructor "Armá tu mesa" ----------

@@ -94,37 +94,6 @@
     </div>
   </section>
 
-  <!-- ====================== CÓMO TRABAJAMOS (3 modalidades) ====================== -->
-  <section class="section" id="elegi">
-    <div class="wrap">
-      <div class="section__head">
-        <span class="eyebrow">Cómo trabajamos</span>
-        <h2>Tres formas de armar tu mesa</h2>
-        <p>Según cómo prefieras trabajar.</p>
-      </div>
-      <div class="mods">
-        <a href="#catalogo" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          <h3>Catálogo por línea</h3>
-          <p>Ya sabés qué querés. Elegí el modelo y la cantidad de nuestras líneas completas.</p>
-          <span class="go">Ver el catálogo →</span>
-        </a>
-        <a href="#mesas" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
-          <h3>Mesas curadas</h3>
-          <p>Querés una propuesta lista. Combinaciones armadas por nosotros, listas para pedir.</p>
-          <span class="go">Ver mesas →</span>
-        </a>
-        <a href="#constructor" class="mod">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 16h16"/><circle cx="9" cy="8" r="2.2"/><circle cx="15" cy="16" r="2.2"/></svg>
-          <h3>Armá tu mesa</h3>
-          <p>Querés combinar a tu gusto. Mezclá capa por capa y mirá cómo se arma.</p>
-          <span class="go">Probar el constructor →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ====================== STOCK DESTACADO ====================== -->
   <section class="section">
     <div class="wrap">
@@ -178,7 +147,7 @@
         </ul>
       </div>
       <div>
-        <div class="photo photo--full" style="aspect-ratio:4/5; background-image:url('assets/05-mesas-montadas/mesa-luxury.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="photo photo--full" style="aspect-ratio:4/5; background-image:url('assets/05-mesas-montadas/luxury/luxury-1.jpg'); background-size:cover; background-position:center;"></div>
       </div>
     </div>
   </section>
@@ -191,7 +160,7 @@
       <p>Escribinos por WhatsApp con la fecha, la cantidad de invitados y el estilo que buscás. Te armamos una propuesta a medida.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
         <a id="waMain" href="#" class="btn btn--solid">Escribir por WhatsApp</a>
-        <a href="mailto:hola@lamelange.com.ar" class="btn btn--ghost">Enviar un email</a>
+        <a href="mailto:lamelangeantiques@gmail.com" class="btn btn--ghost">Enviar un email</a>
       </div>
     </div>
   </section>
@@ -214,8 +183,8 @@
         <div>
           <h4>Contacto</h4>
           <a id="waFoot" href="#">WhatsApp</a>
-          <a href="mailto:hola@lamelange.com.ar">hola@lamelange.com.ar</a>
-          <a href="#">Instagram</a>
+          <a href="mailto:lamelangeantiques@gmail.com">lamelangeantiques@gmail.com</a>
+          <a href="https://instagram.com/la_melange_antiques" target="_blank" rel="noopener">Instagram</a>
           <p>Buenos Aires, Argentina</p>
         </div>
       </div>
@@ -273,25 +242,37 @@
       }).join('');
     }
 
-    /* Mesas curadas (photo-first) */
-    function slotFoto(src, label, cls){
-      return src ? '<div class="photo '+cls+'" style="background-image:url('+src+')"></div>'
-                 : '<div class="photo '+cls+'" data-label="'+label+'"></div>';
-    }
+    /* Mesas curadas (photo-first + galería con miniaturas) */
+    var SITE = 'https://lamelange-eventos.vercel.app';
     var mg = document.getElementById('mesasGrid');
-    if (mg) mg.innerHTML = MESAS.map(function(m){
-      var fotos = m.fotos || [];
-      var thumbs = fotos.length > 1
-        ? '<div class="mesa-thumbs">' + fotos.slice(1,4).map(function(f){ return slotFoto(f, '', ''); }).join('') + '</div>'
-        : '';
-      return '<div class="mesa-feat">'
-        + '<div class="mesa-gallery">' + slotFoto(fotos[0], 'Mesa montada', 'main') + thumbs + '</div>'
-        + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
-        + '<h3 class="mesa__name">' + m.nombre + '</h3>'
-        + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
-        + '<a class="btn btn--ghost" href="' + waLink('Hola La Mélange! Me interesa la '+m.nombre+'. ¿Me pasás info y disponibilidad?') + '">Pedir esta mesa</a>'
-        + '</div></div>';
-    }).join('');
+    if (mg) {
+      mg.innerHTML = MESAS.map(function(m){
+        var fotos = m.fotos || [];
+        var main = fotos[0]
+          ? '<div class="photo main mesa-main" style="background-image:url('+fotos[0]+')"></div>'
+          : '<div class="photo main" data-label="'+m.nombre+'"></div>';
+        var thumbs = fotos.length > 1
+          ? '<div class="mesa-thumbs">' + fotos.map(function(f, i){ return '<div class="photo mthumb'+(i===0?' on':'')+'" data-src="'+f+'" style="background-image:url('+f+')"></div>'; }).join('') + '</div>'
+          : '';
+        var ref = fotos[0] ? '  Ref: ' + SITE + '/' + fotos[0] : '';
+        var txt = 'Hola La Mélange! Me interesa la ' + m.nombre + '. ¿Me pasás info, disponibilidad y precio?' + ref;
+        return '<div class="mesa-feat">'
+          + '<div class="mesa-gallery">' + main + thumbs + '</div>'
+          + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
+          + '<h3 class="mesa__name">' + m.nombre + '</h3>'
+          + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
+          + '<a class="btn btn--solid" target="_blank" rel="noopener" href="' + waLink(txt) + '">Pedir esta mesa</a>'
+          + '</div></div>';
+      }).join('');
+      mg.addEventListener('click', function(e){
+        var t = e.target.closest ? e.target.closest('.mthumb') : null;
+        if (!t) return;
+        var g = t.closest('.mesa-gallery');
+        g.querySelector('.mesa-main').style.backgroundImage = 'url(' + t.getAttribute('data-src') + ')';
+        g.querySelectorAll('.mthumb').forEach(function(x){ x.classList.remove('on'); });
+        t.classList.add('on');
+      });
+    }
 
     /* Constructor "Armá tu mesa" */
     var sel = {bajo:'oro', playo:'relieve', postre:'rosacmyk'};

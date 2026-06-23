@@ -73,10 +73,10 @@ h3 { font-size: 1.4rem; }
   border-bottom: 1px solid var(--line);
 }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
-.brand { text-align: left; line-height: 1; }
+.brand { display: inline-block; text-align: center; line-height: 1; }
 .brand b { font-family: var(--serif); font-weight: 400; font-size: 1.55rem; letter-spacing: 0.22em; text-transform: uppercase; display: block; }
-.brand small { font-family: var(--sans); font-weight: 300; font-size: 0.56rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 6px; }
-.brand__logo { display: block; height: 26px; width: auto; }
+.brand small { font-family: var(--sans); font-weight: 300; font-size: 0.56rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 6px; text-align: center; }
+.brand__logo { display: block; height: 26px; width: auto; margin: 0 auto; }
 .nav__links { display: flex; align-items: center; gap: 34px; }
 .nav__links a { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
 .nav__links a:hover { color: var(--ink); }
@@ -155,7 +155,7 @@ h3 { font-size: 1.4rem; }
 
 /* ---------- Banda profesionales ---------- */
 .pro { background: var(--bg-2); color: var(--ink); }
-.pro__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 100px 0; }
+.pro__grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding-top: 100px; padding-bottom: 100px; }
 .pro .eyebrow { color: var(--accent); }
 .pro h2 { margin: 18px 0 20px; color: var(--ink); }
 .pro p { color: var(--muted); margin-bottom: 22px; }
@@ -198,8 +198,8 @@ h3 { font-size: 1.4rem; }
 .mod .go { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
 
 /* ---------- Mesas curadas (galería por modelo, photo-first) ---------- */
-.mesas-feat { display: flex; flex-direction: column; gap: 96px; }
-.mesa-feat { display: grid; grid-template-columns: 1.35fr 1fr; gap: 54px; align-items: center; }
+.mesas-feat { display: flex; flex-direction: column; gap: 32px; }
+.mesa-feat { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: center; background: var(--bg-2); border-radius: 8px; padding: 36px; }
 .mesa-feat:nth-child(even) { grid-template-columns: 1fr 1.35fr; }
 .mesa-feat:nth-child(even) .mesa-gallery { order: 2; }
 .mesa-feat:nth-child(even) .mesa-info { order: 1; }
@@ -207,6 +207,9 @@ h3 { font-size: 1.4rem; }
 .mesa-gallery .main { aspect-ratio: 3/2; }
 .mesa-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .mesa-thumbs .photo { aspect-ratio: 1/1; }
+.mthumb { cursor: pointer; opacity: .72; transition: opacity .15s; }
+.mthumb:hover, .mthumb.on { opacity: 1; }
+.mthumb.on { outline: 2px solid var(--accent); outline-offset: 2px; }
 .mesa-info .eyebrow { margin-bottom: 14px; }
 .mesa__name { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.6rem); margin: 0 0 18px; line-height: 1.1; }
 .cap { display: inline-flex; align-items: center; gap: 0.45em; font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.04em; padding: 0.5em 0.95em; margin-bottom: 22px; }
@@ -252,7 +255,8 @@ h3 { font-size: 1.4rem; }
   .lookbook { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .lookbook .photo:nth-child(1) { grid-row: auto; aspect-ratio: 16/10; }
   .lookbook .photo { aspect-ratio: 4/3; }
-  .pro__grid { grid-template-columns: 1fr; gap: 38px; padding: 70px 0; }
+  .pro__grid { grid-template-columns: 1fr; gap: 38px; padding-top: 70px; padding-bottom: 70px; }
+  .pro__grid > div:last-child { order: -1; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .nav__links { display: none; }
   .nav__links.open { display: flex; position: absolute; top: 80px; left: 0; right: 0; flex-direction: column; align-items: flex-start; background: var(--bg); border-bottom: 1px solid var(--line); padding: 22px 32px; gap: 18px; }
