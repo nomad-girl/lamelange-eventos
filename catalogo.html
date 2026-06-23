@@ -23,6 +23,7 @@
     .pieza{ font-size:12.5px; color:#6a6256; white-space:nowrap; }
     .pieza b{ color:#2c3e50; font-weight:600; }
     .filters--tipo{ margin-top:8px; }
+    .mix-badge{ position:absolute; top:8px; left:8px; background:rgba(44,62,80,.85); color:#fff; font-size:10px; letter-spacing:.05em; text-transform:uppercase; padding:3px 8px; border-radius:20px; z-index:2; }
     .lb{ position:fixed; inset:0; background:rgba(22,20,17,.93); z-index:200; display:flex; align-items:center; justify-content:center; }
     .lb[hidden]{ display:none; }
     .lb__img{ max-width:88vw; max-height:82vh; object-fit:contain; border-radius:4px; box-shadow:0 12px 50px rgba(0,0,0,.5); }
@@ -144,15 +145,16 @@
       var list = PRODUCTOS.filter(function(p){ return (current === 'todas' || p.coleccion === current) && hasTipo(p); });
       grid.innerHTML = list.map(function(p){
         var fotos = p.fotos || [];
+        var mixBadge = isMix(p) ? '<span class="mix-badge">Mix &amp; match</span>' : '';
         var media;
         if (fotos.length) {
           var nav = fotos.length > 1
             ? '<button class="gnav gprev" aria-label="Anterior">‹</button><button class="gnav gnext" aria-label="Siguiente">›</button>'
               + '<div class="gdots">' + fotos.map(function(_, i){ return '<i class="'+(i===0?'on':'')+'"></i>'; }).join('') + '</div>'
             : '';
-          media = '<div class="photo has-gal" data-pi="'+PRODUCTOS.indexOf(p)+'" data-idx="0" style="aspect-ratio:1/1; background-image:url('+fotos[0]+'); background-size:cover; background-position:center;">'+nav+'</div>';
+          media = '<div class="photo has-gal" data-pi="'+PRODUCTOS.indexOf(p)+'" data-idx="0" style="aspect-ratio:1/1; background-image:url('+fotos[0]+'); background-size:cover; background-position:center;">'+mixBadge+nav+'</div>';
         } else {
-          media = '<div class="photo" data-label="'+p.nombre+'">'+ICONS[p.icon]+'</div>';
+          media = '<div class="photo" data-label="'+p.nombre+'">'+mixBadge+ICONS[p.icon]+'</div>';
         }
         var piezasShow = p.piezas;
         if (tipo === 'playo')       piezasShow = p.piezas.filter(function(q){ return /playo|principal/i.test(q.t || ''); });
