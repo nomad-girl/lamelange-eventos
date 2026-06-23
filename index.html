@@ -148,11 +148,11 @@
         <p>Inspiración real para imaginar tu próximo montaje.</p>
       </div>
       <div class="lookbook">
-        <div class="photo photo--full" data-label="Mesa clásica"></div>
-        <div class="photo photo--full" data-label="Mesa moderna"></div>
-        <div class="photo photo--full" data-label="Detalle de cubiertos"></div>
-        <div class="photo photo--full" data-label="Mesa campestre"></div>
-        <div class="photo photo--full" data-label="Cristalería"></div>
+        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-premium.jpg')"></div>
+        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-romantic.jpeg')"></div>
+        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-blue-and-white.jpg')"></div>
+        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-country.jpg')"></div>
+        <div class="photo photo--full" style="background-image:url('assets/05-mesas-montadas/mesa-luxury.jpg')"></div>
       </div>
     </div>
   </section>
@@ -263,13 +263,15 @@
     var cg = document.getElementById('collectionsGrid');
     if (cg) cg.innerHTML = COLECCIONES.map(function(c){
       var rep = PRODUCTOS.filter(function(p){ return p.coleccion === c.id && p.fotos && p.fotos.length; })[0];
-      var ph = rep
-        ? '<div class="photo" style="background-image:url('+rep.fotos[0]+')"></div>'
+      var src = c.portada || (rep ? rep.fotos[0] : null);
+      var ph = src
+        ? '<div class="photo" style="background-image:url('+src+')"></div>'
         : '<div class="photo" data-label="'+c.nombre+'">'+ICONS[c.icon]+'</div>';
+      var count = c.modelos > 0 ? c.modelos + ' modelos' : 'Próximamente';
       return '<a href="catalogo.html#'+c.id+'" class="col-card">'
         + ph
         + '<div class="col-card__body"><h3>'+c.nombre+'</h3>'
-        + '<span class="col-card__count">'+c.modelos+' modelos</span></div></a>';
+        + '<span class="col-card__count">'+count+'</span></div></a>';
     }).join('');
 
     /* Stock destacado */

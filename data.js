@@ -28,10 +28,11 @@ var ICONS = {
 };
 
 var COLECCIONES = [
-  { id: 'cargadores', nombre: 'Platos de sitio',  icon: 'plato',   modelos: 4  },
-  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 12 },
-  { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 12 },
-  { id: 'cubiertos',  nombre: 'Cubertería',       icon: 'cubierto',modelos: 4  }
+  { id: 'cargadores', nombre: 'Platos de sitio',  icon: 'plato',   modelos: 4,  portada: 'assets/06-hero-portada/categorias/cat-platos-de-sitio.jpg' },
+  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 12, portada: 'assets/06-hero-portada/categorias/cat-platos.jpg' },
+  { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 12, portada: 'assets/06-hero-portada/categorias/cat-cristaleria.jpg' },
+  { id: 'cubiertos',  nombre: 'Cubertería',       icon: 'cubierto',modelos: 4,  portada: 'assets/06-hero-portada/categorias/cat-cuberteria.png' },
+  { id: 'plateria',   nombre: 'Platería',         icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-plateria.jpg' }
 ];
 
 var PRODUCTOS = [
@@ -56,24 +57,24 @@ var PRODUCTOS = [
   { nombre: 'Vogt',        coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Playo', s:35 }, { t:'Entrada', s:18 }], fotos: ['assets/02-platos/vogt/vogt-1.jpg','assets/02-platos/vogt/vogt-2.jpg'] },
 
   /* ---------- Cristalería ---------- */
-  { nombre: 'Copas Spirit',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', destacado: true,  piezas: [{ t:'Agua', s:380 }, { t:'Vino', s:380 }, { t:'Champagne', s:350 }], fotos: [] },
-  { nombre: 'Copas Adagio',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', destacado: false, piezas: [{ t:'Agua', s:190 }, { t:'Vino', s:170 }, { t:'Champagne', s:230 }], fotos: [] },
-  { nombre: 'Copas Borde oro', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro',   destacado: false, piezas: [{ t:'Agua', s:18 }, { t:'Vino', s:43 }, { t:'Champagne', s:30 }], fotos: [] },
-  { nombre: 'Copas de color',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · mix & match', destacado: false, piezas: [{ t:'Cristal grande', s:50 }, { t:'Cristal mediana', s:80 }, { t:'Rosa', s:70 }, { t:'Verde', s:100 }, { t:'Azul', s:60 }, { t:'Fumé', s:40 }], fotos: [] },
-  { nombre: 'Vaso trago largo LAV 17',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:120 }], fotos: [] },
+  { nombre: 'Copas Spirit',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', destacado: true,  piezas: [{ t:'Agua', s:380 }, { t:'Vino', s:380 }, { t:'Champagne', s:350 }], fotos: ['assets/03-cristaleria/copas-spirit/spirit-retocada-1_orig.jpg','assets/03-cristaleria/copas-spirit/barone-agua-y-vino_orig.jpg'] },
+  { nombre: 'Copas Adagio',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', destacado: false, piezas: [{ t:'Agua', s:190 }, { t:'Vino', s:170 }, { t:'Champagne', s:230 }], fotos: ['assets/03-cristaleria/copas-adagio/1541563539334-5.jpg'] },
+  { nombre: 'Copas Borde oro', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro',   destacado: false, piezas: [{ t:'Agua', s:18 }, { t:'Vino', s:43 }, { t:'Champagne', s:30 }], fotos: ['assets/03-cristaleria/copas-borde-oro/img-6038.jpg'] },
+  { nombre: 'Copas de color',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · mix & match', destacado: false, piezas: [{ t:'Cristal grande', s:50 }, { t:'Cristal mediana', s:80 }, { t:'Rosa', s:70 }, { t:'Verde', s:100 }, { t:'Azul', s:60 }, { t:'Fumé', s:40 }], fotos: ['assets/03-cristaleria/copas-de-color/dsc06409.jpg','assets/03-cristaleria/copas-de-color/753b5ba0-fe36-47f8-8a0c-6308becf3641.jpg','assets/03-cristaleria/copas-de-color/original-a56181f3-6e0c-4929-9081-089c591fe708-screenshot-20220410-120152.jpg','assets/03-cristaleria/copas-de-color/p1065.png'] },
+  { nombre: 'Vaso trago largo LAV 17',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:120 }], fotos: ['assets/03-cristaleria/vaso-lav-17/vaso-t-l-lav-17.jpg'] },
   { nombre: 'Vaso trago largo tallado cristal',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado · mix & match', destacado: false, piezas: [{ t:'Modelo A', s:40 }, { t:'Modelo B', s:30 }], fotos: [] },
-  { nombre: 'Vaso trago largo vidrio',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:34 }], fotos: [] },
-  { nombre: 'Vaso whiskey tallado cristal',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado · mix & match', destacado: false, piezas: [{ s:60 }], fotos: [] },
-  { nombre: 'Vaso whiskey facetado',             coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:20 }], fotos: [] },
-  { nombre: 'Vaso Bombe LAV 15',                 coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 510 cc', destacado: false, piezas: [{ s:35 }], fotos: [] },
-  { nombre: 'Vaso Bombe común (liso)',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 460 ml', destacado: false, piezas: [{ s:65 }], fotos: [] },
+  { nombre: 'Vaso trago largo vidrio',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:34 }], fotos: ['assets/03-cristaleria/vaso-trago-vidrio/p1030.png','assets/03-cristaleria/vaso-trago-vidrio/p1032.png'] },
+  { nombre: 'Vaso whiskey tallado cristal',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado · mix & match', destacado: false, piezas: [{ s:60 }], fotos: ['assets/03-cristaleria/vaso-whiskey-tallado/p1021.png'] },
+  { nombre: 'Vaso whiskey facetado',             coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:20 }], fotos: ['assets/03-cristaleria/vaso-whiskey-facetado/p1019.png'] },
+  { nombre: 'Vaso Bombe LAV 15',                 coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 510 cc', destacado: false, piezas: [{ s:35 }], fotos: ['assets/03-cristaleria/vaso-bombe-lav-15/vaso-bombe-lav-color.jpg'] },
+  { nombre: 'Vaso Bombe común (liso)',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 460 ml', destacado: false, piezas: [{ s:65 }], fotos: ['assets/03-cristaleria/vaso-bombe-comun/vaso-bombe.jpg'] },
   { nombre: 'Copa vidrio labrada vintage',       coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio labrado · mix & match', destacado: false, piezas: [{ s:40 }], fotos: [] },
 
   /* ---------- Cubertería (por línea; muestra las piezas) ---------- */
-  { nombre: 'Cubertería NY',             coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero inoxidable',     destacado: false, piezas: [{ t:'Tenedor', s:178 }, { t:'Cuchillo', s:170 }, { t:'Cuchara postre', s:148 }], fotos: [] },
-  { nombre: 'Cubertería Oro Premium',    coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero dorado',         destacado: true,  piezas: [{ t:'Tenedor', s:450 }, { t:'Cuchillo', s:440 }, { t:'Cuchara', s:190 }], fotos: [] },
-  { nombre: 'Cubertería Black & Gold',   coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero negro y dorado', destacado: false, piezas: [{ t:'Tenedor', s:80 }, { t:'Cuchillo', s:80 }, { t:'Cuchara', s:80 }], fotos: [] },
-  { nombre: 'Cubertería Antique Premium',coleccion: 'cubiertos', icon: 'cubierto', material: 'Plata antigua · mix & match', destacado: false, piezas: [{ t:'Set para 6', s:6 }], fotos: [] }
+  { nombre: 'Cubertería NY',             coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero inoxidable',     destacado: false, piezas: [{ t:'Tenedor', s:178 }, { t:'Cuchillo', s:170 }, { t:'Cuchara postre', s:148 }], fotos: ['assets/04-cuberteria/ny/cubiertos-dorados-new-york-2.jpg'] },
+  { nombre: 'Cubertería Oro Premium',    coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero dorado',         destacado: true,  piezas: [{ t:'Tenedor', s:450 }, { t:'Cuchillo', s:440 }, { t:'Cuchara', s:190 }], fotos: ['assets/04-cuberteria/oro-premium/file-00000000f0806230add065812b3b2cb2.png'] },
+  { nombre: 'Cubertería Black & Gold',   coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero negro y dorado', destacado: false, piezas: [{ t:'Tenedor', s:80 }, { t:'Cuchillo', s:80 }, { t:'Cuchara', s:80 }], fotos: ['assets/04-cuberteria/black-and-gold/img-20190815-010752-089.jpg'] },
+  { nombre: 'Cubertería Antique Premium',coleccion: 'cubiertos', icon: 'cubierto', material: 'Plata antigua · mix & match', destacado: false, piezas: [{ t:'Set para 6', s:6 }], fotos: ['assets/04-cuberteria/antique-premium/img-20170925-021125-989.jpg'] }
 ];
 
 /* ---------- MODALIDAD B · Mesas curadas ----------
