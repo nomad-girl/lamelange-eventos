@@ -66,8 +66,8 @@
         <h2>Mesas listas para pedir</h2>
         <p>Combinaciones armadas por nosotros, listas para tu evento. Elegí la que te gustó y te pasamos disponibilidad y precio.</p>
       </div>
-      <div class="mesas-feat" id="mesasGrid"></div>
     </div>
+    <div id="mesasGrid"></div>
   </section>
 
   <!-- ====================== 6 · CONSTRUCTOR (Modalidad C) ====================== -->
@@ -242,35 +242,42 @@
       }).join('');
     }
 
-    /* Mesas curadas (photo-first + galería con miniaturas) */
+    /* Mesas curadas (bandas alternadas + galería con flechas) */
     var SITE = 'https://lamelange-eventos.vercel.app';
     var mg = document.getElementById('mesasGrid');
     if (mg) {
       mg.innerHTML = MESAS.map(function(m){
         var fotos = m.fotos || [];
-        var main = fotos[0]
-          ? '<div class="photo main mesa-main" style="background-image:url('+fotos[0]+')"></div>'
-          : '<div class="photo main" data-label="'+m.nombre+'"></div>';
-        var thumbs = fotos.length > 1
-          ? '<div class="mesa-thumbs">' + fotos.map(function(f, i){ return '<div class="photo mthumb'+(i===0?' on':'')+'" data-src="'+f+'" style="background-image:url('+f+')"></div>'; }).join('') + '</div>'
+        var nav = fotos.length > 1
+          ? '<button class="gnav gprev" aria-label="Anterior">‹</button><button class="gnav gnext" aria-label="Siguiente">›</button>'
+            + '<div class="gdots">' + fotos.map(function(_, i){ return '<i class="'+(i===0?'on':'')+'"></i>'; }).join('') + '</div>'
           : '';
+        var main = fotos[0]
+          ? '<div class="photo main mesa-main" data-idx="0" style="background-image:url('+fotos[0]+')">' + nav + '</div>'
+          : '<div class="photo main" data-label="'+m.nombre+'"></div>';
         var ref = fotos[0] ? '  Ref: ' + SITE + '/' + fotos[0] : '';
         var txt = 'Hola La Mélange! Me interesa la ' + m.nombre + '. ¿Me pasás info, disponibilidad y precio?' + ref;
-        return '<div class="mesa-feat">'
-          + '<div class="mesa-gallery">' + main + thumbs + '</div>'
+        return '<div class="mesa-band"><div class="wrap mesa-feat">'
+          + '<div class="mesa-gallery">' + main + '</div>'
           + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
           + '<h3 class="mesa__name">' + m.nombre + '</h3>'
           + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
           + '<a class="btn btn--solid" target="_blank" rel="noopener" href="' + waLink(txt) + '">Pedir esta mesa</a>'
-          + '</div></div>';
+          + '</div></div></div>';
       }).join('');
       mg.addEventListener('click', function(e){
-        var t = e.target.closest ? e.target.closest('.mthumb') : null;
-        if (!t) return;
-        var g = t.closest('.mesa-gallery');
-        g.querySelector('.mesa-main').style.backgroundImage = 'url(' + t.getAttribute('data-src') + ')';
-        g.querySelectorAll('.mthumb').forEach(function(x){ x.classList.remove('on'); });
-        t.classList.add('on');
+        var nav = e.target.closest ? e.target.closest('.gnav') : null;
+        if (!nav) return;
+        var ph = nav.parentNode;
+        var band = nav.closest('.mesa-band');
+        var mi = Array.prototype.indexOf.call(mg.children, band);
+        var fotos = (MESAS[mi] && MESAS[mi].fotos) || [];
+        if (fotos.length < 2) return;
+        var idx = (+ph.getAttribute('data-idx') || 0) + (nav.classList.contains('gnext') ? 1 : -1);
+        idx = (idx + fotos.length) % fotos.length;
+        ph.style.backgroundImage = 'url(' + fotos[idx] + ')';
+        ph.setAttribute('data-idx', idx);
+        var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
       });
     }
 

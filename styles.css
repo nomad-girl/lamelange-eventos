@@ -198,18 +198,13 @@ h3 { font-size: 1.4rem; }
 .mod .go { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
 
 /* ---------- Mesas curadas (galería por modelo, photo-first) ---------- */
-.mesas-feat { display: flex; flex-direction: column; gap: 32px; }
-.mesa-feat { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: center; background: var(--bg-2); border-radius: 8px; padding: 36px; }
-.mesa-feat:nth-child(even) { grid-template-columns: 1fr 1.35fr; }
-.mesa-feat:nth-child(even) .mesa-gallery { order: 2; }
-.mesa-feat:nth-child(even) .mesa-info { order: 1; }
-.mesa-gallery { display: flex; flex-direction: column; gap: 12px; }
+.mesa-band { padding: 60px 0; }
+.mesa-band:nth-child(odd) { background: var(--bg-2); }
+.mesa-feat { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; }
+.mesa-band:nth-child(even) .mesa-feat { grid-template-columns: 1fr 1.25fr; }
+.mesa-band:nth-child(even) .mesa-gallery { order: 2; }
+.mesa-band:nth-child(even) .mesa-info { order: 1; }
 .mesa-gallery .main { aspect-ratio: 3/2; }
-.mesa-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.mesa-thumbs .photo { aspect-ratio: 1/1; }
-.mthumb { cursor: pointer; opacity: .72; transition: opacity .15s; }
-.mthumb:hover, .mthumb.on { opacity: 1; }
-.mthumb.on { outline: 2px solid var(--accent); outline-offset: 2px; }
 .mesa-info .eyebrow { margin-bottom: 14px; }
 .mesa__name { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.6rem); margin: 0 0 18px; line-height: 1.1; }
 .cap { display: inline-flex; align-items: center; gap: 0.45em; font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.04em; padding: 0.5em 0.95em; margin-bottom: 22px; }
@@ -240,9 +235,9 @@ h3 { font-size: 1.4rem; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .mods { grid-template-columns: 1fr; }
-  .mesas-feat { gap: 60px; }
-  .mesa-feat, .mesa-feat:nth-child(even) { grid-template-columns: 1fr; gap: 24px; }
-  .mesa-feat:nth-child(even) .mesa-gallery, .mesa-feat:nth-child(even) .mesa-info { order: 0; }
+  .mesa-band { padding: 40px 0; }
+  .mesa-feat, .mesa-band:nth-child(even) .mesa-feat { grid-template-columns: 1fr; gap: 22px; }
+  .mesa-band:nth-child(even) .mesa-gallery, .mesa-band:nth-child(even) .mesa-info { order: 0; }
   .builder { grid-template-columns: 1fr; gap: 26px; }
   .builder__preview { height: 320px; }
 }
@@ -267,7 +262,7 @@ h3 { font-size: 1.4rem; }
 @media (max-width: 920px) { .collections { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px) {
   .stock-row, .catalog-grid { grid-template-columns: 1fr; }
-  .collections { grid-template-columns: repeat(2, 1fr); }
+  .collections { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
 }
 
