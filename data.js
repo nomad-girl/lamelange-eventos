@@ -29,68 +29,49 @@ var ICONS = {
 
 var COLECCIONES = [
   { id: 'cargadores', nombre: 'Platos de sitio',  icon: 'plato',   modelos: 4  },
-  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 17 },
-  { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 24 },
+  { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 10 },
+  { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 12 },
   { id: 'cubiertos',  nombre: 'Cubertería',       icon: 'cubierto',modelos: 4  }
 ];
 
 var PRODUCTOS = [
   /* ---------- Platos de sitio (cargadores) ---------- */
-  { nombre: 'Plato de sitio Perla oro', coleccion: 'cargadores', icon: 'plato', material: 'Borde perlado dorado', stock: 300, destacado: true,  fotos: ['assets/01-platos-de-sitio/perla-oro/perla-oro-1.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-2.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-3.jpg'] },
-  { nombre: 'Plato de sitio Satín oro', coleccion: 'cargadores', icon: 'plato', material: 'Dorado satinado',     stock: 180, destacado: false, fotos: ['assets/01-platos-de-sitio/satin-oro/satin-oro-1.jpg','assets/01-platos-de-sitio/satin-oro/satin-oro-2.jpg'] },
-  { nombre: 'Plato de sitio Yute',      coleccion: 'cargadores', icon: 'plato', material: 'Fibra de yute',       stock: 340, destacado: false, fotos: ['assets/01-platos-de-sitio/yute/yute-1.jpg','assets/01-platos-de-sitio/yute/yute-2.jpg'] },
-  { nombre: 'Plato de sitio Palma',     coleccion: 'cargadores', icon: 'plato', material: 'Fibra de palma',      stock: 200, destacado: false, fotos: ['assets/01-platos-de-sitio/palma/palma-1.jpg','assets/01-platos-de-sitio/palma/palma-2.jpg'] },
+  { nombre: 'Plato de sitio Perla oro', coleccion: 'cargadores', icon: 'plato', material: 'Borde perlado dorado', destacado: true,  piezas: [{ s: 300 }], fotos: ['assets/01-platos-de-sitio/perla-oro/perla-oro-1.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-2.jpg','assets/01-platos-de-sitio/perla-oro/perla-oro-3.jpg'] },
+  { nombre: 'Plato de sitio Satín oro', coleccion: 'cargadores', icon: 'plato', material: 'Dorado satinado',     destacado: false, piezas: [{ s: 180 }], fotos: ['assets/01-platos-de-sitio/satin-oro/satin-oro-1.jpg','assets/01-platos-de-sitio/satin-oro/satin-oro-2.jpg'] },
+  { nombre: 'Plato de sitio Yute',      coleccion: 'cargadores', icon: 'plato', material: 'Fibra de yute',       destacado: false, piezas: [{ s: 340 }], fotos: ['assets/01-platos-de-sitio/yute/yute-1.jpg','assets/01-platos-de-sitio/yute/yute-2.jpg'] },
+  { nombre: 'Plato de sitio Palma',     coleccion: 'cargadores', icon: 'plato', material: 'Fibra de palma',      destacado: false, piezas: [{ s: 200 }], fotos: ['assets/01-platos-de-sitio/palma/palma-1.jpg','assets/01-platos-de-sitio/palma/palma-2.jpg'] },
 
   /* ---------- Platos ---------- */
-  { nombre: 'Plato Mishka playo',         coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', stock: 245, destacado: true,  fotos: [] },
-  { nombre: 'Plato Mishka entrada',       coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', stock: 215, destacado: false, fotos: [] },
-  { nombre: 'Plato Black principal',      coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro',         stock: 70,  destacado: false, fotos: [] },
-  { nombre: 'Plato NET entrada',          coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',                 stock: 50,  destacado: false, fotos: [] },
-  { nombre: 'Plato JOY entrada / pan',    coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',                 stock: 50,  destacado: false, fotos: [] },
-  { nombre: 'Plato Relieve principal',    coleccion: 'platos', icon: 'bowl', material: 'Cerámica blanca',           stock: 100, destacado: false, fotos: [] },
-  { nombre: 'Plato Relieve postre / entrada', coleccion: 'platos', icon: 'bowl', material: 'Cerámica blanca',       stock: 80,  destacado: false, fotos: [] },
-  { nombre: 'Plato Perla rosa principal', coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',           stock: 60,  destacado: false, fotos: [] },
-  { nombre: 'Plato Perla rosa entrada',   coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',           stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Plato Flor de liz principal',coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',     stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Plato Flor de liz postre',   coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',     stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Plato Rosa CMYk principal',  coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',           stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Plato Rosa CMYk postre',     coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',           stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Plato Minerva principal 23 cm', coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',  stock: 17,  destacado: false, fotos: [] },
-  { nombre: 'Plato Minerva entrada 20 cm',   coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',  stock: 11,  destacado: false, fotos: [] },
-  { nombre: 'Plato Vogt playo',           coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',     stock: 35,  destacado: false, fotos: [] },
-  { nombre: 'Plato Vogt entrada',         coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo',     stock: 18,  destacado: false, fotos: [] },
+  { nombre: 'Mishka',      coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', destacado: true,  piezas: [{ t:'Playo', s:245 }, { t:'Entrada', s:215 }], fotos: [] },
+  { nombre: 'Plato Black', coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro', destacado: false, piezas: [{ t:'Principal', s:70 }], fotos: [] },
+  { nombre: 'Plato NET',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada', s:50 }], fotos: [] },
+  { nombre: 'Plato JOY',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada / pan', s:50 }], fotos: [] },
+  { nombre: 'Relieve',     coleccion: 'platos', icon: 'bowl', material: 'Cerámica blanca',   destacado: false, piezas: [{ t:'Principal', s:100 }, { t:'Postre / entrada', s:80 }], fotos: [] },
+  { nombre: 'Perla rosa',  coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',   destacado: false, piezas: [{ t:'Principal', s:60 }, { t:'Entrada', s:20 }], fotos: [] },
+  { nombre: 'Flor de liz', coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Principal', s:20 }, { t:'Postre', s:20 }], fotos: [] },
+  { nombre: 'Rosa CMYk',   coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',   destacado: false, piezas: [{ t:'Principal', s:20 }, { t:'Postre', s:20 }], fotos: [] },
+  { nombre: 'Minerva',     coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Principal 23 cm', s:17 }, { t:'Entrada 20 cm', s:11 }], fotos: [] },
+  { nombre: 'Vogt',        coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Playo', s:35 }, { t:'Entrada', s:18 }], fotos: [] },
 
   /* ---------- Cristalería ---------- */
-  { nombre: 'Copa Spirit agua',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', stock: 380, destacado: true,  fotos: [] },
-  { nombre: 'Copa Spirit vino',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', stock: 380, destacado: false, fotos: [] },
-  { nombre: 'Copa Spirit champagne', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', stock: 350, destacado: false, fotos: [] },
-  { nombre: 'Copa Adagio agua',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', stock: 190, destacado: false, fotos: [] },
-  { nombre: 'Copa Adagio vino',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', stock: 170, destacado: false, fotos: [] },
-  { nombre: 'Copa Adagio champagne', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', stock: 230, destacado: false, fotos: [] },
-  { nombre: 'Copa Borde oro agua',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro', stock: 18, destacado: false, fotos: [] },
-  { nombre: 'Copa Borde oro vino',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro', stock: 43, destacado: false, fotos: [] },
-  { nombre: 'Copa Borde oro champagne', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro', stock: 30, destacado: false, fotos: [] },
-  { nombre: 'Copa color cristal grande',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal',          stock: 50,  destacado: false, fotos: [] },
-  { nombre: 'Copa color cristal mediana', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal',          stock: 80,  destacado: false, fotos: [] },
-  { nombre: 'Copa color rosa',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · rosa',    stock: 70,  destacado: false, fotos: [] },
-  { nombre: 'Copa color verde', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · verde',   stock: 100, destacado: false, fotos: [] },
-  { nombre: 'Copa color azul',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · azul',    stock: 60,  destacado: false, fotos: [] },
-  { nombre: 'Copa color fumé',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · fumé',    stock: 40,  destacado: false, fotos: [] },
-  { nombre: 'Vaso trago largo LAV 17',         coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio',         stock: 120, destacado: false, fotos: [] },
-  { nombre: 'Vaso trago largo tallado cristal (A)', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado', stock: 40, destacado: false, fotos: [] },
-  { nombre: 'Vaso trago largo tallado cristal (B)', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado', stock: 30, destacado: false, fotos: [] },
-  { nombre: 'Vaso trago largo vidrio',         coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio',         stock: 34,  destacado: false, fotos: [] },
-  { nombre: 'Vaso whiskey tallado cristal',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado', stock: 60, destacado: false, fotos: [] },
-  { nombre: 'Vaso whiskey facetado',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio',         stock: 20,  destacado: false, fotos: [] },
-  { nombre: 'Vaso Bombe LAV 15',               coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 510 cc', stock: 35, destacado: false, fotos: [] },
-  { nombre: 'Vaso Bombe común (liso)',         coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 460 ml', stock: 65, destacado: false, fotos: [] },
-  { nombre: 'Copa vidrio labrada vintage',     coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio labrado',  stock: 40, destacado: false, fotos: [] },
+  { nombre: 'Copas Spirit',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Spirit', destacado: true,  piezas: [{ t:'Agua', s:380 }, { t:'Vino', s:380 }, { t:'Champagne', s:350 }], fotos: [] },
+  { nombre: 'Copas Adagio',    coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · línea Adagio', destacado: false, piezas: [{ t:'Agua', s:190 }, { t:'Vino', s:170 }, { t:'Champagne', s:230 }], fotos: [] },
+  { nombre: 'Copas Borde oro', coleccion: 'cristaleria', icon: 'copa', material: 'Cristal · borde oro',   destacado: false, piezas: [{ t:'Agua', s:18 }, { t:'Vino', s:43 }, { t:'Champagne', s:30 }], fotos: [] },
+  { nombre: 'Copas de color',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal de color · mix & match', destacado: false, piezas: [{ t:'Cristal grande', s:50 }, { t:'Cristal mediana', s:80 }, { t:'Rosa', s:70 }, { t:'Verde', s:100 }, { t:'Azul', s:60 }, { t:'Fumé', s:40 }], fotos: [] },
+  { nombre: 'Vaso trago largo LAV 17',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:120 }], fotos: [] },
+  { nombre: 'Vaso trago largo tallado cristal',  coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado · mix & match', destacado: false, piezas: [{ t:'Modelo A', s:40 }, { t:'Modelo B', s:30 }], fotos: [] },
+  { nombre: 'Vaso trago largo vidrio',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:34 }], fotos: [] },
+  { nombre: 'Vaso whiskey tallado cristal',      coleccion: 'cristaleria', icon: 'copa', material: 'Cristal tallado · mix & match', destacado: false, piezas: [{ s:60 }], fotos: [] },
+  { nombre: 'Vaso whiskey facetado',             coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio', destacado: false, piezas: [{ s:20 }], fotos: [] },
+  { nombre: 'Vaso Bombe LAV 15',                 coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 510 cc', destacado: false, piezas: [{ s:35 }], fotos: [] },
+  { nombre: 'Vaso Bombe común (liso)',           coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio · 460 ml', destacado: false, piezas: [{ s:65 }], fotos: [] },
+  { nombre: 'Copa vidrio labrada vintage',       coleccion: 'cristaleria', icon: 'copa', material: 'Vidrio labrado', destacado: false, piezas: [{ s:40 }], fotos: [] },
 
-  /* ---------- Cubertería (agrupada por línea; stock = nº de tenedores) ---------- */
-  { nombre: 'Cubertería NY',             coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero inoxidable',      stock: 178, destacado: false, fotos: [] },
-  { nombre: 'Cubertería Oro Premium',    coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero dorado',          stock: 450, destacado: true,  fotos: [] },
-  { nombre: 'Cubertería Black & Gold',   coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero negro y dorado',  stock: 80,  destacado: false, fotos: [] },
-  { nombre: 'Cubertería Antique Premium',coleccion: 'cubiertos', icon: 'cubierto', material: 'Plata antigua · mix & match', stock: 6, destacado: false, fotos: [] }
+  /* ---------- Cubertería (por línea; muestra las piezas) ---------- */
+  { nombre: 'Cubertería NY',             coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero inoxidable',     destacado: false, piezas: [{ t:'Tenedor', s:178 }, { t:'Cuchillo', s:170 }, { t:'Cuchara postre', s:148 }], fotos: [] },
+  { nombre: 'Cubertería Oro Premium',    coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero dorado',         destacado: true,  piezas: [{ t:'Tenedor', s:450 }, { t:'Cuchillo', s:440 }, { t:'Cuchara', s:190 }], fotos: [] },
+  { nombre: 'Cubertería Black & Gold',   coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero negro y dorado', destacado: false, piezas: [{ t:'Tenedor', s:80 }, { t:'Cuchillo', s:80 }, { t:'Cuchara', s:80 }], fotos: [] },
+  { nombre: 'Cubertería Antique Premium',coleccion: 'cubiertos', icon: 'cubierto', material: 'Plata antigua · mix & match', destacado: false, piezas: [{ t:'Set para 6', s:6 }], fotos: [] }
 ];
 
 /* ---------- MODALIDAD B · Mesas curadas ----------

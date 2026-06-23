@@ -278,7 +278,7 @@
         return '<div class="product">'+ph
           + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
           + '<div class="product__meta">'+p.material+'</div>'
-          + '<span class="badge"><i></i>Disponibles: '+p.stock+'</span></div></div>';
+          + '<span class="badge"><i></i>Disponibles: '+Math.max.apply(null, p.piezas.map(function(q){return q.s;}))+'</span></div></div>';
       }).join('');
     }
 
