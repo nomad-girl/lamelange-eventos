@@ -94,21 +94,6 @@
     </div>
   </section>
 
-  <!-- ====================== STOCK DESTACADO ====================== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section__head">
-        <span class="eyebrow">Stock real</span>
-        <h2>Cantidad disponible, a la vista</h2>
-        <p>El dato que un profesional necesita para vender con confianza.</p>
-      </div>
-      <div class="stock-row" id="stockRow"></div>
-      <div style="text-align:center; margin-top:48px;">
-        <a href="catalogo.html" class="btn btn--ghost">Ver catálogo completo</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ====================== POR QUÉ LA MÉLANGE ====================== -->
   <section class="section">
     <div class="wrap">
@@ -261,6 +246,7 @@
           + '<div class="mesa-gallery">' + main + '</div>'
           + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
           + '<h3 class="mesa__name">' + m.nombre + '</h3>'
+          + (m.capacidad ? '<span class="cap ' + (m.capacidad >= 60 ? 'cap--amp' : 'cap--lim') + '">Hasta ' + m.capacidad + ' comensales</span>' : '')
           + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
           + '<a class="btn btn--solid" target="_blank" rel="noopener" href="' + waLink(txt) + '">Pedir esta mesa</a>'
           + '</div></div></div>';
