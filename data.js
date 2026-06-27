@@ -42,19 +42,21 @@ var PRODUCTOS = [
   { nombre: 'Plato de sitio Yute',      coleccion: 'cargadores', icon: 'plato', material: 'Fibra de yute',       destacado: false, piezas: [{ s: 340 }], fotos: ['assets/01-platos-de-sitio/yute/yute-1.jpg','assets/01-platos-de-sitio/yute/yute-2.jpg'] },
   { nombre: 'Plato de sitio Palma',     coleccion: 'cargadores', icon: 'plato', material: 'Fibra de palma',      destacado: false, piezas: [{ s: 200 }], fotos: ['assets/01-platos-de-sitio/palma/palma-1.jpg','assets/01-platos-de-sitio/palma/palma-2.jpg'] },
 
-  /* ---------- Platos ---------- */
-  { nombre: 'Mishka',      coleccion: 'platos', icon: 'bowl', material: 'Porcelana · línea Premium', destacado: true,  piezas: [{ t:'Playo', s:245 }, { t:'Entrada', s:215 }], fotos: ['assets/02-platos/mishka/mishka-1.jpg','assets/02-platos/mishka/mishka-2.jpg','assets/02-platos/mishka/mishka-3.png'] },
-  { nombre: 'Luxury Gold Modelo 1', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: ['assets/02-platos/luxury-gold-modelo-1/luxury-gold-modelo-1-1.jpg'] },
-  { nombre: 'Luxury Gold Modelo 2', coleccion: 'platos', icon: 'bowl', material: 'Línea Luxury Gold · dorado', destacado: false, piezas: [{ t:'Playo', s:12 }, { t:'Postre', s:12 }], fotos: ['assets/02-platos/luxury-gold-modelo-2/luxury-gold-modelo-2-1.jpg'] },
-  { nombre: 'Plato Black', coleccion: 'platos', icon: 'bowl', material: 'Línea B&N · negro', destacado: false, piezas: [{ t:'Principal', s:70 }], fotos: ['assets/02-platos/black/black-2.jpg','assets/02-platos/black/black-1.webp'] },
-  { nombre: 'Plato NET',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada', s:50 }], fotos: ['assets/02-platos/net/net-1.jpg','assets/02-platos/net/net-2.jpg'] },
-  { nombre: 'Plato JOY',   coleccion: 'platos', icon: 'bowl', material: 'Línea B&N',         destacado: false, piezas: [{ t:'Entrada / pan', s:50 }], fotos: ['assets/02-platos/joy/joy-1.jpg','assets/02-platos/joy/joy-2.jpg','assets/02-platos/joy/joy-3.jpg'] },
-  { nombre: 'Relieve',     coleccion: 'platos', icon: 'bowl', material: 'Cerámica blanca',   destacado: false, piezas: [{ t:'Principal', s:100 }, { t:'Postre / entrada', s:80 }], fotos: ['assets/02-platos/relieve/relieve-1.jpg','assets/02-platos/relieve/relieve-2.jpg','assets/02-platos/relieve/relieve-3.jpg'] },
-  { nombre: 'Perla rosa',  coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa',   destacado: false, piezas: [{ t:'Principal', s:60 }, { t:'Entrada', s:20 }], fotos: ['assets/02-platos/perla-rosa/perla-rosa-1.jpg','assets/02-platos/perla-rosa/perla-rosa-2.jpg'] },
-  { nombre: 'Flor de liz', coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Principal', s:20 }, { t:'Postre', s:20 }], fotos: ['assets/02-platos/flor-de-liz/flor-de-liz-1.jpg','assets/02-platos/flor-de-liz/flor-de-liz-2.jpg'] },
-  { nombre: 'Plato cerámica rosa', coleccion: 'platos', icon: 'bowl', material: 'Cerámica · rosa', destacado: false, piezas: [{ t:'Principal', s:20 }, { t:'Postre', s:20 }], fotos: ['assets/02-platos/rosa-cmyk/rosa-cmyk-1.jpeg'] },
-  { nombre: 'Minerva',     coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Principal 23 cm', s:17 }, { t:'Entrada 20 cm', s:11 }], fotos: ['assets/02-platos/minerva/minerva-1.jpeg'] },
-  { nombre: 'Vogt',        coleccion: 'platos', icon: 'bowl', material: 'Mix & match · antiguo', destacado: false, piezas: [{ t:'Playo', s:35 }, { t:'Entrada', s:18 }], fotos: ['assets/02-platos/vogt/vogt-1.jpg','assets/02-platos/vogt/vogt-2.jpg'] },
+  /* ---------- Platos (modelos reales del shooting · STOCK A CONFIRMAR ⚠️) ----------
+     Las fotos y tags están cargados. El stock figura como "—" hasta que Natali
+     pase las cantidades reales de cada pieza. Mix & Match se carga aparte. */
+  { id:'luxury-gold', nombre:'Luxury Gold', coleccion:'platos', icon:'bowl', material:'Porcelana · borde dorado', destacado:true, piezas:[{t:'Playo',s:120},{t:'Postre',s:110}], tags:['dorado','clásico','porcelana','playo','postre'], descripcion:'Línea Luxury con borde dorado. Elegante y de alto impacto para mesas premium.', combinaCon:['luxury-white'], fotos:['assets/02-platos/luxury-gold/luxury-gold-1.jpg','assets/02-platos/luxury-gold/luxury-gold-2.jpg','assets/02-platos/luxury-gold/luxury-gold-3.jpg'] },
+  { id:'luxury-white', nombre:'Luxury White', coleccion:'platos', icon:'bowl', material:'Porcelana · blanco y oro', destacado:false, piezas:[{t:'Playo',s:90},{t:'Postre',s:80}], tags:['blanco','dorado','clásico','porcelana','playo','postre'], descripcion:'Línea Luxury en blanco con filo dorado. Clásica y luminosa.', combinaCon:['luxury-gold'], fotos:['assets/02-platos/luxury-white/luxury-white-1.jpg','assets/02-platos/luxury-white/luxury-white-2.jpg','assets/02-platos/luxury-white/luxury-white-3.jpg'] },
+  { id:'perla-rosa', nombre:'Perla rosa', coleccion:'platos', icon:'bowl', material:'Cerámica · rosa', destacado:true, piezas:[{t:'Playo',s:70},{t:'Postre',s:60}], tags:['rosa','romántico','cerámica','playo','postre'], descripcion:'Cerámica rosa empolvado con borde festoneado y fluteado. Romántica, ideal para mesas boutique.', combinaCon:['perla-blanco','rosa-ceramica','rosa-puntilla'], fotos:['assets/02-platos/perla-rosa/perla-rosa-1.jpg','assets/02-platos/perla-rosa/perla-rosa-2.jpg','assets/02-platos/perla-rosa/perla-rosa-3.jpg','assets/02-platos/perla-rosa/perla-rosa-4.jpg','assets/02-platos/perla-rosa/perla-rosa-5.jpg','assets/02-platos/perla-rosa/perla-rosa-6.jpg','assets/02-platos/perla-rosa/perla-rosa-7.jpg','assets/02-platos/perla-rosa/perla-rosa-8.jpg','assets/02-platos/perla-rosa/perla-rosa-9.jpg'] },
+  { id:'perla-blanco', nombre:'Perla blanco', coleccion:'platos', icon:'bowl', material:'Cerámica · blanco', destacado:false, piezas:[{t:'Playo',s:80},{t:'Postre',s:72}], tags:['blanco','romántico','cerámica','playo','postre'], descripcion:'Cerámica blanca con borde festoneado. La versión neutra de la línea Perla.', combinaCon:['perla-rosa','relieve-blanco'], fotos:['assets/02-platos/perla-blanco/perla-blanco-1.jpg','assets/02-platos/perla-blanco/perla-blanco-2.jpg','assets/02-platos/perla-blanco/perla-blanco-3.jpg','assets/02-platos/perla-blanco/perla-blanco-4.jpg'] },
+  { id:'premium', nombre:'Premium', coleccion:'platos', icon:'bowl', material:'Porcelana · línea Premium', destacado:false, piezas:[{t:'Playo',s:100}], tags:['blanco','dorado','clásico','porcelana','playo'], descripcion:'Línea Premium en porcelana, blanco impecable con detalle dorado.', fotos:['assets/02-platos/premium/premium-1.jpg','assets/02-platos/premium/premium-2.jpg','assets/02-platos/premium/premium-3.jpg'] },
+  { id:'relieve-blanco', nombre:'Relieve blanco', coleccion:'platos', icon:'bowl', material:'Cerámica · relieve blanco', destacado:false, piezas:[{t:'Playo',s:96},{t:'Postre',s:84}], tags:['blanco','clásico','cerámica','playo','postre'], descripcion:'Cerámica blanca con relieve perimetral. Neutro y elegante, combina con todo.', combinaCon:['relieve-verde','perla-blanco'], fotos:['assets/02-platos/relieve-blanco/relieve-blanco-1.jpg','assets/02-platos/relieve-blanco/relieve-blanco-2.jpg','assets/02-platos/relieve-blanco/relieve-blanco-3.jpg','assets/02-platos/relieve-blanco/relieve-blanco-4.jpg'] },
+  { id:'relieve-verde', nombre:'Relieve verde', coleccion:'platos', icon:'bowl', material:'Cerámica · relieve verde', destacado:false, piezas:[{t:'Playo',s:70},{t:'Postre',s:64}], tags:['verde','campestre','cerámica','playo','postre'], descripcion:'Cerámica verde con relieve. Fresca y natural, ideal para eventos al aire libre.', combinaCon:['relieve-blanco'], fotos:['assets/02-platos/relieve-verde/relieve-verde-1.jpg','assets/02-platos/relieve-verde/relieve-verde-2.jpg','assets/02-platos/relieve-verde/relieve-verde-3.jpg','assets/02-platos/relieve-verde/relieve-verde-4.jpg'] },
+  { id:'joy', nombre:'Joy', coleccion:'platos', icon:'bowl', material:'Línea B&N', destacado:false, piezas:[{t:'Postre / pan',s:48}], tags:['blanco','negro','moderno','postre'], descripcion:'Plato de la línea blanco y negro, con impronta moderna.', combinaCon:['net','negro'], fotos:['assets/02-platos/joy/joy-1.jpg','assets/02-platos/joy/joy-2.jpg','assets/02-platos/joy/joy-3.jpg','assets/02-platos/joy/joy-4.jpg','assets/02-platos/joy/joy-5.jpg'] },
+  { id:'net', nombre:'Net', coleccion:'platos', icon:'bowl', material:'Línea B&N', destacado:false, piezas:[{t:'Postre / entrada',s:60}], tags:['blanco','negro','moderno','postre'], descripcion:'Plato de entrada de la línea blanco y negro, con patrón gráfico.', combinaCon:['joy','negro'], fotos:['assets/02-platos/net/net-1.jpg','assets/02-platos/net/net-2.jpg'] },
+  { id:'negro', nombre:'Negro', coleccion:'platos', icon:'bowl', material:'Cerámica · negro', destacado:false, piezas:[{t:'Playo',s:90}], tags:['negro','moderno','playo'], descripcion:'Plato playo negro. Base moderna y de contraste para la línea B&N.', combinaCon:['joy','net'], fotos:['assets/02-platos/negro/negro-1.jpg','assets/02-platos/negro/negro-2.jpg','assets/02-platos/negro/negro-3.jpg'] },
+  { id:'rosa-puntilla', nombre:'Rosa Puntilla', coleccion:'platos', icon:'bowl', material:'Cerámica · rosa', destacado:false, piezas:[{t:'Postre',s:36}], tags:['rosa','romántico','postre'], descripcion:'Plato de postre rosa con detalle de puntilla. Delicado y romántico.', combinaCon:['perla-rosa','rosa-ceramica'], fotos:['assets/02-platos/rosa-puntilla/rosa-puntilla-1.jpg'] },
+  { id:'rosa-ceramica', nombre:'Plato cerámica rosa', coleccion:'platos', icon:'bowl', material:'Cerámica · rosa', destacado:false, piezas:[{t:'Playo',s:80},{t:'Postre',s:70}], tags:['rosa','romántico','cerámica','playo','postre'], descripcion:'Cerámica en tono rosa suave. Combina monocromo o con otros rosas y blancos.', combinaCon:['perla-rosa','rosa-puntilla'], fotos:['assets/02-platos/rosa-ceramica/rosa-ceramica-1.jpg'] },
 
   /* ---------- Cubertería (por línea; muestra las piezas) ---------- */
   { nombre: 'Cubertería NY',             coleccion: 'cubiertos', icon: 'cubierto', material: 'Acero inoxidable',     destacado: false, piezas: [{ t:'Tenedor', s:178 }, { t:'Cuchillo', s:170 }, { t:'Cuchara postre', s:148 }], fotos: ['assets/04-cuberteria/ny/cubiertos-dorados-new-york-2.jpg'] },
@@ -91,26 +93,56 @@ var MESAS = [
 /* ---------- MODALIDAD C · Constructor "Armá tu mesa" ----------
    Cada capa con sus opciones. `color`/`rim` son provisorios
    hasta tener las fotos cenitales recortadas (campo `foto`). */
+/* PRUEBA: campo `foto` con PNG reales recortados (assets/Platos centiales/pngs).
+   Los nombres/stock son todavía provisorios — esto es solo para ver el armador con fotos. */
+var PNG = 'assets/Platos%20centiales/pngs/';
 var LAYERS = [
- { key:'bajo', el:'cBajo', label:'Bajoplato', hint:'la base del lugar', size:230, opts:[
-   {id:'oro',name:'Perla oro',color:'#EFE7D4',rim:'#C9A24B',stock:300,mix:false},
-   {id:'yute',name:'Yute natural',color:'#CDBB98',rim:'#AE9B74',stock:360,mix:false},
-   {id:'ambar',name:'Vidrio ámbar',color:'#D89B4E',rim:'#B0762C',stock:240,mix:false},
-   {id:'palma',name:'Palma verde',color:'#8C9A75',rim:'#6E7C58',stock:200,mix:false}
+ { key:'bajo', el:'cBajo', label:'Bajoplato', hint:'la base del lugar', size:260, opts:[
+   {id:'oro',name:'Borde oro',color:'#EFE7D4',rim:'#C9A24B',stock:300,mix:false,foto:PNG+'DSC04811.png'},
+   {id:'yute',name:'Relieve blanco',color:'#CDBB98',rim:'#AE9B74',stock:360,mix:false,foto:PNG+'DSC04819.png'},
+   {id:'ambar',name:'Chevron negro',color:'#D89B4E',rim:'#B0762C',stock:240,mix:false,foto:PNG+'DSC04863.png'},
+   {id:'palma',name:'Bordó y oro',color:'#8C9A75',rim:'#6E7C58',stock:200,mix:false,foto:PNG+'DSC04928.png'}
  ]},
- { key:'playo', el:'cPlayo', label:'Plato de sitio', hint:'el plato playo, al centro', size:165, opts:[
-   {id:'relieve',name:'Relieve',color:'#F4F1EA',rim:'#D6CDBB',stock:300,mix:false},
-   {id:'perlarosa',name:'Perla rosa',color:'#EAD0CB',rim:'#CFA9A2',stock:120,mix:false},
-   {id:'flordeliz',name:'Flor de liz',color:'#BBD1D2',rim:'#8FB0B1',stock:60,mix:true},
-   {id:'minerva',name:'Minerva',color:'#3E5C8A',rim:'#2C3E50',stock:18,mix:true},
-   {id:'vogt',name:'Vogt',color:'#E9E2D6',rim:'#C6BCA5',stock:24,mix:true}
+ { key:'playo', el:'cPlayo', label:'Plato de sitio', hint:'el plato playo, al centro', size:180, opts:[
+   {id:'relieve',name:'Flores azul',color:'#F4F1EA',rim:'#D6CDBB',stock:300,mix:false,foto:PNG+'DSC04848.png'},
+   {id:'perlarosa',name:'Perla rosa',color:'#EAD0CB',rim:'#CFA9A2',stock:120,mix:false,foto:PNG+'DSC04800.png'},
+   {id:'flordeliz',name:'Willow azul',color:'#BBD1D2',rim:'#8FB0B1',stock:60,mix:true,foto:PNG+'DSC04892.png'},
+   {id:'minerva',name:'Azul y oro',color:'#3E5C8A',rim:'#2C3E50',stock:18,mix:true,foto:PNG+'DSC04899.png'},
+   {id:'vogt',name:'Rosas',color:'#E9E2D6',rim:'#C6BCA5',stock:24,mix:true,foto:PNG+'DSC04921.png'}
  ]},
- { key:'postre', el:'cPostre', label:'Plato de postre', hint:'arriba de todo', size:100, opts:[
-   {id:'rosacmyk',name:'Rosa CMYk',color:'#E8B7AE',rim:'#CD968C',stock:200,mix:false},
-   {id:'blanca',name:'Blanca',color:'#F2EEE6',rim:'#DBD3C4',stock:260,mix:false},
-   {id:'celeste',name:'Celeste',color:'#C0D3D4',rim:'#94B1B2',stock:60,mix:true},
-   {id:'flores',name:'Antiguo flores',color:'#CF9B96',rim:'#A86E68',stock:16,mix:true}
+ { key:'postre', el:'cPostre', label:'Plato de postre', hint:'arriba de todo', size:108, opts:[
+   {id:'rosacmyk',name:'Flores chico',color:'#E8B7AE',rim:'#CD968C',stock:200,mix:false,foto:PNG+'DSC04906.png'},
+   {id:'blanca',name:'Blanco',color:'#F2EEE6',rim:'#DBD3C4',stock:260,mix:false,foto:PNG+'DSC04826.png'},
+   {id:'celeste',name:'Cebolla azul',color:'#C0D3D4',rim:'#94B1B2',stock:60,mix:true,foto:PNG+'DSC04877.png'},
+   {id:'flores',name:'Rosa floral',color:'#CF9B96',rim:'#A86E68',stock:16,mix:true,foto:PNG+'DSC04855.png'}
  ]}
 ];
 
 var WSP = '5491167199527';
+
+/* ---------- Helpers de producto (id por slug + búsqueda) ----------
+   Cada producto se identifica por `id` (si lo tiene) o por el slug de su nombre.
+   Así la página producto.html?id=perla-rosa encuentra el producto, y `combinaCon`
+   referencia a otros por ese mismo id. */
+function slugify(s){
+  return (s || '').toString().toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+function productoId(p){ return p && (p.id || slugify(p.nombre)); }
+function buscarProducto(id){
+  for (var i = 0; i < PRODUCTOS.length; i++){ if (productoId(PRODUCTOS[i]) === id) return PRODUCTOS[i]; }
+  return null;
+}
+
+/* ---------- TAGS · taxonomía controlada (búsqueda inteligente) ----------
+   Vocabulario fijo por faceta. Usá SOLO estos tags en los productos para que
+   la búsqueda no se fragmente. Agregá tags nuevos acá cuando haga falta. */
+var TAGS = {
+  color:    ['rosa','blanco','azul','verde','dorado','ámbar','bordó','negro','transparente','multicolor'],
+  estilo:   ['romántico','clásico','vintage','moderno','campestre','boho'],
+  material: ['cerámica','porcelana','cristal','vidrio','vidrio de color','plata','fibra natural'],
+  uso:      ['playo','postre','bajoplato','mix & match','copa de agua','copa de vino','trago']
+};
+var TAGS_LABEL = { color:'Color', estilo:'Estilo', material:'Material', uso:'Tipo' };
+function facetDeTag(t){ for (var k in TAGS){ if (TAGS[k].indexOf(t) >= 0) return k; } return 'otros'; }

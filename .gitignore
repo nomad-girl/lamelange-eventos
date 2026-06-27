@@ -1,12 +1,6 @@
-# Sistema
+# Fotos de origen / trabajo (pesadas, no van al sitio)
+assets/_test/
+assets/copas/
+assets/Platos centiales/
+*.log
 .DS_Store
-
-# Herramientas internas — NO se publican en el sitio
-planilla-stock.csv
-planilla.html
-HANDOFF.md
-ROADMAP.md
-
-# Notas guía dentro de assets (uso interno)
-_LEEME-como-subir-fotos.txt
-_que-va-aca.txt

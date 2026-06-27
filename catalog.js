@@ -9,7 +9,7 @@
      initCatalogo({ filtros:'idA', filtrosTipo:'idB', grid:'idC', startCat:'platos' })
    ============================================================ */
 (function () {
-  var current = 'todas', tipo = 'todos';
+  var current = 'todas', tipo = 'todos', activeTags = [];
   var els = {};
 
   function isMix(p){ return /mix & match/i.test(p.material); }
@@ -51,9 +51,69 @@
     });
   }
 
+  /* ---- Filtros por TAG (facetas: color / estilo / material / uso) ----
+     OR dentro de una faceta, AND entre facetas. Solo muestra tags que existen
+     en algún producto. */
+  function tagsPresentes(){
+    var set = {};
+    PRODUCTOS.forEach(function(p){ (p.tags || []).forEach(function(t){ set[t] = true; }); });
+    return set;
+  }
+  function matchesTags(p){
+    if (!activeTags.length) return true;
+    var byFacet = {};
+    activeTags.forEach(function(t){ var f = facetDeTag(t); (byFacet[f] = byFacet[f] || []).push(t); });
+    var ptags = p.tags || [];
+    for (var f in byFacet){
+      var ok = byFacet[f].some(function(t){ return ptags.indexOf(t) >= 0; });
+      if (!ok) return false;
+    }
+    return true;
+  }
+  function renderFiltrosTags(){
+    var f = els.filtrosTags; if (!f) return;
+    var present = tagsPresentes(), html = '';
+    Object.keys(TAGS).forEach(function(facet){
+      var tags = TAGS[facet].filter(function(t){ return present[t]; });
+      if (!tags.length) return;
+      html += '<div class="tagfacet"><span class="tagfacet__label">' + (TAGS_LABEL[facet] || facet) + '</span>'
+        + tags.map(function(t){
+            return '<button class="tagchip' + (activeTags.indexOf(t) >= 0 ? ' is-on' : '') + '" data-tag="' + t + '">' + t + '</button>';
+          }).join('')
+        + '</div>';
+    });
+    f.innerHTML = html;
+    f.querySelectorAll('.tagchip').forEach(function(b){
+      b.addEventListener('click', function(){
+        var t = b.getAttribute('data-tag'), i = activeTags.indexOf(t);
+        if (i >= 0) activeTags.splice(i, 1); else activeTags.push(t);
+        renderFiltrosTags(); renderGrid();
+      });
+    });
+    updateFilterCount();
+  }
+  function updateFilterCount(){
+    if (!els.filtrosCount) return;
+    if (activeTags.length){ els.filtrosCount.textContent = activeTags.length; els.filtrosCount.hidden = false; }
+    else { els.filtrosCount.hidden = true; }
+  }
+  function setupDrawer(){
+    if (!els.drawer || els.drawer._wired) return;
+    els.drawer._wired = true;
+    function open(){ els.drawer.hidden = false; requestAnimationFrame(function(){ els.drawer.classList.add('is-open'); }); document.body.style.overflow = 'hidden'; }
+    function close(){ els.drawer.classList.remove('is-open'); document.body.style.overflow = ''; setTimeout(function(){ els.drawer.hidden = true; }, 280); }
+    if (els.filtrosBtn) els.filtrosBtn.addEventListener('click', open);
+    els.drawer.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', close); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !els.drawer.hidden) close(); });
+    var limp = document.getElementById('catFiltrosLimpiar');
+    if (limp) limp.addEventListener('click', function(){ activeTags = []; renderFiltrosTags(); renderGrid(); });
+  }
+
   function renderGrid(){
     var grid = els.grid; if (!grid) return;
-    var list = PRODUCTOS.filter(function(p){ return (current === 'todas' || p.coleccion === current) && hasTipo(p); });
+    var list = PRODUCTOS.filter(function(p){
+      return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p);
+    });
     grid.innerHTML = list.map(function(p){
       var fotos = p.fotos || [];
       var mixBadge = isMix(p) ? '<span class="mix-badge">Mix &amp; match</span>' : '';
@@ -74,7 +134,7 @@
       var stk;
       if (piezasShow.length === 1 && !piezasShow[0].t) stk = '<span class="badge"><i></i>Disponibles: ' + piezasShow[0].s + '</span>';
       else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
-      return '<div class="product">' + media
+      return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
         + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
@@ -121,20 +181,33 @@
       var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
       return;
     }
-    var card = e.target.closest ? e.target.closest('.has-gal') : null;
-    if (card) galOpen(+card.getAttribute('data-pi'), +card.getAttribute('data-idx') || 0);
+    var prod = e.target.closest ? e.target.closest('.product--link') : null;
+    if (prod){
+      var pid = prod.getAttribute('data-id');
+      if (pid) window.location.href = 'producto.html?id=' + encodeURIComponent(pid);
+    }
   }
 
   window.initCatalogo = function(opts){
     opts = opts || {};
     els.filtros = document.getElementById(opts.filtros || 'catFilters');
     els.filtrosTipo = document.getElementById(opts.filtrosTipo || 'catFiltrosTipo');
+    els.filtrosTags = document.getElementById(opts.filtrosTags || 'catFiltrosTags');
+    els.filtrosBtn = document.getElementById(opts.filtrosBtn || 'catFiltrosBtn');
+    els.drawer = document.getElementById(opts.drawer || 'catDrawer');
+    els.filtrosCount = document.getElementById(opts.filtrosCount || 'catFiltrosCount');
     els.grid = document.getElementById(opts.grid || 'catGrid');
     if (!els.grid) return;
     current = opts.startCat || 'todas';
+    try {
+      var t = new URLSearchParams(location.search).get('tag');
+      if (t) activeTags = [t];
+    } catch(e) {}
     buildLightbox();
     renderFiltros();
     renderFiltrosTipo();
+    renderFiltrosTags();
+    setupDrawer();
     renderGrid();
     els.grid.addEventListener('click', gridClick);
   };

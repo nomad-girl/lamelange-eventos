@@ -288,8 +288,18 @@
     function drawPlate(L){
       var o=find(L.key); var el=document.getElementById(L.el);
       el.style.width=L.size+'px'; el.style.height=L.size+'px';
-      el.style.background=o.color; el.style.borderColor=o.rim;
-      el.style.borderWidth=(L.key==='postre'?3:5)+'px';
+      if(o.foto){
+        el.style.border='none'; el.style.borderRadius='0'; el.style.background='transparent';
+        el.style.backgroundImage="url('"+o.foto+"')";
+        el.style.backgroundSize='contain'; el.style.backgroundPosition='center';
+        el.style.backgroundRepeat='no-repeat';
+        el.style.filter='drop-shadow(0 10px 12px rgba(60,50,45,.20))';
+      } else {
+        el.style.backgroundImage='none'; el.style.filter='none';
+        el.style.borderRadius='50%'; el.style.borderStyle='solid';
+        el.style.background=o.color; el.style.borderColor=o.rim;
+        el.style.borderWidth=(L.key==='postre'?3:5)+'px';
+      }
     }
     function renderControls(){
       var c=document.getElementById('bControls');
