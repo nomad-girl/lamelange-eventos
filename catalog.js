@@ -40,13 +40,14 @@
 
   function renderFiltrosTipo(){
     var f = els.filtrosTipo; if (!f) return;
-    var opts = [['todos','Todos'], ['playo','Playos'], ['postre','Postre / entrada'], ['mix','Mix & match']];
-    f.innerHTML = opts.map(function(o){ return '<button class="filter'+(o[0]==='todos'?' is-active':'')+'" data-tipo="'+o[0]+'">'+o[1]+'</button>'; }).join('');
+    /* Chips rápidos (sin "Todos"): se togglean. Si ninguno está activo, muestra todo. */
+    var opts = [['playo','Principales'], ['postre','Postre'], ['mix','Mix & match']];
+    f.innerHTML = opts.map(function(o){ return '<button class="filter'+(tipo===o[0]?' is-active':'')+'" data-tipo="'+o[0]+'">'+o[1]+'</button>'; }).join('');
     f.querySelectorAll('.filter').forEach(function(b){
       b.addEventListener('click', function(){
-        tipo = b.getAttribute('data-tipo');
-        f.querySelectorAll('.filter').forEach(function(x){ x.classList.remove('is-active'); });
-        b.classList.add('is-active'); renderGrid();
+        var v = b.getAttribute('data-tipo');
+        tipo = (tipo === v) ? 'todos' : v;   // toggle on/off
+        renderFiltrosTipo(); renderGrid();
       });
     });
   }
