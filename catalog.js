@@ -137,7 +137,9 @@
       else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
       return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
-        + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
+        + '<div class="product__meta">'+p.material+'</div>' + stk
+        + '<button class="card-add" type="button" data-add="'+productoId(p)+'">+ Agregar a solicitud</button>'
+        + '</div></div>';
     }).join('');
   }
 
@@ -170,6 +172,13 @@
   function galStep(d){ galIdx = (galIdx + d + galFotos.length) % galFotos.length; galShow(); }
 
   function gridClick(e){
+    var addBtn = e.target.closest ? e.target.closest('.card-add') : null;
+    if (addBtn){
+      e.stopPropagation(); e.preventDefault();
+      if (window.Cart) Cart.add(addBtn.getAttribute('data-add'), 1);
+      if (window.cartFeedback) cartFeedback(addBtn, '✓ Agregado');
+      return;
+    }
     var nav = e.target.closest ? e.target.closest('.gnav') : null;
     if (nav){
       e.stopPropagation();

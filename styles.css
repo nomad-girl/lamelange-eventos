@@ -422,3 +422,63 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .drawer .tagfacet__label { width: auto; flex: none; text-align: left; }
 
 .filters-btn__count[hidden] { display: none; }
+
+/* ============================================================
+   Carrito "Solicitud de presupuesto"
+   ============================================================ */
+/* enlace + badge en el nav */
+.nav__cart { position: relative; display: inline-flex; align-items: center; gap: 7px; }
+.nav__cart-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 100px; background: var(--accent); color: #fff; font-size: .66rem; font-family: var(--sans); }
+
+/* botón "+ Agregar a solicitud" en tarjetas del catálogo */
+.card-add { width: 100%; margin-top: 14px; padding: 9px 10px; font-family: var(--sans); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: var(--bg); border: 1px solid var(--line); cursor: pointer; transition: all .2s; }
+.card-add:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.card-add.is-added { background: #3B6D2E; border-color: #3B6D2E; color: #fff; }
+
+/* acciones en la página de producto */
+.pdp-actions { display: flex; gap: 12px; align-items: stretch; margin-bottom: 12px; }
+.pdp-qty { display: inline-flex; align-items: center; border: 1px solid var(--line); }
+.pdp-qty button { width: 38px; border: 0; background: var(--bg); font-size: 1.1rem; cursor: pointer; color: var(--ink); }
+.pdp-qty button:hover { background: var(--bg-2); }
+.pdp-qty input { width: 46px; text-align: center; border: 0; border-left: 1px solid var(--line); border-right: 1px solid var(--line); font-family: var(--sans); font-size: .95rem; -moz-appearance: textfield; }
+.pdp-qty input::-webkit-outer-spin-button, .pdp-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.pdp-cta { flex: 1; }
+.pdp-cta.is-added { background: #3B6D2E; border-color: #3B6D2E; }
+.pdp-wa { display: inline-block; font-family: var(--sans); font-size: .8rem; color: var(--muted); text-decoration: none; }
+.pdp-wa:hover { color: var(--ink); text-decoration: underline; }
+
+/* página Mi solicitud */
+.sol { padding: 44px 20px 80px; }
+.sol__title { font-family: var(--serif); font-size: 2.4rem; }
+.sol__grid { display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; }
+.sol__item { display: grid; grid-template-columns: 84px 1fr auto auto; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.sol__thumb { width: 84px; height: 84px; background: var(--bg-3) center/cover no-repeat; border: 1px solid var(--line); }
+.sol__name { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+.sol__name:hover { text-decoration: underline; }
+.sol__meta { font-family: var(--sans); font-size: .72rem; letter-spacing: .04em; color: var(--muted); margin: 3px 0; }
+.sol__pieces { font-family: var(--sans); font-size: .76rem; color: var(--muted); }
+.sol__qty { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.sol__qty label { font-family: var(--sans); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.sol__qty input { width: 58px; text-align: center; padding: 7px; border: 1px solid var(--line); font-family: var(--sans); }
+.sol__remove { width: 34px; height: 34px; border: 0; background: none; font-size: 1.5rem; color: var(--muted); cursor: pointer; line-height: 1; }
+.sol__remove:hover { color: #b5483f; }
+.sol__empty { text-align: center; padding: 60px 20px; }
+.sol__empty p { color: var(--muted); margin-bottom: 20px; }
+
+.sol__form-wrap { position: sticky; top: 90px; }
+.sol__form { background: var(--bg-2); border: 1px solid var(--line); padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; }
+.sol__form h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 4px; }
+.sol__form label { display: flex; flex-direction: column; gap: 5px; font-family: var(--sans); font-size: .74rem; letter-spacing: .04em; color: var(--muted); }
+.sol__form input, .sol__form textarea { font-family: var(--sans); font-size: .95rem; color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); background: var(--bg); }
+.sol__form input:focus, .sol__form textarea:focus { outline: none; border-color: var(--accent); }
+.sol__form .btn { margin-top: 6px; text-align: center; padding: 13px; }
+.sol__hint { font-family: var(--sans); font-size: .72rem; color: var(--muted); text-align: center; line-height: 1.5; }
+
+@media (max-width: 820px){
+  .sol__grid { grid-template-columns: 1fr; gap: 28px; }
+  .sol__form-wrap { position: static; }
+  .sol__item { grid-template-columns: 64px 1fr auto; grid-template-areas: "t i r" "t q q"; }
+  .sol__thumb { grid-area: t; width: 64px; height: 64px; }
+  .sol__remove { grid-area: r; }
+  .sol__qty { grid-area: q; flex-direction: row; justify-content: flex-start; margin-top: 6px; }
+}
