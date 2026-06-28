@@ -1,8 +1,8 @@
 /* ============================================================
    Carrito de "Solicitud de presupuesto" — La Mélange
    Sin backend: guarda la selección en localStorage del navegador.
-   Expone window.Cart y mantiene el contador del nav actualizado.
-   Cargar en todas las páginas (después de data.js).
+   Cada item guarda cantidades POR PIEZA (ej: Playo x30, Postre x20).
+   Item = { id, lineas: [ {t, qty}, ... ] }
    ============================================================ */
 (function () {
   var KEY = 'lm_solicitud';
@@ -19,19 +19,34 @@
   var Cart = {
     items: read,
     distinct: function () { return read().length; },
-    count: function () { return read().reduce(function (n, i) { return n + (i.qty || 1); }, 0); },
-    add: function (id, qty) {
-      qty = parseInt(qty, 10) || 1;
+    count: function () {
+      return read().reduce(function (n, it) {
+        return n + (it.lineas || []).reduce(function (m, l) { return m + (l.qty || 0); }, 0);
+      }, 0);
+    },
+    /* lineas: array de {t, qty}. Suma a lo existente. Devuelve true si agregó algo. */
+    add: function (id, lineas) {
+      lineas = (lineas || []).filter(function (l) { return l.qty > 0; });
+      if (!lineas.length) return false;
       var it = read(), found = null;
       for (var i = 0; i < it.length; i++) if (it[i].id === id) found = it[i];
-      if (found) found.qty += qty; else it.push({ id: id, qty: qty });
+      if (!found) { found = { id: id, lineas: [] }; it.push(found); }
+      lineas.forEach(function (l) {
+        var ex = null;
+        for (var j = 0; j < found.lineas.length; j++) if (found.lineas[j].t === l.t) ex = found.lineas[j];
+        if (ex) ex.qty += l.qty; else found.lineas.push({ t: l.t, qty: l.qty });
+      });
       write(it);
+      return true;
     },
-    setQty: function (id, qty) {
+    setLinea: function (id, t, qty) {
       qty = parseInt(qty, 10) || 0;
-      var it = read().map(function (x) { return x.id === id ? { id: id, qty: qty } : x; })
-                     .filter(function (x) { return x.qty > 0; });
-      write(it);
+      var it = read();
+      for (var i = 0; i < it.length; i++) if (it[i].id === id) {
+        it[i].lineas = it[i].lineas.map(function (l) { return l.t === t ? { t: t, qty: qty } : l; })
+                                   .filter(function (l) { return l.qty > 0; });
+      }
+      write(it.filter(function (x) { return x.lineas.length; }));
     },
     remove: function (id) { write(read().filter(function (x) { return x.id !== id; })); },
     clear: function () { write([]); }
@@ -47,7 +62,6 @@
     }
   }
 
-  /* Inyecta el enlace "Mi solicitud (N)" en el nav de cualquier página */
   function injectNavLink() {
     var nav = document.getElementById('navLinks');
     if (!nav || document.getElementById('navCart')) return;
@@ -55,18 +69,19 @@
     a.href = 'solicitud.html';
     a.id = 'navCart';
     a.className = 'nav__cart';
-    a.innerHTML = 'Mi solicitud <span class="nav__cart-badge" data-cart-count></span>';
+    a.setAttribute('aria-label', 'Mi solicitud');
+    a.innerHTML = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="nav__cart-badge" data-cart-count></span>';
     var cta = nav.querySelector('.nav__cta');
     if (cta) nav.insertBefore(a, cta); else nav.appendChild(a);
   }
 
-  /* Feedback breve al agregar */
   window.cartFeedback = function (btn, txt) {
     if (!btn) return;
-    var old = btn.textContent;
+    var old = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', old);
     btn.textContent = txt || '✓ Agregado';
     btn.classList.add('is-added');
-    setTimeout(function () { btn.textContent = old; btn.classList.remove('is-added'); }, 1400);
+    setTimeout(function () { btn.textContent = old; btn.classList.remove('is-added'); }, 1500);
   };
 
   document.addEventListener('DOMContentLoaded', function () {

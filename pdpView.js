@@ -1,0 +1,118 @@
+/* ============================================================
+   pdpView — render compartido del detalle de producto.
+   Lo usan: el modal "vista rápida" (catalog.js) y producto.html.
+   Requiere data.js (PRODUCTOS, COLECCIONES, ICONS, buscarProducto,
+   productoId, WSP) y cart.js (Cart, cartFeedback).
+
+   window.renderPDP(p, mountEl, { onNavigate })
+     - onNavigate(id): si se pasa, los "combiná con" llaman a esto
+       (modal) en vez de navegar de página.
+   ============================================================ */
+(function () {
+  function waLink(txt) {
+    var num = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
+    return 'https://wa.me/' + num + '?text=' + encodeURIComponent(txt);
+  }
+  function esc(s) { return String(s).replace(/"/g, '&quot;'); }
+
+  function piezasAddUI(p) {
+    var pz = p.piezas || [], rows;
+    if (pz.length === 1 && !pz[0].t) {
+      rows = '<div class="qadd-row"><span class="qadd-lbl">Cantidad <small>stock ' + pz[0].s + '</small></span>'
+           + '<input class="qadd-qty" type="number" min="0" value="0" data-t="Unidad"></div>';
+    } else {
+      rows = pz.map(function (q) {
+        return '<div class="qadd-row"><span class="qadd-lbl">' + q.t + ' <small>stock ' + q.s + '</small></span>'
+             + '<input class="qadd-qty" type="number" min="0" value="0" data-t="' + esc(q.t) + '"></div>';
+      }).join('');
+    }
+    return '<div class="qadd"><div class="qadd-title">Agregar a mi solicitud</div>' + rows
+         + '<button class="btn btn--solid qadd-btn" type="button">Agregar a mi solicitud</button></div>';
+  }
+
+  window.renderPDP = function (p, mount, opts) {
+    opts = opts || {};
+    var col = (COLECCIONES.filter(function (c) { return c.id === p.coleccion; })[0] || {}).nombre || '';
+    var fotos = p.fotos || [];
+    var pid = p.id || productoId(p);
+
+    var thumbs = fotos.map(function (f, i) {
+      return '<button class="pdp-thumb' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" style="background-image:url(' + f + ')"></button>';
+    }).join('');
+    var gallery = fotos.length
+      ? '<div class="pdp-gallery"><div class="pdp-main" data-main style="background-image:url(' + fotos[0] + ')">'
+        + (fotos.length > 1 ? '<button class="gnav gprev" data-prev>‹</button><button class="gnav gnext" data-next>›</button>' : '')
+        + '</div>' + (fotos.length > 1 ? '<div class="pdp-thumbs">' + thumbs + '</div>' : '') + '</div>'
+      : '<div class="pdp-gallery"><div class="pdp-main pdp-main--empty">' + (ICONS[p.icon] || '') + '</div></div>';
+
+    var ficha = '<dl class="pdp-spec">'
+      + (p.material ? '<div><dt>Material</dt><dd>' + p.material + '</dd></div>' : '')
+      + (p.medidas ? '<div><dt>Medidas</dt><dd>' + p.medidas + '</dd></div>' : '')
+      + (p.codigo ? '<div><dt>Código</dt><dd>' + p.codigo + '</dd></div>' : '')
+      + '</dl>';
+    var tags = (p.tags && p.tags.length)
+      ? '<div class="pdp-tags">' + p.tags.map(function (t) {
+          return '<a class="tag-chip" href="catalogo.html?tag=' + encodeURIComponent(t) + '">' + t + '</a>';
+        }).join('') + '</div>' : '';
+
+    var comboCards = (p.combinaCon || []).map(function (cid) {
+      var c = buscarProducto(cid); if (!c) return '';
+      var f = (c.fotos && c.fotos[0]) || '';
+      return '<a class="combo-card" data-nav="' + productoId(c) + '" href="producto.html?id=' + productoId(c) + '">'
+        + '<div class="combo-card__img" ' + (f ? 'style="background-image:url(' + f + ')"' : '') + '>' + (f ? '' : (ICONS[c.icon] || '')) + '</div>'
+        + '<div class="combo-card__name">' + c.nombre + '</div></a>';
+    }).join('');
+    var combina = comboCards
+      ? '<section class="pdp-combina"><h3 class="pdp-combina__title">✨ Combiná con</h3><div class="combo-row">' + comboCards + '</div></section>' : '';
+
+    var wsp = 'Hola La Mélange! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
+
+    mount.innerHTML =
+      '<div class="pdp-top">' + gallery
+        + '<div class="pdp-info">'
+          + '<span class="eyebrow">' + col + '</span>'
+          + '<h1 class="pdp-name">' + p.nombre + '</h1>'
+          + tags + ficha
+          + (p.descripcion ? '<p class="pdp-desc">' + p.descripcion + '</p>' : '')
+          + piezasAddUI(p)
+          + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá directo por WhatsApp →</a>'
+        + '</div>'
+      + '</div>' + combina;
+
+    /* galería */
+    var main = mount.querySelector('[data-main]');
+    if (fotos.length > 1) {
+      var idx = 0;
+      var show = function (i) {
+        idx = (i + fotos.length) % fotos.length;
+        main.style.backgroundImage = 'url(' + fotos[idx] + ')';
+        var ts = mount.querySelectorAll('.pdp-thumb');
+        for (var k = 0; k < ts.length; k++) ts[k].classList.toggle('on', k === idx);
+      };
+      mount.querySelector('[data-prev]').addEventListener('click', function () { show(idx - 1); });
+      mount.querySelector('[data-next]').addEventListener('click', function () { show(idx + 1); });
+      mount.querySelectorAll('.pdp-thumb').forEach(function (b) {
+        b.addEventListener('click', function () { show(+b.getAttribute('data-i')); });
+      });
+    }
+
+    /* agregar a solicitud (por pieza) */
+    var addBtn = mount.querySelector('.qadd-btn');
+    addBtn.addEventListener('click', function () {
+      var lineas = [].map.call(mount.querySelectorAll('.qadd-qty'), function (inp) {
+        return { t: inp.getAttribute('data-t'), qty: parseInt(inp.value, 10) || 0 };
+      }).filter(function (l) { return l.qty > 0; });
+      if (!lineas.length) { cartFeedback(addBtn, 'Elegí una cantidad'); return; }
+      Cart.add(pid, lineas);
+      cartFeedback(addBtn, '✓ Agregado a tu solicitud');
+      mount.querySelectorAll('.qadd-qty').forEach(function (i) { i.value = 0; });
+    });
+
+    /* combiná con: en modal navega adentro; en página deja el <a> normal */
+    if (opts.onNavigate) {
+      mount.querySelectorAll('.combo-card').forEach(function (a) {
+        a.addEventListener('click', function (e) { e.preventDefault(); opts.onNavigate(a.getAttribute('data-nav')); });
+      });
+    }
+  };
+})();

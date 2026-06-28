@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
 
@@ -41,130 +41,34 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.5l.9 1.4c.6.9 1.3 1.2 1.6 1.4.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.3.1.6-.1 1z"/></svg>
   </a>
 
-  <script src="data.js?v=9"></script>
-  <script src="analytics.js?v=9"></script>
-  <script src="cart.js?v=9"></script>
+  <script src="data.js?v=10"></script>
+  <script src="analytics.js?v=10"></script>
+  <script src="cart.js?v=10"></script>
+  <script src="pdpView.js?v=10"></script>
   <script>
-  (function(){
-    function qs(k){ return new URLSearchParams(location.search).get(k); }
-    function waLink(txt){ return 'https://wa.me/' + WSP + '?text=' + encodeURIComponent(txt); }
-    var id = qs('id');
+  (function () {
+    var id = new URLSearchParams(location.search).get('id');
     var p = id ? buscarProducto(id) : null;
     var root = document.getElementById('pdp');
 
-    if (!p){
+    if (!p) {
       root.innerHTML = '<div class="pdp-empty"><h2>Producto no encontrado</h2><p>Puede que el enlace esté viejo.</p><a class="btn btn--solid" href="catalogo.html">Ir al catálogo</a></div>';
     } else {
       document.title = p.nombre + ' · La Mélange';
-      var col = (COLECCIONES.filter(function(c){ return c.id === p.coleccion; })[0] || {}).nombre || '';
-      var fotos = p.fotos || [];
-
-      /* ---- galería ---- */
-      var thumbs = fotos.map(function(f, i){
-        return '<button class="pdp-thumb'+(i===0?' on':'')+'" data-i="'+i+'" style="background-image:url('+f+')"></button>';
-      }).join('');
-      var gallery = fotos.length
-        ? '<div class="pdp-gallery">'
-            + '<div class="pdp-main" id="pdpMain" style="background-image:url('+fotos[0]+')">'
-              + (fotos.length>1 ? '<button class="gnav gprev" id="pdpPrev">‹</button><button class="gnav gnext" id="pdpNext">›</button>' : '')
-            + '</div>'
-            + (fotos.length>1 ? '<div class="pdp-thumbs">'+thumbs+'</div>' : '')
-          + '</div>'
-        : '<div class="pdp-gallery"><div class="pdp-main pdp-main--empty">'+(ICONS[p.icon]||'')+'</div></div>';
-
-      /* ---- stock por pieza ---- */
-      var stockHtml;
-      if (p.piezas && p.piezas.length === 1 && !p.piezas[0].t){
-        stockHtml = '<div class="pdp-stock"><div class="pdp-stock__row"><span>Disponibles</span><b>'+p.piezas[0].s+'</b></div></div>';
-      } else {
-        stockHtml = '<div class="pdp-stock">'+ (p.piezas||[]).map(function(q){
-          return '<div class="pdp-stock__row"><span>'+q.t+'</span><b>'+q.s+'</b></div>';
-        }).join('') + '</div>';
-      }
-
-      /* ---- ficha técnica ---- */
-      var ficha = '<dl class="pdp-spec">'
-        + (p.material ? '<div><dt>Material</dt><dd>'+p.material+'</dd></div>' : '')
-        + (p.medidas ? '<div><dt>Medidas</dt><dd>'+p.medidas+'</dd></div>' : '')
-        + (p.codigo ? '<div><dt>Código</dt><dd>'+p.codigo+'</dd></div>' : '')
-        + '</dl>';
-
-      /* ---- tags ---- */
-      var tags = (p.tags && p.tags.length)
-        ? '<div class="pdp-tags">'+ p.tags.map(function(t){
-            return '<a class="tag-chip" href="catalogo.html?tag='+encodeURIComponent(t)+'">'+t+'</a>';
-          }).join('') +'</div>'
-        : '';
-
-      /* ---- combiná con ---- */
-      var comboCards = (p.combinaCon||[]).map(function(cid){
-        var c = buscarProducto(cid); if (!c) return '';
-        var f = (c.fotos && c.fotos[0]) || '';
-        var media = f ? 'style="background-image:url('+f+')"' : '';
-        return '<a class="combo-card" href="producto.html?id='+productoId(c)+'">'
-          + '<div class="combo-card__img" '+media+'>'+(f?'':(ICONS[c.icon]||''))+'</div>'
-          + '<div class="combo-card__name">'+c.nombre+'</div></a>';
-      }).join('');
-      var combina = comboCards
-        ? '<section class="pdp-combina"><h3 class="pdp-combina__title">✨ Combiná con</h3><div class="combo-row">'+comboCards+'</div></section>'
-        : '';
-
-      var wsp = 'Hola La Mélange! Me interesa el modelo "'+p.nombre+'"'+(p.codigo?(' ('+p.codigo+')'):'')+'. ¿Disponibilidad y precio?';
-
-      root.innerHTML =
-        '<nav class="pdp-crumbs"><a href="catalogo.html">Catálogo</a> › <a href="catalogo.html#'+p.coleccion+'">'+col+'</a> › <span>'+p.nombre+'</span></nav>'
-        + '<div class="pdp-top">'
-          + gallery
-          + '<div class="pdp-info">'
-            + '<span class="eyebrow">'+col+'</span>'
-            + '<h1 class="pdp-name">'+p.nombre+'</h1>'
-            + tags
-            + ficha
-            + '<div class="pdp-stock-wrap"><span class="pdp-stock__label">Stock disponible</span>'+stockHtml+'</div>'
-            + (p.descripcion ? '<p class="pdp-desc">'+p.descripcion+'</p>' : '')
-            + '<div class="pdp-actions">'
-              + '<div class="pdp-qty"><button type="button" data-step="-1" aria-label="Menos">−</button><input id="pdpQty" type="number" min="1" value="1"><button type="button" data-step="1" aria-label="Más">+</button></div>'
-              + '<button class="btn btn--solid pdp-cta" id="pdpAdd">Agregar a mi solicitud</button>'
-            + '</div>'
-            + '<a class="pdp-wa" href="'+waLink(wsp)+'">o consultá directo por WhatsApp →</a>'
-          + '</div>'
-        + '</div>'
-        + combina;
-
-      /* ---- interacción galería ---- */
-      if (fotos.length > 1){
-        var main = document.getElementById('pdpMain'), idx = 0;
-        function show(i){
-          idx = (i + fotos.length) % fotos.length;
-          main.style.backgroundImage = 'url('+fotos[idx]+')';
-          var ts = root.querySelectorAll('.pdp-thumb');
-          for (var k=0;k<ts.length;k++) ts[k].classList.toggle('on', k===idx);
-        }
-        document.getElementById('pdpPrev').addEventListener('click', function(){ show(idx-1); });
-        document.getElementById('pdpNext').addEventListener('click', function(){ show(idx+1); });
-        root.querySelectorAll('.pdp-thumb').forEach(function(b){
-          b.addEventListener('click', function(){ show(+b.getAttribute('data-i')); });
-        });
-      }
-      document.getElementById('waFloat').href = waLink('Hola La Mélange!');
-
-      /* ---- Agregar a mi solicitud ---- */
-      var addBtn = document.getElementById('pdpAdd'), qtyEl = document.getElementById('pdpQty');
-      if (addBtn && qtyEl) {
-        root.querySelectorAll('.pdp-qty [data-step]').forEach(function (b) {
-          b.addEventListener('click', function () {
-            qtyEl.value = Math.max(1, (parseInt(qtyEl.value, 10) || 1) + parseInt(b.getAttribute('data-step'), 10));
-          });
-        });
-        addBtn.addEventListener('click', function () {
-          Cart.add(id, qtyEl.value);
-          if (window.cartFeedback) cartFeedback(addBtn, '✓ Agregado a tu solicitud');
-        });
-      }
+      var col = (COLECCIONES.filter(function (c) { return c.id === p.coleccion; })[0] || {}).nombre || '';
+      var crumbs = document.createElement('nav');
+      crumbs.className = 'pdp-crumbs';
+      crumbs.innerHTML = '<a href="catalogo.html">Catálogo</a> › <a href="catalogo.html#' + p.coleccion + '">' + col + '</a> › <span>' + p.nombre + '</span>';
+      root.appendChild(crumbs);
+      var body = document.createElement('div');
+      root.appendChild(body);
+      renderPDP(p, body); /* sin onNavigate: "combiná con" navega de página */
     }
 
+    var waF = document.getElementById('waFloat');
+    if (waF) waF.href = 'https://wa.me/' + (typeof WSP !== 'undefined' ? WSP : '5491167199527') + '?text=' + encodeURIComponent('Hola La Mélange!');
     var t = document.getElementById('navToggle');
-    if (t) t.addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+    if (t) t.addEventListener('click', function () { document.getElementById('navLinks').classList.toggle('open'); });
   })();
   </script>
 </body>

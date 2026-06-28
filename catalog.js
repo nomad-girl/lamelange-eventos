@@ -137,9 +137,7 @@
       else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
       return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
-        + '<div class="product__meta">'+p.material+'</div>' + stk
-        + '<button class="card-add" type="button" data-add="'+productoId(p)+'">+ Agregar a solicitud</button>'
-        + '</div></div>';
+        + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
   }
 
@@ -171,14 +169,35 @@
   function galClose(){ lb.hidden = true; lbImg.src = ''; }
   function galStep(d){ galIdx = (galIdx + d + galFotos.length) % galFotos.length; galShow(); }
 
+  /* ---------- Vista rápida (modal) ---------- */
+  var qv, qvBody;
+  function buildQuickView(){
+    if (qv) return;
+    qv = document.createElement('div'); qv.className = 'qv'; qv.hidden = true;
+    qv.innerHTML = '<div class="qv__backdrop" data-qv-close></div>'
+      + '<div class="qv__panel"><button class="qv__close" data-qv-close aria-label="Cerrar">×</button>'
+      + '<div class="qv__body" id="qvBody"></div></div>';
+    document.body.appendChild(qv);
+    qvBody = qv.querySelector('#qvBody');
+    qv.querySelectorAll('[data-qv-close]').forEach(function(b){ b.addEventListener('click', closeQuickView); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !qv.hidden) closeQuickView(); });
+  }
+  function openQuickView(id){
+    var p = buscarProducto(id);
+    if (!p || typeof window.renderPDP !== 'function'){ window.location.href = 'producto.html?id=' + encodeURIComponent(id); return; }
+    buildQuickView();
+    renderPDP(p, qvBody, { onNavigate: openQuickView });
+    qv.hidden = false; qvBody.scrollTop = 0;
+    requestAnimationFrame(function(){ qv.classList.add('is-open'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuickView(){
+    if (!qv) return;
+    qv.classList.remove('is-open'); document.body.style.overflow = '';
+    setTimeout(function(){ qv.hidden = true; qvBody.innerHTML = ''; }, 260);
+  }
+
   function gridClick(e){
-    var addBtn = e.target.closest ? e.target.closest('.card-add') : null;
-    if (addBtn){
-      e.stopPropagation(); e.preventDefault();
-      if (window.Cart) Cart.add(addBtn.getAttribute('data-add'), 1);
-      if (window.cartFeedback) cartFeedback(addBtn, '✓ Agregado');
-      return;
-    }
     var nav = e.target.closest ? e.target.closest('.gnav') : null;
     if (nav){
       e.stopPropagation();
@@ -194,7 +213,7 @@
     var prod = e.target.closest ? e.target.closest('.product--link') : null;
     if (prod){
       var pid = prod.getAttribute('data-id');
-      if (pid) window.location.href = 'producto.html?id=' + encodeURIComponent(pid);
+      if (pid) openQuickView(pid);
     }
   }
 
