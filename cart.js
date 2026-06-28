@@ -7,8 +7,16 @@
 (function () {
   var KEY = 'lm_solicitud';
 
+  /* Normaliza items viejos { id, qty } -> { id, lineas:[{t:'Unidad', qty}] } */
+  function normalize(arr) {
+    return (arr || []).map(function (x) {
+      if (x && x.lineas) return x;
+      if (x && typeof x.qty !== 'undefined') return { id: x.id, lineas: [{ t: 'Unidad', qty: x.qty }] };
+      return { id: x && x.id, lineas: [] };
+    }).filter(function (x) { return x.lineas.length; });
+  }
   function read() {
-    try { return JSON.parse(localStorage.getItem(KEY)) || []; }
+    try { return normalize(JSON.parse(localStorage.getItem(KEY)) || []); }
     catch (e) { return []; }
   }
   function write(items) {
@@ -85,7 +93,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
+    write(read());   // persiste la migración del formato viejo y refresca el badge
     injectNavLink();
-    updateBadges();
   });
 })();

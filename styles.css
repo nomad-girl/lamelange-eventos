@@ -528,3 +528,7 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
   .qv__body { padding: 26px 18px 30px; }
   .qv__body .pdp-name { font-size: 1.7rem; }
 }
+
+/* aviso "elegí una cantidad" */
+.qadd--error { border-color: #c0564d; box-shadow: 0 0 0 3px rgba(192,86,77,.12); transition: box-shadow .2s, border-color .2s; }
+.qadd--error .qadd-qty { border-color: #c0564d; }

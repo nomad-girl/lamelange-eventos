@@ -102,7 +102,13 @@
       var lineas = [].map.call(mount.querySelectorAll('.qadd-qty'), function (inp) {
         return { t: inp.getAttribute('data-t'), qty: parseInt(inp.value, 10) || 0 };
       }).filter(function (l) { return l.qty > 0; });
-      if (!lineas.length) { cartFeedback(addBtn, 'Elegí una cantidad'); return; }
+      if (!lineas.length) {
+        var box = mount.querySelector('.qadd');
+        if (box) { box.classList.add('qadd--error'); setTimeout(function () { box.classList.remove('qadd--error'); }, 1600); }
+        var first = mount.querySelector('.qadd-qty'); if (first) first.focus();
+        cartFeedback(addBtn, '↑ Elegí una cantidad');
+        return;
+      }
       Cart.add(pid, lineas);
       cartFeedback(addBtn, '✓ Agregado a tu solicitud');
       mount.querySelectorAll('.qadd-qty').forEach(function (i) { i.value = 0; });
