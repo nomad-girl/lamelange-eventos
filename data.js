@@ -125,26 +125,25 @@ var MESAS = [
    hasta tener las fotos cenitales recortadas (campo `foto`). */
 /* PRUEBA: campo `foto` con PNG reales recortados (assets/Platos centiales/pngs).
    Los nombres/stock son todavía provisorios — esto es solo para ver el armador con fotos. */
-var PNG = 'assets/Platos%20centiales/pngs/';
+/* Constructor: recortes PNG de las portadas reales. Proporción real: cargador > playo > postre. */
 var LAYERS = [
- { key:'bajo', el:'cBajo', label:'Bajoplato', hint:'la base del lugar', size:260, opts:[
-   {id:'oro',name:'Borde oro',color:'#EFE7D4',rim:'#C9A24B',stock:300,mix:false,foto:PNG+'DSC04811.png'},
-   {id:'yute',name:'Relieve blanco',color:'#CDBB98',rim:'#AE9B74',stock:360,mix:false,foto:PNG+'DSC04819.png'},
-   {id:'ambar',name:'Chevron negro',color:'#D89B4E',rim:'#B0762C',stock:240,mix:false,foto:PNG+'DSC04863.png'},
-   {id:'palma',name:'Bordó y oro',color:'#8C9A75',rim:'#6E7C58',stock:200,mix:false,foto:PNG+'DSC04928.png'}
+ { key:'bajo', el:'cBajo', label:'Bajoplato', hint:'la base · el más grande', size:260, opts:[
+   {id:'perla-oro',name:'Perla oro',color:'#EFE7D4',rim:'#C9A24B',stock:300,mix:false,foto:'assets/constructor/plato-de-sitio-perla-oro.png'},
+   {id:'satin-oro',name:'Satín oro',color:'#D9B978',rim:'#B0883A',stock:180,mix:false,foto:'assets/constructor/plato-de-sitio-satin-oro.png'},
+   {id:'yute',name:'Yute',color:'#CDBB98',rim:'#AE9B74',stock:340,mix:false,foto:'assets/constructor/plato-de-sitio-yute.png'},
+   {id:'palma',name:'Palma',color:'#8C9A75',rim:'#6E7C58',stock:200,mix:false,foto:'assets/constructor/plato-de-sitio-palma.png'}
  ]},
- { key:'playo', el:'cPlayo', label:'Plato de sitio', hint:'el plato playo, al centro', size:180, opts:[
-   {id:'relieve',name:'Flores azul',color:'#F4F1EA',rim:'#D6CDBB',stock:300,mix:false,foto:PNG+'DSC04848.png'},
-   {id:'perlarosa',name:'Perla rosa',color:'#EAD0CB',rim:'#CFA9A2',stock:120,mix:false,foto:PNG+'DSC04800.png'},
-   {id:'flordeliz',name:'Willow azul',color:'#BBD1D2',rim:'#8FB0B1',stock:60,mix:true,foto:PNG+'DSC04892.png'},
-   {id:'minerva',name:'Azul y oro',color:'#3E5C8A',rim:'#2C3E50',stock:18,mix:true,foto:PNG+'DSC04899.png'},
-   {id:'vogt',name:'Rosas',color:'#E9E2D6',rim:'#C6BCA5',stock:24,mix:true,foto:PNG+'DSC04921.png'}
+ { key:'playo', el:'cPlayo', label:'Plato playo', hint:'el principal · al centro', size:218, opts:[
+   {id:'perla-rosa',name:'Perla rosa',color:'#EAD0CB',rim:'#CFA9A2',stock:70,mix:false,foto:'assets/constructor/perla-rosa.png'},
+   {id:'luxury-gold',name:'Luxury Gold',color:'#EFE7D4',rim:'#C9A24B',stock:120,mix:false,foto:'assets/constructor/luxury-gold.png'},
+   {id:'relieve-blanco',name:'Relieve blanco',color:'#F4F1EA',rim:'#D6CDBB',stock:96,mix:false,foto:'assets/constructor/relieve-blanco.png'},
+   {id:'bw-printemps',name:'Blue & White',color:'#BBD1D2',rim:'#5C7FA8',stock:23,mix:true,foto:'assets/constructor/bw-printemps.png'}
  ]},
- { key:'postre', el:'cPostre', label:'Plato de postre', hint:'arriba de todo', size:108, opts:[
-   {id:'rosacmyk',name:'Flores chico',color:'#E8B7AE',rim:'#CD968C',stock:200,mix:false,foto:PNG+'DSC04906.png'},
-   {id:'blanca',name:'Blanco',color:'#F2EEE6',rim:'#DBD3C4',stock:260,mix:false,foto:PNG+'DSC04826.png'},
-   {id:'celeste',name:'Cebolla azul',color:'#C0D3D4',rim:'#94B1B2',stock:60,mix:true,foto:PNG+'DSC04877.png'},
-   {id:'flores',name:'Rosa floral',color:'#CF9B96',rim:'#A86E68',stock:16,mix:true,foto:PNG+'DSC04855.png'}
+ { key:'postre', el:'cPostre', label:'Plato de postre', hint:'arriba · el más chico', size:162, opts:[
+   {id:'rosa-puntilla',name:'Rosa Puntilla',color:'#EAD0CB',rim:'#CFA9A2',stock:80,mix:false,foto:'assets/constructor/rosa-puntilla.png'},
+   {id:'joy',name:'Joy',color:'#F2EEE6',rim:'#2A2622',stock:50,mix:false,foto:'assets/constructor/joy.png'},
+   {id:'bw-saxonia',name:'Azul Saxonia',color:'#C0D3D4',rim:'#5C7FA8',stock:12,mix:true,foto:'assets/constructor/bw-saxonia.png'},
+   {id:'bordo-postre-01',name:'Bordó',color:'#CF9B96',rim:'#8B3A3A',stock:12,mix:true,foto:'assets/constructor/bordo-postre-01.png'}
  ]}
 ];
 
