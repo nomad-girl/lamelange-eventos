@@ -93,7 +93,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    write(read());   // persiste la migración del formato viejo y refresca el badge
-    injectNavLink();
+    injectNavLink();   // crear el ícono + badge PRIMERO
+    write(read());     // migra el formato viejo y recién ahí actualiza el contador
   });
 })();
