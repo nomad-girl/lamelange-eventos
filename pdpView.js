@@ -17,13 +17,14 @@
 
   function piezasAddUI(p) {
     var pz = p.piezas || [], rows;
+    function mx(s){ return (typeof s === 'number') ? (' max="' + s + '" data-max="' + s + '"') : ''; }
     if (pz.length === 1 && !pz[0].t) {
       rows = '<div class="qadd-row"><span class="qadd-lbl">Cantidad <small>stock ' + pz[0].s + '</small></span>'
-           + '<input class="qadd-qty" type="number" min="0" value="0" data-t="Unidad"></div>';
+           + '<input class="qadd-qty" type="number" min="0" value="0" data-t="Unidad"' + mx(pz[0].s) + '></div>';
     } else {
       rows = pz.map(function (q) {
         return '<div class="qadd-row"><span class="qadd-lbl">' + q.t + ' <small>stock ' + q.s + '</small></span>'
-             + '<input class="qadd-qty" type="number" min="0" value="0" data-t="' + esc(q.t) + '"></div>';
+             + '<input class="qadd-qty" type="number" min="0" value="0" data-t="' + esc(q.t) + '"' + mx(q.s) + '></div>';
       }).join('');
     }
     return '<div class="qadd"><div class="qadd-title">Agregar a mi solicitud</div>' + rows
@@ -112,6 +113,24 @@
       Cart.add(pid, lineas);
       cartFeedback(addBtn, '✓ Agregado a tu solicitud');
       mount.querySelectorAll('.qadd-qty').forEach(function (i) { i.value = 0; });
+    });
+
+    /* tope de stock: no deja pedir más de lo disponible y avisa */
+    mount.querySelectorAll('.qadd-qty').forEach(function (inp) {
+      inp.addEventListener('input', function () {
+        var mx = parseInt(inp.getAttribute('data-max'), 10);
+        var v = parseInt(inp.value, 10) || 0;
+        if (!isNaN(mx) && v > mx) {
+          inp.value = mx;
+          var row = inp.closest('.qadd-row'), small = row && row.querySelector('.qadd-lbl small');
+          if (small) {
+            small.textContent = 'máx ' + mx + ' disponibles';
+            small.style.color = '#c0564d';
+            clearTimeout(inp._stockT);
+            inp._stockT = setTimeout(function () { small.textContent = 'stock ' + mx; small.style.color = ''; }, 2200);
+          }
+        }
+      });
     });
 
     /* combiná con: en modal navega adentro; en página deja el <a> normal */
