@@ -540,8 +540,8 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .product .photo.has-gal { transition: opacity .22s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
 
 /* "En esta mesa" — productos relacionados */
-.mesa-prods { margin-top: 26px; }
-.mesa-prods__t { display: block; font-family: var(--sans); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.mesa-prods { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); }
+.mesa-prods__t { display: block; font-family: var(--sans); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 .mesa-prods__row { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
 .mesa-prods__row::-webkit-scrollbar { height: 5px; }
 .mesa-prods__row::-webkit-scrollbar-thumb { background: var(--line); border-radius: 100px; }
