@@ -537,7 +537,7 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
    v13 — Galería al hover + productos en Mesas curadas
    ============================================================ */
 /* fade suave de la galería de tarjetas al pasar el mouse */
-.product .photo.has-gal { transition: opacity .22s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
+.product .photo.has-gal { transition: opacity .16s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
 
 /* "En esta mesa" — productos relacionados */
 .mesa-prods { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); }

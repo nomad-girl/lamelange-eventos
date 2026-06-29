@@ -160,12 +160,12 @@
           var dots = ph.querySelectorAll('.gdots i');
           for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
           ph.style.opacity = '1';
-        }, 160);
+        }, 110);
       }
       ph.addEventListener('mouseenter', function(){
         if (timer) return;
         if (!pre){ fotos.forEach(function(f){ var im = new Image(); im.src = f; }); pre = true; }
-        timer = setInterval(function(){ show(idx + 1); }, 1200);
+        timer = setInterval(function(){ show(idx + 1); }, 750);
       });
       ph.addEventListener('mouseleave', function(){
         clearInterval(timer); timer = null;
