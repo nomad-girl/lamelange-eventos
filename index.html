@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Mélange · Vajilla de autor para eventos</title>
+  <meta name="description" content="Vajilla de alquiler para eventos. Colecciones curadas para wedding planners, ambientadores y salones. Stock real por modelo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=19" />
+</head>
+<body>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="brand"><img src="assets/logo.png" class="brand__logo" alt="La Mélange" /><small>Vajilla para eventos</small></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="catalogo.html">Catálogo</a>
+        <a href="#mesas">Mesas curadas</a>
+        <a href="#constructor">Armá tu mesa</a>
+        <a href="#profesionales">Profesionales</a>
+        <a href="#contacto" class="nav__cta">Pedir presupuesto</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Menú">☰</button>
+    </div>
+  </header>
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero hero--split">
+    <div class="hero__panel">
+      <div class="hero__content">
+        <span class="eyebrow">Vajilla de alquiler · Eventos</span>
+        <h1>Vajilla de autor para mesas memorables</h1>
+        <p class="lead">Colecciones curadas para wedding planners, ambientadores y salones. Piezas con carácter y stock real por modelo, listas para tu próximo evento.</p>
+        <div class="hero__actions">
+          <a href="catalogo.html" class="btn btn--solid">Ver el catálogo</a>
+          <a href="#profesionales" class="btn btn--ghost">Descargar catálogo</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__photo" style="background-image:url('assets/06-hero-portada/img-20190924-wa0076_orig.jpg')"></div>
+  </section>
+
+  <!-- ====================== CATEGORÍAS (Modalidad A) ====================== -->
+  <section class="section section--sand" id="catalogo">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">El repertorio</span>
+        <h2>Una propuesta clara para cada mesa</h2>
+        <p>Explorá la vajilla por categoría. Entrá a cada una para ver todos los modelos, con su stock y filtros.</p>
+      </div>
+      <div class="collections" id="collectionsGrid"></div>
+      <div style="text-align:center; margin-top:44px;">
+        <a href="catalogo.html" class="btn btn--solid">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== 5 · MESAS CURADAS (Modalidad B) ====================== -->
+  <section class="section" id="mesas">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Modalidad B · Mesas curadas</span>
+        <h2>Mesas listas para pedir</h2>
+        <p>Combinaciones armadas por nosotros, listas para tu evento. Elegí la que te gustó y te pasamos disponibilidad y precio.</p>
+      </div>
+    </div>
+    <div id="mesasGrid"></div>
+  </section>
+
+  <!-- ====================== 6 · CONSTRUCTOR (Modalidad C) ====================== -->
+  <section class="section section--sand" id="constructor">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Modalidad C · Armá tu mesa</span>
+        <h2>Combiná tu propia mesa</h2>
+        <p>Elegí capa por capa y mirá cómo se arma. El stock define para cuántos comensales alcanza.</p>
+      </div>
+      <div class="builder">
+        <div class="builder__preview" id="bPrev">
+          <span class="glass" style="width:38px;height:38px;top:40px;right:38px"></span>
+          <span class="util" style="width:6px;height:110px;top:50%;left:34px;transform:translateY(-50%)"></span>
+          <span class="util" style="width:6px;height:110px;top:50%;right:34px;transform:translateY(-50%)"></span>
+          <span class="util" style="width:6px;height:110px;top:50%;right:50px;transform:translateY(-50%)"></span>
+          <div class="plate" id="cBajo"></div>
+          <div class="plate" id="cPlayo"></div>
+          <div class="plate" id="cPostre"></div>
+        </div>
+        <div id="bControls"></div>
+      </div>
+      <div class="builder__summary" id="bSummary"></div>
+    </div>
+  </section>
+
+  <!-- ====================== POR QUÉ LA MÉLANGE ====================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="values">
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+          <h3>Curaduría, no depósito</h3>
+          <p>Colecciones pensadas por estilo y ocasión. Le presentás a tu cliente una propuesta clara, no un catálogo infinito.</p>
+        </div>
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M9 4v16"/></svg>
+          <h3>Stock real por modelo</h3>
+          <p>Sabés exactamente cuántas unidades hay de cada pieza. Cerrás el evento de 200 cubiertos sin sorpresas.</p>
+        </div>
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l3-1 11-11-2-2L4 18l-1 3z"/><path d="M14 6l4 4"/></svg>
+          <h3>Pensada para profesionales</h3>
+          <p>Condiciones especiales, logística de entrega y catálogo descargable para presentar a tus clientes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PROFESIONALES ====================== -->
+  <section class="pro" id="profesionales">
+    <div class="wrap pro__grid">
+      <div>
+        <span class="eyebrow">Para profesionales</span>
+        <h2>Tu aliado de vajilla para cada evento</h2>
+        <p>Trabajamos con wedding planners, ambientadores, salones y caterings. Te damos las herramientas para vender la mesa antes de montarla.</p>
+        <ul class="pro__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Catálogo descargable en PDF para presentar a tus clientes.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Condiciones y precios especiales para profesionales del rubro.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Logística de entrega y retiro coordinada para tu evento.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg><span>Stock garantizado por modelo para eventos de gran escala.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="photo photo--full" style="aspect-ratio:4/5; background-image:url('assets/01-platos-de-sitio/palma/palma-2.jpg'); background-size:cover; background-position:center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CTA / CONTACTO ====================== -->
+  <section class="cta-band" id="contacto">
+    <div class="wrap">
+      <span class="eyebrow">Hablemos</span>
+      <h2>Contanos sobre tu próximo evento</h2>
+      <p>Escribinos por WhatsApp con la fecha, la cantidad de invitados y el estilo que buscás. Te armamos una propuesta a medida.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a id="waMain" href="#" class="btn btn--solid">Escribir por WhatsApp</a>
+        <a href="mailto:lamelangeantiques@gmail.com" class="btn btn--ghost">Enviar un email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="brand"><img src="assets/logo.png" class="brand__logo" alt="La Mélange" /><small>Vajilla para eventos</small></a>
+          <p style="margin-top:18px; max-width:34ch;">Vajilla de autor para eventos. Curaduría, stock real y servicio para profesionales del rubro.</p>
+        </div>
+        <div>
+          <h4>Navegar</h4>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="#mesas">Mesas curadas</a>
+          <a href="#constructor">Armá tu mesa</a>
+          <a href="#profesionales">Profesionales</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a id="waFoot" href="#">WhatsApp</a>
+          <a href="mailto:lamelangeantiques@gmail.com">lamelangeantiques@gmail.com</a>
+          <a href="https://instagram.com/la_melange_antiques" target="_blank" rel="noopener">Instagram</a>
+          <p>Buenos Aires, Argentina</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© La Mélange · Vajilla para eventos</span>
+        <span>Hecho para profesionales que arman mesas inolvidables</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa" id="waFloat" href="#" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.5l.9 1.4c.6.9 1.3 1.2 1.6 1.4.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.3.1.6-.1 1z"/></svg>
+  </a>
+
+  <script src="data.js?v=19"></script>
+  <script src="analytics.js?v=19"></script>
+  <script src="cart.js?v=19"></script>
+  <script>
+    var WA = 'https://wa.me/' + WSP;
+    function waLink(text){ return WA + '?text=' + encodeURIComponent(text); }
+
+    /* Links de WhatsApp generales */
+    ['waMain','waFoot','waFloat'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.href = waLink('Hola La Mélange! Quiero consultar por vajilla para un evento.');
+    });
+
+    /* Categorías (portadas) */
+    var cg = document.getElementById('collectionsGrid');
+    if (cg) cg.innerHTML = COLECCIONES.map(function(c){
+      var rep = PRODUCTOS.filter(function(p){ return p.coleccion === c.id && p.fotos && p.fotos.length; })[0];
+      var src = c.portada || (rep ? rep.fotos[0] : null);
+      var ph = src
+        ? '<div class="photo" style="background-image:url('+src+')"></div>'
+        : '<div class="photo" data-label="'+c.nombre+'">'+ICONS[c.icon]+'</div>';
+      var count = c.modelos > 0 ? c.modelos + ' modelos' : 'Próximamente';
+      return '<a href="catalogo.html#'+c.id+'" class="col-card">'
+        + ph
+        + '<div class="col-card__body"><h3>'+c.nombre+'</h3>'
+        + '<span class="col-card__count">'+count+'</span></div></a>';
+    }).join('');
+
+    /* Stock destacado */
+    var sr = document.getElementById('stockRow');
+    if (sr) {
+      var dest = PRODUCTOS.filter(function(p){return p.destacado;}).slice(0,4);
+      sr.innerHTML = dest.map(function(p){
+        var cover = (p.fotos && p.fotos.length) ? p.fotos[0] : null;
+        var ph = cover
+          ? '<div class="photo" style="background-image:url('+cover+'); background-size:cover; background-position:center;"></div>'
+          : '<div class="photo" data-label="'+p.nombre+'">'+ICONS[p.icon]+'</div>';
+        return '<div class="product">'+ph
+          + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
+          + '<div class="product__meta">'+p.material+'</div>'
+          + '<span class="badge"><i></i>Disponibles: '+Math.max.apply(null, p.piezas.map(function(q){return q.s;}))+'</span></div></div>';
+      }).join('');
+    }
+
+    /* Mesas curadas (bandas alternadas + galería con flechas) */
+    var SITE = 'https://lamelange-eventos.vercel.app';
+    var mg = document.getElementById('mesasGrid');
+    if (mg) {
+      mg.innerHTML = MESAS.map(function(m){
+        var fotos = m.fotos || [];
+        var nav = fotos.length > 1
+          ? '<button class="gnav gprev" aria-label="Anterior">‹</button><button class="gnav gnext" aria-label="Siguiente">›</button>'
+            + '<div class="gdots">' + fotos.map(function(_, i){ return '<i class="'+(i===0?'on':'')+'"></i>'; }).join('') + '</div>'
+          : '';
+        var main = fotos[0]
+          ? '<div class="photo main mesa-main" data-idx="0" style="background-image:url('+fotos[0]+')">' + nav + '</div>'
+          : '<div class="photo main" data-label="'+m.nombre+'"></div>';
+        var ref = fotos[0] ? '  Ref: ' + SITE + '/' + fotos[0] : '';
+        var txt = 'Hola La Mélange! Me interesa la ' + m.nombre + '. ¿Me pasás info, disponibilidad y precio?' + ref;
+        var prods = (m.productos || []).map(function(id){
+          var pr = (typeof buscarProducto === 'function') ? buscarProducto(id) : null; if (!pr) return '';
+          var pf = (pr.fotos && pr.fotos[0]) || '';
+          return '<a class="mprod" href="producto.html?id=' + id + '" title="' + pr.nombre + '">'
+            + '<span class="mprod__img" ' + (pf ? 'style="background-image:url(' + pf + ')"' : '') + '></span>'
+            + '<span class="mprod__n">' + pr.nombre + '</span></a>';
+        }).join('');
+        var prodsBlock = prods ? '<div class="wrap mesa-prods"><span class="mesa-prods__t">En esta mesa</span><div class="mesa-prods__row">' + prods + '</div></div>' : '';
+        return '<div class="mesa-band"><div class="wrap mesa-feat">'
+          + '<div class="mesa-gallery">' + main + '</div>'
+          + '<div class="mesa-info"><span class="eyebrow">' + m.tipo + '</span>'
+          + '<h3 class="mesa__name">' + m.nombre + '</h3>'
+          + (m.capacidad ? '<span class="cap ' + (m.capacidad >= 60 ? 'cap--amp' : 'cap--lim') + '">Hasta ' + m.capacidad + ' comensales</span>' : '')
+          + (m.desc ? '<p class="comp-line">' + m.desc + '</p>' : '')
+          + '<a class="btn btn--solid" target="_blank" rel="noopener" href="' + waLink(txt) + '">Pedir esta mesa</a>'
+          + '</div></div>'
+          + prodsBlock
+          + '</div>';
+      }).join('');
+      function mesaShow(ph, fotos, idx){
+        ph.style.opacity = '0';
+        setTimeout(function(){
+          ph.style.backgroundImage = 'url(' + fotos[idx] + ')';
+          ph.setAttribute('data-idx', idx);
+          var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
+          ph.style.opacity = '1';
+        }, 200);
+      }
+      function mesaStep(band, dir){
+        var ph = band.querySelector('.mesa-main'); if (!ph) return;
+        var mi = Array.prototype.indexOf.call(mg.children, band);
+        var fotos = (MESAS[mi] && MESAS[mi].fotos) || []; if (fotos.length < 2) return;
+        var idx = ((+ph.getAttribute('data-idx') || 0) + dir + fotos.length) % fotos.length;
+        mesaShow(ph, fotos, idx);
+      }
+      mg.addEventListener('click', function(e){
+        var nav = e.target.closest ? e.target.closest('.gnav') : null;
+        if (!nav) return;
+        mesaStep(nav.closest('.mesa-band'), nav.classList.contains('gnext') ? 1 : -1);
+      });
+      /* Auto-avance: cada 6s, pausa al pasar el mouse */
+      var mesaPaused = false;
+      mg.addEventListener('mouseenter', function(){ mesaPaused = true; }, true);
+      mg.addEventListener('mouseleave', function(){ mesaPaused = false; }, true);
+      setInterval(function(){
+        if (mesaPaused || document.hidden) return;
+        [].forEach.call(mg.children, function(band){ mesaStep(band, 1); });
+      }, 6000);
+    }
+
+    /* Constructor "Armá tu mesa" */
+    var sel = {bajo:'oro', playo:'relieve', postre:'rosacmyk'};
+    function find(k){ var L=LAYERS.filter(function(x){return x.key===k;})[0]; return L.opts.filter(function(o){return o.id===sel[k];})[0]; }
+    function drawPlate(L){
+      var o=find(L.key); var el=document.getElementById(L.el);
+      el.style.width=L.size+'px'; el.style.height=L.size+'px';
+      if(o.foto){
+        el.style.border='none'; el.style.borderRadius='0'; el.style.background='transparent';
+        el.style.backgroundImage="url('"+o.foto+"')";
+        el.style.backgroundSize='contain'; el.style.backgroundPosition='center';
+        el.style.backgroundRepeat='no-repeat';
+        el.style.filter='drop-shadow(0 10px 12px rgba(60,50,45,.20))';
+      } else {
+        el.style.backgroundImage='none'; el.style.filter='none';
+        el.style.borderRadius='50%'; el.style.borderStyle='solid';
+        el.style.background=o.color; el.style.borderColor=o.rim;
+        el.style.borderWidth=(L.key==='postre'?3:5)+'px';
+      }
+    }
+    function renderControls(){
+      var c=document.getElementById('bControls');
+      c.innerHTML = LAYERS.map(function(L){
+        var sws=L.opts.map(function(o){
+          var on=sel[L.key]===o.id?' sel':'';
+          var dot=o.mix?'#8A5A1A':'#3B6D2E';
+          return '<button class="bsw'+on+'" data-layer="'+L.key+'" data-id="'+o.id+'">'
+            +'<span class="chip" style="background:'+o.color+';border-color:'+o.rim+'"></span>'
+            +'<span class="nm">'+o.name+'</span>'
+            +'<span class="st" style="color:'+dot+'">'+o.stock+'</span></button>';
+        }).join('');
+        return '<div class="bgroup"><div class="bgroup__label">'+L.label+'</div><div class="bgroup__hint">'+L.hint+'</div><div class="bsw-row">'+sws+'</div></div>';
+      }).join('');
+      c.querySelectorAll('.bsw').forEach(function(b){
+        b.addEventListener('click', function(){ sel[b.dataset.layer]=b.dataset.id; renderAll(); });
+      });
+    }
+    function renderSummary(){
+      var b=find('bajo'), p=find('playo'), po=find('postre');
+      var min=Math.min(b.stock,p.stock,po.stock);
+      var anyMix=b.mix||p.mix||po.mix;
+      var note=anyMix?'Incluye piezas mix & match — ideal para mesas chicas':'Stock amplio — apto para eventos grandes';
+      var txt='Hola La Mélange! Quiero esta combinación: bajoplato '+b.name+', plato de sitio '+p.name+', postre '+po.name+'. ¿Disponibilidad y precio?';
+      document.getElementById('bSummary').innerHTML=
+        '<div><div class="bsum-name">'+b.name+' · '+p.name+' · '+po.name+'</div>'
+        +'<div class="bsum-meta">Alcanza para <b style="font-weight:500;color:var(--ink)">'+min+' comensales</b> · '+note+'</div></div>'
+        +'<a class="btn btn--solid" href="'+waLink(txt)+'">Pedir esta combinación</a>';
+    }
+    function renderAll(){ LAYERS.forEach(drawPlate); renderControls(); renderSummary(); }
+    if (document.getElementById('bControls')) renderAll();
+
+    /* Menú mobile */
+    var t = document.getElementById('navToggle');
+    if (t) t.addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
+  </script>
+  <script src="anim.js?v=19"></script>
+</body>
+</html>
