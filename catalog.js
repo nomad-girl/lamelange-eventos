@@ -11,6 +11,7 @@
 (function () {
   var current = 'todas', tipo = 'todos', activeTags = [];
   var els = {};
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function isMix(p){ return /mix & match/i.test(p.material); }
   function hasTipo(p){
@@ -139,6 +140,39 @@
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
         + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
+    setupHover();
+  }
+
+  /* Galería que se reproduce sola al pasar el mouse (solo desktop) */
+  function setupHover(){
+    if (reduceMotion || !els.grid) return;
+    els.grid.querySelectorAll('.photo.has-gal').forEach(function(ph){
+      var pi = +ph.getAttribute('data-pi');
+      var fotos = (PRODUCTOS[pi] && PRODUCTOS[pi].fotos) || [];
+      if (fotos.length < 2) return;
+      var timer = null, idx = 0, pre = false;
+      function show(i){
+        idx = (i + fotos.length) % fotos.length;
+        ph.style.opacity = '0';
+        setTimeout(function(){
+          ph.style.backgroundImage = 'url(' + fotos[idx] + ')';
+          ph.setAttribute('data-idx', idx);
+          var dots = ph.querySelectorAll('.gdots i');
+          for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
+          ph.style.opacity = '1';
+        }, 160);
+      }
+      ph.addEventListener('mouseenter', function(){
+        if (timer) return;
+        if (!pre){ fotos.forEach(function(f){ var im = new Image(); im.src = f; }); pre = true; }
+        timer = setInterval(function(){ show(idx + 1); }, 1200);
+      });
+      ph.addEventListener('mouseleave', function(){
+        clearInterval(timer); timer = null;
+        if (idx !== 0) show(0);
+        idx = 0;
+      });
+    });
   }
 
   /* ---------- Visor (lightbox) ---------- */
