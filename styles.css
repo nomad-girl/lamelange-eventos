@@ -557,3 +557,19 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .sol__radio input { width: auto; margin: 0; }
 .sol__radio small { color: var(--muted); }
 .sol__linea small { color: var(--muted); font-size: .68rem; }
+
+/* ===== Carrito en la barra superior (siempre visible, también en mobile) ===== */
+.nav__inner > .brand { margin-right: auto; }
+.nav__inner { gap: 22px; }
+.nav__cart { color: var(--muted); }
+.nav__cart:hover { color: var(--ink); }
+
+/* ===== Solicitud: quitar una pieza (×) y resumen con subtotales ===== */
+.sol__linea-ctrl { display: inline-flex; align-items: center; gap: 8px; }
+.sol__linea-rm { background: none; border: 0; color: var(--muted); font-size: 1.05rem; line-height: 1; cursor: pointer; padding: 2px 6px; border-radius: 6px; transition: color .15s, background .15s; }
+.sol__linea-rm:hover { color: var(--accent); background: rgba(0,0,0,.05); }
+.sol__resumen { margin-top: 22px; padding: 18px 20px; background: var(--sand, #faf8f4); border: 1px solid var(--line); border-radius: 12px; }
+.sol__resumen h3 { margin: 0 0 12px; font-family: var(--serif, 'Playfair Display', serif); font-size: 1rem; }
+.sol__sub-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: .9rem; }
+.sol__sub-row b { font-weight: 600; }
+.sol__sub-total { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 12px; font-size: .98rem; }

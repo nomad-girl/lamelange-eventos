@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body>
 
@@ -63,13 +63,32 @@
     </div>
   </footer>
 
-  <script src="data.js?v=26"></script>
-  <script src="cart.js?v=26"></script>
+  <script src="data.js?v=27"></script>
+  <script src="cart.js?v=27"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
     var itemsEl = document.getElementById('solItems');
     var form = document.getElementById('solForm');
+
+    /* etiqueta agrupadora para los subtotales (ej: "Platos playos", "Copas") */
+    function tipoLinea(p, t) {
+      var s = (t || '').toLowerCase(), col = p.coleccion, nom = (p.nombre || '').toLowerCase();
+      if (col === 'cargadores') return 'Platos de sitio';
+      if (col === 'platos') {
+        if (s.indexOf('playo') > -1 || s.indexOf('principal') > -1) return 'Platos playos';
+        if (s.indexOf('postre') > -1 || s.indexOf('entrada') > -1 || s.indexOf('pan') > -1) return 'Platos de postre / entrada';
+        return 'Platos';
+      }
+      if (col === 'cristaleria') {
+        if (nom.indexOf('vaso') > -1) return 'Vasos';
+        if (nom.indexOf('copa') > -1 || s.indexOf('agua') > -1 || s.indexOf('vino') > -1 || s.indexOf('champ') > -1) return 'Copas';
+        return 'Cristalería';
+      }
+      if (col === 'cubiertos') return 'Cubiertos';
+      if (col === 'plateria') return 'Platería';
+      return 'Otros';
+    }
 
     function render() {
       var items = Cart.items();
@@ -79,7 +98,7 @@
         return;
       }
       form.style.display = '';
-      itemsEl.innerHTML = items.map(function (it) {
+      var html = items.map(function (it) {
         var p = buscarProducto(it.id);
         if (!p) return '';
         var foto = (p.fotos && p.fotos[0]) || '';
@@ -88,8 +107,12 @@
           var stock = pieza ? pieza.s : ((p.piezas && p.piezas.length === 1) ? p.piezas[0].s : null);
           var mx = (typeof stock === 'number') ? (' max="' + stock + '" data-max="' + stock + '"') : '';
           var hint = (typeof stock === 'number') ? ' <small>(stock ' + stock + ')</small>' : '';
+          var tEsc = String(l.t).replace(/"/g, '&quot;');
           return '<div class="sol__linea"><span>' + l.t + hint + '</span>'
-            + '<input type="number" min="0" value="' + l.qty + '" data-t="' + String(l.t).replace(/"/g, '&quot;') + '"' + mx + '></div>';
+            + '<span class="sol__linea-ctrl">'
+            + '<input type="number" min="0" value="' + l.qty + '" data-t="' + tEsc + '"' + mx + '>'
+            + '<button type="button" class="sol__linea-rm" data-rm-t="' + tEsc + '" aria-label="Quitar ' + tEsc + '">×</button>'
+            + '</span></div>';
         }).join('');
         return '<div class="sol__item" data-id="' + it.id + '">'
           + '<div class="sol__thumb" ' + (foto ? 'style="background-image:url(' + foto + ')"' : '') + '></div>'
@@ -99,6 +122,24 @@
           + '<button class="sol__remove" data-remove aria-label="Quitar">×</button>'
           + '</div>';
       }).join('');
+
+      /* subtotales por tipo (ej: total platos de postre, total copas) */
+      var grupos = {}, totalGeneral = 0;
+      items.forEach(function (it) {
+        var p = buscarProducto(it.id); if (!p) return;
+        (it.lineas || []).forEach(function (l) {
+          var k = tipoLinea(p, l.t);
+          grupos[k] = (grupos[k] || 0) + (l.qty || 0);
+          totalGeneral += (l.qty || 0);
+        });
+      });
+      var filas = Object.keys(grupos).map(function (k) {
+        return '<div class="sol__sub-row"><span>' + k + '</span><b>' + grupos[k] + '</b></div>';
+      }).join('');
+      html += '<div class="sol__resumen"><h3>Resumen del pedido</h3>' + filas
+            + '<div class="sol__sub-row sol__sub-total"><span>Total de piezas</span><b>' + totalGeneral + '</b></div></div>';
+
+      itemsEl.innerHTML = html;
 
       itemsEl.querySelectorAll('.sol__item').forEach(function (row) {
         var id = row.getAttribute('data-id');
@@ -114,6 +155,9 @@
             }
             Cart.setLinea(id, inp.getAttribute('data-t'), inp.value); render();
           });
+        });
+        row.querySelectorAll('[data-rm-t]').forEach(function (btn) {   // quitar SOLO esa pieza
+          btn.addEventListener('click', function () { Cart.setLinea(id, btn.getAttribute('data-rm-t'), 0); render(); });
         });
         row.querySelector('[data-remove]').addEventListener('click', function () { Cart.remove(id); render(); });
       });

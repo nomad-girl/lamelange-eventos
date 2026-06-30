@@ -71,16 +71,18 @@
   }
 
   function injectNavLink() {
-    var nav = document.getElementById('navLinks');
-    if (!nav || document.getElementById('navCart')) return;
+    // El carrito va en la barra superior (no dentro del menú), para que en
+    // mobile quede SIEMPRE visible aunque el menú hamburguesa esté cerrado.
+    var bar = document.querySelector('.nav__inner');
+    if (!bar || document.getElementById('navCart')) return;
     var a = document.createElement('a');
     a.href = 'solicitud.html';
     a.id = 'navCart';
     a.className = 'nav__cart';
     a.setAttribute('aria-label', 'Mi solicitud');
     a.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6v3H9z"/><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12.5A1.5 1.5 0 0 0 6.5 21h11A1.5 1.5 0 0 0 19 19.5V7a1.5 1.5 0 0 0-1.5-1.5H15"/><line x1="8.5" y1="11.5" x2="15.5" y2="11.5"/><line x1="8.5" y1="15" x2="13" y2="15"/></svg><span class="nav__cart-badge" data-cart-count></span>';
-    var cta = nav.querySelector('.nav__cta');
-    if (cta) nav.insertBefore(a, cta); else nav.appendChild(a);
+    var toggle = bar.querySelector('.nav__toggle');
+    if (toggle) bar.insertBefore(a, toggle); else bar.appendChild(a);
   }
 
   window.cartFeedback = function (btn, txt) {
