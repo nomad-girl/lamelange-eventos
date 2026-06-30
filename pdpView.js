@@ -67,6 +67,13 @@
     var combina = comboCards
       ? '<section class="pdp-combina"><h3 class="pdp-combina__title">✨ Combiná con</h3><div class="combo-row">' + comboCards + '</div></section>' : '';
 
+    /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay. */
+    var amb = p.ambiente || [];
+    var inspira = amb.length
+      ? '<section class="pdp-insp"><h3 class="pdp-insp__title">✨ Inspiración · en la mesa</h3><div class="pdp-insp__grid">'
+        + amb.map(function (f) { return '<a class="pdp-insp__item" href="' + f + '" target="_blank" rel="noopener" style="background-image:url(' + f + ')"></a>'; }).join('')
+        + '</div></section>' : '';
+
     var wsp = 'Hola La Mélange! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
 
     mount.innerHTML =
@@ -82,7 +89,7 @@
           + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
           + '</div>'
         + '</div>'
-      + '</div>' + combina;
+      + '</div>' + inspira + combina;
 
     /* galería */
     var main = mount.querySelector('[data-main]');

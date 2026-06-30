@@ -222,7 +222,9 @@
     if (qv) return;
     qv = document.createElement('div'); qv.className = 'qv'; qv.hidden = true;
     qv.innerHTML = '<div class="qv__backdrop" data-qv-close></div>'
-      + '<div class="qv__panel"><button class="qv__close" data-qv-close aria-label="Cerrar">×</button>'
+      + '<div class="qv__panel">'
+      + '<a class="qv__expand" data-qv-expand href="#" title="Ver la ficha completa">⤢ Ver completo</a>'
+      + '<button class="qv__close" data-qv-close aria-label="Cerrar">×</button>'
       + '<div class="qv__body" id="qvBody"></div></div>';
     document.body.appendChild(qv);
     qvBody = qv.querySelector('#qvBody');
@@ -233,6 +235,8 @@
     var p = buscarProducto(id);
     if (!p || typeof window.renderPDP !== 'function'){ window.location.href = 'producto.html?id=' + encodeURIComponent(id); return; }
     buildQuickView();
+    var ex = qv.querySelector('[data-qv-expand]');
+    if (ex) ex.href = 'producto.html?id=' + encodeURIComponent(id);
     renderPDP(p, qvBody, { onNavigate: openQuickView });
     qv.hidden = false; qvBody.scrollTop = 0;
     requestAnimationFrame(function(){ qv.classList.add('is-open'); });

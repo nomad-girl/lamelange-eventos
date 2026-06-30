@@ -582,3 +582,16 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-share-img { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--ink); font-size: 1.05rem; line-height: 1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .2s, transform .15s; }
 .pdp-share-img:hover { background: #fff; transform: translateY(-1px); }
 #catShare { white-space: nowrap; }
+
+/* ===== Vista rápida: "Ver completo" (expandir a página) ===== */
+.qv__panel { position: relative; }
+.qv__expand { position: absolute; top: 16px; left: 20px; z-index: 4; font-family: var(--sans); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.qv__expand:hover { color: var(--ink); }
+
+/* ===== Segunda galería: Inspiración / en la mesa ===== */
+.pdp-insp { margin-top: 40px; }
+.pdp-insp__title { font-family: var(--serif, 'Playfair Display', serif); font-size: 1.15rem; margin: 0 0 16px; }
+.pdp-insp__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.pdp-insp__item { display: block; aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 10px; transition: transform .2s, box-shadow .2s; }
+.pdp-insp__item:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.14); }
+@media (max-width: 560px){ .pdp-insp__grid { grid-template-columns: repeat(2, 1fr); } }
