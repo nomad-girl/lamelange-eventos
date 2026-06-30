@@ -43,6 +43,7 @@
     var gallery = fotos.length
       ? '<div class="pdp-gallery"><div class="pdp-main" data-main style="background-image:url(' + fotos[0] + ')">'
         + (fotos.length > 1 ? '<button class="gnav gprev" data-prev>‹</button><button class="gnav gnext" data-next>›</button>' : '')
+        + '<button class="pdp-share-img" type="button" data-share-img aria-label="Compartir esta foto" title="Compartir esta foto">↗</button>'
         + '</div>' + (fotos.length > 1 ? '<div class="pdp-thumbs">' + thumbs + '</div>' : '') + '</div>'
       : '<div class="pdp-gallery"><div class="pdp-main pdp-main--empty">' + (ICONS[p.icon] || '') + '</div></div>';
 
@@ -76,7 +77,10 @@
           + tags + ficha
           + (p.descripcion ? '<p class="pdp-desc">' + p.descripcion + '</p>' : '')
           + piezasAddUI(p)
-          + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá directo por WhatsApp →</a>'
+          + '<div class="pdp-actions">'
+          + '<button class="pdp-share" type="button" data-share-prod>↗ Compartir este modelo</button>'
+          + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
+          + '</div>'
         + '</div>'
       + '</div>' + combina;
 
@@ -132,6 +136,30 @@
         }
       });
     });
+
+    /* compartir el modelo (link a la ficha, que incluye fotos + datos) */
+    var shareProd = mount.querySelector('[data-share-prod]');
+    if (shareProd && window.lmShare) {
+      shareProd.addEventListener('click', function () {
+        var url = location.origin + '/producto.html?id=' + encodeURIComponent(pid);
+        window.lmShare(url, p.nombre + ' · La Mélange').then(function (r) {
+          if (r === 'copied') cartFeedback(shareProd, '✓ Link copiado');
+        });
+      });
+    }
+    /* compartir la foto que se está viendo (link directo a la imagen) */
+    var shareImg = mount.querySelector('[data-share-img]');
+    if (shareImg && window.lmShare && main) {
+      shareImg.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var m = (main.style.backgroundImage || '').match(/url\(["']?(.*?)["']?\)/);
+        var rel = (m && m[1]) || fotos[0] || '';
+        var url = /^https?:/.test(rel) ? rel : (location.origin + '/' + rel.replace(/^\//, ''));
+        window.lmShare(url, p.nombre + ' · La Mélange').then(function (r) {
+          if (r === 'copied') cartFeedback(shareImg, '✓');
+        });
+      });
+    }
 
     /* combiná con: en modal navega adentro; en página deja el <a> normal */
     if (opts.onNavigate) {

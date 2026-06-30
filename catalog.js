@@ -111,6 +111,18 @@
     if (limp) limp.addEventListener('click', function(){ activeTags = []; renderFiltrosTags(); renderGrid(); });
   }
 
+  /* Refleja los filtros actuales en la URL, para poder compartir la vista. */
+  function syncURL(){
+    try {
+      var params = new URLSearchParams();
+      if (current && current !== 'todas') params.set('cat', current);
+      if (tipo && tipo !== 'todos') params.set('tipo', tipo);
+      activeTags.forEach(function(t){ params.append('tag', t); });
+      var qs = params.toString();
+      history.replaceState(null, '', qs ? ('?' + qs) : location.pathname);
+    } catch(e) {}
+  }
+
   function renderGrid(){
     var grid = els.grid; if (!grid) return;
     var list = PRODUCTOS.filter(function(p){
@@ -141,6 +153,7 @@
         + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
     setupHover();
+    syncURL();
   }
 
   /* Galería que se reproduce sola al pasar el mouse (solo desktop) */
@@ -263,15 +276,33 @@
     if (!els.grid) return;
     current = opts.startCat || 'todas';
     try {
-      var t = new URLSearchParams(location.search).get('tag');
-      if (t) activeTags = [t];
+      var sp = new URLSearchParams(location.search);
+      var c = sp.get('cat'); if (c) current = c;
+      var tp = sp.get('tipo'); if (tp) tipo = tp;
+      var tgs = sp.getAll('tag'); if (tgs.length) activeTags = tgs;
     } catch(e) {}
     buildLightbox();
     renderFiltros();
     renderFiltrosTipo();
     renderFiltrosTags();
     setupDrawer();
+    setupShare();
     renderGrid();
     els.grid.addEventListener('click', gridClick);
   };
+
+  /* Botón "Compartir búsqueda": copia/comparte la URL con los filtros puestos. */
+  function setupShare(){
+    if (!els.filtrosBtn || document.getElementById('catShare') || !window.lmShare) return;
+    var sb = document.createElement('button');
+    sb.id = 'catShare'; sb.type = 'button'; sb.className = 'filters-btn';
+    sb.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg> Compartir';
+    els.filtrosBtn.parentNode.insertBefore(sb, els.filtrosBtn.nextSibling);
+    sb.addEventListener('click', function(){
+      syncURL();
+      window.lmShare(location.href, 'Selección · La Mélange').then(function(r){
+        if (r === 'copied'){ var old = sb.innerHTML; sb.textContent = '✓ Link copiado'; setTimeout(function(){ sb.innerHTML = old; }, 1700); }
+      });
+    });
+  }
 })();

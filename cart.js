@@ -85,6 +85,30 @@
     if (toggle) bar.insertBefore(a, toggle); else bar.appendChild(a);
   }
 
+  /* Compartir: en mobile abre el menú nativo (WhatsApp, etc.); en desktop
+     copia el link al portapapeles. Devuelve promesa con 'shared' | 'copied'. */
+  window.lmShare = function (url, title) {
+    url = url || location.href;
+    if (navigator.share) {
+      return navigator.share({ title: title || document.title, url: url })
+        .then(function () { return 'shared'; })
+        .catch(function () { return 'cancel'; });
+    }
+    var copy;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      copy = navigator.clipboard.writeText(url);
+    } else {
+      copy = new Promise(function (res) {
+        var ta = document.createElement('textarea');
+        ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta); res();
+      });
+    }
+    return copy.then(function () { return 'copied'; }).catch(function () { return 'error'; });
+  };
+
   window.cartFeedback = function (btn, txt) {
     if (!btn) return;
     var old = btn.getAttribute('data-label') || btn.textContent;

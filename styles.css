@@ -573,3 +573,12 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .sol__sub-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: .9rem; }
 .sol__sub-row b { font-weight: 600; }
 .sol__sub-total { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 12px; font-size: .98rem; }
+
+/* ===== Compartir: modelo, foto y búsqueda ===== */
+.pdp-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+.pdp-share { font-family: var(--sans); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); background: none; border: 1px solid var(--line); border-radius: 100px; padding: 9px 16px; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+.pdp-share:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
+.pdp-main { position: relative; }
+.pdp-share-img { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255,255,255,.92); color: var(--ink); font-size: 1.05rem; line-height: 1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .2s, transform .15s; }
+.pdp-share-img:hover { background: #fff; transform: translateY(-1px); }
+#catShare { white-space: nowrap; }
