@@ -595,3 +595,25 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-insp__item { display: block; aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 10px; transition: transform .2s, box-shadow .2s; }
 .pdp-insp__item:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.14); }
 @media (max-width: 560px){ .pdp-insp__grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ===== Galería principal MÁS GRANDE y nítida (ver todas las combinaciones de un vistazo) ===== */
+.pdp-top { grid-template-columns: minmax(0,1.3fr) minmax(0,.9fr); gap: 46px; }
+.pdp-thumbs { gap: 12px; margin-top: 14px; }
+.pdp-thumb { width: 92px; height: 92px; opacity: .8; }
+.qv__body .pdp-top { grid-template-columns: minmax(0,1.25fr) minmax(0,.95fr); }
+@media (max-width: 880px){ .pdp-top { grid-template-columns: 1fr; } .pdp-thumb { width: 84px; height: 84px; } }
+
+/* la sección Inspiración ahora es botón (visor), no enlace */
+.pdp-insp__item { border: 0; padding: 0; cursor: pointer; }
+
+/* ===== Visor (lightbox) de la galería de Inspiración ===== */
+.pdplb { position: fixed; inset: 0; z-index: 1000; background: rgba(20,18,16,.92); display: flex; align-items: center; justify-content: center; }
+.pdplb[hidden] { display: none; }
+.pdplb__img { max-width: 88vw; max-height: 86vh; object-fit: contain; border-radius: 6px; box-shadow: 0 12px 50px rgba(0,0,0,.5); }
+.pdplb__close { position: absolute; top: 22px; right: 26px; width: 46px; height: 46px; border: 0; border-radius: 50%; background: rgba(255,255,255,.14); color: #fff; font-size: 1.7rem; line-height: 1; cursor: pointer; }
+.pdplb__close:hover { background: rgba(255,255,255,.26); }
+.pdplb__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 54px; height: 54px; border: 0; border-radius: 50%; background: rgba(255,255,255,.14); color: #fff; font-size: 2rem; line-height: 1; cursor: pointer; }
+.pdplb__nav:hover { background: rgba(255,255,255,.26); }
+.pdplb__prev { left: 24px; } .pdplb__next { right: 24px; }
+.pdplb__count { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.85); font-family: var(--sans); font-size: .8rem; letter-spacing: .08em; }
+@media (max-width: 560px){ .pdplb__nav { width: 44px; height: 44px; font-size: 1.6rem; } .pdplb__prev { left: 10px; } .pdplb__next { right: 10px; } .pdplb__img { max-width: 94vw; } }

@@ -31,6 +31,44 @@
          + '<button class="btn btn--solid qadd-btn" type="button">Agregar a mi solicitud</button></div>';
   }
 
+  /* Visor (lightbox) para la galería de Inspiración: navegable con ‹ › y teclado. */
+  var lbEl, lbImg, lbFotos = [], lbIdx = 0;
+  function lbShow() {
+    if (!lbImg) return;
+    lbImg.src = lbFotos[lbIdx] || '';
+    var c = lbEl.querySelector('.pdplb__count');
+    if (c) c.textContent = (lbIdx + 1) + ' / ' + lbFotos.length;
+  }
+  function lbStep(d) { lbIdx = (lbIdx + d + lbFotos.length) % lbFotos.length; lbShow(); }
+  function lbClose() { if (lbEl) { lbEl.hidden = true; lbImg.src = ''; document.body.style.overflow = ''; } }
+  function lbOpen(fotos, i) {
+    if (!lbEl) {
+      lbEl = document.createElement('div');
+      lbEl.className = 'pdplb'; lbEl.hidden = true;
+      lbEl.innerHTML = '<button class="pdplb__close" type="button" aria-label="Cerrar">×</button>'
+        + '<button class="pdplb__nav pdplb__prev" type="button" aria-label="Anterior">‹</button>'
+        + '<img class="pdplb__img" alt="Foto ambientada">'
+        + '<button class="pdplb__nav pdplb__next" type="button" aria-label="Siguiente">›</button>'
+        + '<div class="pdplb__count"></div>';
+      document.body.appendChild(lbEl);
+      lbImg = lbEl.querySelector('.pdplb__img');
+      lbEl.querySelector('.pdplb__close').addEventListener('click', lbClose);
+      lbEl.querySelector('.pdplb__prev').addEventListener('click', function (e) { e.stopPropagation(); lbStep(-1); });
+      lbEl.querySelector('.pdplb__next').addEventListener('click', function (e) { e.stopPropagation(); lbStep(1); });
+      lbEl.addEventListener('click', function (e) { if (e.target === lbEl) lbClose(); });
+      document.addEventListener('keydown', function (e) {
+        if (lbEl.hidden) return;
+        if (e.key === 'Escape') lbClose();
+        else if (e.key === 'ArrowLeft') lbStep(-1);
+        else if (e.key === 'ArrowRight') lbStep(1);
+      });
+    }
+    lbFotos = fotos; lbIdx = i || 0;
+    lbEl.querySelector('.pdplb__prev').style.display = fotos.length > 1 ? '' : 'none';
+    lbEl.querySelector('.pdplb__next').style.display = fotos.length > 1 ? '' : 'none';
+    lbShow(); lbEl.hidden = false; document.body.style.overflow = 'hidden';
+  }
+
   window.renderPDP = function (p, mount, opts) {
     opts = opts || {};
     var col = (COLECCIONES.filter(function (c) { return c.id === p.coleccion; })[0] || {}).nombre || '';
@@ -72,7 +110,7 @@
     var amb = p.ambiente || (typeof AMBIENTE !== 'undefined' && AMBIENTE[pid]) || [];
     var inspira = amb.length
       ? '<section class="pdp-insp"><h3 class="pdp-insp__title">✨ Inspiración · en la mesa</h3><div class="pdp-insp__grid">'
-        + amb.map(function (f) { return '<a class="pdp-insp__item" href="' + f + '" target="_blank" rel="noopener" style="background-image:url(' + f + ')"></a>'; }).join('')
+        + amb.map(function (f, i) { return '<button class="pdp-insp__item" type="button" data-amb-i="' + i + '" style="background-image:url(' + f + ')"></button>'; }).join('')
         + '</div></section>' : '';
 
     var wsp = 'Hola La Mélange! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
@@ -168,6 +206,11 @@
         });
       });
     }
+
+    /* Inspiración: abrir el visor navegable al hacer click en una foto */
+    mount.querySelectorAll('[data-amb-i]').forEach(function (el) {
+      el.addEventListener('click', function () { lbOpen(amb, +el.getAttribute('data-amb-i')); });
+    });
 
     /* combiná con: en modal navega adentro; en página deja el <a> normal */
     if (opts.onNavigate) {
