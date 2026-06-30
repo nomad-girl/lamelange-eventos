@@ -103,7 +103,7 @@
         + '<div class="combo-card__name">' + c.nombre + '</div></a>';
     }).join('');
     var combina = comboCards
-      ? '<section class="pdp-combina"><h3 class="pdp-combina__title">✨ Combiná con</h3><div class="combo-row">' + comboCards + '</div></section>' : '';
+      ? '<section class="pdp-combina"><h3 class="pdp-combina__title">Combiná con</h3><p class="pdp-combina__sub">Otros modelos de la línea para sumar a tu pedido</p><div class="combo-row">' + comboCards + '</div></section>' : '';
 
     /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay.
        Las toma de p.ambiente o del archivo ambiente.js (generado por carpetas). */

@@ -356,14 +356,15 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-cta { display: inline-block; }
 
 /* combiná con */
-.pdp-combina { margin-top: 64px; padding-top: 44px; border-top: 1px solid var(--line); }
-.pdp-combina__title { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 22px; }
-.combo-row { display: flex; gap: 18px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
-.combo-card { flex: 0 0 180px; scroll-snap-align: start; text-decoration: none; color: inherit; }
-.combo-card__img { aspect-ratio: 1/1; background: var(--bg-3) center/cover no-repeat; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; transition: transform .3s; }
-.combo-card__img svg { width: 56px; height: 56px; stroke: var(--muted); opacity: .5; }
+.pdp-combina { margin-top: 52px; padding: 32px 32px 36px; background: var(--sand, #faf8f4); border: 1px solid var(--line); border-radius: 16px; }
+.pdp-combina__title { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 6px; }
+.pdp-combina__sub { font-family: var(--sans); font-size: .82rem; color: var(--muted); margin: 0 0 20px; }
+.combo-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.combo-card { flex: 0 0 148px; scroll-snap-align: start; text-decoration: none; color: inherit; }
+.combo-card__img { aspect-ratio: 1/1; background: #fff center/cover no-repeat; border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: transform .3s, box-shadow .3s; box-shadow: 0 2px 12px -7px rgba(0,0,0,.25); }
+.combo-card__img svg { width: 50px; height: 50px; stroke: var(--muted); opacity: .5; }
 .combo-card:hover .combo-card__img { transform: translateY(-4px); box-shadow: 0 16px 38px -22px rgba(0,0,0,.45); }
-.combo-card__name { font-family: var(--sans); font-size: .85rem; margin-top: 10px; text-align: center; color: var(--ink); }
+.combo-card__name { font-family: var(--sans); font-size: .82rem; margin-top: 10px; text-align: center; color: var(--ink); }
 
 .pdp-empty { text-align: center; padding: 80px 20px; }
 .pdp-empty h2 { font-family: var(--serif); font-size: 1.8rem; margin-bottom: 10px; }
