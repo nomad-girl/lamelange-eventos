@@ -67,8 +67,9 @@
     var combina = comboCards
       ? '<section class="pdp-combina"><h3 class="pdp-combina__title">✨ Combiná con</h3><div class="combo-row">' + comboCards + '</div></section>' : '';
 
-    /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay. */
-    var amb = p.ambiente || [];
+    /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay.
+       Las toma de p.ambiente o del archivo ambiente.js (generado por carpetas). */
+    var amb = p.ambiente || (typeof AMBIENTE !== 'undefined' && AMBIENTE[pid]) || [];
     var inspira = amb.length
       ? '<section class="pdp-insp"><h3 class="pdp-insp__title">✨ Inspiración · en la mesa</h3><div class="pdp-insp__grid">'
         + amb.map(function (f) { return '<a class="pdp-insp__item" href="' + f + '" target="_blank" rel="noopener" style="background-image:url(' + f + ')"></a>'; }).join('')
