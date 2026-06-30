@@ -597,11 +597,11 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 @media (max-width: 560px){ .pdp-insp__grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* ===== Galería principal MÁS GRANDE y nítida (ver todas las combinaciones de un vistazo) ===== */
-.pdp-top { grid-template-columns: minmax(0,1.3fr) minmax(0,.9fr); gap: 46px; }
-.pdp-thumbs { gap: 12px; margin-top: 14px; }
-.pdp-thumb { width: 92px; height: 92px; opacity: .8; }
-.qv__body .pdp-top { grid-template-columns: minmax(0,1.25fr) minmax(0,.95fr); }
-@media (max-width: 880px){ .pdp-top { grid-template-columns: 1fr; } .pdp-thumb { width: 84px; height: 84px; } }
+.pdp-top { grid-template-columns: minmax(0,1.6fr) minmax(0,.8fr); gap: 48px; }
+.pdp-thumbs { gap: 14px; margin-top: 16px; }
+.pdp-thumb { width: 118px; height: 118px; opacity: .85; }
+.qv__body .pdp-top { grid-template-columns: minmax(0,1.5fr) minmax(0,.85fr); }
+@media (max-width: 880px){ .pdp-top { grid-template-columns: 1fr; } .pdp-thumb { width: 100px; height: 100px; } }
 
 /* la sección Inspiración ahora es botón (visor), no enlace */
 .pdp-insp__item { border: 0; padding: 0; cursor: pointer; }
