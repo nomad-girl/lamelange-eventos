@@ -14,7 +14,7 @@
    - pixel: ID de Meta Pixel (solo números). Formato: "123456789012345"
             (business.facebook.com → Administrador de eventos → tu pixel) */
 var ANALYTICS = {
-  ga4:   '',   // ← pegá acá el G-XXXXXXXXXX
+  ga4:   'G-SEN9FXSX5L',   // ← Google Analytics 4 de La Mélange
   pixel: '1799713711390754'    // ← Meta Pixel de La Mélange
 };
 
