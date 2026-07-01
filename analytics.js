@@ -48,4 +48,17 @@
     var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
     if (a) trackLead((a.textContent || 'whatsapp').trim().slice(0, 60));
   });
+
+  /* ---------- Lead fuerte: envío de solicitud (se llama desde solicitud.html) ----------
+     Es el lead más valioso: la persona armó su pedido completo. */
+  window.lmLead = function (label, params) {
+    params = params || {}; params.source = label || 'solicitud';
+    if (window.gtag) gtag('event', 'generate_lead', params);
+    if (window.fbq)  fbq('track', 'Lead', params);
+  };
+  /* Evento genérico reutilizable (ej: agregar a la solicitud). */
+  window.lmTrack = function (name, params) {
+    if (window.gtag) gtag('event', name, params || {});
+    if (window.fbq)  fbq('trackCustom', name, params || {});
+  };
 })();

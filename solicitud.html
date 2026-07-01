@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi solicitud · La Mélange</title>
   <meta name="description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos." />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=49" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="La Mélange" />
+  <meta property="og:title" content="Mi solicitud · La Mélange" />
+  <meta property="og:description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos por WhatsApp." />
+  <meta property="og:image" content="https://lamelange-eventos.vercel.app/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=48" />
+  <link rel="stylesheet" href="styles.css?v=49" />
 </head>
 <body>
 
@@ -64,8 +71,9 @@
     </div>
   </footer>
 
-  <script src="data.js?v=48"></script>
-  <script src="cart.js?v=48"></script>
+  <script src="data.js?v=49"></script>
+  <script src="analytics.js?v=49"></script>
+  <script src="cart.js?v=49"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
@@ -185,6 +193,7 @@
         + (f.invitados.value ? 'Invitados: ' + f.invitados.value + '\n' : '')
         + (f.mensaje.value ? 'Mensaje: ' + f.mensaje.value + '\n' : '')
         + '\nProductos:\n' + lineas;
+      if (window.lmLead) window.lmLead('solicitud_enviada', { items: items.length, tipo: (f.tipo && f.tipo.value) || '' });
       window.open('https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent(msg), '_blank');
     });
 
