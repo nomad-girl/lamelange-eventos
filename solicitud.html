@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi solicitud · La Mélange</title>
   <meta name="description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos." />
-  <link rel="icon" type="image/png" href="assets/favicon.png?v=52" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=53" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="La Mélange" />
   <meta property="og:title" content="Mi solicitud · La Mélange" />
@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=52" />
+  <link rel="stylesheet" href="styles.css?v=53" />
 </head>
 <body>
 
@@ -71,9 +71,9 @@
     </div>
   </footer>
 
-  <script src="data.js?v=52"></script>
-  <script src="analytics.js?v=52"></script>
-  <script src="cart.js?v=52"></script>
+  <script src="data.js?v=53"></script>
+  <script src="analytics.js?v=53"></script>
+  <script src="cart.js?v=53"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
@@ -204,6 +204,29 @@
     });
 
     render();
+
+    /* Guardar los datos del formulario para no perderlos si se recarga/cierra la pestaña.
+       (Los productos ya se guardan solos vía Cart/localStorage.) */
+    var FKEY = 'lm_form';
+    var CAMPOS = ['nombre', 'email', 'tel', 'fecha', 'invitados', 'mensaje'];
+    function guardarForm() {
+      var d = {};
+      CAMPOS.forEach(function (n) { if (form[n]) d[n] = form[n].value; });
+      var tp = form.querySelector('input[name="tipo"]:checked');
+      if (tp) d.tipo = tp.value;
+      try { localStorage.setItem(FKEY, JSON.stringify(d)); } catch (e) {}
+    }
+    function restaurarForm() {
+      try {
+        var d = JSON.parse(localStorage.getItem(FKEY) || '{}');
+        CAMPOS.forEach(function (n) { if (form[n] && d[n] != null) form[n].value = d[n]; });
+        if (d.tipo) { var r = form.querySelector('input[name="tipo"][value="' + d.tipo + '"]'); if (r) r.checked = true; }
+      } catch (e) {}
+    }
+    form.addEventListener('input', guardarForm);
+    form.addEventListener('change', guardarForm);
+    restaurarForm();
+
     var t = document.getElementById('navToggle');
     if (t) t.addEventListener('click', function () { document.getElementById('navLinks').classList.toggle('open'); });
   })();
