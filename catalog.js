@@ -128,6 +128,19 @@
     var list = PRODUCTOS.filter(function(p){
       return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p);
     });
+    /* Orden: colecciones agrupadas; dentro de PLATOS, por color y más stock primero */
+    var COLOR_ORD = (typeof TAGS !== 'undefined' && TAGS.color) ? TAGS.color : [];
+    function colIdx(p){ for (var i=0;i<COLECCIONES.length;i++){ if (COLECCIONES[i].id===p.coleccion) return i; } return 99; }
+    function colorRank(p){ var t=p.tags||[]; for (var i=0;i<COLOR_ORD.length;i++){ if (t.indexOf(COLOR_ORD[i])>=0) return i; } return 99; }
+    function stockTot(p){ return (p.piezas||[]).reduce(function(s,q){ return s+(typeof q.s==='number'?q.s:0); },0); }
+    list.sort(function(a,b){
+      var d = colIdx(a)-colIdx(b); if (d) return d;
+      if (a.coleccion==='platos' && b.coleccion==='platos'){
+        var cr = colorRank(a)-colorRank(b); if (cr) return cr;
+        return stockTot(b)-stockTot(a);        // más unidades primero
+      }
+      return PRODUCTOS.indexOf(a)-PRODUCTOS.indexOf(b);  // resto: orden original
+    });
     grid.innerHTML = list.map(function(p){
       var fotos = p.fotos || [];
       var mixBadge = isMix(p) ? '<span class="mix-badge">Mix &amp; match</span>' : '';
