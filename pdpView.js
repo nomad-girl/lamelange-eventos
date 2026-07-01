@@ -113,7 +113,7 @@
         + amb.map(function (f, i) { return '<button class="pdp-insp__item" type="button" data-amb-i="' + i + '" style="background-image:url(' + f + ')"></button>'; }).join('')
         + '</div></section>' : '';
 
-    var wsp = 'Hola La Mélange! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
+    var wsp = '¡Hola! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
 
     mount.innerHTML =
       '<div class="pdp-top">' + gallery
