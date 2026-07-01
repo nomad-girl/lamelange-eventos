@@ -15,7 +15,7 @@
             (business.facebook.com → Administrador de eventos → tu pixel) */
 var ANALYTICS = {
   ga4:   '',   // ← pegá acá el G-XXXXXXXXXX
-  pixel: ''    // ← pegá acá el número del Meta Pixel
+  pixel: '1799713711390754'    // ← Meta Pixel de La Mélange
 };
 
 var ICONS = {
