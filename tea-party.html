@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tea Party · La Mélange · Mesas dulces y celebraciones</title>
-  <meta name="description" content="Tea Party, mesas dulces y celebraciones temáticas: vajilla vintage floreada, cristal de color y dorados para cumpleaños, baby showers y meriendas con encanto." />
+  <title>Tea Party, Mesa Dulce y Candy Bar · La Mélange</title>
+  <meta name="description" content="Vajilla vintage para Tea Party, mesa dulce y candy bar: baby shower, cumpleaños, fiesta de 15, bautismo y meriendas. Platos floreados mix & match, cristal de color y dorados para celebraciones con encanto." />
+  <meta name="keywords" content="tea party, mesa dulce, candy bar, baby shower, fiesta de 15, cumpleaños temático, merienda vintage, bautismo, vajilla vintage, alquiler de vajilla" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=47" />
+  <link rel="stylesheet" href="styles.css?v=48" />
 </head>
 <body>
 
@@ -26,24 +27,29 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="tp-hero">
-    <div class="tp-hero__bg" style="background-image:url('assets/05-mesas-montadas/tea-party/tea-party-1.jpg')"></div>
-    <div class="tp-hero__inner wrap">
-      <span class="eyebrow">Mesas dulces · Celebraciones</span>
-      <h1>Tea Party</h1>
-      <p class="lead">Vajilla vintage floreada, cristal de color y dorados suaves para cumpleaños, baby showers y meriendas con encanto. Una mesa que parece de cuento.</p>
-      <a id="tpWa" href="#" class="btn btn--solid">Quiero mi Tea Party</a>
+  <!-- HERO (estilo split: texto legible + foto al lado, como la home) -->
+  <section class="hero hero--split">
+    <div class="hero__panel">
+      <div class="hero__content">
+        <span class="eyebrow">Mesas dulces · Celebraciones</span>
+        <h1>Tea Party</h1>
+        <p class="lead">Vajilla vintage floreada, cristal de color y dorados suaves para <strong>mesas dulces, candy bar, baby showers, cumpleaños y fiestas de 15</strong>. Una merienda que parece de cuento.</p>
+        <div class="hero__actions">
+          <a id="tpWa" href="#" class="btn btn--solid">Quiero mi Tea Party</a>
+          <a href="#propuesta" class="btn btn--ghost">Ver la propuesta</a>
+        </div>
+      </div>
     </div>
+    <div class="hero__photo" style="background-image:url('assets/05-mesas-montadas/tea-party/tea-party-1.jpg')"></div>
   </section>
 
   <!-- GALERÍA -->
-  <section class="section">
+  <section class="section" id="propuesta">
     <div class="wrap">
       <div class="section__head">
         <span class="eyebrow">La propuesta</span>
         <h2>Así se ve una mesa Tea Party</h2>
-        <p>Combinaciones armadas para que tu celebración tenga ese aire romántico y vintage.</p>
+        <p>Combinaciones armadas para candy bar, mesa dulce, baby shower o cumpleaños — con ese aire romántico y vintage.</p>
       </div>
       <div class="tp-gallery" id="tpGallery"></div>
     </div>
@@ -83,8 +89,8 @@
     </div>
   </footer>
 
-  <script src="data.js?v=47"></script>
-  <script src="cart.js?v=47"></script>
+  <script src="data.js?v=48"></script>
+  <script src="cart.js?v=48"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
