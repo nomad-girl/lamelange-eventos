@@ -665,3 +665,13 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .photo:hover .qv-btn { opacity: 1; transform: translateX(-50%) translateY(0); }
 .qv-btn:hover { background: #fff; }
 @media (hover: none) { .qv-btn { opacity: 1; transform: translateX(-50%); bottom: 12px; padding: 8px 16px; } }
+
+/* ===== "En la mesa" + "Combiná con" ahora en la columna derecha (visibles sin scroll largo) ===== */
+.pdp-info .pdp-insp { margin-top: 30px; }
+.pdp-info .pdp-insp__title { font-size: 1.12rem; margin: 0 0 12px; }
+.pdp-info .pdp-insp__grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+.pdp-info .pdp-insp__item { aspect-ratio: 1/1; border-radius: 10px; }
+.pdp-info .pdp-combina { margin-top: 26px; padding: 22px 22px 24px; }
+.pdp-info .pdp-combina__title { font-size: 1.08rem; }
+.pdp-info .combo-card { flex: 0 0 124px; }
+@media (max-width: 880px){ .pdp-info .pdp-insp__grid { grid-template-columns: repeat(3, 1fr); } }
