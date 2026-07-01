@@ -150,9 +150,9 @@
           + '<button class="pdp-share" type="button" data-share-prod>↗ Compartir este modelo</button>'
           + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
           + '</div>'
-          + inspira + combina
+          + combina
         + '</div>'
-      + '</div>';
+      + '</div>' + inspira;
 
     /* galería */
     var main = mount.querySelector('[data-main]');

@@ -675,3 +675,17 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-info .pdp-combina__title { font-size: 1.08rem; }
 .pdp-info .combo-card { flex: 0 0 124px; }
 @media (max-width: 880px){ .pdp-info .pdp-insp__grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== Galería: foto PRINCIPAL más chica + MINIATURAS (combinaciones) MÁS GRANDES ===== */
+.pdp-top { grid-template-columns: minmax(0,1.15fr) minmax(0,.95fr); gap: 40px; }
+.pdp-thumbs { gap: 14px; margin-top: 16px; }
+.pdp-thumb { width: 158px; height: 158px; opacity: .82; }
+.pdp-thumb.on, .pdp-thumb:hover { opacity: 1; }
+.qv__body .pdp-top { grid-template-columns: minmax(0,1.2fr) minmax(0,.95fr); }
+@media (max-width: 880px){ .pdp-top { grid-template-columns: 1fr; } .pdp-thumb { width: 120px; height: 120px; } }
+
+/* "En la mesa" full-width y protagonista (ya no en la columna) */
+.pdp-insp { margin-top: 64px; }
+.pdp-insp__title { font-size: 1.7rem; margin: 0 0 20px; }
+.pdp-insp__grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.pdp-insp__item { aspect-ratio: 4/3; border-radius: 12px; }
