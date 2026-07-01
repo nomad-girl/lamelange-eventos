@@ -623,3 +623,16 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdplb__prev { left: 24px; } .pdplb__next { right: 24px; }
 .pdplb__count { position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.85); font-family: var(--sans); font-size: .8rem; letter-spacing: .08em; }
 @media (max-width: 560px){ .pdplb__nav { width: 44px; height: 44px; font-size: 1.6rem; } .pdplb__prev { left: 10px; } .pdplb__next { right: 10px; } .pdplb__img { max-width: 94vw; } }
+
+/* ===== Tea Party (landing para anuncios) ===== */
+.tp-hero { position: relative; min-height: 62vh; display: flex; align-items: flex-end; overflow: hidden; }
+.tp-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.tp-hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,20,25,.12), rgba(30,20,25,.6)); }
+.tp-hero__inner { position: relative; z-index: 2; padding: 64px 0; max-width: 640px; color: #fff; }
+.tp-hero__inner .eyebrow { color: rgba(255,255,255,.85); }
+.tp-hero__inner h1 { font-family: var(--serif, 'Playfair Display', serif); font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; margin: 10px 0 14px; color: #fff; }
+.tp-hero__inner .lead { color: rgba(255,255,255,.94); }
+.tp-hero__inner .btn { margin-top: 24px; }
+.tp-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.tp-gallery__item { aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 12px; }
+@media (max-width: 560px){ .tp-hero { min-height: 52vh; } .tp-hero__inner { padding: 40px 0; } }
