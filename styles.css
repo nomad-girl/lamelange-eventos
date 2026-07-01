@@ -636,3 +636,9 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .tp-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .tp-gallery__item { aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: 12px; }
 @media (max-width: 560px){ .tp-hero { min-height: 52vh; } .tp-hero__inner { padding: 40px 0; } }
+
+/* ===== Tope de stock (ficha): aviso claro + botón "Agregar" bloqueado ===== */
+.qadd-row--over .qadd-qty { border-color: #c0564d; box-shadow: 0 0 0 2px rgba(192,86,77,.20); outline: none; }
+.qadd-row--over .qadd-lbl small { color: #c0564d; font-weight: 600; font-size: .82rem; }
+.qadd-btn--block { opacity: .5; cursor: not-allowed; }
+.qadd-btn--block:hover { background: var(--ink); color: #fff; }

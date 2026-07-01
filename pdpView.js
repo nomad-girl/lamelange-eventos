@@ -147,40 +147,60 @@
       });
     }
 
-    /* agregar a solicitud (por pieza) */
+    /* agregar a solicitud (por pieza) — BLOQUEA si supera el stock */
     var addBtn = mount.querySelector('.qadd-btn');
+
+    function isOver(inp) {   // ¿esta pieza pide más de lo disponible?
+      var mx = parseInt(inp.getAttribute('data-max'), 10);
+      var v = parseInt(inp.value, 10) || 0;
+      return (!isNaN(mx) && v > mx);
+    }
+    function anyOver() {
+      return [].some.call(mount.querySelectorAll('.qadd-qty'), isOver);
+    }
+    function markRow(inp) {   // pinta el aviso claro (rojo) o vuelve al normal
+      var mx = parseInt(inp.getAttribute('data-max'), 10);
+      var row = inp.closest('.qadd-row'), small = row && row.querySelector('.qadd-lbl small');
+      var over = isOver(inp);
+      if (row) row.classList.toggle('qadd-row--over', over);
+      if (small && !isNaN(mx)) small.textContent = over ? ('⚠ Solo hay ' + mx + ' disponibles') : ('stock ' + mx);
+    }
+    function updateAddState() {   // deshabilita visualmente el botón si hay exceso
+      addBtn.classList.toggle('qadd-btn--block', anyOver());
+    }
+
+    mount.querySelectorAll('.qadd-qty').forEach(function (inp) {
+      inp.addEventListener('input', function () { markRow(inp); updateAddState(); });
+    });
+
     addBtn.addEventListener('click', function () {
+      /* 1) si alguna pieza supera el stock → NO agrega, marca y pide corregir */
+      if (anyOver()) {
+        var firstOver = null;
+        mount.querySelectorAll('.qadd-qty').forEach(function (inp) {
+          markRow(inp); if (!firstOver && isOver(inp)) firstOver = inp;
+        });
+        var box = mount.querySelector('.qadd');
+        if (box) { box.classList.add('qadd--error'); setTimeout(function () { box.classList.remove('qadd--error'); }, 1600); }
+        if (firstOver) firstOver.focus();
+        cartFeedback(addBtn, '✗ Corregí las cantidades');
+        return;
+      }
+      /* 2) juntar líneas con cantidad */
       var lineas = [].map.call(mount.querySelectorAll('.qadd-qty'), function (inp) {
         return { t: inp.getAttribute('data-t'), qty: parseInt(inp.value, 10) || 0 };
       }).filter(function (l) { return l.qty > 0; });
       if (!lineas.length) {
-        var box = mount.querySelector('.qadd');
-        if (box) { box.classList.add('qadd--error'); setTimeout(function () { box.classList.remove('qadd--error'); }, 1600); }
+        var box2 = mount.querySelector('.qadd');
+        if (box2) { box2.classList.add('qadd--error'); setTimeout(function () { box2.classList.remove('qadd--error'); }, 1600); }
         var first = mount.querySelector('.qadd-qty'); if (first) first.focus();
         cartFeedback(addBtn, '↑ Elegí una cantidad');
         return;
       }
       Cart.add(pid, lineas);
       cartFeedback(addBtn, '✓ Agregado a tu solicitud');
-      mount.querySelectorAll('.qadd-qty').forEach(function (i) { i.value = 0; });
-    });
-
-    /* tope de stock: no deja pedir más de lo disponible y avisa */
-    mount.querySelectorAll('.qadd-qty').forEach(function (inp) {
-      inp.addEventListener('input', function () {
-        var mx = parseInt(inp.getAttribute('data-max'), 10);
-        var v = parseInt(inp.value, 10) || 0;
-        if (!isNaN(mx) && v > mx) {
-          inp.value = mx;
-          var row = inp.closest('.qadd-row'), small = row && row.querySelector('.qadd-lbl small');
-          if (small) {
-            small.textContent = 'máx ' + mx + ' disponibles';
-            small.style.color = '#c0564d';
-            clearTimeout(inp._stockT);
-            inp._stockT = setTimeout(function () { small.textContent = 'stock ' + mx; small.style.color = ''; }, 2200);
-          }
-        }
-      });
+      mount.querySelectorAll('.qadd-qty').forEach(function (i) { i.value = 0; markRow(i); });
+      updateAddState();
     });
 
     /* compartir el modelo (link a la ficha, que incluye fotos + datos) */
