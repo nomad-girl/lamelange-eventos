@@ -163,7 +163,9 @@
       else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
       return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
-        + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
+        + '<div class="product__meta">'+p.material+'</div>' + stk
+        + '<button class="product__cta" type="button">Ver y pedir</button>'
+        + '</div></div>';
     }).join('');
     setupHover();
     syncURL();

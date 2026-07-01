@@ -139,13 +139,6 @@
 
     var wsp = '¡Hola! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
 
-    /* En la vista rápida (modal): CTA visible hacia la ficha completa, donde están
-       las fotos en la mesa y las combinaciones. En la página completa no se muestra. */
-    var extras = [amb.length ? 'fotos en la mesa' : '', comboCards ? 'combiná con' : ''].filter(Boolean).join('  ·  ');
-    var moreCta = (opts.onNavigate && extras) ? (
-      '<a class="pdp-more" href="producto.html?id=' + pid + '"><b>Ver ficha completa →</b><small>' + extras + '</small></a>'
-    ) : '';
-
     mount.innerHTML =
       '<div class="pdp-top">' + gallery
         + '<div class="pdp-info">'
@@ -158,9 +151,8 @@
           + '<button class="pdp-share" type="button" data-share-prod>↗ Compartir este modelo</button>'
           + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
           + '</div>'
-          + moreCta
         + '</div>'
-      + '</div>' + (opts.onNavigate ? '' : (inspira + combina));
+      + '</div>' + inspira + combina;
 
     /* galería */
     var main = mount.querySelector('[data-main]');
