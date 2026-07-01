@@ -150,9 +150,9 @@
           ? '<button class="gnav gprev" aria-label="Anterior">‹</button><button class="gnav gnext" aria-label="Siguiente">›</button>'
             + '<div class="gdots">' + fotos.map(function(_, i){ return '<i class="'+(i===0?'on':'')+'"></i>'; }).join('') + '</div>'
           : '';
-        media = '<div class="photo has-gal" data-pi="'+PRODUCTOS.indexOf(p)+'" data-idx="0" style="aspect-ratio:1/1; background-image:url('+fotos[0]+'); background-size:cover; background-position:center;">'+mixBadge+nav+'</div>';
+        media = '<div class="photo has-gal" data-pi="'+PRODUCTOS.indexOf(p)+'" data-idx="0" style="aspect-ratio:1/1; background-image:url('+fotos[0]+'); background-size:cover; background-position:center;">'+mixBadge+nav+'<button class="qv-btn" type="button" data-qv>Vista rápida</button></div>';
       } else {
-        media = '<div class="photo" data-label="'+p.nombre+'">'+mixBadge+ICONS[p.icon]+'</div>';
+        media = '<div class="photo" data-label="'+p.nombre+'">'+mixBadge+ICONS[p.icon]+'<button class="qv-btn" type="button" data-qv>Vista rápida</button></div>';
       }
       var piezasShow = p.piezas;
       if (tipo === 'playo')       piezasShow = p.piezas.filter(function(q){ return /playo|principal/i.test(q.t || ''); });
@@ -163,9 +163,7 @@
       else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
       return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
-        + '<div class="product__meta">'+p.material+'</div>' + stk
-        + '<button class="product__cta" type="button">Ver y pedir</button>'
-        + '</div></div>';
+        + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
     setupHover();
     syncURL();
@@ -264,6 +262,14 @@
   }
 
   function gridClick(e){
+    /* botón "Vista rápida" → abre el modal (sin ir a la página) */
+    var qvb = e.target.closest ? e.target.closest('[data-qv]') : null;
+    if (qvb){
+      e.preventDefault(); e.stopPropagation();
+      var cardq = qvb.closest('.product--link');
+      if (cardq) openQuickView(cardq.getAttribute('data-id'));
+      return;
+    }
     var nav = e.target.closest ? e.target.closest('.gnav') : null;
     if (nav){
       e.stopPropagation();
@@ -276,10 +282,11 @@
       var dots = ph.querySelectorAll('.gdots i'); for (var k = 0; k < dots.length; k++) dots[k].className = (k === idx ? 'on' : '');
       return;
     }
+    /* click en la tarjeta → página completa del producto */
     var prod = e.target.closest ? e.target.closest('.product--link') : null;
     if (prod){
       var pid = prod.getAttribute('data-id');
-      if (pid) openQuickView(pid);
+      if (pid) location.href = 'producto.html?id=' + encodeURIComponent(pid);
     }
   }
 
