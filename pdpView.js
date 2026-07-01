@@ -98,7 +98,7 @@
        color o estilo → coherencia, no "todo con todo". */
     function complementos() {
       var COMP = {
-        platos: ['cristaleria', 'cubiertos'], cargadores: ['cristaleria', 'cubiertos'],
+        platos: ['cristaleria', 'cubiertos'], cargadores: ['platos', 'cristaleria', 'cubiertos'],
         cristaleria: ['platos', 'cubiertos'], cubiertos: ['platos', 'cristaleria'],
         plateria: ['platos', 'cristaleria']
       }[p.coleccion] || [];
