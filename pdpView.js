@@ -126,13 +126,13 @@
         + '<div class="combo-card__name">' + c.nombre + '</div></a>';
     }).join('');
     var combina = comboCards
-      ? '<section class="pdp-combina"><span class="eyebrow">Para armar la mesa</span><h3 class="pdp-combina__title">Combiná con</h3><p class="pdp-combina__sub">Otras piezas que combinan lindo con este modelo</p><div class="combo-row">' + comboCards + '</div></section>' : '';
+      ? '<section class="pdp-combina"><h3 class="pdp-combina__title">Combiná con</h3><div class="combo-row">' + comboCards + '</div></section>' : '';
 
     /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay.
        Las toma de p.ambiente o del archivo ambiente.js (generado por carpetas). */
     var amb = p.ambiente || (typeof AMBIENTE !== 'undefined' && AMBIENTE[pid]) || [];
     var inspira = amb.length
-      ? '<section class="pdp-insp"><span class="eyebrow">En un evento real</span><h3 class="pdp-insp__title">En la mesa</h3><div class="pdp-insp__grid">'
+      ? '<section class="pdp-insp"><h3 class="pdp-insp__title">Inspirate</h3><div class="pdp-insp__grid">'
         + amb.map(function (f, i) { return '<button class="pdp-insp__item" type="button" data-amb-i="' + i + '" style="background-image:url(' + f + ')"></button>'; }).join('')
         + '</div></section>' : '';
 
