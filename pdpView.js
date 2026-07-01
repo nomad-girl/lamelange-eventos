@@ -81,7 +81,6 @@
     var gallery = fotos.length
       ? '<div class="pdp-gallery"><div class="pdp-main" data-main style="background-image:url(' + fotos[0] + ')">'
         + (fotos.length > 1 ? '<button class="gnav gprev" data-prev>‹</button><button class="gnav gnext" data-next>›</button>' : '')
-        + '<button class="pdp-share-img" type="button" data-share-img aria-label="Compartir esta foto" title="Compartir esta foto">↗</button>'
         + '</div>' + (fotos.length > 1 ? '<div class="pdp-thumbs">' + thumbs + '</div>' : '') + '</div>'
       : '<div class="pdp-gallery"><div class="pdp-main pdp-main--empty">' + (ICONS[p.icon] || '') + '</div></div>';
 

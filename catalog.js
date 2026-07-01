@@ -236,7 +236,7 @@
     qv = document.createElement('div'); qv.className = 'qv'; qv.hidden = true;
     qv.innerHTML = '<div class="qv__backdrop" data-qv-close></div>'
       + '<div class="qv__panel">'
-      + '<a class="qv__expand" data-qv-expand href="#" title="Ver la ficha completa">⤢ Ver completo</a>'
+      + '<a class="qv__expand" data-qv-expand href="#" title="Ver la ficha completa">Ver ficha completa →</a>'
       + '<button class="qv__close" data-qv-close aria-label="Cerrar">×</button>'
       + '<div class="qv__body" id="qvBody"></div></div>';
     document.body.appendChild(qv);

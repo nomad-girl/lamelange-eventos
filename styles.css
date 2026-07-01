@@ -586,8 +586,9 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 
 /* ===== Vista rápida: "Ver completo" (expandir a página) ===== */
 .qv__panel { position: relative; }
-.qv__expand { position: absolute; top: 16px; left: 20px; z-index: 4; font-family: var(--sans); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
-.qv__expand:hover { color: var(--ink); }
+.qv__expand { position: absolute; top: 14px; left: 18px; z-index: 4; font-family: var(--sans); font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 100px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.5); transition: background .2s, transform .2s; }
+.qv__expand:hover { background: var(--accent); transform: translateY(-1px); }
+@media (max-width: 620px){ .qv__expand { font-size: .68rem; padding: 9px 15px; } }
 
 /* ===== Segunda galería: Inspiración / en la mesa ===== */
 /* 2 · EN LA MESA: momento grande, editorial (clima del evento) */
