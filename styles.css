@@ -642,3 +642,12 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .qadd-row--over .qadd-lbl small { color: #c0564d; font-weight: 600; font-size: .82rem; }
 .qadd-btn--block { opacity: .5; cursor: not-allowed; }
 .qadd-btn--block:hover { background: var(--ink); color: #fff; }
+
+/* ===== Botón "Volver" (página de producto) ===== */
+.pdp-back { display: inline-flex; align-items: center; gap: 6px; background: none; border: 1px solid var(--line); border-radius: 100px; padding: 8px 16px; font-family: var(--sans); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); cursor: pointer; margin-bottom: 18px; transition: color .2s, border-color .2s; }
+.pdp-back:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ===== Chips de la ficha flotante (avisan y llevan a las secciones de abajo) ===== */
+.pdp-jump { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.pdp-jump button { background: var(--sand, #faf8f4); border: 1px solid var(--line); border-radius: 100px; padding: 9px 15px; font-family: var(--sans); font-size: .72rem; letter-spacing: .05em; color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s; }
+.pdp-jump button:hover { background: var(--bg-3); border-color: var(--muted); }

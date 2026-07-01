@@ -95,15 +95,39 @@
           return '<a class="tag-chip" href="catalogo.html?tag=' + encodeURIComponent(t) + '">' + t + '</a>';
         }).join('') + '</div>' : '';
 
-    var comboCards = (p.combinaCon || []).map(function (cid) {
-      var c = buscarProducto(cid); if (!c) return '';
-      var f = (c.fotos && c.fotos[0]) || '';
-      return '<a class="combo-card" data-nav="' + productoId(c) + '" href="producto.html?id=' + productoId(c) + '">'
+    /* Combiná con: sugerencias COMPLEMENTARIAS (otra categoría) que compartan
+       color o estilo → coherencia, no "todo con todo". */
+    function complementos() {
+      var COMP = {
+        platos: ['cristaleria', 'cubiertos'], cargadores: ['cristaleria', 'cubiertos'],
+        cristaleria: ['platos', 'cubiertos'], cubiertos: ['platos', 'cristaleria'],
+        plateria: ['platos', 'cristaleria']
+      }[p.coleccion] || [];
+      var COLOR = ['dorado', 'plateado', 'plata', 'blanco', 'rosa', 'azul', 'verde', 'bordó', 'negro', 'multicolor', 'transparente'];
+      var ESTILO = ['clásico', 'romántico', 'vintage', 'moderno', 'campestre', 'boho'];
+      var mine = p.tags || [], out = [];
+      COMP.forEach(function (cat) {
+        var cands = PRODUCTOS.filter(function (c) {
+          return c.coleccion === cat && (c.id || productoId(c)) !== pid && c.fotos && c.fotos.length;
+        }).map(function (c) {
+          var ct = c.tags || [];
+          var colorOk = ct.some(function (t) { return COLOR.indexOf(t) >= 0 && mine.indexOf(t) >= 0; });
+          var estiloOk = ct.some(function (t) { return ESTILO.indexOf(t) >= 0 && mine.indexOf(t) >= 0; });
+          return { c: c, sc: (colorOk ? 2 : 0) + (estiloOk ? 1 : 0) };
+        }).filter(function (x) { return x.sc > 0; });   // solo los que realmente combinan
+        cands.sort(function (a, b) { return b.sc - a.sc; });
+        out = out.concat(cands.slice(0, 2).map(function (x) { return x.c; }));
+      });
+      return out.slice(0, 4);
+    }
+    var comboCards = complementos().map(function (c) {
+      var f = (c.fotos && c.fotos[0]) || '', cidp = c.id || productoId(c);
+      return '<a class="combo-card" data-nav="' + cidp + '" href="producto.html?id=' + cidp + '">'
         + '<div class="combo-card__img" ' + (f ? 'style="background-image:url(' + f + ')"' : '') + '>' + (f ? '' : (ICONS[c.icon] || '')) + '</div>'
         + '<div class="combo-card__name">' + c.nombre + '</div></a>';
     }).join('');
     var combina = comboCards
-      ? '<section class="pdp-combina"><span class="eyebrow">Sumá a tu pedido</span><h3 class="pdp-combina__title">Combiná con</h3><p class="pdp-combina__sub">Otros modelos de la línea para tu mesa</p><div class="combo-row">' + comboCards + '</div></section>' : '';
+      ? '<section class="pdp-combina"><span class="eyebrow">Para armar la mesa</span><h3 class="pdp-combina__title">Combiná con</h3><p class="pdp-combina__sub">Otras piezas que combinan lindo con este modelo</p><div class="combo-row">' + comboCards + '</div></section>' : '';
 
     /* Segunda galería: fotos ambientadas ("en la mesa"). Se muestra solo si hay.
        Las toma de p.ambiente o del archivo ambiente.js (generado por carpetas). */
@@ -114,6 +138,14 @@
         + '</div></section>' : '';
 
     var wsp = '¡Hola! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
+
+    /* En la vista rápida (modal): chips que avisan que hay más abajo y llevan ahí */
+    var jumps = opts.onNavigate ? (
+      '<div class="pdp-jump">'
+      + (amb.length ? '<button type="button" data-jump="insp">✨ En la mesa · ' + amb.length + '</button>' : '')
+      + (comboCards ? '<button type="button" data-jump="combina">Combiná con →</button>' : '')
+      + '</div>'
+    ) : '';
 
     mount.innerHTML =
       '<div class="pdp-top">' + gallery
@@ -127,6 +159,7 @@
           + '<button class="pdp-share" type="button" data-share-prod>↗ Compartir este modelo</button>'
           + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
           + '</div>'
+          + jumps
         + '</div>'
       + '</div>' + inspira + combina;
 
@@ -230,6 +263,14 @@
     /* Inspiración: abrir el visor navegable al hacer click en una foto */
     mount.querySelectorAll('[data-amb-i]').forEach(function (el) {
       el.addEventListener('click', function () { lbOpen(amb, +el.getAttribute('data-amb-i')); });
+    });
+
+    /* Chips de la ficha flotante: llevan a "En la mesa" / "Combiná con" */
+    mount.querySelectorAll('[data-jump]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = mount.querySelector(b.getAttribute('data-jump') === 'insp' ? '.pdp-insp' : '.pdp-combina');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
 
     /* combiná con: en modal navega adentro; en página deja el <a> normal */
