@@ -651,3 +651,10 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-jump { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 .pdp-jump button { background: var(--sand, #faf8f4); border: 1px solid var(--line); border-radius: 100px; padding: 9px 15px; font-family: var(--sans); font-size: .72rem; letter-spacing: .05em; color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s; }
 .pdp-jump button:hover { background: var(--bg-3); border-color: var(--muted); }
+
+/* ===== Vista rápida: CTA a la ficha completa (mesas + combinaciones) ===== */
+.pdp-more { display: flex; flex-direction: column; align-items: center; gap: 3px; margin-top: 18px; padding: 14px 18px; border: 1px solid var(--ink); border-radius: 12px; text-align: center; transition: background .2s, color .2s; }
+.pdp-more b { font-family: var(--sans); font-weight: 500; font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
+.pdp-more small { font-family: var(--sans); font-size: .72rem; color: var(--muted); }
+.pdp-more:hover { background: var(--ink); color: #fff; }
+.pdp-more:hover small { color: rgba(255,255,255,.82); }

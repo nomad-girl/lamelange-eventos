@@ -139,12 +139,11 @@
 
     var wsp = '¡Hola! Me interesa el modelo "' + p.nombre + '"' + (p.codigo ? (' (' + p.codigo + ')') : '') + '. ¿Disponibilidad y precio?';
 
-    /* En la vista rápida (modal): chips que avisan que hay más abajo y llevan ahí */
-    var jumps = opts.onNavigate ? (
-      '<div class="pdp-jump">'
-      + (amb.length ? '<button type="button" data-jump="insp">✨ En la mesa · ' + amb.length + '</button>' : '')
-      + (comboCards ? '<button type="button" data-jump="combina">Combiná con →</button>' : '')
-      + '</div>'
+    /* En la vista rápida (modal): CTA visible hacia la ficha completa, donde están
+       las fotos en la mesa y las combinaciones. En la página completa no se muestra. */
+    var extras = [amb.length ? 'fotos en la mesa' : '', comboCards ? 'combiná con' : ''].filter(Boolean).join('  ·  ');
+    var moreCta = (opts.onNavigate && extras) ? (
+      '<a class="pdp-more" href="producto.html?id=' + pid + '"><b>Ver ficha completa →</b><small>' + extras + '</small></a>'
     ) : '';
 
     mount.innerHTML =
@@ -159,9 +158,9 @@
           + '<button class="pdp-share" type="button" data-share-prod>↗ Compartir este modelo</button>'
           + '<a class="pdp-wa" href="' + waLink(wsp) + '" target="_blank" rel="noopener">o consultá por WhatsApp →</a>'
           + '</div>'
-          + jumps
+          + moreCta
         + '</div>'
-      + '</div>' + inspira + combina;
+      + '</div>' + (opts.onNavigate ? '' : (inspira + combina));
 
     /* galería */
     var main = mount.querySelector('[data-main]');
