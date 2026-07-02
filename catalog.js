@@ -128,16 +128,16 @@
     var list = PRODUCTOS.filter(function(p){
       return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p);
     });
-    /* Orden: colecciones agrupadas; dentro de PLATOS, por color y más stock primero */
-    var COLOR_ORD = (typeof TAGS !== 'undefined' && TAGS.color) ? TAGS.color : [];
+    /* Orden: colecciones agrupadas; dentro de PLATOS, Premium primero y luego por más cantidad */
     function colIdx(p){ for (var i=0;i<COLECCIONES.length;i++){ if (COLECCIONES[i].id===p.coleccion) return i; } return 99; }
-    function colorRank(p){ var t=p.tags||[]; for (var i=0;i<COLOR_ORD.length;i++){ if (t.indexOf(COLOR_ORD[i])>=0) return i; } return 99; }
     function stockTot(p){ return (p.piezas||[]).reduce(function(s,q){ return s+(typeof q.s==='number'?q.s:0); },0); }
+    function esPremium(p){ return p.id==='premium'; }
     list.sort(function(a,b){
       var d = colIdx(a)-colIdx(b); if (d) return d;
       if (a.coleccion==='platos' && b.coleccion==='platos'){
-        var cr = colorRank(a)-colorRank(b); if (cr) return cr;
-        return stockTot(b)-stockTot(a);        // más unidades primero
+        var pa = esPremium(a)?1:0, pb = esPremium(b)?1:0;
+        if (pa!==pb) return pb-pa;              // Premium siempre primero
+        return stockTot(b)-stockTot(a);         // luego, más cantidad primero
       }
       return PRODUCTOS.indexOf(a)-PRODUCTOS.indexOf(b);  // resto: orden original
     });
