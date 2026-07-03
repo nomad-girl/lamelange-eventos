@@ -128,18 +128,25 @@
     var list = PRODUCTOS.filter(function(p){
       return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p);
     });
-    /* Orden: colecciones agrupadas; dentro de PLATOS, Premium primero y luego por más cantidad */
+    /* Orden: colecciones agrupadas; dentro de PLATOS, orden manual definido por Natali */
     function colIdx(p){ for (var i=0;i<COLECCIONES.length;i++){ if (COLECCIONES[i].id===p.coleccion) return i; } return 99; }
-    function stockTot(p){ return (p.piezas||[]).reduce(function(s,q){ return s+(typeof q.s==='number'?q.s:0); },0); }
-    function esPremium(p){ return p.id==='premium'; }
+    var ORDEN_PLATOS = ['premium','luxury-gold','luxury-white','relieve-blanco','perla-blanco','perla-rosa','rosa-puntilla','rosa-ceramica','relieve-verde','puntilla-verde','negro','net','joy'];
+    function platoRank(p){
+      var i = ORDEN_PLATOS.indexOf(p.id||''); if (i>=0) return i;
+      var m = (p.material||'').toLowerCase();
+      if (/mix & match · azul/.test(m))   return 50;   // Blue & White
+      if (/mix & match · bordó/.test(m))  return 60;   // Bordó
+      if (/mix & match · varios/.test(m)) return 70;   // Varios
+      return 80;
+    }
     list.sort(function(a,b){
       var d = colIdx(a)-colIdx(b); if (d) return d;
       if (a.coleccion==='platos' && b.coleccion==='platos'){
-        var pa = esPremium(a)?1:0, pb = esPremium(b)?1:0;
-        if (pa!==pb) return pb-pa;              // Premium siempre primero
-        return stockTot(b)-stockTot(a);         // luego, más cantidad primero
+        var ra = platoRank(a), rb = platoRank(b);
+        if (ra!==rb) return ra-rb;
+        return PRODUCTOS.indexOf(a)-PRODUCTOS.indexOf(b);  // dentro del grupo, orden original
       }
-      return PRODUCTOS.indexOf(a)-PRODUCTOS.indexOf(b);  // resto: orden original
+      return PRODUCTOS.indexOf(a)-PRODUCTOS.indexOf(b);  // otras colecciones: orden original
     });
     grid.innerHTML = list.map(function(p){
       var fotos = p.fotos || [];
