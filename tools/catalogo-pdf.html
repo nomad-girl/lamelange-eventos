@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Catálogo · La Mélange</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg-2:#F6F4F1; --bg-3:#ECE6DE;
+    --ink:#1A1A1A; --muted:#8A8378; --accent:#2C3E50;
+    --serif:"Playfair Display", Georgia, serif;
+    --sans:"Montserrat", -apple-system, "Segoe UI", sans-serif;
+  }
+  @page{ size:A4; margin:14mm 14mm 16mm; }
+  @page:first{ margin:0; }
+  *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:var(--sans); color:var(--ink); font-weight:300; }
+
+  /* ---------- Portada ---------- */
+  .cover{
+    height:297mm; width:210mm; page-break-after:always;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; background:var(--bg-2); position:relative;
+  }
+  .cover__logo{ width:150px; margin-bottom:34px; }
+  .cover__eyebrow{ font-size:.62rem; letter-spacing:.42em; text-transform:uppercase; color:var(--muted); }
+  .cover__title{ font-family:var(--serif); font-weight:400; font-size:3.5rem; letter-spacing:.02em; margin:.35em 0 .1em; }
+  .cover__sub{ font-family:var(--serif); font-style:italic; font-size:1.35rem; color:var(--accent); margin-bottom:26px; }
+  .cover__rule{ width:56px; height:1px; background:var(--ink); opacity:.5; margin:22px auto; }
+  .cover__meta{ font-size:.66rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); line-height:2.1; }
+  .cover__foot{ position:absolute; bottom:26mm; left:0; right:0; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
+
+  /* ---------- Secciones ---------- */
+  .section-head{ page-break-before:always; page-break-after:avoid; margin:4px 0 18px; }
+  .section-head:first-of-type{ page-break-before:avoid; }
+  .section-head .kicker{ font-size:.58rem; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); }
+  .section-head h2{ font-family:var(--serif); font-weight:400; font-size:2rem; margin:.15em 0 0; }
+  .section-head .count{ font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-top:6px; }
+  .section-head .rule{ height:1px; background:var(--bg-3); margin-top:14px; }
+
+  /* ---------- Grid de productos ---------- */
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px 14px; }
+  .card{ page-break-inside:avoid; }
+  .card__ph{
+    width:100%; aspect-ratio:1/1; background:var(--bg-3); overflow:hidden;
+    border-radius:2px; display:flex; align-items:center; justify-content:center;
+  }
+  .card__ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card__ph .noimg{ font-size:.55rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
+  .card__name{ font-family:var(--serif); font-size:1.02rem; line-height:1.2; margin:9px 0 3px; }
+  .card__mat{ font-size:.66rem; color:var(--muted); line-height:1.35; }
+  .card__stock{ font-size:.64rem; color:var(--accent); letter-spacing:.02em; margin-top:5px; }
+  .card__tags{ margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; }
+  .card__tags span{
+    font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+    border:1px solid var(--bg-3); border-radius:100px; padding:2px 7px;
+  }
+  .destacado .card__name::after{ content:"·"; color:var(--accent); margin-left:6px; }
+
+  .end{ page-break-before:always; text-align:center; padding-top:60mm; }
+  .end h3{ font-family:var(--serif); font-weight:400; font-size:1.8rem; }
+  .end p{ font-size:.72rem; letter-spacing:.06em; color:var(--muted); line-height:2; }
+  .end a{ color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="../data.js"></script>
+  <script>
+    var LABEL = {
+      cargadores:'Platos de sitio', platos:'Platos', cubiertos:'Cubertería',
+      cristaleria:'Cristalería', plateria:'Platería'
+    };
+    // Orden de colecciones segun COLECCIONES, con fallback
+    var orden = (typeof COLECCIONES !== 'undefined')
+      ? COLECCIONES.map(function(c){ return c.id; })
+      : ['cargadores','platos','cubiertos','cristaleria','plateria'];
+
+    function stockLinea(p){
+      if(!p.piezas || !p.piezas.length) return '';
+      var partes = p.piezas.map(function(x){
+        var n = (x.s === undefined || x.s === null) ? '—' : x.s;
+        return x.t ? (x.t + ' ×' + n) : ('×' + n);
+      });
+      return partes.join('  ·  ');
+    }
+
+    function tarjeta(p){
+      var foto = (p.fotos && p.fotos.length) ? p.fotos[0] : '';
+      var img = foto
+        ? '<img src="../' + foto + '" onerror="this.parentNode.innerHTML=\'<span class=noimg>Foto pendiente</span>\'">'
+        : '<span class="noimg">Foto pendiente</span>';
+      var tags = (p.tags || []).slice(0,4).map(function(t){ return '<span>'+t+'</span>'; }).join('');
+      var stock = stockLinea(p);
+      return ''+
+        '<div class="card'+(p.destacado?' destacado':'')+'">'+
+          '<div class="card__ph">'+img+'</div>'+
+          '<div class="card__name">'+p.nombre+'</div>'+
+          '<div class="card__mat">'+(p.material||'')+'</div>'+
+          (stock?'<div class="card__stock">'+stock+'</div>':'')+
+          '<div class="card__tags">'+tags+'</div>'+
+        '</div>';
+    }
+
+    var app = document.getElementById('app');
+    var hoy = new Date().toLocaleDateString('es-AR',{year:'numeric',month:'long'});
+    var total = PRODUCTOS.length;
+
+    // Portada
+    app.insertAdjacentHTML('beforeend',
+      '<div class="cover">'+
+        '<img class="cover__logo" src="../assets/logo.png" onerror="this.style.display=\'none\'">'+
+        '<div class="cover__eyebrow">La Mélange · Eventos</div>'+
+        '<div class="cover__title">Catálogo</div>'+
+        '<div class="cover__sub">Vajilla &amp; ambientación para eventos boutique</div>'+
+        '<div class="cover__rule"></div>'+
+        '<div class="cover__meta">'+total+' modelos · '+hoy+'<br>lamelangeantiques.com</div>'+
+        '<div class="cover__foot">Alquiler de piezas · Buenos Aires</div>'+
+      '</div>');
+
+    // Secciones por coleccion
+    orden.forEach(function(cid){
+      var items = PRODUCTOS.filter(function(p){ return p.coleccion === cid; });
+      if(!items.length) return;
+      // destacados primero
+      items.sort(function(a,b){ return (b.destacado?1:0)-(a.destacado?1:0); });
+      var html =
+        '<div class="section-head">'+
+          '<div class="kicker">La Mélange · Eventos</div>'+
+          '<h2>'+(LABEL[cid]||cid)+'</h2>'+
+          '<div class="count">'+items.length+' modelo'+(items.length>1?'s':'')+'</div>'+
+          '<div class="rule"></div>'+
+        '</div>'+
+        '<div class="grid">'+ items.map(tarjeta).join('') +'</div>';
+      app.insertAdjacentHTML('beforeend', html);
+    });
+
+    // Cierre
+    app.insertAdjacentHTML('beforeend',
+      '<div class="end">'+
+        '<h3>Gracias</h3>'+
+        '<p>Para reservas, disponibilidad y armado de mesas<br>'+
+        '<a>lamelangeantiques.com</a><br>La Mélange Antiques · Eventos</p>'+
+      '</div>');
+
+    document.title = 'Catalogo La Melange';
+    window.__ready = true;
+  </script>
+</body>
+</html>

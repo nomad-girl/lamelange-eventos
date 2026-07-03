@@ -1,5 +1,5 @@
 /* ============================================================
-   Catálogo compartido — La Mélange (vajilla para eventos)
+   Catálogo compartido — La Melange (vajilla para eventos)
    ------------------------------------------------------------
    Renderiza filtros (categoría + tipo) + grilla + visor (lightbox)
    en cualquier página. Lo usan index.html y catalogo.html.
@@ -333,7 +333,7 @@
     els.filtrosBtn.parentNode.insertBefore(sb, els.filtrosBtn.nextSibling);
     sb.addEventListener('click', function(){
       syncURL();
-      window.lmShare(location.href, 'Selección · La Mélange').then(function(r){
+      window.lmShare(location.href, 'Selección · La Melange').then(function(r){
         if (r === 'copied'){ var old = sb.innerHTML; sb.textContent = '✓ Link copiado'; setTimeout(function(){ sb.innerHTML = old; }, 1700); }
       });
     });

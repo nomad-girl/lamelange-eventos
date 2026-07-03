@@ -1,5 +1,5 @@
 /* ============================================================
-   Animaciones sutiles — La Mélange
+   Animaciones sutiles — La Melange
    - Scroll reveal (fade-up al entrar en viewport, escalonado)
    - Sombra del nav al scrollear
    Respeta prefers-reduced-motion. Progressive enhancement:

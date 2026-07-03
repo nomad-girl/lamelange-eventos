@@ -1,5 +1,5 @@
 /* ============================================================
-   Medición — La Mélange · Vajilla para eventos
+   Medición — La Melange · Vajilla para eventos
    ------------------------------------------------------------
    Se activa SOLO si cargaste los IDs en data.js (variable ANALYTICS).
    Si están vacíos, este archivo no hace nada y el sitio anda igual.

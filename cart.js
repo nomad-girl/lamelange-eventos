@@ -1,5 +1,5 @@
 /* ============================================================
-   Carrito de "Solicitud de presupuesto" — La Mélange
+   Carrito de "Solicitud de presupuesto" — La Melange
    Sin backend: guarda la selección en localStorage del navegador.
    Cada item guarda cantidades POR PIEZA (ej: Playo x30, Postre x20).
    Item = { id, lineas: [ {t, qty}, ... ] }

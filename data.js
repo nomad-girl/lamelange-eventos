@@ -1,5 +1,5 @@
 /* ============================================================
-   Datos del catálogo — La Mélange (vajilla para eventos)
+   Datos del catálogo — La Melange (vajilla para eventos)
    --------------------------------------------------------
    DATOS DE EJEMPLO. Reemplazar nombres, materiales y stock por
    los reales. Cuando estén las fotos, poner la URL en `foto`
@@ -14,8 +14,8 @@
    - pixel: ID de Meta Pixel (solo números). Formato: "123456789012345"
             (business.facebook.com → Administrador de eventos → tu pixel) */
 var ANALYTICS = {
-  ga4:   'G-SEN9FXSX5L',   // ← Google Analytics 4 de La Mélange
-  pixel: '1799713711390754'    // ← Meta Pixel de La Mélange
+  ga4:   'G-SEN9FXSX5L',   // ← Google Analytics 4 de La Melange
+  pixel: '1799713711390754'    // ← Meta Pixel de La Melange
 };
 
 var ICONS = {

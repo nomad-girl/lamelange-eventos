@@ -232,7 +232,7 @@
     if (shareProd && window.lmShare) {
       shareProd.addEventListener('click', function () {
         var url = location.origin + '/producto.html?id=' + encodeURIComponent(pid);
-        window.lmShare(url, p.nombre + ' · La Mélange').then(function (r) {
+        window.lmShare(url, p.nombre + ' · La Melange').then(function (r) {
           if (r === 'copied') cartFeedback(shareProd, '✓ Link copiado');
         });
       });
@@ -245,7 +245,7 @@
         var m = (main.style.backgroundImage || '').match(/url\(["']?(.*?)["']?\)/);
         var rel = (m && m[1]) || fotos[0] || '';
         var url = /^https?:/.test(rel) ? rel : (location.origin + '/' + rel.replace(/^\//, ''));
-        window.lmShare(url, p.nombre + ' · La Mélange').then(function (r) {
+        window.lmShare(url, p.nombre + ' · La Melange').then(function (r) {
           if (r === 'copied') cartFeedback(shareImg, '✓');
         });
       });

@@ -1,0 +1,66 @@
+Categoría,Línea (opcional),Modelo,Material,Stock,Mix & Match,Destacar en Home,Revisar / Notas
+Cargadores y bajoplatos,,Plato de sitio Perla oro,Borde perlado dorado,300,No,Sí,Confirmado con foto
+Cargadores y bajoplatos,,Plato de sitio Satín oro,Dorado satinado,180,No,No,Confirmado con foto
+Cargadores y bajoplatos,,Plato de sitio Yute,Fibra de yute,340,No,No,Confirmado con foto
+Cargadores y bajoplatos,,Plato de sitio Palma,Fibra de palma,200,No,No,Confirmado con foto
+Platos,Premium - Porcelana,Plato Mishka playo,Porcelana,245,No,Sí,
+Platos,Premium - Porcelana,Plato Mishka entrada,Porcelana,215,No,No,
+Platos,B&N (blanco y negro),Plato Black principal,,70,No,No,
+Platos,B&N (blanco y negro),Plato NET entrada,,50,No,No,
+Platos,B&N (blanco y negro),Plato JOY entrada / pan,,50,No,No,
+Platos,Cerámica blanca,Plato Relieve principal,Cerámica,100,No,No,
+Platos,Cerámica blanca,Plato Relieve postre / entrada,Cerámica,80,No,No,
+Platos,Perla rosa,Plato Perla rosa principal,,60,No,No,
+Platos,Perla rosa,Plato Perla rosa entrada,,20,No,No,
+Platos,Flor de liz,Plato Flor de liz principal,,20,Sí,No,Juego para 20 personas
+Platos,Flor de liz,Plato Flor de liz postre,,20,Sí,No,Juego para 20 personas
+Platos,Rosa CMYk,Plato Rosa CMYk principal,,20,No,No,Juego para 20 personas
+Platos,Rosa CMYk,Plato Rosa CMYk postre,,20,No,No,Juego para 20 personas
+Platos,Minerva,Plato Minerva principal 23 cm,,17,Sí,No,Mix & match
+Platos,Minerva,Plato Minerva entrada 20 cm,,11,Sí,No,Mix & match
+Platos,Vogt,Plato Vogt playo,,35,Sí,No,Mix & match
+Platos,Vogt,Plato Vogt entrada,,18,Sí,No,Mix & match
+Platos,Luxury Gold,Plato Luxury Gold Modelo 1 playo,Dorado,12,No,No,
+Platos,Luxury Gold,Plato Luxury Gold Modelo 1 postre,Dorado,12,No,No,
+Platos,Luxury Gold,Plato Luxury Gold Modelo 2 playo,Dorado,12,No,No,
+Platos,Luxury Gold,Plato Luxury Gold Modelo 2 postre,Dorado,12,No,No,
+Platos,Mix & match · azul,Platos antiguos azules,,,Sí,No,PENDIENTE: listar platos PRINCIPALES y de POSTRE de este surtido (alimenta el constructor + mesas)
+Platos,Mix & match · bordó,Platos antiguos bordó,,,Sí,No,PENDIENTE: listar principales y de postre
+Platos,Mix & match · verde,Platos antiguos verdes,,,Sí,No,PENDIENTE: listar principales y de postre
+Platos,Mix & match · rosa,Platos antiguos rosas,,,Sí,No,PENDIENTE: listar principales y de postre
+Cristalería,Spirit,Copa Spirit agua,Cristal,380,No,Sí,
+Cristalería,Spirit,Copa Spirit vino,Cristal,380,No,No,
+Cristalería,Spirit,Copa Spirit champagne,Cristal,350,No,No,
+Cristalería,Adagio,Copa Adagio agua,Cristal,190,No,No,Corregido: 190/170/230 = Adagio
+Cristalería,Adagio,Copa Adagio vino,Cristal,170,No,No,
+Cristalería,Adagio,Copa Adagio champagne,Cristal,230,No,No,
+Cristalería,Borde oro,Copa Borde oro agua,Cristal,18,No,No,Corregido: 18/43/30 = Borde oro (poco stock)
+Cristalería,Borde oro,Copa Borde oro vino,Cristal,43,No,No,
+Cristalería,Borde oro,Copa Borde oro champagne,Cristal,30,No,No,
+Cristalería,Mix & match + color,Copa color cristal grande,Cristal,50,Sí,No,
+Cristalería,Mix & match + color,Copa color cristal mediana,Cristal,80,Sí,No,
+Cristalería,Mix & match + color,Copa color rosa,Cristal,70,Sí,No,
+Cristalería,Mix & match + color,Copa color verde,Cristal,100,Sí,No,
+Cristalería,Mix & match + color,Copa color azul,Cristal,60,Sí,No,
+Cristalería,Mix & match + color,Copa color fumé,Cristal,40,Sí,No,
+Cristalería,LAV,Vaso trago largo LAV 17,Vidrio,120,No,Sí,
+Cristalería,Mix & match,Vaso trago largo tallado cristal (A),Cristal,40,Sí,No,Tallado mix&match
+Cristalería,Mix & match,Vaso trago largo tallado cristal (B),Cristal,30,Sí,No,Tallado mix&match (otro patrón) — ¿es distinto del de 40?
+Cristalería,,Vaso trago largo vidrio,Vidrio,34,No,No,
+Cristalería,Mix & match,Vaso whiskey tallado cristal,Cristal,60,Sí,No,
+Cristalería,,Vaso whiskey facetado,Vidrio,20,No,No,
+Cristalería,LAV,Vaso Bombe LAV 15,Vidrio,35,No,No,510 cc · boca 6.5 x 15 cm
+Cristalería,,Vaso Bombe común (liso),Vidrio,65,No,No,460 ml · 6 x 12 cm
+Cristalería,Vintage,Copa vidrio labrada vintage,Vidrio,40,Sí,No,
+Cubiertos,NY,Tenedor NY,Acero,178,No,No,
+Cubiertos,NY,Cuchillo NY,Acero,170,No,No,
+Cubiertos,NY,Cuchara postre NY,Acero,148,No,No,
+Cubiertos,Oro Premium,Tenedor Oro Premium,Acero dorado,450,No,Sí,
+Cubiertos,Oro Premium,Cuchillo Oro Premium,Acero dorado,440,No,No,
+Cubiertos,Oro Premium,Cuchara Oro Premium (chica),Acero dorado,190,No,No,'La chiquita'
+Cubiertos,Black & Gold,Tenedor Black & Gold,Acero negro y dorado,80,No,No,
+Cubiertos,Black & Gold,Cuchillo Black & Gold,Acero negro y dorado,80,No,No,
+Cubiertos,Black & Gold,Cuchara principal Black & Gold,Acero negro y dorado,80,No,No,
+Cubiertos,Antique Premium,Set Antique Premium (todo para 6),Acero / plata antigua,6,Sí,No,Mix & match — incluye tenedor principal+postre, cuchillo principal+postre y cuchara
+Mantelería e individuales,,,,,,,❓ No vi mantelería ni individuales en la pizarra — ¿agregás acá modelos + cantidades?
+Centros y complementos,,,,,,,❓ No vi centros / floreros / candelabros en la pizarra — ¿agregás acá?

@@ -1,0 +1,44 @@
+CÓMO SUBIR LAS FOTOS — La Mélange Web Eventos
+=============================================
+
+Arrastrá tus fotos a la carpeta que corresponda (por categoría).
+Cuando termines (o cargues unas cuantas), avisame por el chat y yo las
+vinculo al sitio. No hace falta que me las mandes por chat.
+
+** CADA PRODUCTO = UNA MINI-GALERÍA **
+Cada producto puede tener varias fotos. El orden lo da el número al final:
+  - La foto N° 1 = PORTADA (fondo blanco/neutro, la pieza sola). Va primero.
+  - Las siguientes = AMBIENTADAS (la pieza en una mesa montada, en uso).
+
+NOMBRÁ LAS FOTOS ASÍ (modelo + guion + número):
+  perla-oro-1.jpg     <- portada fondo blanco
+  perla-oro-2.jpg     <- ambientada
+  perla-oro-3.jpg     <- ambientada
+  satin-oro-1.jpg
+  mishka-playo-1.jpg
+  copa-spirit-1.jpg
+  ...
+Con ese patrón las conecto al producto correcto y la galería se ordena sola.
+(Si no podés nombrarlas así, no pasa nada: igual las acomodo, solo tarda un poco más.)
+
+CONSEJOS:
+- Formato: JPG o PNG. Ancho cómodo: 1500–2500 px.
+- HERO y MESAS: fotos HORIZONTALES (apaisadas) se ven mejor.
+- PORTADAS de producto: la pieza centrada, fondo lo más neutro/parejo posible.
+
+LAS CARPETAS:
+  01-platos-de-sitio  -> Perla oro, Satín oro, Yute, Palma
+  02-platos           -> Mishka, B&N (Black/NET/JOY), Relieve, Perla rosa,
+                        Flor de liz, Rosa CMYk, Minerva, Vogt
+  03-cristaleria      -> copas Spirit/Adagio/Borde oro, copas de color,
+                        vasos LAV, tallados, bombe, vintage
+  04-cuberteria       -> NY, Oro Premium, Black & Gold, Antique Premium
+  05-mesas-montadas   -> ¡las mesas completas montadas! (las más lindas) ->
+                        van al Lookbook y a las Mesas curadas
+  06-hero-portada     -> 1 o 2 fotos apaisadas de una mesa hermosa -> arriba de
+                        todo en la página principal
+
+PRIORIDAD para el MVP de esta semana:
+  1°) 06-hero-portada  (1-2 fotos)
+  2°) 05-mesas-montadas (6-10 fotos)
+  3°) el resto, a medida que puedas
