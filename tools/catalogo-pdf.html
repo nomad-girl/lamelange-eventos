@@ -13,76 +13,76 @@
     --serif:"Playfair Display", Georgia, serif;
     --sans:"Montserrat", -apple-system, "Segoe UI", sans-serif;
   }
-  @page{ size:A4; margin:14mm 14mm 15mm; }
+  @page{ size:A4; margin:15mm 15mm 16mm; }
   *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
   html,body{ margin:0; padding:0; }
-  body{ font-family:var(--sans); color:var(--ink); font-weight:300; }
+  body{ font-family:var(--sans); color:var(--ink); font-weight:300; font-size:12pt; }
   img{ display:block; }
 
   /* ---------- Portada ---------- */
   .cover{
-    height:267mm; page-break-after:always;
+    height:265mm; page-break-after:always;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center; position:relative;
   }
-  .cover__logo{ width:150px; margin-bottom:34px; }
-  .cover__eyebrow{ font-size:.62rem; letter-spacing:.42em; text-transform:uppercase; color:var(--muted); }
-  .cover__title{ font-family:var(--serif); font-weight:400; font-size:3.6rem; letter-spacing:.02em; margin:.32em 0 .12em; }
-  .cover__sub{ font-family:var(--serif); font-style:italic; font-size:1.35rem; color:var(--accent); margin-bottom:26px; }
-  .cover__rule{ width:56px; height:1px; background:var(--ink); opacity:.5; margin:22px auto; }
-  .cover__meta{ font-size:.66rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); line-height:2.1; }
-  .cover__foot{ position:absolute; bottom:4mm; left:0; right:0; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
+  .cover__logo{ width:190px; margin-bottom:44px; }
+  .cover__eyebrow{ font-size:1rem; letter-spacing:.42em; text-transform:uppercase; color:var(--muted); }
+  .cover__title{ font-family:var(--serif); font-weight:400; font-size:5.4rem; letter-spacing:.02em; margin:.3em 0 .16em; }
+  .cover__sub{ font-family:var(--serif); font-style:italic; font-size:2.2rem; color:var(--accent); margin-bottom:34px; }
+  .cover__rule{ width:70px; height:1px; background:var(--ink); opacity:.5; margin:28px auto; }
+  .cover__meta{ font-size:1.15rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); line-height:2.2; }
+  .cover__foot{ position:absolute; bottom:6mm; left:0; right:0; font-size:.9rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
 
   /* ---------- Manifiesto / intro inspiración ---------- */
   .intro{ page-break-before:always; page-break-after:always; }
-  .intro__hero{ width:100%; height:150mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
-  .intro__body{ text-align:center; padding:24px 14mm 0; }
-  .intro__kicker{ font-size:.58rem; letter-spacing:.36em; text-transform:uppercase; color:var(--muted); }
-  .intro__title{ font-family:var(--serif); font-weight:400; font-size:2.3rem; margin:.25em 0 .5em; }
-  .intro__text{ font-size:.82rem; line-height:1.85; color:#4a4a4a; max-width:135mm; margin:0 auto; }
+  .intro__hero{ width:100%; height:140mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
+  .intro__body{ text-align:center; padding:30px 8mm 0; }
+  .intro__kicker{ font-size:1rem; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); }
+  .intro__title{ font-family:var(--serif); font-weight:400; font-size:3.6rem; margin:.28em 0 .55em; }
+  .intro__text{ font-size:1.4rem; line-height:1.75; color:#3d3d3d; max-width:165mm; margin:0 auto; }
 
   /* ---------- Divisor de sección ---------- */
-  .divider{ page-break-before:always; page-break-after:avoid; text-align:center; padding-top:36mm; }
-  .divider .k{ font-size:.6rem; letter-spacing:.4em; text-transform:uppercase; color:var(--muted); }
-  .divider h2{ font-family:var(--serif); font-weight:400; font-size:2.6rem; margin:.2em 0; }
-  .divider p{ font-size:.78rem; color:#4a4a4a; line-height:1.8; max-width:120mm; margin:.4em auto 0; }
-  .divider .rule{ width:56px; height:1px; background:var(--ink); opacity:.4; margin:20px auto 0; }
+  .divider{ page-break-before:always; page-break-after:avoid; text-align:center; padding-top:58mm; }
+  .divider .k{ font-size:1.05rem; letter-spacing:.38em; text-transform:uppercase; color:var(--muted); }
+  .divider h2{ font-family:var(--serif); font-weight:400; font-size:4.4rem; margin:.18em 0; }
+  .divider p{ font-size:1.4rem; color:#3d3d3d; line-height:1.7; max-width:150mm; margin:.6em auto 0; }
+  .divider .rule{ width:70px; height:1px; background:var(--ink); opacity:.4; margin:28px auto 0; }
 
   /* ---------- LOOK / mesa curada (una pagina) ---------- */
   .look{ page-break-before:always; page-break-inside:avoid; }
-  .look__head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px; }
-  .look__head .n{ font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
-  .look__head h3{ font-family:var(--serif); font-weight:400; font-size:2rem; margin:0; }
-  .look__hero{ width:100%; height:135mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
-  .look__desc{ font-size:.82rem; line-height:1.75; color:#4a4a4a; margin:14px 0 0; max-width:150mm; }
-  .look__thumbs{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
-  .look__thumbs img{ width:100%; height:52mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
+  .look__head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
+  .look__head .n{ font-size:1rem; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
+  .look__head h3{ font-family:var(--serif); font-weight:400; font-size:3.4rem; margin:0; }
+  .look__hero{ width:100%; height:120mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
+  .look__desc{ font-size:1.35rem; line-height:1.65; color:#3d3d3d; margin:16px 0 0; }
+  .look__thumbs{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px; }
+  .look__thumbs img{ width:100%; height:48mm; object-fit:cover; background:var(--bg-3); border-radius:2px; }
   .look__thumbs.two{ grid-template-columns:repeat(2,1fr); }
-  .look__thumbs.two img{ height:60mm; }
-  .look__piezas{ margin-top:14px; font-size:.68rem; letter-spacing:.02em; color:var(--ink); }
-  .look__piezas b{ font-weight:500; color:var(--accent); text-transform:uppercase; letter-spacing:.14em; font-size:.6rem; }
+  .look__thumbs.two img{ height:56mm; }
+  .look__piezas{ margin-top:18px; font-size:1.25rem; letter-spacing:.01em; color:var(--ink); }
+  .look__piezas b{ display:block; font-weight:500; color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:.95rem; margin-bottom:4px; }
 
   /* ---------- Grid de productos ---------- */
-  .section-head{ page-break-before:always; page-break-after:avoid; margin:2px 0 16px; }
-  .section-head .kicker{ font-size:.58rem; letter-spacing:.34em; text-transform:uppercase; color:var(--muted); }
-  .section-head h2{ font-family:var(--serif); font-weight:400; font-size:1.9rem; margin:.15em 0 0; }
-  .section-head .count{ font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-top:6px; }
-  .section-head .rule{ height:1px; background:var(--bg-3); margin-top:12px; }
+  .section-head{ page-break-before:always; page-break-after:avoid; margin:2px 0 22px; }
+  .section-head .kicker{ font-size:1rem; letter-spacing:.32em; text-transform:uppercase; color:var(--muted); }
+  .section-head h2{ font-family:var(--serif); font-weight:400; font-size:3.4rem; margin:.12em 0 0; }
+  .section-head .count{ font-size:1.05rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-top:8px; }
+  .section-head .rule{ height:1px; background:var(--bg-3); margin-top:16px; }
 
-  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+  .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px 22px; }
   .card{ page-break-inside:avoid; }
-  .card__ph{ width:100%; aspect-ratio:1/1; background:var(--bg-3); overflow:hidden; border-radius:2px; display:flex; align-items:center; justify-content:center; }
+  .card__ph{ width:100%; aspect-ratio:4/3; background:var(--bg-3); overflow:hidden; border-radius:2px; display:flex; align-items:center; justify-content:center; }
   .card__ph img{ width:100%; height:100%; object-fit:cover; }
-  .card__ph .noimg{ font-size:.55rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); }
-  .card__name{ font-family:var(--serif); font-size:1rem; line-height:1.2; margin:9px 0 3px; }
-  .card__mat{ font-size:.66rem; color:var(--muted); line-height:1.35; }
-  .card__stock{ font-size:.63rem; color:var(--accent); margin-top:5px; }
-  .card__tags{ margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; }
-  .card__tags span{ font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--bg-3); border-radius:100px; padding:2px 7px; }
+  .card__ph .noimg{ font-size:.85rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+  .card__name{ font-family:var(--serif); font-size:1.7rem; line-height:1.15; margin:12px 0 5px; }
+  .card__mat{ font-size:1.1rem; color:var(--muted); line-height:1.35; }
+  .card__stock{ font-size:1.02rem; color:var(--accent); margin-top:7px; }
+  .card__tags{ margin-top:9px; display:flex; flex-wrap:wrap; gap:6px; }
+  .card__tags span{ font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); border:1px solid var(--bg-3); border-radius:100px; padding:3px 11px; }
 
-  .end{ page-break-before:always; text-align:center; padding-top:70mm; }
-  .end h3{ font-family:var(--serif); font-weight:400; font-size:1.9rem; }
-  .end p{ font-size:.72rem; letter-spacing:.05em; color:var(--muted); line-height:2; }
+  .end{ page-break-before:always; text-align:center; padding-top:95mm; }
+  .end h3{ font-family:var(--serif); font-weight:400; font-size:3.4rem; }
+  .end p{ font-size:1.2rem; letter-spacing:.04em; color:var(--muted); line-height:2.1; }
   .end a{ color:var(--accent); text-decoration:none; }
 </style>
 </head>
@@ -169,26 +169,15 @@
     app.insertAdjacentHTML('beforeend',
       '<div class="cover">'+
         '<img class="cover__logo" src="../assets/logo.png" onerror="this.style.display=\'none\'">'+
-        '<div class="cover__eyebrow">La Mélange · Eventos</div>'+
+        '<div class="cover__eyebrow">Eventos</div>'+
         '<div class="cover__title">Catálogo</div>'+
         '<div class="cover__sub">Vajilla &amp; mesas curadas para eventos boutique</div>'+
         '<div class="cover__rule"></div>'+
-        '<div class="cover__meta">'+total+' modelos · '+hoy+'<br>lamelangeantiques.com</div>'+
-        '<div class="cover__foot">Alquiler de piezas · Buenos Aires</div>'+
+        '<div class="cover__meta">'+total+' modelos<br>eventos.lamelangeantiques.com</div>'+
+        '<div class="cover__foot">Alquiler de vajilla · Buenos Aires</div>'+
       '</div>');
 
-    // 2 · Manifiesto con hero
-    app.insertAdjacentHTML('beforeend',
-      '<div class="intro">'+
-        '<img class="intro__hero" src="../'+LOOKS[0].hero+'" onerror="'+fallbackImg()+'">'+
-        '<div class="intro__body">'+
-          '<div class="intro__kicker">La Mélange · Eventos</div>'+
-          '<div class="intro__title">Cada mesa, una historia</div>'+
-          '<p class="intro__text">No alquilamos vajilla suelta: componemos mesas. Más de '+total+' modelos de platos, cristalería y cubertería —muchos vintage, coleccionados pieza por pieza— listos para armar ambientes con carácter. En las próximas páginas, seis estilos curados para inspirar tu próximo evento; después, el catálogo completo pieza por pieza.</p>'+
-        '</div>'+
-      '</div>');
-
-    // 3 · Divisor inspiración
+    // 2 · Divisor inspiración
     app.insertAdjacentHTML('beforeend',
       '<div class="divider"><div class="k">Inspiración</div><h2>Mesas &amp; Estilos</h2>'+
       '<p>Seis maneras de pensar una mesa. Cada estilo se arma con piezas de nuestro catálogo y se adapta a tu paleta, tu espacio y tu celebración.</p>'+
@@ -209,7 +198,7 @@
       if(!items.length) return;
       items.sort(function(a,b){return (b.destacado?1:0)-(a.destacado?1:0);});
       app.insertAdjacentHTML('beforeend',
-        '<div class="section-head"><div class="kicker">La Mélange · Eventos</div>'+
+        '<div class="section-head"><div class="kicker">La Melange · Eventos</div>'+
         '<h2>'+(LABEL[cid]||cid)+'</h2>'+
         '<div class="count">'+items.length+' modelo'+(items.length>1?'s':'')+'</div>'+
         '<div class="rule"></div></div>'+
@@ -220,7 +209,7 @@
     app.insertAdjacentHTML('beforeend',
       '<div class="end"><h3>Creemos tu mesa</h3>'+
       '<p>Reservas, disponibilidad y armado a medida<br>'+
-      '<a>lamelangeantiques.com</a><br>La Mélange Antiques · Eventos · Buenos Aires</p></div>');
+      '<a>eventos.lamelangeantiques.com</a><br>La Melange Antiques · Eventos · Buenos Aires</p></div>');
 
     window.__ready=true;
   </script>
