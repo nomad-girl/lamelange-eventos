@@ -4,3 +4,7 @@ assets/copas/
 assets/Platos centiales/
 *.log
 .DS_Store
+
+# Planilla de stock (privada — no debe ser pública)
+planilla.html
+planilla-stock.csv
