@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /planilla.html
 
-Sitemap: https://lamelange-eventos.vercel.app/sitemap.xml
+Sitemap: https://eventos.lamelangeantiques.com/sitemap.xml

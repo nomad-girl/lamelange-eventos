@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi solicitud · La Melange</title>
   <meta name="description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos." />
-  <link rel="icon" type="image/png" href="assets/favicon.png?v=74" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=75" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="La Melange" />
   <meta property="og:title" content="Mi solicitud · La Melange" />
   <meta property="og:description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos por WhatsApp." />
-  <meta property="og:image" content="https://lamelange-eventos.vercel.app/assets/og-image.jpg" />
+  <meta property="og:image" content="https://eventos.lamelangeantiques.com/assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=74" />
+  <link rel="stylesheet" href="styles.css?v=75" />
 </head>
 <body>
 
@@ -71,9 +71,9 @@
     </div>
   </footer>
 
-  <script src="data.js?v=74"></script>
-  <script src="analytics.js?v=74"></script>
-  <script src="cart.js?v=74"></script>
+  <script src="data.js?v=75"></script>
+  <script src="analytics.js?v=75"></script>
+  <script src="cart.js?v=75"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
@@ -183,7 +183,7 @@
       var f = e.target;
       var items = Cart.items();
       if (!items.length) return;
-      var SITE = 'https://lamelange-eventos.vercel.app';
+      var SITE = 'https://eventos.lamelangeantiques.com';
       var lineas = items.map(function (it) {
         var p = buscarProducto(it.id);
         var det = (it.lineas || []).map(function (l) { return l.t + ': ' + l.qty; }).join(', ');
