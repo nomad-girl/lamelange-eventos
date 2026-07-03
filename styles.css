@@ -690,8 +690,7 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .pdp-insp__grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .pdp-insp__item { aspect-ratio: 4/3; border-radius: 12px; }
 
-/* ===== Tea Party header: panel con color (blush) para que integre con la foto ===== */
-.hero--tp .hero__panel { background: linear-gradient(135deg, #F7ECEA 0%, #F1DEE2 60%, #EBD3DA 100%); }
-.hero--tp .hero__content .eyebrow { color: #B06B72; }
-.hero--tp .hero__photo { box-shadow: -18px 0 40px -30px rgba(120,70,80,.4); }
-@media (max-width: 860px){ .hero--tp .hero__panel { background: linear-gradient(180deg, #F7ECEA, #EBD3DA); } }
+/* ===== Tea Party header: panel con los neutros cálidos del sitio para que integre con la foto ===== */
+.hero--tp .hero__panel { background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%); }
+.hero--tp .hero__photo { box-shadow: -18px 0 40px -30px rgba(0,0,0,.28); }
+@media (max-width: 860px){ .hero--tp .hero__panel { background: linear-gradient(180deg, var(--bg-2), var(--bg-3)); } }
