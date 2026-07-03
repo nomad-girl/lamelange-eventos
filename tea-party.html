@@ -6,7 +6,7 @@
   <title>Tea Party, Mesa Dulce y Candy Bar · La Mélange</title>
   <meta name="description" content="Vajilla vintage para Tea Party, mesa dulce y candy bar: baby shower, cumpleaños, fiesta de 15, bautismo y meriendas. Platos floreados mix & match, cristal de color y dorados para celebraciones con encanto." />
   <meta name="keywords" content="tea party, mesa dulce, candy bar, baby shower, fiesta de 15, cumpleaños temático, merienda vintage, bautismo, vajilla vintage, alquiler de vajilla" />
-  <link rel="icon" type="image/png" href="assets/favicon.png?v=68" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=69" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="La Mélange" />
   <meta property="og:title" content="Tea Party, Mesa Dulce y Candy Bar · La Mélange" />
@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=68" />
+  <link rel="stylesheet" href="styles.css?v=69" />
 </head>
 <body>
 
@@ -63,18 +63,6 @@
     </div>
   </section>
 
-  <!-- PRODUCTOS -->
-  <section class="section section--sand">
-    <div class="wrap">
-      <div class="section__head">
-        <span class="eyebrow">Elegí tus piezas</span>
-        <h2>La vajilla de tu Tea Party</h2>
-        <p>Platos floreados mix &amp; match, copas de color y detalles dorados. Sumá los que te gustan a tu solicitud.</p>
-      </div>
-      <div class="catalog-grid" id="tpGrid"></div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="cta-band" id="contacto">
     <div class="wrap">
@@ -97,9 +85,9 @@
     </div>
   </footer>
 
-  <script src="data.js?v=68"></script>
-  <script src="analytics.js?v=68"></script>
-  <script src="cart.js?v=68"></script>
+  <script src="data.js?v=69"></script>
+  <script src="analytics.js?v=69"></script>
+  <script src="cart.js?v=69"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
@@ -112,20 +100,6 @@
     var fotos = (mesa && mesa.fotos) || [];
     document.getElementById('tpGallery').innerHTML = fotos.map(function (f) {
       return '<div class="tp-gallery__item" style="background-image:url(' + f + ')"></div>';
-    }).join('');
-
-    // Productos en clave Tea Party (curados)
-    var TP = ['perla-rosa','rosa-puntilla','pimpollo','tsuji-guarda-rosa','minerva','vogt','winterling-bavaria','bavaria-lila','noritake','copas-mm-rosas-bordo','copas-mm-cristal'];
-    var grid = document.getElementById('tpGrid');
-    grid.innerHTML = TP.map(function (id) {
-      var p = buscarProducto(id); if (!p) return '';
-      var f = (p.fotos && p.fotos[0]) || '';
-      var media = f
-        ? '<div class="photo" style="aspect-ratio:1/1; background-image:url(' + f + '); background-size:cover; background-position:center;"></div>'
-        : '<div class="photo">' + (ICONS[p.icon] || '') + '</div>';
-      return '<a class="product product--link" href="producto.html?id=' + id + '">' + media
-        + '<div class="product__body"><div class="product__name">' + p.nombre + '</div>'
-        + '<div class="product__meta">' + (p.material || '') + '</div></div></a>';
     }).join('');
 
     var t = document.getElementById('navToggle');
