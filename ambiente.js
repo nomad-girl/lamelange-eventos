@@ -32,15 +32,23 @@ var AMBIENTE = {
     "assets/02-platos/premium/ambiente/ambiente-1.jpg",
     "assets/02-platos/premium/ambiente/ambiente-2.jpg",
     "assets/02-platos/premium/ambiente/ambiente-3.jpg",
-    "assets/02-platos/premium/ambiente/ambiente-4.jpg"
+    "assets/02-platos/premium/ambiente/ambiente-4.jpg",
+    "assets/02-platos/premium/ambiente/ambiente-5.jpg",
+    "assets/02-platos/premium/ambiente/ambiente-6.jpg",
+    "assets/02-platos/premium/ambiente/ambiente-7.jpg"
   ],
   "relieve-blanco": [
     "assets/02-platos/relieve-blanco/ambiente/ambiente-1.jpg",
     "assets/02-platos/relieve-blanco/ambiente/ambiente-2.jpg",
-    "assets/02-platos/relieve-blanco/ambiente/ambiente-3.jpg"
+    "assets/02-platos/relieve-blanco/ambiente/ambiente-3.jpg",
+    "assets/02-platos/relieve-blanco/ambiente/ambiente-4.jpg",
+    "assets/02-platos/relieve-blanco/ambiente/ambiente-5.jpg"
   ],
   "relieve-verde": [
-    "assets/02-platos/relieve-verde/ambiente/ambiente-1.jpg"
+    "assets/02-platos/relieve-verde/ambiente/ambiente-1.jpg",
+    "assets/02-platos/relieve-verde/ambiente/ambiente-2.jpg",
+    "assets/02-platos/relieve-verde/ambiente/ambiente-3.jpg",
+    "assets/02-platos/relieve-verde/ambiente/ambiente-4.jpg"
   ],
   "joy": [
     "assets/02-platos/joy/ambiente/ambiente-1.jpg",
