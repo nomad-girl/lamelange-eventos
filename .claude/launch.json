@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web-eventos",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /tmp && exec python3 -m http.server 4599 --directory '/Users/nati/Library/Mobile Documents/com~apple~CloudDocs/Documents/Developer/La Melange Rental OS/web-eventos'"
+      ],
+      "port": 4599
+    }
+  ]
+}

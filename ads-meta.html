@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Melange — Anuncios Meta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg-2:#F6F4F1; --bg-3:#ECE6DE;
+    --ink:#1A1A1A; --muted:#6F6A64; --line:#E5E1DB;
+    --accent:#2C3E50; --dark:#2A2622;
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Montserrat",-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#555;font-family:var(--sans);}
+
+  /* Cada creativo = 1080x1350 exacto */
+  .ad{width:1080px;height:1350px;background:var(--bg);position:relative;overflow:hidden;display:none;}
+  body[data-ad="1"] #ad1{display:block;}
+  body[data-ad="2"] #ad2{display:block;}
+  body[data-ad="3"] #ad3{display:block;}
+
+  .eyebrow{font-family:var(--sans);font-weight:400;font-size:22px;letter-spacing:7px;
+    text-transform:uppercase;color:var(--accent);}
+  .headline{font-family:var(--serif);font-weight:400;line-height:1.12;color:var(--ink);}
+  .lead{font-family:var(--sans);font-weight:300;font-size:27px;line-height:1.55;color:var(--muted);}
+  .rule{width:64px;height:1px;background:var(--accent);border:0;}
+
+  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);
+    font-weight:400;font-size:20px;letter-spacing:4px;text-transform:uppercase;
+    padding:24px 50px;border:1.5px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);}
+  .btn--solid{background:var(--ink);color:#fff;}
+  .btn--light{border-color:#fff;color:#fff;}
+
+  .wordmark b{display:block;font-family:var(--serif);font-weight:400;font-size:36px;
+    letter-spacing:9px;text-transform:uppercase;line-height:1;color:var(--ink);}
+  .wordmark small{display:block;font-family:var(--sans);font-weight:300;font-size:14px;
+    letter-spacing:8px;text-transform:uppercase;color:var(--muted);margin-top:9px;}
+  .wordmark--light b{color:#fff;} .wordmark--light small{color:rgba(255,255,255,.82);}
+
+  /* Velo superior para legibilidad del logo blanco sobre foto */
+  #ad1 .photo::before,#ad3 .photo::before{content:"";position:absolute;top:0;left:0;right:0;height:280px;
+    background:linear-gradient(to bottom,rgba(20,18,16,.40),rgba(20,18,16,0));}
+
+  /* ---------- AD 1 · Profesionales (foto arriba, panel blanco abajo) ---------- */
+  #ad1 .photo{position:absolute;inset:0 0 auto 0;height:820px;background:var(--bg-3) center/cover no-repeat;
+    background-image:url('assets/05-mesas-montadas/luxury/luxury-1.jpg');}
+  #ad1 .panel{position:absolute;left:0;right:0;bottom:0;height:530px;background:var(--bg);
+    padding:64px 84px;display:flex;flex-direction:column;}
+  #ad1 .headline{font-size:70px;margin:26px 0 30px;max-width:16ch;}
+  #ad1 .btn{align-self:flex-start;margin-top:auto;}
+  #ad1 .wordmark{position:absolute;top:56px;left:84px;}
+  #ad1 .wordmark b{color:#fff;} #ad1 .wordmark small{color:rgba(255,255,255,.85);}
+
+  /* ---------- AD 2 · Novias (foto full-bleed + tarjeta blanca) ---------- */
+  #ad2{background:var(--bg-3) center/cover no-repeat;
+    background-image:url('assets/05-mesas-montadas/romantic/romantic-1.jpeg');}
+  #ad2 .wordmark{position:absolute;top:64px;left:0;right:0;text-align:center;}
+  #ad2 .card{position:absolute;left:96px;right:96px;bottom:96px;background:rgba(255,255,255,.94);
+    padding:70px 72px 64px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+  #ad2 .headline{font-size:64px;margin:24px 0 28px;max-width:15ch;}
+  #ad2 .rule{margin:0 0 30px;}
+  #ad2 .btn{margin-top:8px;}
+
+  /* ---------- AD 3 · Retargeting (foto arriba + panel + CTA fuerte) ---------- */
+  #ad3 .photo{position:absolute;inset:0 0 auto 0;height:760px;background:var(--bg-3) center/cover no-repeat;
+    background-image:url('assets/06-hero-portada/img-20190924-wa0076_orig.jpg');}
+  #ad3 .panel{position:absolute;left:0;right:0;bottom:0;height:590px;background:var(--bg);
+    padding:70px 84px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+  #ad3 .cats{font-family:var(--sans);font-weight:400;font-size:19px;letter-spacing:5px;
+    text-transform:uppercase;color:var(--accent);}
+  #ad3 .headline{font-size:66px;margin:26px 0 20px;max-width:15ch;}
+  #ad3 .lead{margin-bottom:40px;max-width:28ch;}
+  #ad3 .btn{margin-top:auto;}
+  #ad3 .wordmark{position:absolute;top:52px;left:0;right:0;text-align:center;}
+  #ad3 .wordmark b{color:#fff;} #ad3 .wordmark small{color:rgba(255,255,255,.85);}
+</style>
+</head>
+<body data-ad="1">
+
+  <section class="ad" id="ad1">
+    <div class="photo"></div>
+    <div class="wordmark"><b>La Melange</b><small>Eventos</small></div>
+    <div class="panel">
+      <span class="eyebrow">Alquiler para eventos boutique</span>
+      <h1 class="headline">Piezas únicas para montajes que se recuerdan</h1>
+      <a class="btn">Más información</a>
+    </div>
+  </section>
+
+  <section class="ad" id="ad2">
+    <div class="wordmark wordmark--light"><b>La Melange</b><small>Eventos</small></div>
+    <div class="card">
+      <span class="eyebrow">Alquiler para eventos boutique</span>
+      <h1 class="headline">Detalles que hacen tu evento único</h1>
+      <hr class="rule">
+      <a class="btn">Ver colección</a>
+    </div>
+  </section>
+
+  <section class="ad" id="ad3">
+    <div class="photo"></div>
+    <div class="wordmark"><b>La Melange</b><small>Eventos</small></div>
+    <div class="panel">
+      <span class="cats">Cristalería · Vajilla · Mobiliario · Iluminación</span>
+      <h1 class="headline">Reservá las piezas para tu fecha</h1>
+      <p class="lead">Elegís, nosotros preparamos todo para tu evento en todo el país.</p>
+      <a class="btn btn--solid">Reservar</a>
+    </div>
+  </section>
+
+<script>
+  const p = new URLSearchParams(location.search).get('ad');
+  if (p) document.body.setAttribute('data-ad', p);
+</script>
+</body>
+</html>
