@@ -14,8 +14,10 @@
    - pixel: ID de Meta Pixel (solo números). Formato: "123456789012345"
             (business.facebook.com → Administrador de eventos → tu pixel) */
 var ANALYTICS = {
-  ga4:   'G-SEN9FXSX5L',   // ← Google Analytics 4 de La Melange
-  pixel: '1799713711390754'    // ← Meta Pixel de La Melange
+  ga4:      'G-SEN9FXSX5L',   // ← Google Analytics 4 de La Melange
+  pixel:    '1799713711390754',   // ← Meta Pixel de La Melange
+  ads:      'AW-18297328715',   // ← Google Ads (identificador de conversión)
+  adsLabel: 'AW-18297328715/pFNcCOirjsocEMuo7JRE'   // ← evento "WhatsApp - Cotización"
 };
 
 var ICONS = {

@@ -13,16 +13,18 @@
 (function () {
   var cfg = (typeof ANALYTICS !== 'undefined') ? ANALYTICS : {};
 
-  /* ---------- Google Analytics 4 ---------- */
-  if (cfg.ga4) {
+  /* ---------- Etiqueta de Google (GA4 + Google Ads) ---------- */
+  if (cfg.ga4 || cfg.ads) {
+    var tagId = cfg.ga4 || cfg.ads;
     var g = document.createElement('script');
     g.async = true;
-    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + cfg.ga4;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
     document.head.appendChild(g);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { dataLayer.push(arguments); };
     gtag('js', new Date());
-    gtag('config', cfg.ga4);
+    if (cfg.ga4) gtag('config', cfg.ga4);   // Google Analytics 4
+    if (cfg.ads) gtag('config', cfg.ads);   // Google Ads
   }
 
   /* ---------- Meta Pixel ---------- */
@@ -42,6 +44,7 @@
   /* ---------- Lead: clic en WhatsApp ---------- */
   function trackLead(label) {
     if (window.gtag) gtag('event', 'generate_lead', { method: 'whatsapp', source: label });
+    if (window.gtag && cfg.adsLabel) gtag('event', 'conversion', { send_to: cfg.adsLabel }); // Google Ads: WhatsApp = Cotización
     if (window.fbq)  fbq('track', 'Contact', { content_name: label });
   }
   document.addEventListener('click', function (e) {
@@ -54,6 +57,7 @@
   window.lmLead = function (label, params) {
     params = params || {}; params.source = label || 'solicitud';
     if (window.gtag) gtag('event', 'generate_lead', params);
+    if (window.gtag && cfg.adsLabel) gtag('event', 'conversion', { send_to: cfg.adsLabel }); // Google Ads: solicitud enviada = Cotización
     if (window.fbq)  fbq('track', 'Lead', params);
   };
   /* Evento genérico reutilizable (ej: agregar a la solicitud). */
