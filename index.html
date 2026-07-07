@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alquiler de vajilla para eventos boutique · piezas únicas · La Melange</title>
   <meta name="description" content="Alquiler de vajilla para casamientos, corporativos y eventos boutique. Piezas únicas, vintage y de autor, con stock real por modelo. Para wedding planners, ambientadores y particulares. Envíos a todo el país. Argentina." />
-  <link rel="icon" type="image/png" href="assets/favicon.png?v=78" />
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=79" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="La Melange" />
   <meta property="og:title" content="Alquiler de vajilla para eventos boutique · La Melange" />
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=78" />
+  <link rel="stylesheet" href="styles.css?v=79" />
 </head>
 <body>
 
@@ -143,16 +143,42 @@
     </div>
   </section>
 
-  <!-- ====================== CTA / CONTACTO ====================== -->
-  <section class="cta-band" id="contacto">
-    <div class="wrap">
-      <span class="eyebrow">Hablemos</span>
-      <h2>Contanos sobre tu próximo evento</h2>
-      <p>Escribinos por WhatsApp con la fecha, la cantidad de invitados y el estilo que buscás. Te armamos una propuesta a medida.</p>
-      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a id="waMain" href="#" class="btn btn--solid">Escribir por WhatsApp</a>
-        <a href="mailto:lamelangeantiques@gmail.com" class="btn btn--ghost">Enviar un email</a>
+  <!-- ====================== CONTACTO (formulario → mail) ====================== -->
+  <section class="section section--sand contacto" id="contacto">
+    <div class="wrap contacto__grid">
+      <div class="contacto__intro">
+        <span class="eyebrow">Hablemos</span>
+        <h2>Contanos sobre tu evento</h2>
+        <p>Completá el formulario con los datos de tu evento y te respondemos con una propuesta a medida, dentro de 24 a 48 hs.</p>
+        <div class="contacto__wa">
+          <p>¿Preferís hablar por WhatsApp?</p>
+          <a id="waMain" href="#" class="btn btn--ghost">Escribinos por WhatsApp</a>
+        </div>
       </div>
+      <form class="contacto__form" id="contactForm" novalidate>
+        <div class="f-grid">
+          <label>Nombre y apellido <span>*</span><input name="nombre" required autocomplete="name" /></label>
+          <label>Email <span>*</span><input type="email" name="email" required autocomplete="email" /></label>
+          <label>Teléfono / WhatsApp<input name="telefono" inputmode="tel" autocomplete="tel" /></label>
+          <label>Soy <span>*</span>
+            <select name="tipo" required>
+              <option value="">Elegí una opción…</option>
+              <option value="Profesional (planner / ambientador / catering / salón)">Profesional (planner, ambientador, catering, salón)</option>
+              <option value="Particular (organizo mi propio evento)">Particular (organizo mi propio evento)</option>
+            </select>
+          </label>
+          <label>Fecha del evento<input type="date" name="fecha" /></label>
+          <label>Cantidad de invitados<input type="number" name="invitados" min="1" inputmode="numeric" /></label>
+        </div>
+        <label class="f-full">¿Qué necesitás? <span>*</span><textarea name="mensaje" rows="4" required placeholder="Contanos el estilo, la vajilla que te interesa, el tipo de evento…"></textarea></label>
+        <input type="hidden" name="_subject" value="Nueva consulta desde la web · La Melange" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_cc" value="nataligerstein@gmail.com" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px;" />
+        <button type="submit" class="btn btn--solid" id="contactSubmit">Enviar consulta</button>
+        <p class="contacto__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
@@ -189,18 +215,69 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.5l.9 1.4c.6.9 1.3 1.2 1.6 1.4.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.3.1.6-.1 1z"/></svg>
   </a>
 
-  <script src="data.js?v=78"></script>
-  <script src="analytics.js?v=78"></script>
-  <script src="cart.js?v=78"></script>
+  <script src="data.js?v=79"></script>
+  <script src="analytics.js?v=79"></script>
+  <script src="cart.js?v=79"></script>
   <script>
     var WA = 'https://wa.me/' + WSP;
     function waLink(text){ return WA + '?text=' + encodeURIComponent(text); }
 
-    /* Links de WhatsApp generales */
+    /* Mensaje prellenado que CALIFICA (fecha, invitados, zona) y cambia según el
+       ángulo del anuncio. La pauta manda tráfico con ?c=teaparty|p1|p2|p3|corpo
+       (o utm_content / utm_campaign). Así cada consulta llega ya calificada y
+       reconocés de qué anuncio vino por el propio texto del mensaje. */
+    var WA_MSGS = {
+      default:  '¡Hola La Melange! Quiero consultar por vajilla para un evento. Mi fecha es [completar] · invitados: [completar] · zona: [completar].',
+      teaparty: '¡Hola La Melange! Vi el anuncio de Tea Party y quiero armar una merienda. Fecha: [completar] · personas: [completar] · zona: [completar].',
+      p1:       '¡Hola! Quiero cotizar la vajilla elegante para mi casamiento. Fecha: [completar] · invitados: [completar] · salón/zona: [completar].',
+      p2:       '¡Hola! Me interesa la mesa de honor en vajilla antigua para mi evento. Fecha: [completar] · invitados totales: [completar] · zona: [completar].',
+      p3:       '¡Hola! Quiero una mesa mix & match para un evento íntimo. Fecha: [completar] · invitados: [completar] · tipo (civil/microboda/cumple): [completar].',
+      corpo:    '¡Hola! Consulto por vajilla para un evento de empresa. Fecha: [completar] · comensales: [completar] · zona: [completar] · empresa: [completar].'
+    };
+    function waAngle(){
+      var q = new URLSearchParams(location.search);
+      var k = (q.get('c') || q.get('utm_content') || q.get('utm_campaign') || '').toLowerCase();
+      return WA_MSGS[k] ? k : 'default';
+    }
+    var WA_MSG = WA_MSGS[waAngle()];
+
+    /* Links de WhatsApp generales (ya calificados) */
     ['waMain','waFoot','waFloat'].forEach(function(id){
       var el = document.getElementById(id);
-      if (el) el.href = waLink('¡Hola! Quiero consultar por vajilla para un evento.');
+      if (el) el.href = waLink(WA_MSG);
     });
+
+    /* Formulario de contacto → mail (Formsubmit, sin servidor propio) */
+    (function(){
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+      var statusEl = document.getElementById('formStatus');
+      var btn = document.getElementById('contactSubmit');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (form.querySelector('[name="_honey"]').value) return; /* anti-spam */
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var label = btn.textContent; btn.disabled = true; btn.textContent = 'Enviando…';
+        statusEl.textContent = ''; statusEl.className = 'contacto__status';
+        fetch('https://formsubmit.co/ajax/lamelangeantiques@gmail.com', {
+          method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form)
+        })
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          if (String(res.success) === 'true') {
+            form.reset();
+            statusEl.textContent = '¡Gracias! Recibimos tu consulta. Te respondemos dentro de 24 a 48 hs. 💛';
+            statusEl.className = 'contacto__status ok';
+            if (window.lmLead) window.lmLead('contacto_form');
+          } else { throw new Error('sin success'); }
+        })
+        .catch(function(){
+          statusEl.innerHTML = 'No pudimos enviar el formulario. Escribinos por WhatsApp y te respondemos igual.';
+          statusEl.className = 'contacto__status err';
+        })
+        .finally(function(){ btn.disabled = false; btn.textContent = label; });
+      });
+    })();
 
     /* Categorías (portadas) */
     var cg = document.getElementById('collectionsGrid');
@@ -352,6 +429,6 @@
     var t = document.getElementById('navToggle');
     if (t) t.addEventListener('click', function(){ document.getElementById('navLinks').classList.toggle('open'); });
   </script>
-  <script src="anim.js?v=78"></script>
+  <script src="anim.js?v=79"></script>
 </body>
 </html>

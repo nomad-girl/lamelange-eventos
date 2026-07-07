@@ -694,3 +694,27 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .hero--tp .hero__panel { background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%); }
 .hero--tp .hero__photo { box-shadow: -18px 0 40px -30px rgba(0,0,0,.28); }
 @media (max-width: 860px){ .hero--tp .hero__panel { background: linear-gradient(180deg, var(--bg-2), var(--bg-3)); } }
+
+/* ===== Contacto: formulario → mail ===== */
+.contacto__grid { display:grid; grid-template-columns:0.9fr 1.1fr; gap:52px; align-items:start; }
+.contacto__intro h2 { margin:14px 0 16px; }
+.contacto__intro p { color:var(--muted); }
+.contacto__wa { margin-top:30px; padding-top:26px; border-top:1px solid var(--line); }
+.contacto__wa p { margin-bottom:14px; font-size:0.96rem; color:var(--muted); }
+.contacto__form { background:var(--bg); border:1px solid var(--line); padding:30px; }
+.f-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.contacto__form label { display:flex; flex-direction:column; gap:7px; font-family:var(--sans); font-size:0.66rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+.contacto__form label span { color:#b0454a; }
+.contacto__form .f-full { margin-top:16px; }
+.contacto__form input, .contacto__form select, .contacto__form textarea {
+  font-family:var(--sans); font-size:0.95rem; font-weight:300; color:var(--ink);
+  padding:11px 13px; border:1px solid var(--line); background:var(--bg-2);
+  border-radius:0; text-transform:none; letter-spacing:normal; width:100%;
+}
+.contacto__form input:focus, .contacto__form select:focus, .contacto__form textarea:focus { outline:none; border-color:var(--accent); background:var(--bg); }
+.contacto__form textarea { resize:vertical; }
+.contacto__form button { margin-top:20px; width:100%; justify-content:center; }
+.contacto__status { margin-top:14px; font-size:0.92rem; text-transform:none; letter-spacing:normal; line-height:1.5; }
+.contacto__status.ok  { color:#2e7d52; }
+.contacto__status.err { color:#b0454a; }
+@media (max-width:820px){ .contacto__grid { grid-template-columns:1fr; gap:30px; } .f-grid { grid-template-columns:1fr; } }
