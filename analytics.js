@@ -13,6 +13,30 @@
 (function () {
   var cfg = (typeof ANALYTICS !== 'undefined') ? ANALYTICS : {};
 
+  /* ---------- Fuente del lead (de dónde vino): Google / Meta / orgánico ----------
+     Se captura apenas entra alguien y se recuerda toda la sesión (aunque navegue
+     entre páginas). Así cada consulta de WhatsApp llega diciendo su origen. */
+  function lmComputeRef() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var c = (q.get('c') || '').toLowerCase();
+      var utm = (q.get('utm_source') || '').toLowerCase();
+      if (c) return c;                     // Meta: p1/p3/teaparty… o código propio
+      if (utm) return utm;                 // utm_source=google, etc.
+      if (q.get('gclid')) return 'google'; // clic de Google Ads
+      if (q.get('fbclid')) return 'meta';  // clic de Meta
+    } catch (e) {}
+    return '';
+  }
+  window.lmRef = function () {
+    try {
+      var fresh = lmComputeRef();
+      if (fresh) sessionStorage.setItem('lm_ref', fresh);
+      return sessionStorage.getItem('lm_ref') || 'organico';
+    } catch (e) { return lmComputeRef() || 'organico'; }
+  };
+  window.lmRef(); // capturar la fuente al cargar la página
+
   /* ---------- Etiqueta de Google (GA4 + Google Ads) ---------- */
   if (cfg.ga4 || cfg.ads) {
     var tagId = cfg.ga4 || cfg.ads;
@@ -49,13 +73,25 @@
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
-    if (a) trackLead((a.textContent || 'whatsapp').trim().slice(0, 60));
+    if (!a) return;
+    var ref = window.lmRef();
+    /* Pega la fuente al final del mensaje de WhatsApp (una sola vez) */
+    try {
+      var u = new URL(a.href);
+      var t = u.searchParams.get('text') || '';
+      if (ref && t.indexOf('· ref:') === -1) {
+        u.searchParams.set('text', t + ' · ref: ' + ref);
+        a.href = u.toString();
+      }
+    } catch (e2) {}
+    trackLead(((a.textContent || 'whatsapp').trim().slice(0, 40)) + ' | ' + ref);
   });
 
   /* ---------- Lead fuerte: envío de solicitud (se llama desde solicitud.html) ----------
      Es el lead más valioso: la persona armó su pedido completo. */
   window.lmLead = function (label, params) {
     params = params || {}; params.source = label || 'solicitud';
+    params.ref = window.lmRef();
     if (window.gtag) gtag('event', 'generate_lead', params);
     if (window.gtag && cfg.adsLabel) gtag('event', 'conversion', { send_to: cfg.adsLabel }); // Google Ads: solicitud enviada = Cotización
     if (window.fbq)  fbq('track', 'Lead', params);

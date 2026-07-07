@@ -73,7 +73,7 @@
   </footer>
 
   <script src="data.js?v=80"></script>
-  <script src="analytics.js?v=80"></script>
+  <script src="analytics.js?v=82"></script>
   <script src="cart.js?v=80"></script>
   <script>
   (function () {
@@ -201,7 +201,8 @@
         + (f.mensaje.value ? 'Mensaje: ' + f.mensaje.value + '\n' : '')
         + '\nProductos:\n' + lineas;
       if (window.lmLead) window.lmLead('solicitud_enviada', { items: items.length, tipo: (f.tipo && f.tipo.value) || '' });
-      window.open('https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent(msg), '_blank');
+      var _ref = (window.lmRef ? window.lmRef() : '');
+      window.open('https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent(msg + (_ref ? (' · ref: ' + _ref) : '')), '_blank');
     });
 
     render();
