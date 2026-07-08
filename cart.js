@@ -80,7 +80,7 @@
     a.id = 'navCart';
     a.className = 'nav__cart';
     a.setAttribute('aria-label', 'Mi solicitud');
-    a.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6v3H9z"/><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12.5A1.5 1.5 0 0 0 6.5 21h11A1.5 1.5 0 0 0 19 19.5V7a1.5 1.5 0 0 0-1.5-1.5H15"/><line x1="8.5" y1="11.5" x2="15.5" y2="11.5"/><line x1="8.5" y1="15" x2="13" y2="15"/></svg><span class="nav__cart-badge" data-cart-count></span>';
+    a.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="nav__cart-badge" data-cart-count></span>';
     var toggle = bar.querySelector('.nav__toggle');
     if (toggle) bar.insertBefore(a, toggle); else bar.appendChild(a);
   }
