@@ -176,8 +176,12 @@
       else if (tipo === 'postre') piezasShow = p.piezas.filter(function(q){ return /postre|entrada/i.test(q.t || ''); });
       if (!piezasShow.length) piezasShow = p.piezas;
       var stk;
-      if (piezasShow.length === 1 && !piezasShow[0].t) stk = '<span class="badge"><i></i>Disponibles: ' + piezasShow[0].s + '</span>';
-      else stk = '<div class="piezas">' + piezasShow.map(function(q){ return '<span class="pieza"><b>' + q.s + '</b> ' + q.t + '</span>'; }).join('') + '</div>';
+      if (piezasShow.length === 1 && !piezasShow[0].t) {
+        stk = '<span class="badge"><i></i>' + piezasShow[0].s + ' disponibles</span>';
+      } else {
+        var cap = Math.min.apply(null, piezasShow.map(function(q){ return q.s; }));
+        stk = '<span class="badge"><i></i>Para hasta ' + cap + ' personas</span>';
+      }
       return '<div class="product product--link" data-id="'+productoId(p)+'">' + media
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
         + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
