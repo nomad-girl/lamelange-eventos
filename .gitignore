@@ -1,7 +1,4 @@
 # Fotos de origen / trabajo (pesadas, no van al sitio)
-assets/_test/
-assets/copas/
-assets/Platos centiales/
 *.log
 .DS_Store
 
@@ -12,3 +9,6 @@ planilla-stock.csv
 
 # Inbox por producto (fotos crudas para procesar, no van al sitio)
 assets/**/inbox/
+
+# Material local / crudo (no va al sitio)
+assets/_local-crudo/
