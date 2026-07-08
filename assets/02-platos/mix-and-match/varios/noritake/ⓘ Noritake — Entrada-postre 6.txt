@@ -1,0 +1,3 @@
+PRODUCTO : Noritake
+CATEGORÍA: platos (mix & match varios)
+STOCK    : Entrada / postre 6

@@ -1,6 +1,0 @@
-PRODUCTO : Noritake
-CATEGORÍA: platos
-STOCK    : Playo 6
-TAGS     : mix & match,vintage,multicolor,playo
-
-(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)
