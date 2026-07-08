@@ -75,15 +75,9 @@
     var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
     if (!a) return;
     var ref = window.lmRef();
-    /* Pega la fuente al final del mensaje de WhatsApp (una sola vez) */
-    try {
-      var u = new URL(a.href);
-      var t = u.searchParams.get('text') || '';
-      if (ref && t.indexOf('· ref:') === -1) {
-        u.searchParams.set('text', t + ' · ref: ' + ref);
-        a.href = u.toString();
-      }
-    } catch (e2) {}
+    /* La fuente NO se pega al mensaje de WhatsApp: el cliente lo ve, no lo
+       entiende y lo borra (suma fricción). Se registra invisible en GA4/Meta
+       y la medición por canal se lee en GA4 (generate_lead por fuente). */
     trackLead(((a.textContent || 'whatsapp').trim().slice(0, 40)) + ' | ' + ref);
   });
 

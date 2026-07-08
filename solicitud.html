@@ -73,7 +73,7 @@
   </footer>
 
   <script src="data.js?v=89"></script>
-  <script src="analytics.js?v=89"></script>
+  <script src="analytics.js?v=90"></script>
   <script src="cart.js?v=89"></script>
   <script>
   (function () {
@@ -200,9 +200,10 @@
         + (f.invitados.value ? 'Invitados: ' + f.invitados.value + '\n' : '')
         + (f.mensaje.value ? 'Mensaje: ' + f.mensaje.value + '\n' : '')
         + '\nProductos:\n' + lineas;
+      /* La fuente del lead se registra invisible acá (GA4/Meta). NO se pega al
+         mensaje: el cliente no lo entiende y lo borra. Se mide por canal en GA4. */
       if (window.lmLead) window.lmLead('solicitud_enviada', { items: items.length, tipo: (f.tipo && f.tipo.value) || '' });
-      var _ref = (window.lmRef ? window.lmRef() : '');
-      window.open('https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent(msg + (_ref ? (' · ref: ' + _ref) : '')), '_blank');
+      window.open('https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent(msg), '_blank');
     });
 
     render();
