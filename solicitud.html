@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi solicitud · La Melange</title>
   <meta name="description" content="Armá tu solicitud de presupuesto: elegí los modelos y la cantidad, y te lo cotizamos." />
-  <link rel="icon" type="image/png" href="assets/00-marca/favicon.png?v=89" />
+  <link rel="icon" type="image/png" href="assets/00-marca/favicon.png?v=90" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="La Melange" />
   <meta property="og:title" content="Mi solicitud · La Melange" />
@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=89" />
+  <link rel="stylesheet" href="styles.css?v=90" />
 </head>
 <body>
 
@@ -72,9 +72,9 @@
     </div>
   </footer>
 
-  <script src="data.js?v=89"></script>
+  <script src="data.js?v=90"></script>
   <script src="analytics.js?v=90"></script>
-  <script src="cart.js?v=89"></script>
+  <script src="cart.js?v=90"></script>
   <script>
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
@@ -160,16 +160,25 @@
       itemsEl.querySelectorAll('.sol__item').forEach(function (row) {
         var id = row.getAttribute('data-id');
         row.querySelectorAll('[data-t]').forEach(function (inp) {
-          inp.addEventListener('change', function () {
-            var mx = parseInt(inp.getAttribute('data-max'), 10), v = parseInt(inp.value, 10) || 0;
-            if (!isNaN(mx) && v > mx) {           // tope de stock: clampea y avisa
-              inp.value = mx;
-              var sm = inp.parentNode.querySelector('small');
-              if (sm) { sm.textContent = '(máx ' + mx + ' disponibles)'; sm.style.color = '#c0564d'; }
-              Cart.setLinea(id, inp.getAttribute('data-t'), mx);
-              return;
-            }
-            Cart.setLinea(id, inp.getAttribute('data-t'), inp.value); render();
+          var mx = parseInt(inp.getAttribute('data-max'), 10);
+          function warn(txt) {
+            var linea = inp.closest('.sol__linea');
+            var sm = linea && linea.querySelector('small');
+            if (sm) { sm.textContent = txt; sm.style.color = '#c0564d'; }
+          }
+          /* Clampea EN VIVO (mientras escribe o usa el +): nunca deja pasar el stock */
+          inp.addEventListener('input', function () {
+            if (inp.value === '') return;               // permitir borrar para reescribir
+            var v = parseInt(inp.value, 10) || 0;
+            if (v < 0) v = 0;
+            if (!isNaN(mx) && v > mx) { v = mx; inp.value = mx; warn('(máx ' + mx + ' disponibles)'); }
+            Cart.setLinea(id, inp.getAttribute('data-t'), v);
+          });
+          inp.addEventListener('change', function () {   // al confirmar: normaliza y actualiza subtotales
+            var v = parseInt(inp.value, 10) || 0;
+            if (v < 0) v = 0;
+            if (!isNaN(mx) && v > mx) { v = mx; inp.value = mx; warn('(máx ' + mx + ' disponibles)'); }
+            Cart.setLinea(id, inp.getAttribute('data-t'), v); render();
           });
         });
         row.querySelectorAll('[data-rm-t]').forEach(function (btn) {   // quitar SOLO esa pieza
