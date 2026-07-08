@@ -65,27 +65,33 @@
     fbq('track', 'PageView');
   }
 
-  /* ---------- Lead: clic en WhatsApp ---------- */
-  function trackLead(label) {
-    if (window.gtag) gtag('event', 'generate_lead', { method: 'whatsapp', source: label });
+  /* ---------- Lead: clic en WhatsApp ----------
+     Guarda 2 etiquetas limpias para el tablero (Looker/GA4):
+       · lead_source = de dónde vino (google/meta/organico/p1/teaparty…)
+       · lead_type   = whatsapp | formulario                            */
+  function trackLead(detalle) {
+    var ref = window.lmRef();
+    if (window.gtag) gtag('event', 'generate_lead', {
+      method: 'whatsapp', lead_type: 'whatsapp', lead_source: ref, source: detalle
+    });
     if (window.gtag && cfg.adsLabel) gtag('event', 'conversion', { send_to: cfg.adsLabel }); // Google Ads: WhatsApp = Cotización
-    if (window.fbq)  fbq('track', 'Contact', { content_name: label });
+    if (window.fbq)  fbq('track', 'Contact', { content_name: detalle, source: ref });
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
     if (!a) return;
-    var ref = window.lmRef();
     /* La fuente NO se pega al mensaje de WhatsApp: el cliente lo ve, no lo
        entiende y lo borra (suma fricción). Se registra invisible en GA4/Meta
-       y la medición por canal se lee en GA4 (generate_lead por fuente). */
-    trackLead(((a.textContent || 'whatsapp').trim().slice(0, 40)) + ' | ' + ref);
+       y la medición por canal se lee en GA4/Looker (lead_source). */
+    trackLead((a.textContent || 'whatsapp').trim().slice(0, 40));
   });
 
   /* ---------- Lead fuerte: envío de solicitud (se llama desde solicitud.html) ----------
      Es el lead más valioso: la persona armó su pedido completo. */
   window.lmLead = function (label, params) {
     params = params || {}; params.source = label || 'solicitud';
-    params.ref = window.lmRef();
+    params.lead_type = 'formulario';
+    params.lead_source = window.lmRef();
     if (window.gtag) gtag('event', 'generate_lead', params);
     if (window.gtag && cfg.adsLabel) gtag('event', 'conversion', { send_to: cfg.adsLabel }); // Google Ads: solicitud enviada = Cotización
     if (window.fbq)  fbq('track', 'Lead', params);
