@@ -718,3 +718,16 @@ section[id], #mesasGrid { scroll-margin-top: 92px; }
 .contacto__status.ok  { color:#2e7d52; }
 .contacto__status.err { color:#b0454a; }
 @media (max-width:820px){ .contacto__grid { grid-template-columns:1fr; gap:30px; } .f-grid { grid-template-columns:1fr; } }
+
+/* ===== Buscador del catálogo ===== */
+.cat-search { position:relative; max-width:440px; margin:22px auto 4px; }
+.cat-search__icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--muted); pointer-events:none; }
+.cat-search input { width:100%; font-family:var(--sans); font-size:0.95rem; font-weight:300; color:var(--ink);
+  padding:13px 42px 13px 46px; border:1px solid var(--line); background:var(--bg); border-radius:0; -webkit-appearance:none; }
+.cat-search input::placeholder { color:var(--muted); }
+.cat-search input:focus { outline:none; border-color:var(--accent); }
+.cat-search input::-webkit-search-cancel-button { -webkit-appearance:none; }
+.cat-search__clear { position:absolute; right:8px; top:50%; transform:translateY(-50%); width:28px; height:28px; border:0;
+  background:none; color:var(--muted); font-size:1.35rem; line-height:1; cursor:pointer; border-radius:50%; }
+.cat-search__clear:hover { color:var(--ink); background:var(--bg-2); }
+.cat-empty { grid-column:1/-1; text-align:center; color:var(--muted); padding:52px 20px; font-size:1rem; }

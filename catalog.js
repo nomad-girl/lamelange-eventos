@@ -9,7 +9,7 @@
      initCatalogo({ filtros:'idA', filtrosTipo:'idB', grid:'idC', startCat:'platos' })
    ============================================================ */
 (function () {
-  var current = 'todas', tipo = 'todos', activeTags = [];
+  var current = 'todas', tipo = 'todos', activeTags = [], query = '';
   var els = {};
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -20,6 +20,15 @@
     if (tipo === 'playo')  return p.piezas.some(function(q){ return /playo|principal/i.test(q.t || ''); });
     if (tipo === 'postre') return p.piezas.some(function(q){ return /postre|entrada/i.test(q.t || ''); });
     return true;
+  }
+
+  /* Buscador inteligente: sin acentos, multi-palabra (AND), sobre nombre + tags + material + categoría + descripción */
+  function norm(s){ return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+  function colName(id){ for (var i=0;i<COLECCIONES.length;i++){ if (COLECCIONES[i].id===id) return COLECCIONES[i].nombre; } return ''; }
+  function matchesQuery(p){
+    if (!query) return true;
+    var hay = norm([p.nombre, (p.tags||[]).join(' '), p.material, colName(p.coleccion), p.descripcion].join(' '));
+    return query.split(/\s+/).every(function(w){ return !w || hay.indexOf(w) >= 0; });
   }
 
   function renderFiltros(){
@@ -118,6 +127,7 @@
       if (current && current !== 'todas') params.set('cat', current);
       if (tipo && tipo !== 'todos') params.set('tipo', tipo);
       activeTags.forEach(function(t){ params.append('tag', t); });
+      if (query) params.set('q', query);
       var qs = params.toString();
       history.replaceState(null, '', qs ? ('?' + qs) : location.pathname);
     } catch(e) {}
@@ -126,7 +136,7 @@
   function renderGrid(){
     var grid = els.grid; if (!grid) return;
     var list = PRODUCTOS.filter(function(p){
-      return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p);
+      return (current === 'todas' || p.coleccion === current) && hasTipo(p) && matchesTags(p) && matchesQuery(p);
     });
     /* Orden: colecciones agrupadas; dentro de PLATOS, orden manual definido por Natali */
     function colIdx(p){ for (var i=0;i<COLECCIONES.length;i++){ if (COLECCIONES[i].id===p.coleccion) return i; } return 99; }
@@ -172,6 +182,7 @@
         + '<div class="product__body"><div class="product__name">'+p.nombre+'</div>'
         + '<div class="product__meta">'+p.material+'</div>' + stk + '</div></div>';
     }).join('');
+    if (!list.length) grid.innerHTML = '<p class="cat-empty">No encontramos productos con esa búsqueda. Probá con otra palabra o tocá la ✕ para limpiar.</p>';
     setupHover();
     syncURL();
   }
@@ -306,6 +317,8 @@
     els.drawer = document.getElementById(opts.drawer || 'catDrawer');
     els.filtrosCount = document.getElementById(opts.filtrosCount || 'catFiltrosCount');
     els.grid = document.getElementById(opts.grid || 'catGrid');
+    els.search = document.getElementById(opts.search || 'catSearch');
+    els.searchClear = document.getElementById(opts.searchClear || 'catSearchClear');
     if (!els.grid) return;
     current = opts.startCat || 'todas';
     try {
@@ -313,6 +326,7 @@
       var c = sp.get('cat'); if (c) current = c;
       var tp = sp.get('tipo'); if (tp) tipo = tp;
       var tgs = sp.getAll('tag'); if (tgs.length) activeTags = tgs;
+      var q = sp.get('q'); if (q) query = norm(q);
     } catch(e) {}
     buildLightbox();
     renderFiltros();
@@ -320,9 +334,25 @@
     renderFiltrosTags();
     setupDrawer();
     setupShare();
+    setupSearch();
     renderGrid();
     els.grid.addEventListener('click', gridClick);
   };
+
+  function setupSearch(){
+    if (!els.search) return;
+    if (query) els.search.value = query;
+    if (els.searchClear) els.searchClear.hidden = !query;
+    var t;
+    els.search.addEventListener('input', function(){
+      query = norm(els.search.value.trim());
+      if (els.searchClear) els.searchClear.hidden = !query;
+      clearTimeout(t); t = setTimeout(renderGrid, 110);
+    });
+    if (els.searchClear) els.searchClear.addEventListener('click', function(){
+      els.search.value = ''; query = ''; els.searchClear.hidden = true; els.search.focus(); renderGrid();
+    });
+  }
 
   /* Botón "Compartir búsqueda": copia/comparte la URL con los filtros puestos. */
   function setupShare(){

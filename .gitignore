@@ -12,3 +12,6 @@ assets/**/inbox/
 
 # Material local / crudo (no va al sitio)
 assets/_local-crudo/
+
+# Buzón de productos nuevos (local)
+assets/_CARGAR-productos-nuevos/
