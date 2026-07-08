@@ -8,3 +8,7 @@ assets/Platos centiales/
 # Planilla de stock (privada — no debe ser pública)
 planilla.html
 planilla-stock.csv
+
+
+# Inbox por producto (fotos crudas para procesar, no van al sitio)
+assets/**/inbox/
