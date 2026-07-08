@@ -1,0 +1,6 @@
+PRODUCTO : Vaso whiskey tallado cristal
+CATEGORÍA: cristaleria
+STOCK    : undefined 60
+TAGS     : transparente,vintage
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

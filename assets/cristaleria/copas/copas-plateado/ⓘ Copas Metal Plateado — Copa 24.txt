@@ -1,0 +1,6 @@
+PRODUCTO : Copas Metal Plateado
+CATEGORÍA: cristaleria
+STOCK    : Copa 24
+TAGS     : plata,clásico,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Plato de sitio Yute
+CATEGORÍA: cargadores
+STOCK    : undefined 340
+TAGS     : campestre,fibra natural
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

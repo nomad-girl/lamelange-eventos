@@ -1,0 +1,6 @@
+PRODUCTO : Joy
+CATEGORÍA: platos
+STOCK    : Entrada / postre 50
+TAGS     : blanco,negro,moderno,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

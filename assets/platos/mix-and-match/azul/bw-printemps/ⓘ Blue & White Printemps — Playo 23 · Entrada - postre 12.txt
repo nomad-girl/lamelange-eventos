@@ -1,0 +1,6 @@
+PRODUCTO : Blue & White Printemps
+CATEGORÍA: platos
+STOCK    : Playo 23 · Entrada / postre 12
+TAGS     : azul,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

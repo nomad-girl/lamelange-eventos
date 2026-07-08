@@ -1,0 +1,6 @@
+PRODUCTO : Copas Rosas y Bordó · Mix & Match
+CATEGORÍA: cristaleria
+STOCK    : undefined 70
+TAGS     : rosa,bordó,vintage,mix & match,cristal,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

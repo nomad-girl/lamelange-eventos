@@ -1,0 +1,6 @@
+PRODUCTO : Copas Adagio
+CATEGORÍA: cristaleria
+STOCK    : Agua 190 · Vino 170 · Champagne 230
+TAGS     : transparente,clásico,cristal,copa de agua,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

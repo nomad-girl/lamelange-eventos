@@ -1,0 +1,6 @@
+PRODUCTO : Cubertería Antique Premium
+CATEGORÍA: cubiertos
+STOCK    : Cuchillo principal 80 · Cuchillo postre 80 · Tenedor principal 80 · Tenedor postre 80 · Cuchara grande 80 · Cucharita 30
+TAGS     : plata,vintage,mix & match
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Red Country
+CATEGORÍA: platos
+STOCK    : Entrada / postre 18
+TAGS     : bordó,vintage,mix & match,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

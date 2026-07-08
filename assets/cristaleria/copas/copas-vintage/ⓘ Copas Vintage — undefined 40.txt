@@ -1,0 +1,6 @@
+PRODUCTO : Copas Vintage
+CATEGORÍA: cristaleria
+STOCK    : undefined 40
+TAGS     : transparente,vintage,cristal,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

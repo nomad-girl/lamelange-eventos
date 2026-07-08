@@ -1,0 +1,6 @@
+PRODUCTO : Pimpollo
+CATEGORÍA: platos
+STOCK    : Playo 24 · Entrada / postre 22
+TAGS     : mix & match,vintage,rosa,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Vaso whiskey facetado
+CATEGORÍA: cristaleria
+STOCK    : undefined 20
+TAGS     : transparente,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

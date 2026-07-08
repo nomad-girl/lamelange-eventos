@@ -1,0 +1,6 @@
+PRODUCTO : Old Blue Tsuji
+CATEGORÍA: platos
+STOCK    : Entrada / postre 11
+TAGS     : azul,vintage,mix & match,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Cerámica Negro
+CATEGORÍA: platos
+STOCK    : Playo 70
+TAGS     : negro,moderno,playo,mix & match
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

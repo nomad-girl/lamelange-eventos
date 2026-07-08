@@ -1,0 +1,6 @@
+PRODUCTO : Blue British Anchor
+CATEGORÍA: platos
+STOCK    : Playo 6 · Entrada / postre 5
+TAGS     : azul,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

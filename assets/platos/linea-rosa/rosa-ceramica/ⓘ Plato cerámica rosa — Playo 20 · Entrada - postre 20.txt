@@ -1,0 +1,6 @@
+PRODUCTO : Plato cerámica rosa
+CATEGORÍA: platos
+STOCK    : Playo 20 · Entrada / postre 20
+TAGS     : rosa,romántico,cerámica,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

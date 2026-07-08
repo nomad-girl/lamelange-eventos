@@ -1,0 +1,6 @@
+PRODUCTO : Vaso trago largo vidrio
+CATEGORÍA: cristaleria
+STOCK    : undefined 34
+TAGS     : transparente,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

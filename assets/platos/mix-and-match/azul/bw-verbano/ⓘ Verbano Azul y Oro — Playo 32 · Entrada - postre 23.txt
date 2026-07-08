@@ -1,0 +1,6 @@
+PRODUCTO : Verbano Azul y Oro
+CATEGORÍA: platos
+STOCK    : Playo 32 · Entrada / postre 23
+TAGS     : azul,dorado,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

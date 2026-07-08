@@ -1,0 +1,6 @@
+PRODUCTO : Cubertería NY
+CATEGORÍA: cubiertos
+STOCK    : Tenedor 178 · Cuchillo 170 · Cuchara postre 148
+TAGS     : dorado,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

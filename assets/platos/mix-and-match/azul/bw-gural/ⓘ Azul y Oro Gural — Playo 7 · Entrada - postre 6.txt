@@ -1,0 +1,6 @@
+PRODUCTO : Azul y Oro Gural
+CATEGORÍA: platos
+STOCK    : Playo 7 · Entrada / postre 6
+TAGS     : azul,dorado,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

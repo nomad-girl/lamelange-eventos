@@ -1,0 +1,6 @@
+PRODUCTO : Vaso trago largo tallado cristal
+CATEGORÍA: cristaleria
+STOCK    : Modelo A 40 · Modelo B 30
+TAGS     : transparente,vintage,mix & match
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

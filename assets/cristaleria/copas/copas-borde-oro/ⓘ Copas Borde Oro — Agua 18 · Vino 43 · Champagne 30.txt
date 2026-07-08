@@ -1,0 +1,6 @@
+PRODUCTO : Copas Borde Oro
+CATEGORÍA: cristaleria
+STOCK    : Agua 18 · Vino 43 · Champagne 30
+TAGS     : dorado,clásico,cristal,copa de agua,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

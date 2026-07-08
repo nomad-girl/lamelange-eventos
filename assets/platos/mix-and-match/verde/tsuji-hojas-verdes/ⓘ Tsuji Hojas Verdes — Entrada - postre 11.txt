@@ -1,0 +1,6 @@
+PRODUCTO : Tsuji Hojas Verdes
+CATEGORÍA: platos
+STOCK    : Entrada / postre 11
+TAGS     : mix & match,vintage,verde,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

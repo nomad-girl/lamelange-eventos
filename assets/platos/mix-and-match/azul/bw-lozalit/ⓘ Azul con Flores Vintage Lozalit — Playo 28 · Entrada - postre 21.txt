@@ -1,0 +1,6 @@
+PRODUCTO : Azul con Flores Vintage Lozalit
+CATEGORÍA: platos
+STOCK    : Playo 28 · Entrada / postre 21
+TAGS     : azul,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

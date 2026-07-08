@@ -1,0 +1,6 @@
+PRODUCTO : Rosa Puntilla
+CATEGORÍA: platos
+STOCK    : Entrada / postre 12
+TAGS     : rosa,romántico,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

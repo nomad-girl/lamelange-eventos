@@ -1,0 +1,6 @@
+PRODUCTO : Premium
+CATEGORÍA: platos
+STOCK    : Playo 245 · Entrada / postre 215
+TAGS     : blanco,dorado,clásico,porcelana,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Cubertería Black & Gold
+CATEGORÍA: cubiertos
+STOCK    : Tenedor 80 · Cuchillo 80 · Cuchara 80
+TAGS     : negro,dorado,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

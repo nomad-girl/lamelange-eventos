@@ -1,0 +1,6 @@
+PRODUCTO : Perla blanco
+CATEGORÍA: platos
+STOCK    : Playo 14 · Entrada / postre 14
+TAGS     : blanco,romántico,cerámica,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

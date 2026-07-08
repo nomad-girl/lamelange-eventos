@@ -1,0 +1,6 @@
+PRODUCTO : Johnson Bros Blue & White
+CATEGORÍA: platos
+STOCK    : Playo 21 · Entrada / postre 10
+TAGS     : azul,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

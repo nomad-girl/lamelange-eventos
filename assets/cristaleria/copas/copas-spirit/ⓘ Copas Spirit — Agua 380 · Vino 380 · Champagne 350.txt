@@ -1,0 +1,6 @@
+PRODUCTO : Copas Spirit
+CATEGORÍA: cristaleria
+STOCK    : Agua 380 · Vino 380 · Champagne 350
+TAGS     : transparente,clásico,cristal,copa de agua,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

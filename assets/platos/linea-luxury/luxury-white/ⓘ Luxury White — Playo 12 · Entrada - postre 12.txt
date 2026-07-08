@@ -1,0 +1,6 @@
+PRODUCTO : Luxury White
+CATEGORÍA: platos
+STOCK    : Playo 12 · Entrada / postre 12
+TAGS     : blanco,dorado,clásico,porcelana,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

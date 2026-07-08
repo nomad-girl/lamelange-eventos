@@ -1,0 +1,6 @@
+PRODUCTO : Vaso Bombe común (liso)
+CATEGORÍA: cristaleria
+STOCK    : undefined 65
+TAGS     : transparente,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

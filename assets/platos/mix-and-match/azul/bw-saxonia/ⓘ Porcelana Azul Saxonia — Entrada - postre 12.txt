@@ -1,0 +1,6 @@
+PRODUCTO : Porcelana Azul Saxonia
+CATEGORÍA: platos
+STOCK    : Entrada / postre 12
+TAGS     : azul,vintage,mix & match,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

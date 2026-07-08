@@ -1,0 +1,6 @@
+PRODUCTO : Relieve blanco
+CATEGORÍA: platos
+STOCK    : Playo 100 · Entrada / postre 80
+TAGS     : blanco,clásico,cerámica,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

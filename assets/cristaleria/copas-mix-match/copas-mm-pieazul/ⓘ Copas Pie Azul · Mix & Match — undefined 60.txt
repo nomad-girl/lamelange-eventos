@@ -1,0 +1,6 @@
+PRODUCTO : Copas Pie Azul · Mix & Match
+CATEGORÍA: cristaleria
+STOCK    : undefined 60
+TAGS     : azul,vintage,mix & match,cristal,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

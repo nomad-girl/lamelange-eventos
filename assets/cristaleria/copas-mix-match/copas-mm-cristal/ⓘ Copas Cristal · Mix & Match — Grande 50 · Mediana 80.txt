@@ -1,0 +1,6 @@
+PRODUCTO : Copas Cristal · Mix & Match
+CATEGORÍA: cristaleria
+STOCK    : Grande 50 · Mediana 80
+TAGS     : transparente,vintage,mix & match,cristal,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Plato de sitio Perla oro
+CATEGORÍA: cargadores
+STOCK    : undefined 300
+TAGS     : dorado,clásico
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

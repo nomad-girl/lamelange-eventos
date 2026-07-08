@@ -1,0 +1,6 @@
+PRODUCTO : Cubertería Oro Premium
+CATEGORÍA: cubiertos
+STOCK    : Tenedor 450 · Cuchillo 440 · Cuchara 190
+TAGS     : dorado,clásico
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

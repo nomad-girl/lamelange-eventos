@@ -1,0 +1,6 @@
+PRODUCTO : Minerva
+CATEGORÍA: platos
+STOCK    : Playo 17 · Entrada / postre 11
+TAGS     : mix & match,vintage,multicolor,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

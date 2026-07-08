@@ -1,0 +1,6 @@
+PRODUCTO : Verbano rojo y oro
+CATEGORÍA: platos
+STOCK    : Playo 27 · Entrada / postre 12
+TAGS     : bordó,vintage,mix & match,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

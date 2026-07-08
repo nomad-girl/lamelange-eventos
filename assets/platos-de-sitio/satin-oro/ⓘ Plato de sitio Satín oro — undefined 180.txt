@@ -1,0 +1,6 @@
+PRODUCTO : Plato de sitio Satín oro
+CATEGORÍA: cargadores
+STOCK    : undefined 180
+TAGS     : dorado,clásico
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

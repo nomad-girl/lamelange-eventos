@@ -1,0 +1,6 @@
+PRODUCTO : Bavaria Lila
+CATEGORÍA: platos
+STOCK    : Playo 10
+TAGS     : mix & match,vintage,multicolor,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

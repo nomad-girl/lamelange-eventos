@@ -1,0 +1,6 @@
+PRODUCTO : Plato de sitio Palma
+CATEGORÍA: cargadores
+STOCK    : undefined 200
+TAGS     : campestre,fibra natural
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

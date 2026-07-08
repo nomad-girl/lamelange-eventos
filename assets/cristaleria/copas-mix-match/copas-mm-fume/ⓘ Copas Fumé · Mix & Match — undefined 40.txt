@@ -1,0 +1,6 @@
+PRODUCTO : Copas Fumé · Mix & Match
+CATEGORÍA: cristaleria
+STOCK    : undefined 40
+TAGS     : transparente,vintage,mix & match,cristal,copa de vino
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

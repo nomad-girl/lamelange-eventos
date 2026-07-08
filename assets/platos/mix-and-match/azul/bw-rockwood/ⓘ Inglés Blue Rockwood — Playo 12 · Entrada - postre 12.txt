@@ -1,0 +1,6 @@
+PRODUCTO : Inglés Blue Rockwood
+CATEGORÍA: platos
+STOCK    : Playo 12 · Entrada / postre 12
+TAGS     : azul,vintage,mix & match,playo,postre
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

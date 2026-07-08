@@ -1,0 +1,6 @@
+PRODUCTO : Vaso Bombe LAV 15
+CATEGORÍA: cristaleria
+STOCK    : undefined 35
+TAGS     : transparente,moderno
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

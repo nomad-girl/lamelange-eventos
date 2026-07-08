@@ -1,0 +1,6 @@
+PRODUCTO : Winterling Bavaria
+CATEGORÍA: platos
+STOCK    : Playo 20
+TAGS     : mix & match,vintage,multicolor,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

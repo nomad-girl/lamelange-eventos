@@ -1,0 +1,6 @@
+PRODUCTO : Blue & White Kent
+CATEGORÍA: platos
+STOCK    : Playo 12
+TAGS     : azul,vintage,mix & match,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Tsuji Guarda Flores Rosa
+CATEGORÍA: platos
+STOCK    : Playo 10
+TAGS     : mix & match,vintage,rosa,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)

@@ -1,0 +1,6 @@
+PRODUCTO : Bordó Opulence
+CATEGORÍA: platos
+STOCK    : Playo 9
+TAGS     : bordó,vintage,mix & match,playo
+
+(Referencia. El sitio usa data.js — para cambiar algo, avisá al asistente.)
