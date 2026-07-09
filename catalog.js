@@ -38,7 +38,10 @@
     f.innerHTML = btns.join('');
     f.querySelectorAll('.filter').forEach(function(b){
       b.addEventListener('click', function(){
-        current = b.getAttribute('data-id');
+        var did = b.getAttribute('data-id');
+        var col = COLECCIONES.filter(function(c){ return c.id === did; })[0];
+        if (col && col.link) { window.open(col.link, '_blank', 'noopener'); return; }  // colección externa
+        current = did;
         f.querySelectorAll('.filter').forEach(function(x){ x.classList.remove('is-active'); });
         b.classList.add('is-active'); renderGrid();
       });
