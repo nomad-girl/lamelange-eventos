@@ -23,7 +23,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.7;
@@ -48,7 +48,7 @@ h3 { font-size: 1.4rem; }
   letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--accent); display: inline-block;
 }
-.lead { font-size: 1.08rem; color: var(--muted); font-weight: 300; max-width: 48ch; }
+.lead { font-size: 1.08rem; color: var(--muted); font-weight: 400; max-width: 48ch; }
 
 /* ---------- Botones ---------- */
 .btn {
