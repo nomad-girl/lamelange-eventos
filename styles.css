@@ -134,8 +134,10 @@ h3 { font-size: 1.4rem; }
 .value p { color: var(--muted); font-size: 0.96rem; }
 
 /* ---------- Colecciones ---------- */
-.collections { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; }
-.col-card { flex: 1 1 280px; max-width: 340px; }
+.collections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.collections--dense { grid-template-columns: repeat(5, 1fr); }
+.back-link { display:inline-flex; align-items:center; gap:6px; font-family:var(--sans); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+.back-link:hover { color:var(--ink); }
 .col-card { display: block; background: var(--bg); border: 1px solid var(--line); overflow: hidden; transition: transform .3s ease, box-shadow .3s ease; }
 .col-card:hover { transform: translateY(-4px); box-shadow: 0 22px 50px -30px rgba(0,0,0,.4); }
 .col-card .photo { aspect-ratio: 4/3; }
@@ -249,7 +251,7 @@ h3 { font-size: 1.4rem; }
 /* ---------- Responsive (base) ---------- */
 @media (max-width: 900px) {
   .values { grid-template-columns: 1fr; gap: 44px; }
-  .collections { grid-template-columns: repeat(2, 1fr); }
+  .collections, .collections--dense { grid-template-columns: repeat(2, 1fr); }
   .stock-row, .catalog-grid { grid-template-columns: repeat(2, 1fr); }
   .lookbook { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .lookbook .photo:nth-child(1) { grid-row: auto; aspect-ratio: 16/10; }
@@ -263,10 +265,10 @@ h3 { font-size: 1.4rem; }
   .section { padding: 76px 0; }
   .hero__media { min-height: 70vh; }
 }
-@media (max-width: 920px) { .collections { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 920px) { .collections { grid-template-columns: repeat(3, 1fr); } .collections--dense { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 560px) {
   .stock-row, .catalog-grid { grid-template-columns: 1fr; }
-  .collections { grid-template-columns: 1fr; }
+  .collections, .collections--dense { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
 }
 
