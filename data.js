@@ -34,7 +34,8 @@ var COLECCIONES = [
   { id: 'platos',     nombre: 'Platos',           icon: 'bowl',    modelos: 32, portada: 'assets/06-hero-portada/categorias/cat-platos.jpg' },
   { id: 'cubiertos',  nombre: 'Cubertería',       icon: 'cubierto',modelos: 4,  portada: 'assets/06-hero-portada/categorias/cat-cuberteria.png' },
   { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 18, portada: 'assets/06-hero-portada/categorias/cat-cristaleria.jpg' },
-  { id: 'plateria',   nombre: 'Platería',         icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-plateria.jpg', link: 'ambientacion.html#plateria' }
+  { id: 'plateria',   nombre: 'Platería',         icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-plateria.jpg', link: 'plateria.html' },
+  { id: 'ambientacion',nombre: 'Ambientación',     icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-ambientacion.jpg', link: 'ambientacion.html' }
 ];
 
 var PRODUCTOS = [

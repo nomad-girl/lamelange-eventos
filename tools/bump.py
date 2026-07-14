@@ -12,7 +12,7 @@ if not VERSION:
     print("uso: python3 tools/bump.py <numero>"); sys.exit(1)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HTML = ['index.html', 'catalogo.html', 'producto.html', 'solicitud.html', 'tea-party.html', 'ambientacion.html']
+HTML = ['index.html', 'catalogo.html', 'producto.html', 'solicitud.html', 'tea-party.html', 'ambientacion.html', 'plateria.html']
 
 for fn in HTML:
     path = os.path.join(ROOT, fn)
