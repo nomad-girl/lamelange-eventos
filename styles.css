@@ -136,6 +136,8 @@ h3 { font-size: 1.4rem; }
 /* ---------- Colecciones ---------- */
 .collections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .collections--dense { grid-template-columns: repeat(5, 1fr); }
+.collections--center { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; }
+.collections--center .col-card { flex: 0 1 calc(33.333% - 15px); min-width: 240px; max-width: 380px; }
 .back-link { display:inline-flex; align-items:center; gap:6px; font-family:var(--sans); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
 .back-link:hover { color:var(--ink); }
 .col-card { display: block; background: var(--bg); border: 1px solid var(--line); overflow: hidden; transition: transform .3s ease, box-shadow .3s ease; }
