@@ -15,3 +15,6 @@ assets/_local-crudo/
 
 # Buzón de productos nuevos (local)
 assets/_CARGAR-productos-nuevos/
+
+# Buzón de ambientación (local)
+assets/07-ambientacion/_inbox/
