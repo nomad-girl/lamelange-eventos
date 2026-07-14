@@ -128,6 +128,25 @@ var PRODUCTOS = [
   { id:'grindley', nombre:'Grindley Inglés', coleccion:'platos', icon:'bowl', material:'Mix & match · azul', destacado:false, piezas:[{t:'Playo',s:24},{t:'Entrada / postre',s:12}], tags:['azul','vintage','mix & match','playo','postre'], descripcion:'Plato inglés Grindley, mix & match. Combinable con cualquier bajoplato de la línea.', combinaCon:['bw-johnson','bw-verbano'], fotos:['assets/02-platos/mix-and-match/azul/grindley/grindley-1.jpg','assets/02-platos/mix-and-match/azul/grindley/grindley-2.jpg'] },
   { id:'jbros-verde', nombre:'Johnson Bros Verde', coleccion:'platos', icon:'bowl', material:'Mix & match · verde', destacado:false, piezas:[{t:'Entrada / postre',s:24}], tags:['verde','vintage','mix & match','postre'], descripcion:'Plato inglés Johnson Bros, línea verde, mix & match. Combinable con cualquier bajoplato de la línea.', combinaCon:['tsuji-hojas-verdes','relieve-verde'], fotos:['assets/02-platos/mix-and-match/verde/jbros-verde/jbros-verde-1.jpg'] },
   { id:'riviera-florcitas', nombre:'Riviera Florcitas', coleccion:'platos', icon:'bowl', material:'Mix & match · varios', destacado:false, piezas:[{t:'Playo',s:8},{t:'Entrada / postre',s:8}], tags:['mix & match','vintage','multicolor','playo','postre'], descripcion:'Plato vintage Riviera, florcitas multicolor, mix & match. Combinable con cualquier bajoplato de la línea.', combinaCon:['minerva','vogt'], fotos:['assets/02-platos/mix-and-match/varios/riviera-florcitas/riviera-florcitas-1.jpg','assets/02-platos/mix-and-match/varios/riviera-florcitas/riviera-florcitas-2.jpg','assets/02-platos/mix-and-match/varios/riviera-florcitas/riviera-florcitas-3.jpg'] },
+  {
+    id: 'copas-rosa-romantic',
+    nombre: 'Copas Rosa Romantic',
+    coleccion: 'cristaleria',
+    icon: 'copa',
+    material: 'Cristal labrado rosa \u00b7 7\u00d714 cm',
+    destacado: false,
+    piezas: [ { t: 'Copa', s: 44 } ],
+    tags: ['rosa', 'color', 'cristal', 'labrado', 'copa', 'rom\u00e1ntico'],
+    descripcion: 'Copas de cristal labrado en tono rosa, de 7\u00d714 cm. Le dan color y calidez a la mesa \u2014 ideales para propuestas rom\u00e1nticas o mix & match.',
+    combinaCon: [],
+    fotos: [
+      'assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-1.jpg',
+      'assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-2.jpg',
+      'assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-3.jpg',
+      'assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-4.jpg',
+      'assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-5.jpg'
+    ]
+  },
 ];
 
 /* ---------- MODALIDAD B · Mesas armadas ----------
