@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de marca · La Melange</title>
+  <meta name="description" content="Guía de identidad de La Melange: colores, tipografías, voz de marca y recursos para que toda la comunicación quede alineada." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="assets/00-marca/favicon.png?v=111" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=111" />
+  <style>
+    .bb-wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+    .bb-hero { text-align: center; padding: 90px 0 60px; }
+    .bb-hero img { height: 40px; margin: 0 auto 30px; }
+    .bb-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 18px; }
+    .bb-hero p { color: var(--muted); max-width: 46ch; margin: 0 auto; font-weight: 450; }
+    .bb-sec { padding: 56px 0; border-top: 1px solid var(--line); }
+    .bb-sec > .bb-num { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 10px; }
+    .bb-sec > h2 { margin-bottom: 10px; }
+    .bb-sec > .bb-intro { color: var(--muted); max-width: 60ch; margin-bottom: 34px; font-weight: 450; }
+    .bb-grid { display: grid; gap: 18px; }
+    .bb-swatches { grid-template-columns: repeat(4, 1fr); }
+    .bb-sw__chip { height: 96px; border: 1px solid var(--line); }
+    .bb-sw__name { font-family: var(--serif); font-size: 1.02rem; margin: 12px 0 3px; }
+    .bb-sw__hex { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+    .bb-sw__use { font-family: var(--sans); font-size: 0.82rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+    .bb-card { border: 1px solid var(--line); padding: 30px 34px; }
+    .bb-card + .bb-card { margin-top: 18px; }
+    .bb-specimen { font-family: var(--serif); line-height: 1.1; }
+    .bb-label { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display:block; margin-bottom: 14px; }
+    .bb-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .bb-do, .bb-dont { border: 1px solid var(--line); padding: 26px 28px; }
+    .bb-do h4, .bb-dont h4 { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; }
+    .bb-do h4 { color: #2f6b46; }
+    .bb-dont h4 { color: #9a3b3b; }
+    .bb-do ul, .bb-dont ul { list-style: none; }
+    .bb-do li, .bb-dont li { font-size: 0.95rem; padding: 7px 0 7px 24px; position: relative; color: var(--ink); border-top: 1px solid var(--line); }
+    .bb-do li:first-child, .bb-dont li:first-child { border-top: 0; }
+    .bb-do li::before { content: "✓"; position: absolute; left: 0; color: #2f6b46; }
+    .bb-dont li::before { content: "✕"; position: absolute; left: 0; color: #9a3b3b; }
+    .bb-rules { list-style: none; }
+    .bb-rules li { position: relative; padding: 14px 0 14px 26px; border-top: 1px solid var(--line); font-size: 0.97rem; color: var(--ink); }
+    .bb-rules li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+    .bb-rules b { font-weight: 600; }
+    .bb-photos { grid-template-columns: 1fr 1fr; }
+    .bb-photo { border: 1px solid var(--line); }
+    .bb-photo .im { aspect-ratio: 4/3; background-size: cover; background-position: center; }
+    .bb-photo .cap { padding: 16px 20px; }
+    .bb-photo .cap b { font-family: var(--serif); font-weight: 400; font-size: 1.05rem; display: block; margin-bottom: 4px; }
+    .bb-photo .cap span { font-size: 0.85rem; color: var(--muted); }
+    .bb-ui-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 22px; }
+    .bb-onlight { background: #fff; }
+    .bb-ondark { background: var(--dark); }
+    .bb-ondark .bb-sw__hex, .bb-ondark small { color: #fff; }
+    .bb-logo-box { display:flex; align-items:center; justify-content:center; height: 150px; border: 1px solid var(--line); }
+    .bb-logo-box img { height: 34px; }
+    .bb-logo-box.bb-ondark img { filter: invert(1) brightness(2); }
+    .bb-foot { text-align: center; padding: 60px 0 80px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+    .bb-foot a { color: var(--accent); }
+    @media (max-width: 720px) {
+      .bb-swatches { grid-template-columns: repeat(2, 1fr); }
+      .bb-two, .bb-photos { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="bb-hero">
+    <div class="bb-wrap">
+      <img src="assets/00-marca/logo.png?v=111" alt="La Melange" />
+      <span class="eyebrow">Manual de marca</span>
+      <h1>La Melange</h1>
+      <p>Guía de identidad para que todo lo que hagamos — web, redes, anuncios, mensajes — hable con la misma voz y se vea como una sola marca.</p>
+    </div>
+  </section>
+
+  <!-- 1 · ESENCIA -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">01 — Esencia</span>
+      <h2>Qué es La Melange</h2>
+      <p class="bb-intro">Vajilla y piezas de autor para <strong>eventos boutique</strong>: celebraciones cada vez más chicas y más exclusivas, donde cada mesa se arma con piezas únicas y con historia. No competimos por volumen ni por precio: competimos por curaduría y alma.</p>
+      <ul class="bb-rules">
+        <li><b>Concepto:</b> "vajilla de autor para eventos boutique". Exclusividad y piezas únicas, no rental genérico.</li>
+        <li><b>Doble público:</b> puerta principal a <b>profesionales</b> (ambientadoras, wedding planners que repiten) y puerta abierta a la <b>clienta final</b> (la novia de evento íntimo).</li>
+        <li><b>Tono:</b> aspiracional y cálido, hablándole de "tu evento", "tu mesa". El paraguas boutique le habla a los dos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2 · LOGO -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">02 — Logo</span>
+      <h2>El logo</h2>
+      <p class="bb-intro">El logotipo "LA MELANGE" en Playfair Display, con amplio espaciado entre letras. Siempre con aire alrededor y sin deformar. <strong>El nombre se escribe "La Melange", sin ningún acento.</strong></p>
+      <div class="bb-grid" style="grid-template-columns:1fr 1fr;">
+        <div>
+          <div class="bb-logo-box bb-onlight"><img src="assets/00-marca/logo.png?v=111" alt="La Melange sobre claro" /></div>
+          <p class="bb-sw__use">Sobre fondo blanco o neutro claro (uso principal).</p>
+        </div>
+        <div>
+          <div class="bb-logo-box bb-ondark"><img src="assets/00-marca/logo.png?v=111" alt="La Melange sobre oscuro" /></div>
+          <p class="bb-sw__use">Sobre fondo oscuro, en blanco.</p>
+        </div>
+      </div>
+      <div class="bb-two" style="margin-top:18px;">
+        <div class="bb-do">
+          <h4>Sí</h4>
+          <ul>
+            <li>"La Melange" — sin acento, siempre</li>
+            <li>Dejar espacio libre alrededor (mínimo la altura de una letra)</li>
+            <li>Acompañar con el descriptor "Vajilla para eventos"</li>
+          </ul>
+        </div>
+        <div class="bb-dont">
+          <h4>No</h4>
+          <ul>
+            <li>"La Mélange" ni "La Mèlange" (nada de tildes)</li>
+            <li>Cambiar la tipografía o estirar el logo</li>
+            <li>Ponerlo sobre fotos cargadas sin contraste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · COLORES -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">03 — Color</span>
+      <h2>Paleta</h2>
+      <p class="bb-intro">Neutros cálidos sobre blanco, con un único acento slate. La marca es sobria: el color lo ponen las fotos de las piezas, no la interfaz.</p>
+      <div class="bb-grid bb-swatches">
+        <div><div class="bb-sw__chip" style="background:#FFFFFF"></div><div class="bb-sw__name">Blanco</div><div class="bb-sw__hex">#FFFFFF</div><div class="bb-sw__use">Fondo principal.</div></div>
+        <div><div class="bb-sw__chip" style="background:#F6F4F1"></div><div class="bb-sw__name">Off-white cálido</div><div class="bb-sw__hex">#F6F4F1</div><div class="bb-sw__use">Secciones alternas.</div></div>
+        <div><div class="bb-sw__chip" style="background:#ECE6DE"></div><div class="bb-sw__name">Neutro cálido</div><div class="bb-sw__hex">#ECE6DE</div><div class="bb-sw__use">Fondos suaves, marcos de foto.</div></div>
+        <div><div class="bb-sw__chip" style="background:#E5E1DB"></div><div class="bb-sw__name">Línea</div><div class="bb-sw__hex">#E5E1DB</div><div class="bb-sw__use">Bordes finos (hairline).</div></div>
+        <div><div class="bb-sw__chip" style="background:#57524C"></div><div class="bb-sw__name">Gris cálido</div><div class="bb-sw__hex">#57524C</div><div class="bb-sw__use">Texto secundario.</div></div>
+        <div><div class="bb-sw__chip" style="background:#2C3E50"></div><div class="bb-sw__name">Slate (acento)</div><div class="bb-sw__hex">#2C3E50</div><div class="bb-sw__use">Detalles, títulos de sección, badges.</div></div>
+        <div><div class="bb-sw__chip" style="background:#2A2622"></div><div class="bb-sw__name">Negro cálido</div><div class="bb-sw__hex">#2A2622</div><div class="bb-sw__use">Bandas oscuras.</div></div>
+        <div><div class="bb-sw__chip" style="background:#1A1A1A"></div><div class="bb-sw__name">Tinta</div><div class="bb-sw__hex">#1A1A1A</div><div class="bb-sw__use">Texto principal, logo, botones.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · TIPOGRAFÍA -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">04 — Tipografía</span>
+      <h2>Tipografías</h2>
+      <p class="bb-intro">Dos familias, cada una con su rol. Playfair Display para lo emocional (títulos), Montserrat para lo funcional (todo el texto).</p>
+
+      <div class="bb-card">
+        <span class="bb-label">Títulos — Playfair Display</span>
+        <div class="bb-specimen" style="font-size:3rem;">Mesas memorables</div>
+        <div class="bb-specimen" style="font-size:1.5rem; margin-top:10px; color:var(--muted);">Aa Bb Cc · 1 2 3 · piezas únicas</div>
+        <p class="bb-sw__use" style="margin-top:16px;">Serif con contraste. Solo para títulos y nombres de producto. Peso regular (400). Nunca en mayúsculas forzadas para textos largos.</p>
+      </div>
+
+      <div class="bb-card">
+        <span class="bb-label">Texto — Montserrat</span>
+        <p style="font-size:1.05rem; margin-bottom:8px;">Vajilla y piezas de autor para eventos boutique. Cada mesa se arma con piezas únicas, con historia y carácter.</p>
+        <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-top:14px;">Eyebrow · etiqueta de sección</p>
+        <p class="bb-sw__use" style="margin-top:16px;">Sans humanista para todo el cuerpo. <strong>Peso 450–500 (nunca 300)</strong> y gris oscuro <strong>#57524C</strong> para que se lea bien, sobre todo en celular. Las etiquetas ("eyebrow") van en mayúsculas, chiquitas y muy espaciadas, en color slate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · VOZ -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">05 — Voz y tono</span>
+      <h2>Cómo hablamos</h2>
+      <p class="bb-intro">Cálido, cercano y aspiracional. Vendemos exclusividad y curaduría, no lujo acartonado. Hablamos de piezas <em>únicas</em>, con <em>historia</em> y <em>carácter</em>.</p>
+      <div class="bb-two">
+        <div class="bb-do">
+          <h4>Palabras que usamos</h4>
+          <ul>
+            <li>Piezas únicas · de colección</li>
+            <li>Con historia · con carácter · vintage</li>
+            <li>De autor · con dorado · premium (línea dorada)</li>
+            <li>Eventos boutique · casamientos · tu mesa</li>
+            <li>Curaduría · exclusividad</li>
+          </ul>
+        </div>
+        <div class="bb-dont">
+          <h4>Palabras que evitamos</h4>
+          <ul>
+            <li>"Elegante" (suena old school)</li>
+            <li>"Antiguas / antiguo" (devalúa las piezas)</li>
+            <li>"Anfitrionas" (no se usa al hablar)</li>
+            <li>"Bodas" → decimos casamientos / eventos</li>
+            <li>"Bajoplatos" → genérico "vajilla"</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="bb-rules" style="margin-top:24px;">
+        <li><b>"eventos boutique"</b> es la keyword a destacar siempre que se pueda.</li>
+        <li><b>Geografía:</b> trabajamos CABA + AMBA (no hacemos envíos nacionales). No poner "Buenos Aires" como límite en el copy de marca.</li>
+        <li><b>No prometer tiempos de respuesta</b> ("respondemos en el día"): todavía es atención humana, no siempre se llega.</li>
+        <li><b>Todo copy de anuncios (Meta / Google) lo aprueba Natali antes de publicar.</b> Se propone y se espera el OK.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6 · ELEMENTOS -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">06 — Elementos</span>
+      <h2>Botones y detalles</h2>
+      <p class="bb-intro">Los mismos componentes del sitio, para que las piezas gráficas y la web se vean iguales.</p>
+      <div class="bb-card">
+        <span class="bb-label">Botones</span>
+        <div class="bb-ui-row">
+          <a class="btn btn--solid" href="#" onclick="return false;">Consultar por WhatsApp</a>
+          <a class="btn btn--ghost" href="#" onclick="return false;">Ver el catálogo →</a>
+        </div>
+        <span class="bb-label">Etiqueta / badge</span>
+        <div class="bb-ui-row">
+          <span class="badge"><i></i>Para hasta 100 personas</span>
+          <span class="eyebrow">Ambientación de eventos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · FOTOGRAFÍA -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">07 — Fotografía</span>
+      <h2>Estilo de fotos</h2>
+      <p class="bb-intro">Dos tipos de foto por pieza, y ambas cuentan la marca: la de producto muestra el detalle; la ambientada muestra el sueño.</p>
+      <div class="bb-grid bb-photos">
+        <div class="bb-photo">
+          <div class="im" style="background-image:url('assets/03-cristaleria/copas/copas-rosa-romantic/copas-rosa-romantic-1.jpg')"></div>
+          <div class="cap"><b>Producto — fondo blanco</b><span>Pieza sola, luz natural, fondo claro. Muestra material, color y detalle real.</span></div>
+        </div>
+        <div class="bb-photo">
+          <div class="im" style="background-image:url('assets/05-mesas-montadas/tea-party/tea-party-1.jpg')"></div>
+          <div class="cap"><b>Ambientada — en uso</b><span>La pieza en una mesa armada. Cálida, real, aspiracional. Da contexto y escala.</span></div>
+        </div>
+      </div>
+      <ul class="bb-rules" style="margin-top:22px;">
+        <li>Luz natural, sin filtros pesados ni saturación exagerada.</li>
+        <li>Fondos neutros y limpios; que la pieza sea la protagonista.</li>
+        <li>El color lo aportan las piezas y las flores, no gráficos ni fondos de color.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8 · RECURSOS -->
+  <section class="bb-sec">
+    <div class="bb-wrap">
+      <span class="bb-num">08 — Recursos</span>
+      <h2>Archivos de marca</h2>
+      <p class="bb-intro">Dónde vive cada cosa dentro del proyecto del sitio.</p>
+      <ul class="bb-rules">
+        <li><b>Logo:</b> <code>assets/00-marca/logo.png</code> (fondo transparente).</li>
+        <li><b>Favicon:</b> <code>assets/00-marca/favicon.png</code>.</li>
+        <li><b>Imagen para compartir (Open Graph):</b> <code>assets/00-marca/og-image.jpg</code> · Tea Party: <code>og-tea.jpg</code>.</li>
+        <li><b>Sitio en vivo:</b> <a href="https://eventos.lamelangeantiques.com">eventos.lamelangeantiques.com</a>.</li>
+        <li><b>Colores y tipografías:</b> definidos una sola vez en <code>styles.css</code> — este manual los toma de ahí, así siempre están sincronizados.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bb-foot">
+    <div class="bb-wrap">
+      La Melange · Vajilla para eventos · Manual de marca v1<br />
+      <a href="index.html">← Volver al inicio</a>
+    </div>
+  </div>
+
+</body>
+</html>
