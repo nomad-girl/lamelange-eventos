@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#000;font-family:"Montserrat",sans-serif;}
+  .card{width:1080px;height:1920px;position:relative;overflow:hidden;display:none;}
+  body[data-card="intro"] #intro{display:block;}
+  body[data-card="outro"] #outro{display:block;}
+  .bg{position:absolute;inset:0;width:1080px;height:1920px;object-fit:cover;}
+  .scrim{position:absolute;inset:0;}
+  .center{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-50%);text-align:center;}
+  .eyebrow{font-family:"Montserrat",sans-serif;font-weight:400;font-size:28px;letter-spacing:10px;
+    text-transform:uppercase;color:#EADFD3;}
+  .hl{font-family:"Playfair Display",serif;font-weight:400;color:#fff;line-height:1.1;}
+  .wm{position:absolute;left:0;right:0;bottom:110px;text-align:center;}
+  .wm b{display:block;font-family:"Playfair Display",serif;font-weight:400;font-size:40px;letter-spacing:11px;
+    text-transform:uppercase;color:#fff;}
+  .wm small{display:block;font-family:"Montserrat",sans-serif;font-weight:300;font-size:16px;letter-spacing:10px;
+    text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:12px;}
+  .btn{display:inline-block;margin-top:54px;padding:26px 58px;border:2px solid #fff;
+    font-family:"Montserrat",sans-serif;font-weight:400;font-size:26px;letter-spacing:5px;
+    text-transform:uppercase;color:#fff;}
+</style>
+</head>
+<body data-card="intro">
+
+  <section class="card" id="intro">
+    <img class="bg" src="assets/05-mesas-montadas/romantic/romantic-4.jpg">
+    <div class="scrim" style="background:linear-gradient(to bottom,rgba(20,15,14,.45),rgba(20,15,14,.60));"></div>
+    <div class="center">
+      <div class="eyebrow">Mix &amp; Match</div>
+      <h1 class="hl" style="font-size:104px;margin-top:26px;">No hay<br>dos iguales</h1>
+    </div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+  </section>
+
+  <section class="card" id="outro">
+    <img class="bg" src="assets/05-mesas-montadas/negra-mm/negra-mm-3.jpg">
+    <div class="scrim" style="background:linear-gradient(to bottom,rgba(15,10,10,.55),rgba(15,10,10,.72));"></div>
+    <div class="center">
+      <div class="eyebrow">Piezas únicas para tu mesa</div>
+      <h1 class="hl" style="font-size:88px;margin-top:24px;">Reservá las piezas<br>para tu fecha</h1>
+      <span class="btn">Reservá tu fecha</span>
+    </div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+  </section>
+
+<script>
+  const c = new URLSearchParams(location.search).get('card');
+  if (c) document.body.setAttribute('data-card', c);
+</script>
+</body>
+</html>

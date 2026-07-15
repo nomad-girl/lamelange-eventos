@@ -17,8 +17,11 @@ es que **hagan clic en el botón de WhatsApp desde la web**.
 - Falta un paso en Meta (5 min): crear una **conversión personalizada "WhatsApp – clic"** a partir
   del evento `Contact`. Eso le da a las campañas un objetivo concreto: traer gente que hace clic
   en WhatsApp, no solo visitas.
-- Configuración de campaña: objetivo **Ventas** → lugar de conversión **Sitio web** → optimizar por
-  la conversión **"WhatsApp – clic"**.
+- Configuración de campaña: objetivo **Clientes potenciales** → lugar de conversión **Sitio web** →
+  optimizar por la conversión **"WhatsApp – clic"**.
+  > ⚠️ **Corrección (jul 2026):** es **Clientes potenciales**, NO "Ventas". La conversión personalizada
+  > desde `Contact` solo está disponible con el objetivo Clientes potenciales (o Interacción). Con
+  > "Ventas" no aparece.
 - Dos niveles: `Contact` (clic) = conversión principal a optimizar; `Lead` (solicitud completa) =
   lead fuerte, se mide aparte como calidad.
 - Límite honesto: el Pixel mide el **clic**, no si la persona terminó de mandar el mensaje. Para el
@@ -91,7 +94,7 @@ A USD 6.000/mes usás apenas ~37% de la capacidad: **no se frena por cupo, se fr
 
 ## 3. Estructura de campañas — Primera etapa (arranque agresivo)
 
-Objetivo de cuenta: **Ventas** · Conversión **"WhatsApp – clic"** · Destino: la landing.
+Objetivo de cuenta: **Clientes potenciales** · Conversión **"WhatsApp – clic"** · Destino: la landing.
 Total: **~USD 18/día (~USD 540/mes)**, con el ~80% en la temporada de venta.
 
 > **La temporada de venta es AHORA:** las fechas de primavera–verano se reservan en estos meses.
@@ -170,7 +173,7 @@ Regla transversal: piezas reales, foto pareja (es el diferencial), poco texto so
    - Si no aparece Contact, abrí la web y tocá WhatsApp una vez para registrarlo.
 
 ### Bloque 1 · Campaña 1 — Bodas (ABO, USD 15/día)
-4. **+ Crear** → Objetivo **Ventas** → nombre `LM_Bodas_TemporadaAlta`.
+4. **+ Crear** → Objetivo **Clientes potenciales** → nombre `LM_Bodas_TemporadaAlta`.
 5. **Presupuesto Advantage de la campaña: DESACTIVADO** (⚠️ esto la hace ABO). Categorías especiales: ninguna.
 6. **Conjunto A `Bodas_Abierto`:** conversión **Sitio web → Pixel → WhatsApp – clic** · Presupuesto
    **diario USD 7,5** · Público **AMBA, 25–55, sin intereses** · Ubicaciones **Advantage+**.
@@ -180,7 +183,7 @@ Regla transversal: piezas reales, foto pareja (es el diferencial), poco texto so
    mismo **USD 7,5**, y agregar **Intereses** (bodas, casamiento, planificación de bodas, novia).
 
 ### Bloque 2 · Campaña 2 — Tea Party (CBO, USD 3/día)
-9. **+ Crear** → Objetivo **Ventas** → nombre `LM_TeaParty`.
+9. **+ Crear** → Objetivo **Clientes potenciales** → nombre `LM_TeaParty`.
 10. **Presupuesto Advantage de la campaña: ACTIVADO** → diario **USD 3** (⚠️ esto la hace CBO).
 11. Conjunto único `TeaParty_Abierto`: conversión **Sitio web → WhatsApp – clic** · Público
     **mujeres 25–55 AMBA, abierto** · Ubicaciones Advantage+.

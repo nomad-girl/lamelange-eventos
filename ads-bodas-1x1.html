@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Melange — Casamientos Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg-2:#F6F4F1; --bg-3:#ECE6DE;
+    --ink:#1A1A1A; --muted:#6F6A64; --line:#E5E1DB; --accent:#2C3E50;
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Montserrat",-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#555;font-family:var(--sans);}
+  .ad{width:1080px;height:1080px;background:var(--bg);position:relative;overflow:hidden;display:none;}
+  body[data-p="e2"] #e2{display:block;}
+  body[data-p="c1"] #c1{display:block;}
+  body[data-p="c2"] #c2{display:block;}
+  body[data-p="c3"] #c3{display:block;}
+  body[data-p="c4"] #c4{display:block;}
+  body[data-p="c5"] #c5{display:block;}
+  body[data-p="c6"] #c6{display:block;}
+
+  .eyebrow{font-family:var(--sans);font-weight:400;font-size:22px;letter-spacing:7px;
+    text-transform:uppercase;color:var(--accent);}
+  .headline{font-family:var(--serif);font-weight:400;line-height:1.12;color:var(--ink);}
+  .lead{font-family:var(--sans);font-weight:300;font-size:26px;line-height:1.5;color:var(--muted);}
+  .btn{display:inline-flex;align-items:center;font-family:var(--sans);font-weight:400;font-size:20px;
+    letter-spacing:4px;text-transform:uppercase;padding:24px 50px;border:1.5px solid var(--ink);
+    background:transparent;color:var(--ink);}
+  .btn--solid{background:var(--ink);color:#fff;}
+  .wm b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;letter-spacing:9px;
+    text-transform:uppercase;line-height:1;color:var(--ink);}
+  .wm small{display:block;font-family:var(--sans);font-weight:300;font-size:13px;letter-spacing:8px;
+    text-transform:uppercase;color:var(--muted);margin-top:9px;}
+  .wm--light b{color:#fff;} .wm--light small{color:rgba(255,255,255,.82);}
+
+  /* Foto full-bleed con velo (gancho/payoff/estática) */
+  .full{position:absolute;inset:0;background:var(--bg-3) center/cover no-repeat;}
+  .scrim-top::before{content:"";position:absolute;top:0;left:0;right:0;height:300px;z-index:1;
+    background:linear-gradient(to bottom,rgba(20,18,16,.45),rgba(20,18,16,0));}
+  .scrim-bot::after{content:"";position:absolute;bottom:0;left:0;right:0;height:780px;z-index:1;
+    background:linear-gradient(to top,rgba(15,12,10,.86),rgba(15,12,10,.45) 34%,rgba(15,12,10,0));}
+
+  /* ---- Estática #2 (foto arriba + panel blanco) ---- */
+  #e2 .photo{position:absolute;inset:0 0 auto 0;height:840px;background:center/cover no-repeat;
+    background-image:url('assets/05-mesas-montadas/luxury/luxury-3.jpg');background-position:center 38%;}
+  #e2 .photo::before{content:"";position:absolute;top:0;left:0;right:0;height:260px;
+    background:linear-gradient(to bottom,rgba(20,18,16,.38),rgba(20,18,16,0));}
+  #e2 .panel{position:absolute;left:0;right:0;bottom:0;height:510px;background:var(--bg);padding:64px 84px;
+    display:flex;flex-direction:column;}
+  #e2 .headline{font-size:66px;margin:24px 0 26px;max-width:15ch;}
+  #e2 .btn{align-self:flex-start;margin-top:auto;}
+  #e2 .wm{position:absolute;top:54px;left:84px;} #e2 .wm b{color:#fff;} #e2 .wm small{color:rgba(255,255,255,.85);}
+
+  /* ---- Carrusel: gancho c1 y payoff c6 ---- */
+  .cover .full{background-image:url('assets/05-mesas-montadas/luxury/luxury-1.jpg');}
+  .cover .wm{position:absolute;top:56px;left:0;right:0;text-align:center;z-index:2;}
+  .cover .txt{position:absolute;left:84px;right:84px;bottom:118px;text-align:center;z-index:2;}
+  .cover .eyebrow{color:#EADFD3;}
+  .cover .headline{color:#fff;font-size:64px;margin:22px auto 0;max-width:16ch;}
+  .cover .hint{font-family:var(--sans);font-weight:400;font-size:22px;letter-spacing:5px;
+    text-transform:uppercase;color:#fff;margin-top:34px;display:inline-block;}
+  #c6 .btn{margin-top:36px;}
+
+  /* ---- Carrusel: piezas c2–c5 (catálogo sobre blanco) ---- */
+  .piece{background:var(--bg);}
+  .piece .wm{position:absolute;top:60px;left:0;right:0;text-align:center;}
+  .piece .meta{position:absolute;top:150px;left:0;right:0;text-align:center;}
+  .piece .kicker{font-family:var(--sans);font-weight:400;font-size:19px;letter-spacing:6px;
+    text-transform:uppercase;color:var(--accent);}
+  .piece .num{font-family:var(--sans);font-weight:300;font-size:17px;letter-spacing:4px;color:var(--muted);margin-top:10px;}
+  .piece .pic{position:absolute;top:238px;left:210px;width:660px;height:560px;
+    background:var(--bg-2) center/cover no-repeat;}
+  .piece .cap{position:absolute;left:90px;right:90px;bottom:92px;text-align:center;}
+  .piece .name{font-family:var(--serif);font-weight:400;font-size:52px;color:var(--ink);}
+  .piece .desc{font-family:var(--sans);font-weight:300;font-size:25px;color:var(--muted);margin-top:14px;}
+
+  #c2 .pic{background-image:url('assets/01-platos-de-sitio/perla-oro/perla-oro-1.jpg');}
+  #c3 .pic{background-image:url('assets/02-platos/linea-premium/premium/premium-1.jpg');}
+  #c4 .pic{background-image:url('assets/03-cristaleria/copas/copas-borde-oro/copas-borde-oro-1.jpg');}
+  #c5 .pic{background-image:url('assets/04-cubierteria/oro-premium/oro-premium-portada.jpg');}
+</style>
+</head>
+<body data-p="e2">
+
+  <section class="ad" id="e2">
+    <div class="photo"></div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="panel">
+      <span class="eyebrow">Alquiler para casamientos</span>
+      <h1 class="headline">El detalle que se nota en cada lugar</h1>
+      <a class="btn">Más información</a>
+    </div>
+  </section>
+
+  <section class="ad cover scrim-bot scrim-top" id="c1">
+    <div class="full"></div>
+    <div class="wm wm--light"><b>La Melange</b><small>Eventos</small></div>
+    <div class="txt">
+      <span class="eyebrow">Alquiler para casamientos</span>
+      <h1 class="headline">Una mesa Premium, pieza por pieza</h1>
+      <span class="hint">Deslizá →</span>
+    </div>
+  </section>
+
+  <section class="ad piece" id="c2">
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="meta"><div class="kicker">Pieza por pieza</div><div class="num">01 · Plato de sitio</div></div>
+    <div class="pic"></div>
+    <div class="cap"><div class="name">Plato de sitio Perla Oro</div><div class="desc">Vidrio con borde de perlas doradas</div></div>
+  </section>
+
+  <section class="ad piece" id="c3">
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="meta"><div class="kicker">Pieza por pieza</div><div class="num">02 · Plato</div></div>
+    <div class="pic"></div>
+    <div class="cap"><div class="name">Plato con borde de oro</div><div class="desc">Porcelana blanca, filo en oro</div></div>
+  </section>
+
+  <section class="ad piece" id="c4">
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="meta"><div class="kicker">Pieza por pieza</div><div class="num">03 · Cristalería</div></div>
+    <div class="pic"></div>
+    <div class="cap"><div class="name">Copas borde de oro</div><div class="desc">Cristal con filo dorado</div></div>
+  </section>
+
+  <section class="ad piece" id="c5">
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="meta"><div class="kicker">Pieza por pieza</div><div class="num">04 · Cubertería</div></div>
+    <div class="pic"></div>
+    <div class="cap"><div class="name">Cubertería Oro Premium</div><div class="desc">Acabado dorado mate</div></div>
+  </section>
+
+  <section class="ad cover scrim-bot" id="c6">
+    <div class="full"></div>
+    <div class="txt">
+      <span class="eyebrow">Y así queda tu mesa</span>
+      <h1 class="headline">Reservá las piezas para tu fecha</h1>
+      <a class="btn btn--solid" style="margin-top:36px;background:#fff;color:#1A1A1A;border-color:#fff;">Reservar</a>
+    </div>
+  </section>
+
+<script>
+  const p = new URLSearchParams(location.search).get('p');
+  if (p) document.body.setAttribute('data-p', p);
+</script>
+</body>
+</html>
