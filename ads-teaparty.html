@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Melange — Tea Party (anuncios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Montserrat",-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#555;font-family:var(--sans);}
+  .ad{position:relative;overflow:hidden;display:none;background:#ECE6DE;}
+  body[data-p="s"] #s{display:block;}   /* estática 4:5 */
+  body[data-p="v"] #v{display:block;}   /* vertical 9:16 */
+  #s{width:1080px;height:1350px;}
+  #v{width:1080px;height:1920px;}
+
+  .full{position:absolute;inset:0;background:center/cover no-repeat;
+    background-image:url('assets/05-mesas-montadas/tea-party/tea-party-12.jpg');}
+  .scrim-top::before{content:"";position:absolute;top:0;left:0;right:0;z-index:1;
+    background:linear-gradient(to bottom,rgba(30,16,22,.40),rgba(30,16,22,0));}
+  .scrim-bot::after{content:"";position:absolute;bottom:0;left:0;right:0;z-index:1;
+    background:linear-gradient(to top,rgba(26,12,18,.80),rgba(26,12,18,.42) 40%,rgba(26,12,18,.10) 64%,rgba(26,12,18,0));}
+
+  .wm b,.wm small,.eyebrow,.headline,.btn{color:#fff;
+    text-shadow:0 2px 20px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.5);}
+  .wm{position:absolute;left:0;right:0;text-align:center;z-index:2;}
+  .wm b{display:block;font-family:var(--serif);font-weight:400;text-transform:uppercase;line-height:1;}
+  .wm small{display:block;font-family:var(--sans);font-weight:300;text-transform:uppercase;}
+  .txt{position:absolute;left:96px;right:96px;text-align:center;z-index:2;}
+  .eyebrow{font-family:var(--sans);font-weight:400;text-transform:uppercase;}
+  .headline{font-family:var(--serif);font-weight:400;line-height:1.1;margin:22px auto 0;}
+  .btn{display:inline-flex;align-items:center;font-family:var(--sans);font-weight:400;
+    text-transform:uppercase;border:1.5px solid #fff;}
+
+  /* ---- Estática 4:5 ---- */
+  #s .scrim-top::before{height:420px;} #s .scrim-bot::after{height:820px;}
+  #s .wm{top:52px;} #s .wm b{font-size:36px;letter-spacing:10px;} #s .wm small{font-size:13px;letter-spacing:8px;margin-top:9px;}
+  #s .txt{bottom:110px;}
+  #s .eyebrow{font-size:22px;letter-spacing:6px;}
+  #s .headline{font-size:66px;max-width:14ch;}
+  #s .btn{font-size:20px;letter-spacing:4px;padding:22px 50px;margin-top:34px;}
+
+  /* ---- Vertical 9:16 (zona segura de stories/reels) ---- */
+  #v .scrim-top::before{height:560px;} #v .scrim-bot::after{height:1200px;}
+  #v .wm{top:300px;} #v .wm b{font-size:40px;letter-spacing:11px;} #v .wm small{font-size:15px;letter-spacing:9px;margin-top:11px;}
+  #v .txt{bottom:600px;}
+  #v .eyebrow{font-size:26px;letter-spacing:7px;}
+  #v .headline{font-size:80px;max-width:13ch;}
+  #v .btn{font-size:24px;letter-spacing:5px;padding:26px 56px;margin-top:40px;}
+</style>
+</head>
+<body data-p="s">
+
+  <!-- Estática 4:5 -->
+  <section class="ad scrim-top scrim-bot" id="s">
+    <div class="full"></div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="txt">
+      <span class="eyebrow">Mesas dulces · Baby showers · Cumpleaños</span>
+      <h1 class="headline">Vajilla vintage para tu Tea Party</h1>
+      <a class="btn">Consultá por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Vertical 9:16 -->
+  <section class="ad scrim-top scrim-bot" id="v">
+    <div class="full"></div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="txt">
+      <span class="eyebrow">Mesas dulces · Baby showers · Cumpleaños</span>
+      <h1 class="headline">Vajilla vintage para tu Tea Party</h1>
+      <a class="btn">Consultá por WhatsApp</a>
+    </div>
+  </section>
+
+<script>
+  const p = new URLSearchParams(location.search).get('p');
+  if (p) document.body.setAttribute('data-p', p);
+</script>
+</body>
+</html>

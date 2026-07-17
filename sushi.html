@@ -54,7 +54,7 @@
         <p class="lead">El look <strong>negro y dorado</strong> para tu mesa de sushi: platos net, bandejas de todos los tamaños, cuencos de salsa, copetineros y cubiertos negro y dorado. Todo lo que hace falta para presentar el sushi como se debe.</p>
         <div class="hero__actions">
           <a href="#piezas" class="btn btn--solid">Ver las piezas</a>
-          <a href="https://photos.app.goo.gl/LjXG7jG3sr6VNSRC9" target="_blank" rel="noopener" class="btn btn--ghost">Ver la galería →</a>
+          <a id="pgWaHero" href="#" class="btn btn--ghost">Consultar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -105,10 +105,9 @@
     <div class="wrap">
       <span class="eyebrow">¿Armamos tu mesa de sushi?</span>
       <h2>Consultanos disponibilidad</h2>
-      <p>Contanos la fecha y la cantidad de comensales y te armamos la propuesta. ¿Querés ver todas las fotos? Entrá a la galería completa.</p>
+      <p>Contanos la fecha y la cantidad de comensales y te armamos la propuesta.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="https://photos.app.goo.gl/LjXG7jG3sr6VNSRC9" target="_blank" rel="noopener" class="btn btn--solid">Ver la galería completa →</a>
-        <a id="pgWa" href="#" class="btn btn--ghost">Consultar por WhatsApp</a>
+        <a id="pgWa" href="#" class="btn btn--solid">Consultar por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -130,7 +129,7 @@
   (function () {
     var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
     var wa = 'https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent('¡Hola! Me interesa la vajilla para sushi. ¿Me pasás disponibilidad?');
-    ['pgWa','waFloat'].forEach(function (id) { var el = document.getElementById(id); if (el) el.href = wa; });
+    ['pgWa','pgWaHero','waFloat'].forEach(function (id) { var el = document.getElementById(id); if (el) el.href = wa; });
     var t = document.getElementById('navToggle');
     if (t) t.addEventListener('click', function () { document.getElementById('navLinks').classList.toggle('open'); });
   })();
