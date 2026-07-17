@@ -9,72 +9,150 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
+    --bg:#FFFFFF; --ink:#2A2320; --muted:#7A6F68; --accent:#B07A8C;
     --serif:"Playfair Display",Georgia,serif;
     --sans:"Montserrat",-apple-system,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#555;font-family:var(--sans);}
   .ad{position:relative;overflow:hidden;display:none;background:#ECE6DE;}
-  body[data-p="s"] #s{display:block;}   /* estática 4:5 */
-  body[data-p="v"] #v{display:block;}   /* vertical 9:16 */
-  #s{width:1080px;height:1350px;}
-  #v{width:1080px;height:1920px;}
+  /* estática 4:5 */
+  body[data-p="s"] #s{display:block;} #s{width:1080px;height:1350px;}
+  /* carrusel 1:1 */
+  body[data-p="c1"] #c1{display:block;} body[data-p="c2"] #c2{display:block;}
+  body[data-p="c3"] #c3{display:block;} body[data-p="c4"] #c4{display:block;}
+  body[data-p="c5"] #c5{display:block;} body[data-p="c6"] #c6{display:block;}
+  .card{width:1080px;height:1080px;}
+  /* vertical 9:16 */
+  body[data-p="v"] #v{display:block;} #v{width:1080px;height:1920px;}
 
-  .full{position:absolute;inset:0;background:center/cover no-repeat;
-    background-image:url('assets/05-mesas-montadas/tea-party/tea-party-12.jpg');}
+  .full{position:absolute;inset:0;background:#ECE6DE center/cover no-repeat;}
+
+  /* velos limpios (sin manchas) */
   .scrim-top::before{content:"";position:absolute;top:0;left:0;right:0;z-index:1;
-    background:linear-gradient(to bottom,rgba(30,16,22,.40),rgba(30,16,22,0));}
+    background:linear-gradient(to bottom,rgba(30,20,24,.34),rgba(30,20,24,0));}
   .scrim-bot::after{content:"";position:absolute;bottom:0;left:0;right:0;z-index:1;
-    background:linear-gradient(to top,rgba(26,12,18,.80),rgba(26,12,18,.42) 40%,rgba(26,12,18,.10) 64%,rgba(26,12,18,0));}
+    background:linear-gradient(to top,rgba(24,14,18,.82),rgba(24,14,18,.40) 40%,rgba(24,14,18,.10) 62%,rgba(24,14,18,0));}
 
-  .wm b,.wm small,.eyebrow,.headline,.btn{color:#fff;
-    text-shadow:0 2px 20px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.5);}
+  /* texto blanco sobre foto + sombra limpia */
+  .wm b,.wm small,.eyebrow,.headline,.name,.desc,.hint,.btn{
+    color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.5);}
   .wm{position:absolute;left:0;right:0;text-align:center;z-index:2;}
   .wm b{display:block;font-family:var(--serif);font-weight:400;text-transform:uppercase;line-height:1;}
   .wm small{display:block;font-family:var(--sans);font-weight:300;text-transform:uppercase;}
-  .txt{position:absolute;left:96px;right:96px;text-align:center;z-index:2;}
+  .txt{position:absolute;left:90px;right:90px;text-align:center;z-index:2;}
   .eyebrow{font-family:var(--sans);font-weight:400;text-transform:uppercase;}
-  .headline{font-family:var(--serif);font-weight:400;line-height:1.1;margin:22px auto 0;}
+  .headline{font-family:var(--serif);font-weight:400;line-height:1.12;margin:20px auto 0;}
+  .hint{font-family:var(--sans);font-weight:400;text-transform:uppercase;display:inline-block;}
   .btn{display:inline-flex;align-items:center;font-family:var(--sans);font-weight:400;
     text-transform:uppercase;border:1.5px solid #fff;}
+  /* caption de piezas (carrusel) */
+  .cap{position:absolute;left:80px;right:80px;bottom:96px;text-align:center;z-index:2;}
+  .name{font-family:var(--serif);font-weight:400;line-height:1.1;}
+  .desc{font-family:var(--sans);font-weight:300;margin-top:12px;}
 
-  /* ---- Estática 4:5 ---- */
-  #s .scrim-top::before{height:420px;} #s .scrim-bot::after{height:820px;}
-  #s .wm{top:52px;} #s .wm b{font-size:36px;letter-spacing:10px;} #s .wm small{font-size:13px;letter-spacing:8px;margin-top:9px;}
-  #s .txt{bottom:110px;}
-  #s .eyebrow{font-size:22px;letter-spacing:6px;}
-  #s .headline{font-size:66px;max-width:14ch;}
-  #s .btn{font-size:20px;letter-spacing:4px;padding:22px 50px;margin-top:34px;}
+  /* ===== ESTÁTICA 4:5 (ángulo B) — foto arriba + panel blanco ===== */
+  #s .photo{position:absolute;inset:0 0 auto 0;height:800px;background:center/cover no-repeat;
+    background-image:url('anuncios-meta/teaparty-fotos/img-20220517-wa0024.jpg');background-position:center 60%;}
+  #s .photo::before{content:"";position:absolute;top:0;left:0;right:0;height:220px;
+    background:linear-gradient(to bottom,rgba(20,14,16,.34),rgba(20,14,16,0));}
+  #s .wm{top:50px;} #s .wm b{font-size:34px;letter-spacing:9px;} #s .wm small{font-size:12px;letter-spacing:8px;margin-top:8px;}
+  #s .panel{position:absolute;left:0;right:0;bottom:0;height:550px;background:var(--bg);padding:64px 84px;
+    display:flex;flex-direction:column;align-items:center;text-align:center;}
+  #s .eyebrow{color:var(--accent);font-size:21px;letter-spacing:6px;}
+  #s .headline{color:var(--ink);font-size:62px;max-width:15ch;text-shadow:none;}
+  #s .btn{color:var(--ink);border-color:var(--ink);font-size:19px;letter-spacing:4px;padding:22px 48px;margin-top:auto;text-shadow:none;}
 
-  /* ---- Vertical 9:16 (zona segura de stories/reels) ---- */
-  #v .scrim-top::before{height:560px;} #v .scrim-bot::after{height:1200px;}
+  /* ===== CARRUSEL 1:1 ===== */
+  .card .wm{top:52px;} .card .wm b{font-size:30px;letter-spacing:8px;} .card .wm small{font-size:12px;letter-spacing:7px;margin-top:8px;}
+  .card .txt{bottom:110px;}
+  .card .eyebrow{font-size:20px;letter-spacing:6px;}
+  .card .headline{font-size:56px;max-width:15ch;}
+  .card .hint{font-size:20px;letter-spacing:5px;margin-top:28px;}
+  .card .name{font-size:46px;} .card .desc{font-size:23px;}
+  .card .btn{font-size:19px;letter-spacing:4px;padding:22px 48px;margin-top:30px;}
+
+  /* portada c1 */
+  #c1 .full{background-image:url('anuncios-meta/teaparty-fotos/img-20230507-123634-344.jpg');background-position:center 55%;}
+  /* piezas */
+  #c2 .full{background-image:url('anuncios-meta/teaparty-fotos/2df4d6c9-5520-4231-9fa5-b0898647ff25.jpg');}
+  #c3 .full{background-image:url('anuncios-meta/teaparty-fotos/copia-de-adjustments.jpg');}
+  #c4 .full{background-image:url('anuncios-meta/teaparty-fotos/img-9381.jpg');}
+  #c5 .full{background-image:url('anuncios-meta/teaparty-fotos/captura-ref.png');background-position:center 42%;}
+  /* cierre c6 */
+  #c6 .full{background-image:url('anuncios-meta/teaparty-fotos/img-20220517-wa0024.jpg');background-position:center 55%;}
+
+  /* ===== VERTICAL 9:16 (ángulo D) ===== */
+  #v .full{background-image:url('anuncios-meta/teaparty-fotos/copia-de-adjustments.jpg');background-position:center 45%;}
+  #v .scrim-top::before{height:520px;} #v .scrim-bot::after{height:1180px;}
   #v .wm{top:300px;} #v .wm b{font-size:40px;letter-spacing:11px;} #v .wm small{font-size:15px;letter-spacing:9px;margin-top:11px;}
   #v .txt{bottom:600px;}
   #v .eyebrow{font-size:26px;letter-spacing:7px;}
-  #v .headline{font-size:80px;max-width:13ch;}
+  #v .headline{font-size:82px;max-width:12ch;}
   #v .btn{font-size:24px;letter-spacing:5px;padding:26px 56px;margin-top:40px;}
 </style>
 </head>
 <body data-p="s">
 
-  <!-- Estática 4:5 -->
-  <section class="ad scrim-top scrim-bot" id="s">
-    <div class="full"></div>
+  <!-- ESTÁTICA 4:5 · Ángulo B -->
+  <section class="ad" id="s">
+    <div class="photo"></div>
     <div class="wm"><b>La Melange</b><small>Eventos</small></div>
-    <div class="txt">
-      <span class="eyebrow">Mesas dulces · Baby showers · Cumpleaños</span>
-      <h1 class="headline">Vajilla vintage para tu Tea Party</h1>
+    <div class="panel">
+      <span class="eyebrow">Cumpleaños · Tardes de té</span>
+      <h1 class="headline">Reuní a tus amigas en una mesa de cuento</h1>
       <a class="btn">Ver la propuesta</a>
     </div>
   </section>
 
-  <!-- Vertical 9:16 -->
+  <!-- CARRUSEL 1:1 -->
+  <section class="ad card scrim-top scrim-bot" id="c1">
+    <div class="full"></div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="txt">
+      <span class="eyebrow">Alquiler de vajilla vintage</span>
+      <h1 class="headline">Piezas únicas para tu tea party</h1>
+      <span class="hint">Deslizá →</span>
+    </div>
+  </section>
+
+  <section class="ad card scrim-bot" id="c2">
+    <div class="full"></div>
+    <div class="cap"><div class="name">Juegos de té vintage</div><div class="desc">Tetera, lechera y azucarera</div></div>
+  </section>
+
+  <section class="ad card scrim-bot" id="c3">
+    <div class="full"></div>
+    <div class="cap"><div class="name">Teteras floreadas</div><div class="desc">Porcelana con rosas y filos de oro</div></div>
+  </section>
+
+  <section class="ad card scrim-bot" id="c4">
+    <div class="full"></div>
+    <div class="cap"><div class="name">Tazas de colores</div><div class="desc">Con interior dorado, una distinta para cada una</div></div>
+  </section>
+
+  <section class="ad card scrim-bot" id="c5">
+    <div class="full"></div>
+    <div class="cap"><div class="name">La mesa puesta</div><div class="desc">Platos floreados y cubertería dorada</div></div>
+  </section>
+
+  <section class="ad card scrim-top scrim-bot" id="c6">
+    <div class="full"></div>
+    <div class="wm"><b>La Melange</b><small>Eventos</small></div>
+    <div class="txt">
+      <span class="eyebrow">Vos invitás</span>
+      <h1 class="headline">Nosotros armamos la mesa</h1>
+      <a class="btn">Ver la propuesta</a>
+    </div>
+  </section>
+
+  <!-- VERTICAL 9:16 · Ángulo D -->
   <section class="ad scrim-top scrim-bot" id="v">
     <div class="full"></div>
     <div class="wm"><b>La Melange</b><small>Eventos</small></div>
     <div class="txt">
-      <span class="eyebrow">Mesas dulces · Baby showers · Cumpleaños</span>
-      <h1 class="headline">Vajilla vintage para tu Tea Party</h1>
+      <span class="eyebrow">Vos ponés las amigas</span>
+      <h1 class="headline">Nosotros armamos la mesa</h1>
       <a class="btn">Ver la propuesta</a>
     </div>
   </section>
