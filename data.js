@@ -36,7 +36,7 @@ var COLECCIONES = [
   { id: 'cristaleria',nombre: 'Cristalería',      icon: 'copa',    modelos: 18, portada: 'assets/06-hero-portada/categorias/cat-cristaleria.jpg' },
   { id: 'plateria',   nombre: 'Platería',         icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-plateria.jpg', link: 'plateria.html' },
   { id: 'ambientacion',nombre: 'Ambientación',     icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-ambientacion.jpg', link: 'ambientacion.html' },
-  { id: 'sushi',      nombre: 'Sushi',            icon: 'centro',  modelos: 0,  portada: 'assets/08-sushi/amb-1.jpg', link: 'sushi.html' },
+  { id: 'sushi',      nombre: 'Sushi',            icon: 'centro',  modelos: 0,  portada: 'assets/08-sushi/hero-sushi.jpg', link: 'sushi.html' },
   { id: 'tea-party',  nombre: 'Tea Party',        icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-tea-party.jpg', link: 'tea-party.html' }
 ];
 
