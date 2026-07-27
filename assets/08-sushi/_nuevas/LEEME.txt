@@ -1,0 +1,21 @@
+FOTOS NUEVAS PARA LA PÁGINA DE SUSHI
+
+Dejá acá las fotos que quieras cambiar. Cualquier nombre sirve.
+Cuando termines, avisame y me decís cuál va en cada lugar. Yo las optimizo y las pongo.
+
+La página de sushi tiene estos lugares de foto:
+
+1) PORTADA (el hero, la foto grande de arriba)   -> hoy: sushi servido en bandejas negras
+
+2) LOS ELEMENTOS (6 tarjetas con foto + nombre):
+   - Platos net y negro
+   - Platos y bandejas blancas
+   - Bandejas negras
+   - Cuencos y salsas
+   - Elevadores y bases
+   - Cubiertos
+
+3) LA MESA DE SUSHI (galería de 3 fotos de abajo)
+
+Tip: para nombrarlas fácil podés usar algo como "portada.jpg", "platos.jpg",
+"bandejas-negras.jpg", "galeria-1.jpg", etc. Pero si no, me las describís y listo.
