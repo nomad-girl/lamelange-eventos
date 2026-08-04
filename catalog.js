@@ -34,7 +34,7 @@
   function renderFiltros(){
     var f = els.filtros; if (!f) return;
     var btns = ['<button class="filter is-active" data-id="todas">Todas</button>'];
-    btns = btns.concat(COLECCIONES.map(function(c){ return '<button class="filter" data-id="'+c.id+'">'+c.nombre+'</button>'; }));
+    btns = btns.concat(COLECCIONES.filter(function(c){ return !c.link; }).map(function(c){ return '<button class="filter" data-id="'+c.id+'">'+c.nombre+'</button>'; }));
     f.innerHTML = btns.join('');
     f.querySelectorAll('.filter').forEach(function(b){
       b.addEventListener('click', function(){
