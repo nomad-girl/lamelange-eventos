@@ -33,8 +33,14 @@
 
   function renderFiltros(){
     var f = els.filtros; if (!f) return;
+    var reales = COLECCIONES.filter(function(c){ return !c.link; });
+    var externas = COLECCIONES.filter(function(c){ return c.link; });
     var btns = ['<button class="filter is-active" data-id="todas">Todas</button>'];
-    btns = btns.concat(COLECCIONES.map(function(c){ return '<button class="filter'+(c.link?' filter--ext':'')+'" data-id="'+c.id+'">'+c.nombre+'</button>'; }));
+    btns = btns.concat(reales.map(function(c){ return '<button class="filter" data-id="'+c.id+'">'+c.nombre+'</button>'; }));
+    if (externas.length){
+      btns.push('<span class="filters-break"></span>');
+      btns = btns.concat(externas.map(function(c){ return '<button class="filter filter--ext" data-id="'+c.id+'">'+c.nombre+'</button>'; }));
+    }
     f.innerHTML = btns.join('');
     f.querySelectorAll('.filter').forEach(function(b){
       b.addEventListener('click', function(){
