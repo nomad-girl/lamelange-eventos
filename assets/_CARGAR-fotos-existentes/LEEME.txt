@@ -1,0 +1,18 @@
+FOTOS PARA PRODUCTOS QUE YA ESTÁN EN EL CATÁLOGO
+
+Acá dejás fotos nuevas para sumar (o reemplazar) en productos que YA existen.
+
+CÓMO:
+- Hacé una subcarpeta por producto, con el nombre del producto. Ej:
+    Perla Rosa/
+    Net/
+    Tsuji Guarda Rosa/
+  Y adentro poné las fotos.
+
+- O dejá las fotos sueltas y nombralas con el producto adelante. Ej:
+    perla-rosa-1.jpg, perla-rosa-2.jpg, net-nueva.jpg
+
+- Si una foto es la PRINCIPAL (la de portada del producto), ponele "portada"
+  en el nombre. Ej: perla-rosa-portada.jpg
+
+Después avisame y te digo si entendí bien cuál va en cada uno, y las cargo.
