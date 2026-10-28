@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navidad · La Melange</title>
+  <meta name="description" content="Alquiler para Navidad: sillones y tronos para la foto con Papá Noel, ambientación, caballitos de carrusel, juguetes de colección y vajilla de fiesta. Piezas únicas para shoppings, marcas, producciones y celebraciones." />
+  <link rel="icon" type="image/png" href="assets/00-marca/favicon.png?v=130" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="La Melange" />
+  <meta property="og:title" content="Navidad · La Melange" />
+  <meta property="og:description" content="Sillones y tronos para la foto con Papá Noel, ambientación, juguetes de colección y vajilla de fiesta." />
+  <meta property="og:image" content="https://eventos.lamelangeantiques.com/assets/11-navidad/hero-navidad.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=130" />
+  <style>
+    /* Sillones: grilla de 2 columnas (10 modelos = 5 filas pares, sin huérfano) */
+    .nv-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 980px; margin: 0 auto; }
+    .nv-2 .col-card .photo { aspect-ratio: 3/2; }
+    /* Líneas de vajilla: tiles de foto sin título */
+    .nv-line { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .nv-line .im { aspect-ratio: 4/3; background-size: cover; background-position: center; border: 1px solid var(--line); background-color: var(--bg-3); }
+    .nv-sub { text-align: center; margin: 0 auto 18px; }
+    .nv-sub .eyebrow { margin-bottom: 6px; }
+    .nv-sub p { font-size: 0.95rem; color: var(--muted); }
+    .nv-block { margin-bottom: 40px; }
+    /* Galería de ambientaciones */
+    .nv-gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .nv-gal .im { aspect-ratio: 4/3; background-size: cover; background-position: center; border: 1px solid var(--line); background-color: var(--bg-3); }
+    @media (max-width: 860px) {
+      .nv-gal { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nv-2 { grid-template-columns: 1fr; }
+      .nv-line { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="brand"><img src="assets/00-marca/logo.png" class="brand__logo" alt="La Melange" /><small>Vajilla para eventos</small></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="catalogo.html">Catálogo</a>
+        <a href="index.html#mesas">Mesas armadas</a>
+        <details class="nav__drop">
+          <summary class="nav__dropsum">Ambientación y más</summary>
+          <div class="nav__dropmenu">
+            <a href="plateria.html">Platería</a>
+            <a href="ambientacion.html">Ambientación</a>
+            <a href="sushi.html">Sushi</a>
+            <a href="tea-party.html">Tea Party</a>
+            <a href="cazuelas.html">Cazuelas</a>
+            <a href="candy-bar.html">Candy Bar</a>
+            <a href="navidad.html">Navidad</a>
+          </div>
+        </details>
+        <a href="index.html#profesionales">Profesionales</a>
+        <a href="index.html#contacto">Contacto</a>
+        <a href="solicitud.html" class="nav__cta">Mi presupuesto</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Menú">☰</button>
+    </div>
+  </header>
+
+  <div class="wrap" style="padding-top:18px;"><a href="index.html" class="back-link">← Volver al inicio</a></div>
+
+  <section class="hero hero--split">
+    <div class="hero__panel">
+      <div class="hero__content">
+        <span class="eyebrow">Navidad 2025</span>
+        <h1>Navidad</h1>
+        <p class="lead">Todo para montar tu Navidad: del rincón de fotos con <strong>Papá Noel</strong> a la mesa servida. Sillones y tronos, ambientación, juguetes de colección y <strong>vajilla de fiesta</strong> — piezas únicas para shoppings, marcas, producciones y celebraciones.</p>
+        <div class="hero__actions">
+          <a id="pgWaHero" href="#" class="btn btn--solid">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__photo" style="background-image:url('assets/11-navidad/hero-navidad.jpg')"></div>
+  </section>
+
+  <!-- Sillones y tronos -->
+  <section class="section" style="padding-top:44px;">
+    <div class="wrap">
+      <div class="section__head" style="margin:0 auto 34px;">
+        <span class="eyebrow">Sillones y tronos</span>
+        <h2>Para la foto con Papá Noel</h2>
+        <p>Tronos, sillones y banquetas con carácter — los protagonistas del rincón navideño. Consultá unidades y medidas de cada modelo.</p>
+      </div>
+      <div class="nv-2">
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/05-trono-real.jpg')"></div><div class="col-card__body"><h3>Sillón Trono Real</h3><span class="col-card__count">2 unidades · alt. 1,70 m</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/06-presidencial-luisxv.jpg')"></div><div class="col-card__body"><h3>Sillón Presidencial Luis XV</h3><span class="col-card__count">4 unidades · capitonée</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/03-trono-barroco-nogal.jpg')"></div><div class="col-card__body"><h3>Trono Barroco Nogal</h3><span class="col-card__count">Tallado · pana verde</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/01-luisxv-2c-blanco.jpg')"></div><div class="col-card__body"><h3>Sillón 2 Cuerpos Luis XV</h3><span class="col-card__count">2 unidades · blanco capitonée</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/02-lyon-pana-verde.jpg')"></div><div class="col-card__body"><h3>Sillón 2 Cuerpos "Lyon"</h3><span class="col-card__count">1 unidad · pana verde · 1,40 m</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/04-imperial-pana-roja.jpg')"></div><div class="col-card__body"><h3>Sillón Imperial 2 Cuerpos</h3><span class="col-card__count">1 unidad · pana roja · 1,30 m</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/09-boheme-bordo.jpg')"></div><div class="col-card__body"><h3>Sillón 1 Cuerpo "Boheme"</h3><span class="col-card__count">1 unidad · bordó</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/10-medallon-luisxvi.jpg')"></div><div class="col-card__body"><h3>Sillones Medallón Luis XVI</h3><span class="col-card__count">2 unidades · pana roja</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/07-senior-luisxv.jpg')"></div><div class="col-card__body"><h3>Sillón 1 Cuerpo Luis XV "Senior"</h3><span class="col-card__count">4 unidades · capitonée</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/sillones/08-banqueta-luisxv.jpg')"></div><div class="col-card__body"><h3>Banqueta Luis XV</h3><span class="col-card__count">2 unidades · 0,90 m · capitonée</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ambientación y deco -->
+  <section class="section section--sand" style="padding:64px 0;">
+    <div class="wrap">
+      <div class="section__head" style="margin:0 auto 34px;">
+        <span class="eyebrow">Ambientación y deco</span>
+        <h2>El set completo</h2>
+        <p>Separadores de bronce, alfombra roja, árbol, caballitos de carrusel y juguetes de colección para armar toda la escena.</p>
+      </div>
+      <div class="collections collections--center">
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/deco/01-separadores-alfombra.jpg')"></div><div class="col-card__body"><h3>Separadores + Alfombra Roja</h3><span class="col-card__count">22 separadores · alfombra 2×6 m</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/deco/02-arbol-shabby.jpg')"></div><div class="col-card__body"><h3>Árbol de Navidad Shabby</h3><span class="col-card__count">1,5 m · estilo shabby</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/deco/03-caballitos-carrusel.jpg')"></div><div class="col-card__body"><h3>Caballitos de Carrusel</h3><span class="col-card__count">Blanco ×3 · color ×1</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/deco/04-caballito-mecedor.jpg')"></div><div class="col-card__body"><h3>Caballito Mecedor</h3><span class="col-card__count">Pieza única</span></div></div>
+        <div class="col-card"><div class="photo" style="background-image:url('assets/11-navidad/deco/05-juguetes-deco.jpg')"></div><div class="col-card__body"><h3>Juguetes y Deco</h3><span class="col-card__count">Relojes, trineos y detalles</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vajilla de Navidad -->
+  <section class="section" style="padding:64px 0;">
+    <div class="wrap">
+      <div class="section__head" style="margin:0 auto 40px;">
+        <span class="eyebrow">Vajilla de Navidad</span>
+        <h2>La mesa de fiesta</h2>
+        <p>Dos líneas para tu mesa navideña, con cristalería para brindar.</p>
+      </div>
+
+      <div class="nv-block">
+        <div class="nv-sub">
+          <span class="eyebrow">Línea Joy</span>
+          <p>Rojo y dorado — el clásico de Navidad.</p>
+        </div>
+        <div class="nv-line">
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/joy-01.jpg')"></div>
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/joy-02.jpg')"></div>
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/joy-03.jpg')"></div>
+        </div>
+      </div>
+
+      <div class="nv-block">
+        <div class="nv-sub">
+          <span class="eyebrow">Línea Celebrate</span>
+          <p>Verde y dorado — fresca y festiva.</p>
+        </div>
+        <div class="nv-line">
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/celebrate-01.jpg')"></div>
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/celebrate-03.jpg')"></div>
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/celebrate-02.jpg')"></div>
+        </div>
+      </div>
+
+      <div class="nv-block" style="margin-bottom:0;">
+        <div class="nv-sub">
+          <span class="eyebrow">Cristalería</span>
+          <p>Copas de cristal para acompañar la mesa.</p>
+        </div>
+        <div class="nv-line" style="max-width:640px; margin:0 auto;">
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/cristaleria-01.jpg')"></div>
+          <div class="im" style="background-image:url('assets/11-navidad/vajilla/cristaleria-02.jpg')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ambientaciones -->
+  <section class="section section--sand" style="padding:64px 0;">
+    <div class="wrap">
+      <div class="section__head" style="margin:0 auto 34px;">
+        <span class="eyebrow">Ambientaciones</span>
+        <h2>Navidad servida</h2>
+        <p>Mesas y rincones montados con nuestras piezas.</p>
+      </div>
+      <div class="nv-gal">
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g1.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g2.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g3.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g4.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g5.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g6.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g7.jpg')"></div>
+        <div class="im" style="background-image:url('assets/11-navidad/gallery/g8.jpg')"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="contacto">
+    <div class="wrap">
+      <span class="eyebrow">¿Armamos tu Navidad?</span>
+      <h2>Consultanos disponibilidad</h2>
+      <p>Contanos la fecha y qué necesitás —sillones, ambientación o vajilla— y te armamos la propuesta.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a id="pgWa" href="#" class="btn btn--solid">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__bottom" style="border:0; padding-top:0;">
+        <span>© La Melange · Vajilla para eventos</span>
+        <a href="index.html">Volver al inicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa" id="waFloat" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.2-.7-2.7-1.1-4.4-3.9-4.6-4-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.5l.9 1.4c.6.9 1.3 1.2 1.6 1.4.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.5.3.1.3.1.6-.1 1z"/></svg></a>
+
+  <script src="data.js?v=130"></script>
+  <script src="analytics.js?v=130"></script>
+  <script>
+  (function () {
+    var WSP_NUM = (typeof WSP !== 'undefined') ? WSP : '5491167199527';
+    var wa = 'https://wa.me/' + WSP_NUM + '?text=' + encodeURIComponent('¡Hola! Me interesa Navidad de La Melange (sillones, ambientación o vajilla). ¿Me pasás disponibilidad?');
+    ['pgWa','pgWaHero','waFloat'].forEach(function (id) { var el = document.getElementById(id); if (el) el.href = wa; });
+    var t = document.getElementById('navToggle');
+    if (t) t.addEventListener('click', function () { document.getElementById('navLinks').classList.toggle('open'); });
+  })();
+  </script>
+</body>
+</html>

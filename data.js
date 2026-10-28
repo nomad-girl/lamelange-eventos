@@ -39,7 +39,8 @@ var COLECCIONES = [
   { id: 'sushi',      nombre: 'Sushi',            icon: 'centro',  modelos: 0,  portada: 'assets/08-sushi/hero-sushi.jpg', link: 'sushi.html' },
   { id: 'tea-party',  nombre: 'Tea Party',        icon: 'centro',  modelos: 0,  portada: 'assets/06-hero-portada/categorias/cat-tea-party.jpg', link: 'tea-party.html' },
   { id: 'cazuelas',   nombre: 'Cazuelas',         icon: 'centro',  modelos: 0,  portada: 'assets/09-cazuelas/hero-cazuelas.jpg', link: 'cazuelas.html' },
-  { id: 'candy-bar',  nombre: 'Candy Bar',        icon: 'centro',  modelos: 0,  portada: 'assets/10-candy/hero-candy.jpg', link: 'candy-bar.html' }
+  { id: 'candy-bar',  nombre: 'Candy Bar',        icon: 'centro',  modelos: 0,  portada: 'assets/10-candy/hero-candy.jpg', link: 'candy-bar.html' },
+  { id: 'navidad',    nombre: 'Navidad',          icon: 'centro',  modelos: 0,  portada: 'assets/11-navidad/gallery/g8.jpg', link: 'navidad.html' }
 ];
 
 var PRODUCTOS = [
